@@ -65,7 +65,7 @@ const ContactForm = () => {
                 </div>
                 <div className="ml-4">
                   <p className="text-lg font-medium text-gray-900">Phone</p>
-                  <p className="text-gray-600">+1 (555) 123-4567</p>
+                  <p className="text-gray-600">+601163263808</p>
                 </div>
               </div>
               
@@ -75,7 +75,7 @@ const ContactForm = () => {
                 </div>
                 <div className="ml-4">
                   <p className="text-lg font-medium text-gray-900">Email</p>
-                  <p className="text-gray-600">info@sheersdigital.com</p>
+                  <p className="text-gray-600">sales@sheerscomputer.com</p>
                 </div>
               </div>
               
@@ -86,9 +86,9 @@ const ContactForm = () => {
                 <div className="ml-4">
                   <p className="text-lg font-medium text-gray-900">Address</p>
                   <p className="text-gray-600">
-                    123 Tech Boulevard<br />
-                    Suite 456<br />
-                    San Francisco, CA 94105
+                    Villa Putra<br />
+                    Chow Kit<br />
+                    Kuala Lumpur, 50480 Malaysia
                   </p>
                 </div>
               </div>

@@ -87,15 +87,15 @@ const Footer = () => {
             <ul className="mt-4 space-y-2">
               <li className="flex items-start">
                 <Mail className="h-5 w-5 text-gray-400 mr-2" />
-                <span className="text-gray-400">info@sheersdigital.com</span>
+                <span className="text-gray-400">sales@sheerscomputer.com</span>
               </li>
               <li className="text-gray-400">
-                123 Tech Boulevard<br />
-                Suite 456<br />
-                San Francisco, CA 94105
+                Villa Putra<br />
+                Chow Kit<br />
+                Kuala Lumpur, 50480 Malaysia
               </li>
               <li className="text-gray-400">
-                +1 (555) 123-4567
+                +601163263808
               </li>
             </ul>
             <div className="mt-6">
