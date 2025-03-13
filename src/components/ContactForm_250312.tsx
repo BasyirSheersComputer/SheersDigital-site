@@ -1,25 +1,5 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import { getDatabase, ref, push } from 'firebase/database';
-import { initializeApp } from 'firebase/app';
-import { getAnalytics } from "firebase/analytics";
-
-// Firebase configuration (Replace with your production credentials)
-const firebaseConfig = {
-  apiKey: "AIzaSyAe-oi3PaR3fddwXFmrNDOVUKShcZZtHP0",
-  authDomain: "sheers-website-240528.firebaseapp.com",
-  databaseURL: "https://sheers-website-240528-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "sheers-website-240528",
-  storageBucket: "sheers-website-240528.firebasestorage.app",
-  messagingSenderId: "344096455700",
-  appId: "1:344096455700:web:19745336c0035c83afbb01",
-  measurementId: "G-T1BSX9WRL2"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
-const analytics = getAnalytics(app);
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -44,32 +24,23 @@ const ContactForm = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     // In a real application, you would send this data to your backend
-    // console.log('Form submitted:', formData);
+    console.log('Form submitted:', formData);
     
-    try {
-		const messagesRef = ref(database, 'contactMessages')
-		await push(messagesRef, formData);
-		setFormStatus({ submitted: true, error: false });
-		setFormData({
-			name: '',
-			email: '',
-			phone: '',
-			company: '',
-			message: '',
-			service: ''
-		});
-	} catch (error) {
-		console.error('Error submitting form:', error);
-		setFormStatus({ submitted: false, error: true });
-	}
-	
-	
-	// setTimeout(() => {
-      
-    // }, 1000);
+    // Simulate form submission
+    setTimeout(() => {
+      setFormStatus({ submitted: true, error: false });
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        message: '',
+        service: '',
+      });
+    }, 1000);
   };
 
   return (
