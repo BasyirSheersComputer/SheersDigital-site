@@ -6,14 +6,14 @@ import { getAnalytics } from "firebase/analytics";
 
 // Firebase configuration (Replace with your production credentials)
 const firebaseConfig = {
-  apiKey: "AIzaSyAe-oi3PaR3fddwXFmrNDOVUKShcZZtHP0",
+  apiKey: "AIzaSyA4K0-vtiop4nm4F4m0Q3fhWEewNRpE4i8",
   authDomain: "sheers-website-240528.firebaseapp.com",
   databaseURL: "https://sheers-website-240528-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "sheers-website-240528",
   storageBucket: "sheers-website-240528.firebasestorage.app",
   messagingSenderId: "344096455700",
-  appId: "1:344096455700:web:19745336c0035c83afbb01",
-  measurementId: "G-T1BSX9WRL2"
+  appId: "1:344096455700:web:a4ab6a1e31569f3aafbb01",
+  measurementId: "G-RMQN4C5EVG"
 };
 
 // Initialize Firebase
