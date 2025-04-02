@@ -12,7 +12,7 @@ const Footer = () => {
               <span className="ml-2 text-xl font-bold">Sheers Digital</span>
             </div>
             <p className="mt-4 text-gray-400">
-              Providing innovative IT solutions and system integration services to businesses worldwide since 2010.
+              Providing innovative IT solutions and system integration services to businesses worldwide since 2018.
             </p>
             <div className="mt-6 flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-blue-400">
@@ -90,12 +90,12 @@ const Footer = () => {
                 <span className="text-gray-400">sales@sheerscomputer.com</span>
               </li>
               <li className="text-gray-400">
-                Villa Putra<br />
+                Villa Putra Condominium<br />
                 Chow Kit<br />
-                Kuala Lumpur, 50480 Malaysia
+                Kuala Lumpur, 50480
               </li>
               <li className="text-gray-400">
-                +601163263808
+                +6 (011) 6326-3808
               </li>
             </ul>
             <div className="mt-6">
@@ -111,7 +111,7 @@ const Footer = () => {
         
         <div className="mt-12 border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} Sheers Digital. All rights reserved.
+            &copy; {new Date().getFullYear()} Sheers Computer. All rights reserved.
           </p>
           <div className="mt-4 md:mt-0">
             <ul className="flex space-x-6">

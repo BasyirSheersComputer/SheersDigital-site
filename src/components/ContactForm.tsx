@@ -1,25 +1,5 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import { getDatabase, ref, push } from 'firebase/database';
-import { initializeApp } from 'firebase/app';
-import { getAnalytics } from "firebase/analytics";
-
-// Firebase configuration (Replace with your production credentials)
-const firebaseConfig = {
-  apiKey: "AIzaSyA4K0-vtiop4nm4F4m0Q3fhWEewNRpE4i8",
-  authDomain: "sheers-website-240528.firebaseapp.com",
-  databaseURL: "https://sheers-website-240528-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "sheers-website-240528",
-  storageBucket: "sheers-website-240528.firebasestorage.app",
-  messagingSenderId: "344096455700",
-  appId: "1:344096455700:web:a4ab6a1e31569f3aafbb01",
-  measurementId: "G-RMQN4C5EVG"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
-const analytics = getAnalytics(app);
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -44,32 +24,23 @@ const ContactForm = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     // In a real application, you would send this data to your backend
-    // console.log('Form submitted:', formData);
+    console.log('Form submitted:', formData);
     
-    try {
-		const messagesRef = ref(database, 'contactMessages')
-		await push(messagesRef, formData);
-		setFormStatus({ submitted: true, error: false });
-		setFormData({
-			name: '',
-			email: '',
-			phone: '',
-			company: '',
-			message: '',
-			service: ''
-		});
-	} catch (error) {
-		console.error('Error submitting form:', error);
-		setFormStatus({ submitted: false, error: true });
-	}
-	
-	
-	// setTimeout(() => {
-      
-    // }, 1000);
+    // Simulate form submission
+    setTimeout(() => {
+      setFormStatus({ submitted: true, error: false });
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        message: '',
+        service: '',
+      });
+    }, 1000);
   };
 
   return (
@@ -94,7 +65,7 @@ const ContactForm = () => {
                 </div>
                 <div className="ml-4">
                   <p className="text-lg font-medium text-gray-900">Phone</p>
-                  <p className="text-gray-600">+601163263808</p>
+                  <p className="text-gray-600">+6 (011) 6326-3808</p>
                 </div>
               </div>
               
@@ -115,9 +86,9 @@ const ContactForm = () => {
                 <div className="ml-4">
                   <p className="text-lg font-medium text-gray-900">Address</p>
                   <p className="text-gray-600">
-                    Villa Putra<br />
+                    Villa Putra Condominium<br />
                     Chow Kit<br />
-                    Kuala Lumpur, 50480 Malaysia
+                    Kuala Lumpur, 50480
                   </p>
                 </div>
               </div>
