@@ -5,10 +5,9 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
-  // Function to handle scroll and update active section
   const handleScroll = () => {
-    const sections = ['home', 'services', 'projects', 'testimonials', 'contact'];
-    const scrollPosition = window.scrollY + 100; // Adding offset to account for navbar height
+    const sections = ['home', 'projects', 'testimonials', 'contact'];
+    const scrollPosition = window.scrollY + 100;
 
     for (const section of sections) {
       const element = document.getElementById(section);
@@ -24,17 +23,15 @@ const Navbar = () => {
     }
   };
 
-  // Add scroll event listener
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Call once on mount to set initial active section
+    handleScroll();
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
-  // Function to handle click on nav links
   const handleNavClick = (section) => {
     setActiveSection(section);
     setIsOpen(false);
@@ -62,17 +59,6 @@ const Navbar = () => {
                 Home
               </a>
               <a 
-                href="#services" 
-                onClick={() => handleNavClick('services')}
-                className={`inline-flex items-center px-1 pt-1 text-sm font-medium ${
-                  activeSection === 'services' 
-                    ? 'text-gray-900 border-b-2 border-blue-500' 
-                    : 'text-gray-500 hover:text-gray-900 hover:border-b-2 hover:border-blue-300'
-                }`}
-              >
-                Services
-              </a>
-              <a 
                 href="#projects" 
                 onClick={() => handleNavClick('projects')}
                 className={`inline-flex items-center px-1 pt-1 text-sm font-medium ${
@@ -81,7 +67,7 @@ const Navbar = () => {
                     : 'text-gray-500 hover:text-gray-900 hover:border-b-2 hover:border-blue-300'
                 }`}
               >
-                Projects
+                Success Stories
               </a>
               <a 
                 href="#testimonials" 
@@ -148,17 +134,6 @@ const Navbar = () => {
               Home
             </a>
             <a
-              href="#services"
-              onClick={() => handleNavClick('services')}
-              className={`block pl-3 pr-4 py-2 border-l-4 ${
-                activeSection === 'services'
-                  ? 'border-blue-500 text-blue-700 bg-blue-50'
-                  : 'border-transparent text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300'
-              } text-base font-medium`}
-            >
-              Services
-            </a>
-            <a
               href="#projects"
               onClick={() => handleNavClick('projects')}
               className={`block pl-3 pr-4 py-2 border-l-4 ${
@@ -167,7 +142,7 @@ const Navbar = () => {
                   : 'border-transparent text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300'
               } text-base font-medium`}
             >
-              Projects
+              Success Stories
             </a>
             <a
               href="#testimonials"
