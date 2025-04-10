@@ -1,8 +1,18 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { supabase } from '../lib/supabase';
+
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  company: string;
+  message: string;
+  service: string;
+}
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     phone: '',
@@ -14,9 +24,12 @@ const ContactForm = () => {
   const [formStatus, setFormStatus] = useState({
     submitted: false,
     error: false,
+    message: '',
   });
 
-  const handleChange = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -24,14 +37,32 @@ const ContactForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real application, you would send this data to your backend
-    console.log('Form submitted:', formData);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setFormStatus({ submitted: true, error: false });
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from('contact_messages')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            company: formData.company,
+            service: formData.service,
+            message: formData.message,
+          }
+        ]);
+
+      if (error) throw error;
+
+      setFormStatus({
+        submitted: true,
+        error: false,
+        message: 'Thank you! Your message has been received.',
+      });
+
       setFormData({
         name: '',
         email: '',
@@ -40,7 +71,16 @@ const ContactForm = () => {
         message: '',
         service: '',
       });
-    }, 1000);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setFormStatus({
+        submitted: false,
+        error: true,
+        message: 'There was an error sending your message. Please try again.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -214,14 +254,23 @@ const ContactForm = () => {
                     className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                   ></textarea>
                 </div>
+
+                {formStatus.error && (
+                  <div className="bg-red-50 border border-red-200 rounded-md p-4">
+                    <p className="text-red-700">{formStatus.message}</p>
+                  </div>
+                )}
                 
                 <div>
                   <button
                     type="submit"
-                    className="w-full flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                    disabled={isSubmitting}
+                    className={`w-full flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
+                      isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
+                    }`}
                   >
                     <Send className="h-5 w-5 mr-2" />
-                    Send Message
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>
                 </div>
               </form>

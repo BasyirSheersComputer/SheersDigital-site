@@ -1,5 +1,5 @@
 import React from 'react';
-import { Server, Facebook, Twitter, Linkedin, Instagram, Mail } from 'lucide-react';
+import { Server, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -59,25 +59,19 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-sm font-semibold text-gray-300 tracking-wider uppercase">Company</h3>
+            <h3 className="text-sm font-semibold text-gray-300 tracking-wider uppercase">Navigation</h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <a href="#home" className="text-gray-400 hover:text-white">About Us</a>
+                <a href="#home" className="text-gray-400 hover:text-white">Home</a>
               </li>
               <li>
-                <a href="#projects" className="text-gray-400 hover:text-white">Projects</a>
+                <a href="#partner" className="text-gray-400 hover:text-white">Partner With Us</a>
               </li>
               <li>
-                <a href="#testimonials" className="text-gray-400 hover:text-white">Testimonials</a>
+                <a href="#about" className="text-gray-400 hover:text-white">About the Firm</a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white">Careers</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white">Terms of Service</a>
+                <a href="#careers" className="text-gray-400 hover:text-white">Careers</a>
               </li>
             </ul>
           </div>
@@ -85,10 +79,6 @@ const Footer = () => {
           <div>
             <h3 className="text-sm font-semibold text-gray-300 tracking-wider uppercase">Contact</h3>
             <ul className="mt-4 space-y-2">
-              <li className="flex items-start">
-                <Mail className="h-5 w-5 text-gray-400 mr-2" />
-                <span className="text-gray-400">sales@sheerscomputer.com</span>
-              </li>
               <li className="text-gray-400">
                 Villa Putra Condominium<br />
                 Chow Kit<br />
@@ -97,34 +87,32 @@ const Footer = () => {
               <li className="text-gray-400">
                 +6 (011) 6326-3808
               </li>
+              <li className="text-gray-400">
+                sales@sheerscomputer.com
+              </li>
             </ul>
-            <div className="mt-6">
-              <a
-                href="#contact"
-                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
-              >
-                Contact Us
-              </a>
-            </div>
           </div>
         </div>
-        
-        <div className="mt-12 border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} Sheers Computer. All rights reserved.
-          </p>
-          <div className="mt-4 md:mt-0">
-            <ul className="flex space-x-6">
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white text-sm">Privacy</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white text-sm">Terms</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white text-sm">Cookies</a>
-              </li>
-            </ul>
+
+        <div className="mt-12 border-t border-gray-800 pt-8">
+          <div className="flex items-center justify-center">
+            <Server className="h-8 w-8 text-white" />
+            <span className="ml-2 text-xl font-bold text-white">Sheers Digital</span>
+          </div>
+          <nav className="mt-4 flex justify-center space-x-8">
+            <a href="#home" className="text-gray-400 hover:text-white">Home</a>
+            <a href="#partner" className="text-gray-400 hover:text-white">Partner With Us</a>
+            <a href="#about" className="text-gray-400 hover:text-white">About the Firm</a>
+            <a href="#careers" className="text-gray-400 hover:text-white">Careers</a>
+          </nav>
+          
+          <div className="mt-8 text-center text-sm text-gray-400 max-w-4xl mx-auto">
+            <p className="mb-4">
+              Ahmad Basyir's results are not typical and are not a guarantee of your success. Ahmad is an experienced business owner and IT professional, and your results will vary depending on education, effort, application, experience, and background. Ahmad does not personally manage every IT project at Sheers Digital. Due to the sensitivity of client information, we do not know or track the typical results of our clients. We cannot guarantee that you will make money or that you will be successful if you employ our business strategies specifically or generally. Consequently, your results may significantly vary from ours. We do not give investment, tax, or other professional advice. Specific transactions and experiences are mentioned for informational purposes only.
+            </p>
+            <p>
+              The information contained within this website is the property of Sheers Digital. Any use of the images, content, or ideas expressed herein without the express written consent of Sheers Digital is prohibited. Copyright © 2025 Sheers Digital. All Rights Reserved.
+            </p>
           </div>
         </div>
       </div>

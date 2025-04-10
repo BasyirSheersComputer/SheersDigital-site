@@ -1,4 +1,0 @@
-Add these 3 links after the current links on the navbar, it is okay to have the distance between the nav links closer:
-Partner With Us
-About the Firm
-Careers
