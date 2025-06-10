@@ -1,0 +1,67 @@
+git commit -m "V4: Added supabase db connection. Made changes to the navlinks, footer, TopCTAStrip etc."
+
+docker build -t basyir/sheersdigital-site:v2 .
+
+https://drive.google.com/file/d/1GwZGyBPEDJCeE06W5TOTLxKwSh70E_J2/view?usp=drive_link
+
+https://drive.google.com/uc?export=view&id=1GwZGyBPEDJCeE06W5TOTLxKwSh70E_J2
+
+https://drive.google.com/file/d/1GwZGyBPEDJCeE06W5TOTLxKwSh70E_J2/view?usp=sharing
+
+root@vm-web-vp-01:~# docker ps
+CONTAINER ID   IMAGE                          COMMAND                  CREATED      STATUS      PORTS                                             NAMES
+5303f0cf6173   basyir/sheersdigital-site:v1   "/docker-entrypoint.…"   4 days ago   Up 4 days   0.0.0.0:8888->80/tcp, :::8888->80/tcp             sheers-site
+d119671aecc3   basyir/sheersdigital-site:v1   "/docker-entrypoint.…"   4 days ago   Up 4 days   80/tcp, 0.0.0.0:8443->443/tcp, :::8443->443/tcp   condescending_khayyam
+
+docker stop 5303f0cf6173
+docker rm 5303f0cf6173
+
+docker stop d119671aecc3
+docker rm d119671aecc3
+
+5303f0cf6173
+
+docker run -d --name sheers-site-v2 -p 8888:80 basyir/sheersdigital-site:v2
+
+
+🚀 Steps to replace containers with the updated version:
+1. Pull the new image (if you haven't yet)
+bash
+Copy
+Edit
+docker pull basyir/sheersdigital-site:v2
+✅ This makes sure your VM has the latest image you pushed.
+
+2. Stop and remove the old containers
+(They are still based on v1, so we want to kill and remove them.)
+
+bash
+Copy
+Edit
+docker stop sheers-site condescending_khayyam
+docker rm sheers-site condescending_khayyam
+✅ Now the old containers are gone.
+
+3. Run new containers using the new image
+You can re-run them with the same port mappings as before:
+
+bash
+Copy
+Edit
+# First instance (port 8888 -> container 80)
+docker run -d --name sheers-site -p 8888:80 basyir/sheersdigital-site:v2
+
+# Second instance (port 8443 -> container 443, assuming you handle HTTPS inside container)
+docker run -d --name condescending_khayyam -p 8443:443 basyir/sheersdigital-site:v2
+✅ -d = detached mode (runs in background)
+
+✅ --name = friendly container name
+
+✅ -p host_port:container_port = maps ports as you had before
+
+✅ Now check running containers
+bash
+Copy
+Edit
+docker ps
+You should see your containers up, fresh, and based on v2 🚀

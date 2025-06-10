@@ -1,7 +1,11 @@
 import React from 'react';
 import { Server, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 
-const Footer = () => {
+interface FooterProps {
+  setCurrentPage: (page: string) => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
@@ -62,16 +66,36 @@ const Footer = () => {
             <h3 className="text-sm font-semibold text-gray-300 tracking-wider uppercase">Navigation</h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <a href="#home" className="text-gray-400 hover:text-white">Home</a>
+                <button 
+                  onClick={() => setCurrentPage('home')}
+                  className="text-gray-400 hover:text-white"
+                >
+                  Home
+                </button>
               </li>
               <li>
-                <a href="#partner" className="text-gray-400 hover:text-white">Partner With Us</a>
+                <button 
+                  onClick={() => setCurrentPage('partner')}
+                  className="text-gray-400 hover:text-white"
+                >
+                  Partner With Us
+                </button>
               </li>
               <li>
-                <a href="#about" className="text-gray-400 hover:text-white">About the Firm</a>
+                <button 
+                  onClick={() => setCurrentPage('about')}
+                  className="text-gray-400 hover:text-white"
+                >
+                  About the Firm
+                </button>
               </li>
               <li>
-                <a href="#careers" className="text-gray-400 hover:text-white">Careers</a>
+                <button 
+                  onClick={() => setCurrentPage('careers')}
+                  className="text-gray-400 hover:text-white"
+                >
+                  Careers
+                </button>
               </li>
             </ul>
           </div>
@@ -100,10 +124,30 @@ const Footer = () => {
             <span className="ml-2 text-xl font-bold text-white">Sheers Digital</span>
           </div>
           <nav className="mt-4 flex justify-center space-x-8">
-            <a href="#home" className="text-gray-400 hover:text-white">Home</a>
-            <a href="#partner" className="text-gray-400 hover:text-white">Partner With Us</a>
-            <a href="#about" className="text-gray-400 hover:text-white">About the Firm</a>
-            <a href="#careers" className="text-gray-400 hover:text-white">Careers</a>
+            <button 
+              onClick={() => setCurrentPage('home')}
+              className="text-gray-400 hover:text-white"
+            >
+              Home
+            </button>
+            <button 
+              onClick={() => setCurrentPage('partner')}
+              className="text-gray-400 hover:text-white"
+            >
+              Partner With Us
+            </button>
+            <button 
+              onClick={() => setCurrentPage('about')}
+              className="text-gray-400 hover:text-white"
+            >
+              About the Firm
+            </button>
+            <button 
+              onClick={() => setCurrentPage('careers')}
+              className="text-gray-400 hover:text-white"
+            >
+              Careers
+            </button>
           </nav>
           
           <div className="mt-8 text-center text-sm text-gray-400 max-w-4xl mx-auto">

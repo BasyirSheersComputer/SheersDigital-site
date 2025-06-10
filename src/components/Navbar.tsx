@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { Menu, X, Server } from 'lucide-react';
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+interface NavbarProps {
+  currentPage: string;
+  setCurrentPage: (page: string) => void;
+}
 
-  const handleNavClick = (section) => {
-    setActiveSection(section);
+const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleNavClick = (section: string) => {
+    setCurrentPage(section);
     setIsOpen(false);
   };
 
@@ -16,56 +20,55 @@ const Navbar = () => {
         <div className="flex justify-center h-16">
           <div className="flex items-center justify-between w-full max-w-4xl">
             <div className="flex items-center justify-center flex-1">
-              <div className="flex items-center mr-12">
+              <div 
+                className="flex items-center mr-12 cursor-pointer"
+                onClick={() => handleNavClick('home')}
+              >
                 <Server className="h-8 w-8 text-white" />
                 <span className="ml-2 text-xl font-bold text-white">Sheers Digital</span>
               </div>
               
               <div className="hidden md:flex md:items-center md:space-x-12">
-                <a 
-                  href="#home" 
+                <button 
                   onClick={() => handleNavClick('home')}
                   className={`inline-flex items-center px-1 pt-1 text-sm font-medium ${
-                    activeSection === 'home' 
+                    currentPage === 'home' 
                       ? 'text-white border-b-2 border-white' 
                       : 'text-gray-300 hover:text-white hover:border-b-2 hover:border-gray-300'
                   }`}
                 >
                   Home
-                </a>
-                <a 
-                  href="#partner" 
+                </button>
+                <button 
                   onClick={() => handleNavClick('partner')}
                   className={`inline-flex items-center px-1 pt-1 text-sm font-medium ${
-                    activeSection === 'partner' 
+                    currentPage === 'partner' 
                       ? 'text-white border-b-2 border-white' 
                       : 'text-gray-300 hover:text-white hover:border-b-2 hover:border-gray-300'
                   }`}
                 >
                   Partner With Us
-                </a>
-                <a 
-                  href="#about" 
+                </button>
+                <button 
                   onClick={() => handleNavClick('about')}
                   className={`inline-flex items-center px-1 pt-1 text-sm font-medium ${
-                    activeSection === 'about' 
+                    currentPage === 'about' 
                       ? 'text-white border-b-2 border-white' 
                       : 'text-gray-300 hover:text-white hover:border-b-2 hover:border-gray-300'
                   }`}
                 >
                   About the Firm
-                </a>
-                <a 
-                  href="#careers" 
+                </button>
+                <button 
                   onClick={() => handleNavClick('careers')}
                   className={`inline-flex items-center px-1 pt-1 text-sm font-medium ${
-                    activeSection === 'careers' 
+                    currentPage === 'careers' 
                       ? 'text-white border-b-2 border-white' 
                       : 'text-gray-300 hover:text-white hover:border-b-2 hover:border-gray-300'
                   }`}
                 >
                   Careers
-                </a>
+                </button>
               </div>
             </div>
 
@@ -91,50 +94,46 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-black">
           <div className="pt-2 pb-3 space-y-1">
-            <a
-              href="#home"
+            <button
               onClick={() => handleNavClick('home')}
-              className={`block pl-3 pr-4 py-2 border-l-4 ${
-                activeSection === 'home'
+              className={`block w-full text-left pl-3 pr-4 py-2 border-l-4 ${
+                currentPage === 'home'
                   ? 'border-white text-white bg-gray-900'
                   : 'border-transparent text-gray-300 hover:text-white hover:bg-gray-700 hover:border-gray-300'
               } text-base font-medium`}
             >
               Home
-            </a>
-            <a
-              href="#partner"
+            </button>
+            <button
               onClick={() => handleNavClick('partner')}
-              className={`block pl-3 pr-4 py-2 border-l-4 ${
-                activeSection === 'partner'
+              className={`block w-full text-left pl-3 pr-4 py-2 border-l-4 ${
+                currentPage === 'partner'
                   ? 'border-white text-white bg-gray-900'
                   : 'border-transparent text-gray-300 hover:text-white hover:bg-gray-700 hover:border-gray-300'
               } text-base font-medium`}
             >
               Partner With Us
-            </a>
-            <a
-              href="#about"
+            </button>
+            <button
               onClick={() => handleNavClick('about')}
-              className={`block pl-3 pr-4 py-2 border-l-4 ${
-                activeSection === 'about'
+              className={`block w-full text-left pl-3 pr-4 py-2 border-l-4 ${
+                currentPage === 'about'
                   ? 'border-white text-white bg-gray-900'
                   : 'border-transparent text-gray-300 hover:text-white hover:bg-gray-700 hover:border-gray-300'
               } text-base font-medium`}
             >
               About the Firm
-            </a>
-            <a
-              href="#careers"
+            </button>
+            <button
               onClick={() => handleNavClick('careers')}
-              className={`block pl-3 pr-4 py-2 border-l-4 ${
-                activeSection === 'careers'
+              className={`block w-full text-left pl-3 pr-4 py-2 border-l-4 ${
+                currentPage === 'careers'
                   ? 'border-white text-white bg-gray-900'
                   : 'border-transparent text-gray-300 hover:text-white hover:bg-gray-700 hover:border-gray-300'
               } text-base font-medium`}
             >
               Careers
-            </a>
+            </button>
           </div>
         </div>
       )}

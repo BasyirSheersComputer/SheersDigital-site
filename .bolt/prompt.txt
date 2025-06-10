@@ -1,0 +1,111 @@
+git commit -m "Updated build for V3"
+
+
+Do the following edits:
+
+1. Remove the Button on the CTAStrip, turn the CTAStrip copy into the link itself.
+2. Remove the "Success Stories" and "Testimonial" links. Replace them with the "Partner With Us", "About the Firm", "Careers" links each connected to a placeholder page.
+3. Add the Free offer section after the hero section, before the FAQ. The format should follow acquisition.com sample but converted to suit my niche: 
+FREE ADVANCED TRAINING
+Videos, eBooks, Guides, Templates, Downloads & more to help you succeed:
+Add placeholders for the free components, with a suitable CTA for each component.
+
+Do the following edits:
+
+1. Add about our founder section after the FAQ. Use the attached resume to write the copy for the section following the format: "Alex and Leila Hormozi are co-founders and managing partners of Acquisition.com. In four years, the portfolio grew to over $250m+ in annual revenue. Before Acquisition.com they founded Gym Launch, Prestige Labs, and ALAN. In 2021, a private equity sponsor purchased Gym Launch and Prestige Labs for $46.2M. And in that same year, a strategic buyer bought ALAN in an all stock deal.
+
+Alex wrote two best selling books $100M Offers and $100M Leads, both of which have sold over 1M copies and are still #1 & #2 on Amazon for Marketing & Sales.
+
+Their mission at Acquisition.com is to make real business education accessible to everyone. And to do that, they strive to build a business that improves the lives of everyone it comes in contact with. They built a culture of praise over punishment to make it happen. Alex and Leila have an audience of over 12M+ that subscribe to their business content across social media."
+
+My resume: "Ahmad Basyir Azahari, IT Project Manager
+Kuala Lumpur, Malaysia, +60189165223, a.basyir94@gmail.com
+SUMMARY
+Dynamic IT Project Manager with over 6 years of comprehensive experience in systems engineering and project management. Skilled in designing detailed project plans and managing client expectations, having successfully led kiosk system integrations at ALMEX. Proven ability to identify and mitigate project risks, maintain financial transparency, and mentor teams. Committed to delivering quality results and optimizing processes, adding significant value to any organization seeking innovative solutions.
+WORK EXPERIENCE
+01/2023 – Present
+Project Lead, Sr. Systems Engineer ALMEX System Technology Asia Sdn. Bhd. (ASTA), Kuala Lumpur
+•
+Engineered and managed comprehensive project plans for kiosk system integrations, encompassing scope definition, timeline oversight, resource allocation, and budget planning.
+•
+Served as the primary liaison for clients during the implementation phase, expertly gathering requirements and managing expectations.
+•
+Orchestrated planning sessions and coordinated cross-functional teams to successfully execute project milestones, while mentoring new engineers.
+•
+Proactively diagnosed project risks, devised mitigation strategies, and ensured financial transparency.
+•
+Conducted extensive testing of kiosk systems, ensuring high standards of quality and functionality.
+•
+Maintained exhaustive project documentation, delivered detailed progress reports, and effectively presented to senior leadership.
+•
+Collaborated with internal development teams and third-party vendors to implement vital feature updates.
+•
+Configured kiosk software for optimal performance, developing scripts to automate deployment processes.
+08/2018 – 01/2023
+Systems Engineer, Sheers Computer, Melaka
+•
+Managed diverse infrastructure projects, including server installations and network cabling initiatives.
+•
+Evaluated client infrastructure through gap analysis to identify risks and enhance operational resilience.
+•
+Sustained comprehensive project documentation involving project plans and risk assessments.
+•
+Oversaw procurement processes and prepared RFQs for IT equipment to ensure cost-effective acquisitions.
+EDUCATION
+05/2013 – 04/2017
+University of Malaya (UM) Bachelor of Engineering, Chemical Engineering
+Kuala Lumpur, Malaysia
+SKILLS
+Project Management
+Risk and Quality Management
+Shareholder Communication
+Budgeting and Financial Reporting
+Technical Expertise
+Microsoft Project
+Azure
+Leadership
+Team Collaboration
+Effective Communication"
+
+Do the following edits:
+
+1. Remove the "Contact" link from the navbar
+
+2. Navbar and logo need not stick at the top as user scrolls. Instead in the footer have a repeat of the logo & navbar followed by a center aligned disclaimer following the format: "Alex and Leila Hormozi’s results are not typical and are not a guarantee of your success. Alex and Leila are experienced business owners and investors, and your results will vary depending on education, effort, application, experience, and background. Alex and Leila do not personally invest in every business they work with through Acquisition.com, LLC. Due to the sensitivity of financial information, we do not know or track the typical results of our students.  We cannot guarantee that you will make money or that you will be successful if you employ their business strategies specifically or generally. Consequently, your results may significantly vary from theirs. We do not give investment, tax, or other professional advice. Specific transactions and experiences are mentioned for informational purposes only. The information contained within this website is the property of Acquisition.com. Any use of the images, content, or ideas expressed herein without the express written consent of Acquisition.com is prohibited. Copyright © 2025 Acquisition.com, LLC. All Rights Reserved"
+
+
+Do the following edits:
+
+1. I need to track user visits and store the info in a local mysql database. The data should include critical information such as IP Address, time spent on website, time spent on each page, CTR related parameters and others.
+
+2. Each services in the footer should redirect to a separate page. Each services page should be structured with the following sample framework:
+	a. Learn xyz e.g: "Learn how to scale your business"
+	b. A short related description e.g.: "We are running a 100 person in person intimate scaling workshop."
+	c. A big photo related to the respective service
+	d. Paragraph explaining how we perform the service e.g: "The Acquisition.com Scaling Workshop is a focused, interactive workshop where you’ll receive personalized, actionable insights from the team that’s scaled Acquisition.com Holding Company to over 250M in annual revenue. This workshop is designed to help you achieve rapid, transformative growth and take your business to the next level.
+	It's not like any other event you’ve ever been to before, it’s an opportunity to walk away with three to five tactical steps tailored to solving your biggest business challenges, guided by experts who’ve successfully scaled businesses just like yours."
+	e. Book a call form e.g:
+		BOOK A CALL BELOW TO SEE IF YOU'RE A FIT
+		First Name*
+		Last Name*
+		Email*
+		Phone Number*
+		Country code selection that chaanges the prefix for phone no
+		Phone no space
+		Annual Business Revenue*
+		Submit Button sample: See if I'm a Fit
+		
+	f. Disclaimer e.g: By providing your information today, you are giving consent for us or our partners, to contact you by mail, phone, text, or email using automated technology to the data provided, even if the phone number is present on a state or national Do Not Call list. We do not sell your personal information to other companies, and you can withdraw consent at any time. By submitting this form, you agree to our Privacy Policy and Terms of Service.
+	
+	g. What people are saying (Testimonial video)
+	h. Disclaimer for testimonial e.g: Individual experiences presented here may not be typical. Their background, education, effort, and application affected their experience. The information shared here are for example purposes and not a guarantee of a rate of return or a specific result. Your results may vary.
+	
+	i. Explanation on value of service e.g: Here's What You'll Experience at the Workshop
+	j. Photo of discussion with a description beside the photo e.g: 
+	Direct Access to Alex, Leila, and the Acquisition.com Team
+
+	Get face-to-face with the team behind a portfolio that has scaled to over $250m+ in annual revenue and meet Alex and Leila Hormozi. Our workshop gives you the unique opportunity to ask questions and get actionable advice directly from the experts who have successfully scaled multiple businesses.
+	k. Make several photo/description of value, alternate position of photo/description e.g: 1st row photo left, description right; 2nd row description left, photo right
+
+
+ 

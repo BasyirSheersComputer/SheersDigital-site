@@ -127,7 +127,7 @@ const ContactForm = () => {
                   <p className="text-lg font-medium text-gray-900">Address</p>
                   <p className="text-gray-600">
                     Villa Putra Condominium<br />
-                    Chow Kit<br />
+                    Jalan Sultan Ismail<br />
                     Kuala Lumpur, 50480
                   </p>
                 </div>
