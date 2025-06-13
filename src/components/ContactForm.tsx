@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import { supabase } from '../lib/supabase';
+// import { supabase } from '../lib/supabase';
+import { db } from '../../firebase.config'; // adjust path if needed
+import { collection, addDoc, Timestamp } from "firebase/firestore";
 
 interface FormData {
   name: string;
@@ -37,51 +39,89 @@ const ContactForm = () => {
     }));
   };
 
+  //For Supabase integration, uncomment the following code block
+  // and comment out the Firebase integration code block below.
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
+
+  //   try {
+  //     const { error } = await supabase
+  //       .from('contact_messages')
+  //       .insert([
+  //         {
+  //           name: formData.name,
+  //           email: formData.email,
+  //           phone: formData.phone,
+  //           company: formData.company,
+  //           service: formData.service,
+  //           message: formData.message,
+  //         }
+  //       ]);
+
+  //     if (error) throw error;
+
+  //     setFormStatus({
+  //       submitted: true,
+  //       error: false,
+  //       message: 'Thank you! Your message has been received.',
+  //     });
+
+  //     setFormData({
+  //       name: '',
+  //       email: '',
+  //       phone: '',
+  //       company: '',
+  //       message: '',
+  //       service: '',
+  //     });
+  //   } catch (error) {
+  //     console.error('Error submitting form:', error);
+  //     setFormStatus({
+  //       submitted: false,
+  //       error: true,
+  //       message: 'There was an error sending your message. Please try again.',
+  //     });
+  //   } finally {
+  //     setIsSubmitting(false);
+  //   }
+  // };
+
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    try {
-      const { error } = await supabase
-        .from('contact_messages')
-        .insert([
-          {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            company: formData.company,
-            service: formData.service,
-            message: formData.message,
-          }
-        ]);
+  try {
+    await addDoc(collection(db, "contact_messages"), {
+      ...formData,
+      createdAt: Timestamp.now(),
+    });
 
-      if (error) throw error;
+    setFormStatus({
+      submitted: true,
+      error: false,
+      message: "Thank you! Your message has been received.",
+    });
 
-      setFormStatus({
-        submitted: true,
-        error: false,
-        message: 'Thank you! Your message has been received.',
-      });
-
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        message: '',
-        service: '',
-      });
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setFormStatus({
-        submitted: false,
-        error: true,
-        message: 'There was an error sending your message. Please try again.',
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      company: '',
+      message: '',
+      service: '',
+    });
+  } catch (error) {
+    console.error("Error submitting form:", error);
+    setFormStatus({
+      submitted: false,
+      error: true,
+      message: "There was an error sending your message. Please try again.",
+    });
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   return (
     <section id="contact" className="py-20 bg-white">
