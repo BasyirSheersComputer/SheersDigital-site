@@ -4,9 +4,9 @@ pipeline {
   environment {
     IMAGE_NAME = 'basyir/sheersdigital-site'
     TAG = "${env.BUILD_NUMBER}"
-    SSH_CRED_ID = 'vm-ssh-key'             // Jenkins SSH credential ID
-    DOCKER_CRED_ID = 'dockerhub-creds'     // Jenkins DockerHub credential ID
-    REMOTE_HOST = '192.168.20.215'           // Replace with your VM IP or hostname
+    SSH_CRED_ID = 'vm-ssh-key'
+    DOCKER_CRED_ID = 'dockerhub-creds'
+    REMOTE_HOST = '192.168.20.215'
     REMOTE_USER = 'basyir'
     CONTAINER_NAME = 'sheersdigital-site'
   }
@@ -23,6 +23,7 @@ pipeline {
       steps {
         script {
           sh """
+          set -e
           docker build -t $IMAGE_NAME:$TAG .
           docker tag $IMAGE_NAME:$TAG $IMAGE_NAME:latest
           """
@@ -51,14 +52,15 @@ pipeline {
         sshagent([SSH_CRED_ID]) {
           sh """
           ssh -o StrictHostKeyChecking=no $REMOTE_USER@$REMOTE_HOST '
-            docker pull $IMAGE_NAME:latest &&
+            set -e
+            docker pull $IMAGE_NAME:$TAG &&
             docker stop $CONTAINER_NAME || true &&
             docker rm $CONTAINER_NAME || true &&
             docker run -d --name $CONTAINER_NAME \\
               -p 8888:80 \\
               -p 8443:443 \\
               --restart always \\
-              $IMAGE_NAME:latest
+              $IMAGE_NAME:$TAG
           '
           """
         }
