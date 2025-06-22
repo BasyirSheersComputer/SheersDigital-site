@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import ProblemAgitation from './components/ProblemAgitation';
@@ -8,8 +9,11 @@ import CTA from './components/CTA';
 import Footer from './components/Footer';
 import CalendlyModal from './components/CalendlyModal';
 import About from './components/About';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsOfService from './components/TermsOfService';
+import DataProtection from './components/DataProtection';
 
-function App() {
+function HomePage() {
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
 
   const handleBookCall = () => {
@@ -25,17 +29,32 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <>
       <Header onBookCall={handleBookCall} />
       <Hero onBookCall={handleBookCall} />
       <ProblemAgitation />
       <Solutions onBookCall={handleBookCall} />
       <About />
       <Testimonials />
-      <CTA onBookCall={handleBookCall} />
-      <Footer />
       <CalendlyModal isOpen={isCalendlyOpen} onClose={handleCloseCalendly} />
-    </div>
+      <CTA onBookCall={handleBookCall} />
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <div className="min-h-screen bg-white">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/data-protection" element={<DataProtection />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

@@ -49,7 +49,7 @@ export default function Footer() {
             <div className="space-y-3 text-gray-300">
               <div className="flex items-center space-x-3">
                 <MapPin size={16} className="text-blue-400" />
-                <span className="text-sm">Level 1, Villa Putra<br/>1, Jalan Sultan Ismail<br/>Kuala Lumpur 50450</span>
+                <span className="text-sm">Level 1, Villa Putra<br/>1, Jalan Sultan Ismail<br/>Kuala Lumpur 50480</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone size={16} className="text-blue-400" />
@@ -69,9 +69,9 @@ export default function Footer() {
               © 2024 Sheers Digital. All rights reserved. | SSM: MA0256368-X
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">Privacy Policy</a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">Terms of Service</a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">Data Protection</a>
+              <a href="/privacy-policy" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">Privacy Policy</a>
+              <a href="/terms-of-service" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">Terms of Service</a>
+              <a href="/data-protection" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">Data Protection</a>
             </div>
           </div>
         </div>
