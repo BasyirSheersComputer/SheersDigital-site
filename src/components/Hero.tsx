@@ -1,11 +1,18 @@
 import React from 'react';
 import { ArrowRight, CheckCircle, Clock, TrendingUp } from 'lucide-react';
+import { trackCTAClick, trackCalendlyOpen } from '../utils/analytics';
 
 interface HeroProps {
   onBookCall: () => void;
 }
 
 export default function Hero({ onBookCall }: HeroProps) {
+  const handleBookCall = () => {
+    trackCTAClick('hero', 'Get Free IT Audit (Worth RM2,500)');
+    trackCalendlyOpen('hero');
+    onBookCall();
+  };
+
   return (
     <section className="bg-gradient-to-br from-blue-50 via-white to-emerald-50 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,7 +37,7 @@ export default function Hero({ onBookCall }: HeroProps) {
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <button
-                onClick={onBookCall}
+                onClick={handleBookCall}
                 className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 flex items-center justify-center space-x-2 text-lg font-semibold"
               >
                 <span>Get Free IT Audit (Worth RM2,500)</span>

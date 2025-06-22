@@ -11,28 +11,28 @@ export default function About() {
 
   const team = [
     {
-      name: 'Raj Kumar',
+      name: 'Ahmad Basyir',
       role: 'Founder & CEO',
-      experience: '15+ years in enterprise IT',
+      experience: '7+ years in enterprise IT',
       specialization: 'Cloud Architecture & Digital Transformation',
-      credentials: 'AWS Certified Solutions Architect, PMP',
-      avatar: 'RK'
+      credentials: 'Microsoft Certified: Azure DevOps Engineer, PMP',
+      avatar: 'AB'
     },
     {
-      name: 'Sarah Chen',
-      role: 'Head of Cybersecurity',
+      name: 'Fareez Nan',
+      role: 'Head of Engineering',
       experience: '12+ years in cybersecurity',
       specialization: 'Enterprise Security & Compliance',
       credentials: 'CISSP, CISM, ISO 27001 Lead Auditor',
-      avatar: 'SC'
+      avatar: 'FN'
     },
     {
-      name: 'Ahmad Faiz',
+      name: 'Ahmad Darwis',
       role: 'Lead Automation Engineer',
       experience: '10+ years in process automation',
       specialization: 'Business Process Automation & Integration',
       credentials: 'Microsoft Certified: Azure Solutions Architect',
-      avatar: 'AF'
+      avatar: 'AD'
     }
   ];
 

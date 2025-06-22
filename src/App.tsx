@@ -7,6 +7,7 @@ import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
 import CalendlyModal from './components/CalendlyModal';
+import About from './components/About';
 
 function App() {
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
@@ -29,6 +30,7 @@ function App() {
       <Hero onBookCall={handleBookCall} />
       <ProblemAgitation />
       <Solutions onBookCall={handleBookCall} />
+      <About />
       <Testimonials />
       <CTA onBookCall={handleBookCall} />
       <Footer />

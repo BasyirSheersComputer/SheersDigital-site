@@ -18,6 +18,23 @@ export default function CalendlyModal({ isOpen, onClose }: CalendlyModalProps) {
       script.async = true;
       document.head.appendChild(script);
     }
+
+	// Facebook Pixel Event
+    if ((window as any).fbq) {
+      (window as any).fbq('track', 'Lead', {
+        content_name: 'Calendly Modal Opened',
+        content_category: 'Booking',
+      });
+    }
+
+    // Google Analytics Event
+    if ((window as any).gtag) {
+      (window as any).gtag('event', 'open_modal', {
+        event_category: 'Calendly',
+        event_label: 'IT Strategy Call Modal',
+        value: 1,
+      });
+    }
   }, [isOpen]);
 
   if (!isOpen) return null;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Menu, X, Calendar } from 'lucide-react';
+import { trackCTAClick, trackCalendlyOpen } from '../utils/analytics';
 
 interface HeaderProps {
   onBookCall: () => void;
@@ -7,6 +8,12 @@ interface HeaderProps {
 
 export default function Header({ onBookCall }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const handleBookCall = () => {
+    trackCTAClick('header', 'Book Free Consultation');
+    trackCalendlyOpen('header');
+    onBookCall();
+  };
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -28,7 +35,7 @@ export default function Header({ onBookCall }: HeaderProps) {
             <a href="#about" className="text-gray-700 hover:text-blue-600 transition-colors">About</a>
             <a href="#testimonials" className="text-gray-700 hover:text-blue-600 transition-colors">Results</a>
             <button
-              onClick={onBookCall}
+              onClick={handleBookCall}
               className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-2 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 flex items-center space-x-2"
             >
               <Calendar size={16} />
@@ -53,7 +60,7 @@ export default function Header({ onBookCall }: HeaderProps) {
               <a href="#about" className="text-gray-700 hover:text-blue-600 transition-colors">About</a>
               <a href="#testimonials" className="text-gray-700 hover:text-blue-600 transition-colors">Results</a>
               <button
-                onClick={onBookCall}
+                onClick={handleBookCall}
                 className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 flex items-center justify-center space-x-2"
               >
                 <Calendar size={16} />

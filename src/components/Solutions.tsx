@@ -1,11 +1,18 @@
 import React from 'react';
 import { Cloud, Shield, Zap, CheckCircle, ArrowRight } from 'lucide-react';
+import { trackCTAClick, trackCalendlyOpen } from '../utils/analytics';
 
 interface SolutionsProps {
   onBookCall: () => void;
 }
 
 export default function Solutions({ onBookCall }: SolutionsProps) {
+  const handleBookCall = (source: string) => {
+    trackCTAClick('solutions', source);
+    trackCalendlyOpen('solutions');
+    onBookCall();
+  };
+
   const solutions = [
     {
       icon: Cloud,
@@ -137,7 +144,7 @@ export default function Solutions({ onBookCall }: SolutionsProps) {
                 </div>
 
                 <button
-                  onClick={onBookCall}
+                  onClick={() => handleBookCall(`Get ${solution.title}`)}
                   className={`w-full ${colors.button} text-white px-6 py-3 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2`}
                 >
                   <span>Get This Solution</span>
@@ -161,7 +168,7 @@ export default function Solutions({ onBookCall }: SolutionsProps) {
               <span className="text-blue-200 line-through ml-2">RM35,000</span>
             </div>
             <button
-              onClick={onBookCall}
+              onClick={() => handleBookCall('Complete Package - Book Strategy Call')}
               className="bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200 font-semibold flex items-center space-x-2"
             >
               <span>Book Strategy Call</span>

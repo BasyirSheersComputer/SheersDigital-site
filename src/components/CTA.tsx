@@ -1,11 +1,18 @@
 import React from 'react';
 import { Calendar, CheckCircle, Clock, ArrowRight } from 'lucide-react';
+import { trackCTAClick, trackCalendlyOpen } from '../utils/analytics';
 
 interface CTAProps {
   onBookCall: () => void;
 }
 
 export default function CTA({ onBookCall }: CTAProps) {
+  const handleBookCall = () => {
+    trackCTAClick('cta', 'Yes, I Want My Free Audit');
+    trackCalendlyOpen('cta');
+    onBookCall();
+  };
+
   return (
     <section className="py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,7 +70,7 @@ export default function CTA({ onBookCall }: CTAProps) {
               </div>
 
               <button
-                onClick={onBookCall}
+                onClick={handleBookCall}
                 className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 flex items-center justify-center space-x-2 text-lg font-semibold mb-6"
               >
                 <span>Yes, I Want My Free Audit</span>
