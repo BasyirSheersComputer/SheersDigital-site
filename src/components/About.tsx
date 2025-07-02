@@ -1,7 +1,10 @@
 import React from 'react';
 import { Users, Award, Target, Clock, CheckCircle, TrendingUp } from 'lucide-react';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 export default function About() {
+  const { ref } = useIntersectionObserver({ sectionName: 'about' });
+  
   const stats = [
     { number: '200+', label: 'Projects Completed', icon: Target },
     { number: '98%', label: 'Success Rate', icon: Award },
@@ -32,7 +35,7 @@ export default function About() {
       experience: '10+ years in process automation',
       specialization: 'Business Process Automation & Integration',
       credentials: 'Microsoft Certified: Azure Solutions Architect',
-      avatar: 'AD'
+      avatar: 'AF'
     }
   ];
 
@@ -100,7 +103,7 @@ export default function About() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Why We Started Sheers Digital
+                Why We Started Sheers Technologies
               </h2>
               <div className="space-y-6 text-gray-700 leading-relaxed">
                 <p>
