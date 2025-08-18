@@ -23,7 +23,7 @@ export default function DataProtection() {
               </h2>
               <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-6">
                 <p className="text-emerald-800 leading-relaxed mb-4">
-                  Sheers Technologies Sdn. Bhd. is committed to full compliance with the Personal Data Protection Act 2010 (Act 709) of Malaysia. This notice explains how we handle your personal data in accordance with the seven principles of data protection under Malaysian law.
+                  Sheers Software Sdn. Bhd. is committed to full compliance with the Personal Data Protection Act 2010 (Act 709) of Malaysia. This notice explains how we handle your personal data in accordance with the seven principles of data protection under Malaysian law.
                 </p>
                 <div className="bg-white border border-emerald-300 rounded-lg p-4">
                   <p className="text-emerald-900 font-medium">
@@ -297,7 +297,7 @@ export default function DataProtection() {
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2">
                     <Mail className="text-emerald-600" size={16} />
-                    <span className="text-emerald-700">dpo@sheerscomputer.com</span>
+                    <span className="text-emerald-700">dpo@sheerstechnologies.com</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Phone className="text-emerald-600" size={16} />
@@ -305,7 +305,7 @@ export default function DataProtection() {
                   </div>
                   <div className="text-emerald-700">
                     <strong>Data Protection Officer</strong><br />
-                    Sheers Technologies Sdn. Bhd.<br />
+                    Sheers Software Sdn. Bhd.<br />
                     Level 1, Villa Putra<br />
                     Jalan Sultan Ismail<br />
                     Kuala Lumpur 50480, Malaysia

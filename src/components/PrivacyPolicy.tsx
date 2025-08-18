@@ -21,7 +21,7 @@ export default function PrivacyPolicy() {
                 Introduction
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Sheers Technologies Sdn. Bhd. (Company No. 1234567-X) ("we," "our," or "us") is committed to protecting your privacy and personal data in accordance with the Personal Data Protection Act 2010 (PDPA) of Malaysia and other applicable laws.
+                Sheers Software Sdn. Bhd. (Company No. 1635166-T) ("we," "our," or "us") is committed to protecting your privacy and personal data in accordance with the Personal Data Protection Act 2010 (PDPA) of Malaysia and other applicable laws.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 This Privacy Policy explains how we collect, use, disclose, and protect your personal data when you visit our website, use our services, or interact with us.
@@ -208,14 +208,14 @@ export default function PrivacyPolicy() {
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2">
                     <Mail className="text-blue-600" size={16} />
-                    <span className="text-gray-700">privacy@sheerscomputer.com</span>
+                    <span className="text-gray-700">privacy@sheerstechnologies.com</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Phone className="text-blue-600" size={16} />
                     <span className="text-gray-700">+60 11-6326 3808</span>
                   </div>
                   <div className="text-gray-700">
-                    <strong>Sheers Technologies Sdn. Bhd.</strong><br />
+                    <strong>Sheers Software Sdn. Bhd.</strong><br />
                     Level 1, Villa Putra<br />
                     Jalan Sultan Ismail<br />
                     Kuala Lumpur 50300<br />

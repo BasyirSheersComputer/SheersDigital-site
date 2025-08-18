@@ -1,19 +1,19 @@
 steps:
   # Build the Docker image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/wastewise-app:$COMMIT_SHA', '.']
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/servora-ai:$COMMIT_SHA', '.']
   
   # Push the image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/wastewise-app:$COMMIT_SHA']
+    args: ['push', 'gcr.io/$PROJECT_ID/servora-ai:$COMMIT_SHA']
   
   # Tag the image as latest
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['tag', 'gcr.io/$PROJECT_ID/wastewise-app:$COMMIT_SHA', 'gcr.io/$PROJECT_ID/wastewise-app:latest']
+    args: ['tag', 'gcr.io/$PROJECT_ID/servora-ai:$COMMIT_SHA', 'gcr.io/$PROJECT_ID/servora-ai:latest']
   
   # Push the latest tag
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/wastewise-app:latest']
+    args: ['push', 'gcr.io/$PROJECT_ID/servora-ai:latest']
   
   # Deploy to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -21,11 +21,11 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - 'wastewise-app'
+      - 'servora-ai'
       - '--image'
-      - 'gcr.io/$PROJECT_ID/wastewise-app:$COMMIT_SHA'
+      - 'gcr.io/$PROJECT_ID/servora-ai:$COMMIT_SHA'
       - '--region'
-      - 'us-central1'
+      - 'asia-southeast1'
       - '--platform'
       - 'managed'
       - '--allow-unauthenticated'
@@ -42,14 +42,20 @@ steps:
       - '--set-env-vars'
       - 'NODE_ENV=production'
       - '--set-env-vars'
-      - 'VITE_APP_NAME=WasteWise'
+      - 'VITE_APP_NAME=Servora AI'
       - '--set-env-vars'
-      - 'VITE_APP_VERSION=$TAG_NAME'
+      - 'VITE_APP_ENVIRONMENT=production'
+      - '--set-env-vars'
+      - 'VITE_API_URL=https://api.servora-ai.com'
+      - '--set-env-vars'
+      - 'VITE_ANALYTICS_ID=G-RMQN4C5EVG'
+      - '--set-env-vars'
+      - 'VITE_FACEBOOK_PIXEL_ID=383314790605759'
 
 # Store images in Google Container Registry
 images:
-  - 'gcr.io/$PROJECT_ID/wastewise-app:$COMMIT_SHA'
-  - 'gcr.io/$PROJECT_ID/wastewise-app:latest'
+  - 'gcr.io/$PROJECT_ID/servora-ai:$COMMIT_SHA'
+  - 'gcr.io/$PROJECT_ID/servora-ai:latest'
 
 # Build timeout
 timeout: '1200s'

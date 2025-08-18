@@ -122,14 +122,14 @@ const Footer: React.FC = () => {
               <Phone className="w-5 h-5 text-accent-1" />
               <div>
                 <p className="text-accent-2 text-sm">Phone</p>
-                <p className="text-secondary">+60 3-1234 5678</p>
+                <p className="text-secondary">+60 11-6326 3808</p>
               </div>
             </div>
             <div className="flex items-center space-x-3">
               <MapPin className="w-5 h-5 text-accent-1" />
               <div>
                 <p className="text-accent-2 text-sm">Address</p>
-                <p className="text-secondary">123 Chow Kit Road, Kuala Lumpur, Malaysia</p>
+                <p className="text-secondary">11.9, Megan Avenue 1, 189, Jalan Tun Razak, Kuala Lumpur, Malaysia</p>
               </div>
             </div>
           </div>

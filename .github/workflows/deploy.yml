@@ -1,0 +1,52 @@
+name: Deploy to Cloud Run
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Cloud SDK
+      uses: google-github-actions/setup-gcloud@v2
+      with:
+        project_id: sheers-software
+        service_account_key: ${{ secrets.GCP_SA_KEY }}
+    
+    - name: Configure Docker for GCR
+      run: gcloud auth configure-docker
+    
+    - name: Build and Push Docker Image
+      run: |
+        gcloud builds submit --tag gcr.io/sheers-software/servora-ai:${{ github.sha }} .
+        gcloud builds submit --tag gcr.io/sheers-software/servora-ai:latest .
+    
+    - name: Deploy to Cloud Run
+      run: |
+        gcloud run deploy servora-ai \
+          --image gcr.io/sheers-software/servora-ai:${{ github.sha }} \
+          --region asia-southeast1 \
+          --platform managed \
+          --allow-unauthenticated \
+          --port 80 \
+          --memory 512Mi \
+          --cpu 1 \
+          --max-instances 10 \
+          --min-instances 0 \
+          --set-env-vars "NODE_ENV=production" \
+          --set-env-vars "VITE_APP_NAME=Servora AI" \
+          --set-env-vars "VITE_APP_ENVIRONMENT=production" \
+          --set-env-vars "VITE_API_URL=https://api.servora-ai.com" \
+          --set-env-vars "VITE_ANALYTICS_ID=G-RMQN4C5EVG" \
+          --set-env-vars "VITE_FACEBOOK_PIXEL_ID=383314790605759"
+    
+    - name: Get deployment URL
+      run: |
+        echo "Deployment URL: $(gcloud run services describe servora-ai --region asia-southeast1 --format='value(status.url)')"

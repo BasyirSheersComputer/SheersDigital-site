@@ -21,7 +21,7 @@ export default function TermsOfService() {
                 Agreement to Terms
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                These Terms of Service ("Terms") constitute a legally binding agreement between you and Sheers Technologies Sdn. Bhd. (Company No. 1234567-X) ("Company," "we," "our," or "us") regarding your use of our website and services.
+                These Terms of Service ("Terms") constitute a legally binding agreement between you and Sheers Software Sdn. Bhd. (Company No. 1635166-T) ("Company," "we," "our," or "us") regarding your use of our website and services.
               </p>
               <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
                 <p className="text-yellow-800 font-medium">
@@ -34,12 +34,12 @@ export default function TermsOfService() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Company Information</h2>
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
                 <p className="text-gray-700">
-                  <strong>Sheers Technologies Sdn. Bhd.</strong><br />
-                  Company Registration No: 1234567-X<br />
+                  <strong>Sheers Software Sdn. Bhd.</strong><br />
+                  Company Registration No: 1635166-T<br />
                   Level 1, Villa Putra<br />
                   Jalan Sultan Ismail<br />
                   Kuala Lumpur 50480, Malaysia<br />
-                  Email: sales@sheerscomputer.com<br />
+                  Email: sales@sheerstechnologies.com<br />
                   Phone: +60 11-6326 3808
                 </p>
               </div>
@@ -47,7 +47,7 @@ export default function TermsOfService() {
 
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Services Description</h2>
-              <p className="text-gray-700 mb-4">Sheers Technologies provides IT project management services including but not limited to:</p>
+              <p className="text-gray-700 mb-4">Sheers Software provides IT project management services including but not limited to:</p>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4">
                   <h3 className="font-semibold text-emerald-800 mb-2">Core Services</h3>
@@ -261,7 +261,7 @@ export default function TermsOfService() {
                 </p>
                 <div className="text-green-700">
                   <strong>Legal Department</strong><br />
-                  Email: legal@sheerscomputer.com<br />
+                  Email: legal@sheerstechnologies.com<br />
                   Phone: +60 11-6326 3808<br />
                   Address: Level 1, Villa Putra, Jalan Sultan Ismail, Kuala Lumpur 50480, Kuala Lumpur 50480, Malaysia
                 </div>
