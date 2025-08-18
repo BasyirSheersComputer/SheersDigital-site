@@ -4,11 +4,11 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import ProblemAgitation from './components/ProblemAgitation';
 import Solutions from './components/Solutions';
+import About from './components/About';
 import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
 import CalendlyModal from './components/CalendlyModal';
-import About from './components/About';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
 import DataProtection from './components/DataProtection';
@@ -19,10 +19,10 @@ function HomePage() {
 
   const handleBookDemo = () => {
     setIsCalendlyOpen(true);
-	// Track Facebook Pixel event
+    // Track Facebook Pixel event
     if (typeof window !== 'undefined' && (window as any).fbq) {
       (window as any).fbq('track', 'Schedule');
-    }							 
+    }
   };
 
   const handleCloseCalendly = () => {
@@ -31,13 +31,13 @@ function HomePage() {
 
   return (
     <>
-      <Header onBookCall={handleBookDemo} />
-      <Hero onBookCall={handleBookDemo} />
+      <Header onBookDemo={handleBookDemo} />
+      <Hero onBookDemo={handleBookDemo} />
       <ProblemAgitation />
-      <Solutions onBookCall={handleBookDemo} />
+      <Solutions />
       <About />
       <Testimonials />
-      <CTA onBookCall={handleBookDemo} />
+      <CTA onBookDemo={handleBookDemo} />
       <CalendlyModal isOpen={isCalendlyOpen} onClose={handleCloseCalendly} />
     </>
   );

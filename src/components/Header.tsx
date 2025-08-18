@@ -1,94 +1,129 @@
-import React from 'react';
-import { Menu, X, Calendar, Play } from 'lucide-react';
-import { trackCTAClick, trackCalendlyOpen } from '../utils/analytics';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 interface HeaderProps {
-  onBookCall: () => void;
+  onBookDemo: () => void;
 }
 
-export default function Header({ onBookCall }: HeaderProps) {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+const Header: React.FC<HeaderProps> = ({ onBookDemo }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleStartTrial = () => {
-    trackCTAClick('header', 'Start Free Trial');
-    window.location.href = '/signup';
-  };
-
-  const handleBookDemo = () => {
-    trackCTAClick('header', 'Book Demo');
-    trackCalendlyOpen('header');
-    onBookCall();
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+    <header className="bg-transparent font-montserrat sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-layout-padding">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
           <div className="flex items-center">
-            <div className="bg-gradient-to-r from-green-600 to-blue-600 w-10 h-10 rounded-lg flex items-center justify-center mr-3">
-              <span className="text-white font-bold text-xl">W</span>
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-gray-900">WasteWise</h1>
-              <p className="text-xs text-gray-600">AI Waste Management</p>
-            </div>
+            <Link to="/" className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-accent-1 rounded-layout flex items-center justify-center">
+                <span className="text-secondary font-bold text-sm">W</span>
+              </div>
+              <div>
+                <span className="text-xl font-bold text-primary">WASTEWISE AI</span>
+                <span className="text-xs text-primary/70 block -mt-1">Premium F&B Intelligence</span>
+              </div>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-gray-700 hover:text-green-600 transition-colors">Features</a>
-            <a href="#about" className="text-gray-700 hover:text-green-600 transition-colors">About</a>
-            <a href="#testimonials" className="text-gray-700 hover:text-green-600 transition-colors">Results</a>
-            <button
-              onClick={handleBookDemo}
-              className="border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 flex items-center space-x-2"
-            >
-              <Play size={16} />
-              <span>Watch Demo</span>
-            </button>
-            <button
-              onClick={handleStartTrial}
-              className="bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-2 rounded-lg hover:from-green-700 hover:to-green-800 transition-all duration-200 flex items-center space-x-2"
-            >
-              <Calendar size={16} />
-              <span>Start Free Trial</span>
-            </button>
+            <Link to="/#features" className="text-primary hover:text-accent-1 transition-colors font-medium">
+              FEATURES
+            </Link>
+            <Link to="/#about" className="text-primary hover:text-accent-1 transition-colors font-medium">
+              ABOUT
+            </Link>
+            <Link to="/#testimonials" className="text-primary hover:text-accent-1 transition-colors font-medium">
+              SUCCESS STORIES
+            </Link>
           </nav>
 
+          {/* Desktop CTA Buttons */}
+          <div className="hidden md:flex items-center space-x-4">
+            <button
+              onClick={onBookDemo}
+              className="text-primary hover:text-accent-1 transition-colors font-medium"
+            >
+              WATCH DEMO
+            </button>
+            <Link
+              to="/signup"
+              className="bg-accent-1 text-secondary px-6 py-2 rounded-layout hover:bg-accent-1/90 transition-all duration-200 font-semibold shadow-card"
+            >
+              START FREE TRIAL
+            </Link>
+          </div>
+
           {/* Mobile menu button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="md:hidden">
+            <button
+              onClick={toggleMenu}
+              className="text-primary hover:text-accent-1 focus:outline-none focus:text-accent-1"
+            >
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                {isMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-gray-200 py-4">
-            <nav className="flex flex-col space-y-4">
-              <a href="#features" className="text-gray-700 hover:text-green-600 transition-colors">Features</a>
-              <a href="#about" className="text-gray-700 hover:text-green-600 transition-colors">About</a>
-              <a href="#testimonials" className="text-gray-700 hover:text-green-600 transition-colors">Results</a>
-              <button
-                onClick={handleBookDemo}
-                className="border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 flex items-center justify-center space-x-2"
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-secondary border-t border-accent-2">
+              <Link
+                to="/#features"
+                className="block px-3 py-2 text-primary hover:text-accent-1 transition-colors font-medium"
+                onClick={() => setIsMenuOpen(false)}
               >
-                <Play size={16} />
-                <span>Watch Demo</span>
-              </button>
-              <button
-                onClick={handleStartTrial}
-                className="bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-3 rounded-lg hover:from-green-700 hover:to-green-800 transition-all duration-200 flex items-center justify-center space-x-2"
+                FEATURES
+              </Link>
+              <Link
+                to="/#about"
+                className="block px-3 py-2 text-primary hover:text-accent-1 transition-colors font-medium"
+                onClick={() => setIsMenuOpen(false)}
               >
-                <Calendar size={16} />
-                <span>Start Free Trial</span>
-              </button>
-            </nav>
+                ABOUT
+              </Link>
+              <Link
+                to="/#testimonials"
+                className="block px-3 py-2 text-primary hover:text-accent-1 transition-colors font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                SUCCESS STORIES
+              </Link>
+              <div className="pt-4 space-y-2">
+                <button
+                  onClick={() => {
+                    onBookDemo();
+                    setIsMenuOpen(false);
+                  }}
+                  className="block w-full text-left px-3 py-2 text-primary hover:text-accent-1 transition-colors font-medium"
+                >
+                  WATCH DEMO
+                </button>
+                <Link
+                  to="/signup"
+                  className="block w-full text-center bg-accent-1 text-secondary px-6 py-2 rounded-layout hover:bg-accent-1/90 transition-all duration-200 font-semibold shadow-card"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  START FREE TRIAL
+                </Link>
+              </div>
+            </div>
           </div>
         )}
       </div>
     </header>
   );
-}
+};
+
+export default Header;

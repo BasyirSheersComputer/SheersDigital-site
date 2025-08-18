@@ -1,260 +1,182 @@
 import React from 'react';
-import { Brain, BarChart3, Zap, CheckCircle, ArrowRight, Smartphone, Users, Shield } from 'lucide-react';
-import { trackCTAClick, trackCalendlyOpen } from '../utils/analytics';
+import { Link } from 'react-router-dom';
+import { Brain, TrendingUp, Database, Smartphone, Users, FileText, ArrowRight } from 'lucide-react';
 
-interface SolutionsProps {
-  onBookCall: () => void;
-}
-
-export default function Solutions({ onBookCall }: SolutionsProps) {
-  const handleStartTrial = (source: string) => {
-    trackCTAClick('solutions', source);
-    window.location.href = '/signup';
-  };
-
-  const handleBookDemo = (source: string) => {
-    trackCTAClick('solutions', source);
-    trackCalendlyOpen('solutions');
-    onBookCall();
-  };
-
+const Solutions: React.FC = () => {
   const features = [
     {
       icon: Brain,
-      title: "AI-Powered Demand Forecasting",
-      problem: "You're Guessing How Much Food to Prepare",
-      solution: "AI predicts demand with 95% accuracy",
+      title: "AI DEMAND FORECASTING",
+      subtitle: "94% Accuracy in Predicting Needs",
+      description: "Machine learning algorithms trained on Malaysian F&B patterns deliver 94% accurate demand predictions 7 days ahead, optimizing inventory and reducing waste.",
       benefits: [
-        "Predict daily demand based on 50+ factors",
-        "Weather, events, and historical data analysis",
-        "Reduce overproduction by 40%",
-        "Never run out of popular items again"
+        "94% forecast accuracy",
+        "7-day advance predictions",
+        "Malaysia-specific AI models",
+        "Automated reordering"
       ],
-      timeline: "Immediate results",
-      investment: "Included in $29/month",
-      color: "blue"
+      problem: "Poor demand forecasting leads to overproduction and waste"
     },
     {
-      icon: BarChart3,
-      title: "Real-Time Waste Tracking",
-      problem: "Manual Tracking Takes Hours Daily",
-      solution: "Automated waste monitoring & analytics",
+      icon: TrendingUp,
+      title: "REAL-TIME WASTE TRACKING",
+      subtitle: "Gram-Level Precision Monitoring",
+      description: "Track waste with gram-level precision across all locations. Automated alerts and root cause analysis prevent future waste incidents.",
       benefits: [
-        "Photo-based waste documentation",
-        "Real-time waste composition analysis",
-        "Staff accountability tracking",
-        "Automated compliance reporting"
+        "Gram-level precision",
+        "Real-time alerts",
+        "Root cause analysis",
+        "Cross-location optimization"
       ],
-      timeline: "Set up in 1 day",
-      investment: "Included in $29/month",
-      color: "emerald"
+      problem: "Manual waste tracking is inaccurate and time-consuming"
     },
     {
-      icon: Zap,
-      title: "Smart Inventory Management",
-      problem: "Stockouts & Overstocking Cost You $20K+ Yearly",
-      solution: "Intelligent inventory optimization",
+      icon: Database,
+      title: "MULTI-LOCATION INVENTORY CONTROL",
+      subtitle: "Centralized Management System",
+      description: "Manage inventory across all locations from a single dashboard. Automated reordering, cross-location transfers, and supplier integration.",
       benefits: [
-        "Automatic reorder recommendations",
-        "Multi-location inventory sync",
-        "Supplier performance tracking",
-        "Cost optimization suggestions"
+        "Centralized control",
+        "Automated reordering",
+        "Cross-location transfers",
+        "Supplier integration"
       ],
-      timeline: "Optimized in 1 week",
-      investment: "Included in $29/month",
-      color: "purple"
+      problem: "Scattered inventory data across multiple locations"
     },
     {
       icon: Smartphone,
-      title: "Mobile-First Interface",
-      problem: "Complex Systems Confuse Your Staff",
-      solution: "Simple mobile app for everyone",
+      title: "OPERATIONAL INTELLIGENCE DASHBOARD",
+      subtitle: "Real-Time KPI Monitoring",
+      description: "Comprehensive dashboard with real-time KPI monitoring, AI-powered trend analysis, and automated performance alerts.",
       benefits: [
-        "One-tap waste logging",
-        "Photo documentation",
-        "Real-time notifications",
-        "Works on any device"
+        "Real-time KPIs",
+        "AI trend analysis",
+        "Performance alerts",
+        "Operational insights"
       ],
-      timeline: "Staff trained in 1 day",
-      investment: "Included in $29/month",
-      color: "orange"
+      problem: "Lack of real-time operational visibility"
     },
     {
       icon: Users,
-      title: "Staff Training & Engagement",
-      problem: "Untrained Staff Waste More Food",
-      solution: "Built-in training & gamification",
+      title: "STAFF TRAINING & ENGAGEMENT",
+      subtitle: "Gamified Waste Reduction",
+      description: "Engage your team with gamified waste reduction challenges, training modules, and performance tracking to drive behavioral change.",
       benefits: [
-        "Interactive training modules",
-        "Waste reduction challenges",
-        "Performance leaderboards",
-        "Certification system"
+        "Gamified challenges",
+        "Training modules",
+        "Performance tracking",
+        "Behavioral change"
       ],
-      timeline: "Engagement starts immediately",
-      investment: "Included in $29/month",
-      color: "green"
+      problem: "Staff not engaged in waste reduction efforts"
     },
     {
-      icon: Shield,
-      title: "Compliance & Reporting",
-      problem: "Manual Reports Take Days to Create",
-      solution: "Automated compliance & analytics",
+      icon: FileText,
+      title: "COMPLIANCE & REPORTING",
+      subtitle: "Automated Regulatory Compliance",
+      description: "Automated compliance reporting meets all Malaysian regulatory requirements with complete audit trails and verification systems.",
       benefits: [
-        "Regulatory compliance reports",
-        "Sustainability reporting",
-        "Executive dashboards",
-        "Export to PDF/Excel"
+        "Automated reports",
+        "Regulatory compliance",
+        "Audit trails",
+        "Verification systems"
       ],
-      timeline: "Reports generated instantly",
-      investment: "Included in $29/month",
-      color: "red"
+      problem: "Manual compliance reporting is error-prone"
     }
   ];
 
-  const getColorClasses = (color: string) => {
-    const colorMap = {
-      blue: {
-        bg: "bg-blue-50",
-        border: "border-blue-200",
-        icon: "bg-blue-600",
-        text: "text-blue-600",
-        button: "bg-blue-600 hover:bg-blue-700"
-      },
-      emerald: {
-        bg: "bg-emerald-50",
-        border: "border-emerald-200",
-        icon: "bg-emerald-600",
-        text: "text-emerald-600",
-        button: "bg-emerald-600 hover:bg-emerald-700"
-      },
-      purple: {
-        bg: "bg-purple-50",
-        border: "border-purple-200",
-        icon: "bg-purple-600",
-        text: "text-purple-600",
-        button: "bg-purple-600 hover:bg-purple-700"
-      },
-      orange: {
-        bg: "bg-orange-50",
-        border: "border-orange-200",
-        icon: "bg-orange-600",
-        text: "text-orange-600",
-        button: "bg-orange-600 hover:bg-orange-700"
-      },
-      green: {
-        bg: "bg-green-50",
-        border: "border-green-200",
-        icon: "bg-green-600",
-        text: "text-green-600",
-        button: "bg-green-600 hover:bg-green-700"
-      },
-      red: {
-        bg: "bg-red-50",
-        border: "border-red-200",
-        icon: "bg-red-600",
-        text: "text-red-600",
-        button: "bg-red-600 hover:bg-red-700"
-      }
-    };
-    return colorMap[color as keyof typeof colorMap];
-  };
-
   return (
-    <section id="features" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="features" className="py-20 bg-background font-montserrat">
+      <div className="max-w-7xl mx-auto px-layout-padding">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            How WasteWise Solves Your Waste Problems
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+            PREMIUM AI FEATURES FOR TOP F&B REVENUE GENERATORS
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Our AI-powered platform combines 6 powerful features to eliminate food waste and boost your profits. 
-            Everything you need in one simple platform.
+          <p className="text-subheading text-primary/80 max-w-3xl mx-auto">
+            WasteWise AI delivers enterprise-grade features designed specifically for Malaysia's top F&B revenue generators. 
+            Achieve 35-45% waste reduction with guaranteed ROI in 30 days.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
-          {features.map((feature, index) => {
-            const colors = getColorClasses(feature.color);
-            const Icon = feature.icon;
-            
-            return (
-              <div key={index} className={`${colors.bg} ${colors.border} border-2 rounded-2xl p-8 hover:shadow-lg transition-all duration-300`}>
-                <div className={`${colors.icon} w-16 h-16 rounded-full flex items-center justify-center mb-6`}>
-                  <Icon className="text-white" size={32} />
-                </div>
-                
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{feature.title}</h3>
-                
-                <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
-                  <p className="text-red-800 font-medium text-sm">❌ {feature.problem}</p>
-                </div>
-                
-                <div className="bg-white rounded-lg p-4 mb-6 border">
-                  <p className="text-gray-900 font-medium text-sm">✅ {feature.solution}</p>
-                </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <div key={index} className="bg-secondary rounded-card p-8 shadow-card border border-accent-2 hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
+              <div className="w-16 h-16 bg-accent-1/10 rounded-layout flex items-center justify-center mb-6">
+                <feature.icon className="w-8 h-8 text-accent-1" />
+              </div>
+              
+              <h3 className="text-xl font-bold text-primary mb-2">
+                {feature.title}
+              </h3>
+              
+              <p className="text-accent-1 font-semibold text-sm mb-4">
+                {feature.subtitle}
+              </p>
+              
+              <p className="text-body text-primary/70 mb-6 leading-relaxed">
+                {feature.description}
+              </p>
 
-                <h4 className="font-bold text-gray-900 mb-3">What You Get:</h4>
-                <ul className="space-y-2 mb-6">
+              <div className="bg-accent-2/50 rounded-layout p-4 mb-6">
+                <p className="text-sm font-semibold text-primary mb-3">SOLVES:</p>
+                <p className="text-sm text-primary/70">{feature.problem}</p>
+              </div>
+              
+              <div className="space-y-2 mb-8">
+                <p className="text-sm font-semibold text-primary">KEY BENEFITS:</p>
+                <ul className="space-y-1">
                   {feature.benefits.map((benefit, idx) => (
-                    <li key={idx} className="flex items-start space-x-2">
-                      <CheckCircle className={`${colors.text} flex-shrink-0 mt-0.5`} size={16} />
-                      <span className="text-gray-700 text-sm">{benefit}</span>
+                    <li key={idx} className="text-sm text-primary/70 flex items-center">
+                      <div className="w-1.5 h-1.5 bg-accent-1 rounded-full mr-2"></div>
+                      {benefit}
                     </li>
                   ))}
                 </ul>
-
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div>
-                    <p className="text-gray-600 text-xs font-medium">Results:</p>
-                    <p className="text-gray-900 font-bold">{feature.timeline}</p>
-                  </div>
-                  <div>
-                    <p className="text-gray-600 text-xs font-medium">Cost:</p>
-                    <p className="text-gray-900 font-bold">{feature.investment}</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-2">
-                  <button
-                    onClick={() => handleStartTrial(`Start Trial - ${feature.title}`)}
-                    className={`flex-1 ${colors.button} text-white px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium`}
-                  >
-                    Start Free Trial
-                  </button>
-                  <button
-                    onClick={() => handleBookDemo(`Book Demo - ${feature.title}`)}
-                    className="flex-1 border border-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:border-gray-400 hover:bg-gray-50 transition-colors duration-200 text-sm font-medium"
-                  >
-                    See Demo
-                  </button>
-                </div>
               </div>
-            );
-          })}
+
+              <div className="flex space-x-3">
+                <Link
+                  to="/signup"
+                  className="flex-1 bg-accent-1 text-secondary px-4 py-2 rounded-layout hover:bg-accent-1/90 transition-all duration-200 font-semibold text-sm text-center shadow-card"
+                >
+                  START FREE TRIAL
+                </Link>
+                <button className="flex-1 border border-accent-1 text-accent-1 px-4 py-2 rounded-layout hover:bg-accent-1 hover:text-secondary transition-all duration-200 font-semibold text-sm">
+                  SEE DEMO
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
 
-        <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl p-8 text-center">
-          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-            Get All 6 Features + 30-Day Free Trial
-          </h3>
-          <p className="text-green-100 text-lg mb-6">
-            Complete waste management solution. Most restaurants see 30% waste reduction within 30 days.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <div className="text-white">
-              <span className="text-3xl font-bold">$29/month</span>
-              <span className="text-green-200 text-sm ml-2">after free trial</span>
+        {/* Premium Positioning */}
+        <div className="mt-16 bg-primary rounded-card p-8 text-secondary">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold mb-4">
+              PREMIUM POSITIONING FOR TOP REVENUE GENERATORS
+            </h3>
+            <p className="text-subheading opacity-90">
+              Designed exclusively for Malaysia's top 10% F&B revenue generators
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-accent-1 mb-2">RM 2M-10M</div>
+              <div className="text-sm opacity-80">ANNUAL REVENUE TARGET</div>
             </div>
-            <button
-              onClick={() => handleStartTrial('Complete Package - Start Free Trial')}
-              className="bg-white text-green-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200 font-semibold flex items-center space-x-2"
-            >
-              <span>Start Free Trial</span>
-              <ArrowRight size={16} />
-            </button>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-accent-1 mb-2">35-45%</div>
+              <div className="text-sm opacity-80">GUARANTEED WASTE REDUCTION</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-accent-1 mb-2">30 DAYS</div>
+              <div className="text-sm opacity-80">MONEY-BACK GUARANTEE</div>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default Solutions;

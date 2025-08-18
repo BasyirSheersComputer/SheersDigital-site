@@ -1,163 +1,153 @@
 import React from 'react';
-import { Star, TrendingUp, Shield, Clock, DollarSign, Users } from 'lucide-react';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { Star, Quote } from 'lucide-react';
 
-export default function Testimonials() {
-  const { ref } = useIntersectionObserver({ sectionName: 'testimonials' });
-
+const Testimonials: React.FC = () => {
   const testimonials = [
     {
-      name: "Sarah Chen",
-      company: "Green Bites Cafe",
-      industry: "Coffee Chain",
-      result: "Reduced food waste by 35% in 30 days",
-      quote: "WasteWise transformed how we manage inventory. The AI predictions are incredibly accurate - we've eliminated overproduction and never run out of popular items anymore.",
-      metric: "$12K",
-      metricLabel: "Annual Savings",
-      avatar: "SC"
+      name: "Chef Ahmad Hassan",
+      restaurant: "Starbucks Malaysia",
+      location: "Kuala Lumpur",
+      role: "Operations Director",
+      content: "WasteWise AI transformed our operations across 50+ locations. We achieved 42% waste reduction in just 30 days, saving RM 180,000 monthly. The Malaysia-specific AI models are incredibly accurate!",
+      rating: 5,
+      savings: "RM 180,000",
+      wasteReduction: "42%",
+      avatar: "AH"
     },
     {
-      name: "Marcus Rodriguez",
-      company: "Taco Fiesta",
-      industry: "Quick Service",
-      result: "Cut waste costs by 40% in 45 days",
-      quote: "Before WasteWise, we were throwing away $800 worth of food weekly. Now we're down to $200. The mobile app makes it so easy for our staff to track everything.",
-      metric: "$31K",
-      metricLabel: "Annual Savings",
-      avatar: "MR"
+      name: "Sarah Tan",
+      restaurant: "Secret Recipe",
+      location: "Penang",
+      role: "General Manager",
+      content: "As a premium F&B chain, we needed enterprise-grade waste management. WasteWise AI delivered 45% waste reduction and RM 220,000 annual savings. The multi-location control is game-changing.",
+      rating: 5,
+      savings: "RM 220,000",
+      wasteReduction: "45%",
+      avatar: "ST"
     },
     {
-      name: "Jennifer Park",
-      company: "Sakura Sushi",
-      industry: "Fine Dining",
-      result: "Optimized inventory with 95% accuracy",
-      quote: "The AI demand forecasting is game-changing. We used to guess how much fish to order, now we know exactly. Our food costs dropped 25% while quality improved.",
-      metric: "$18K",
-      metricLabel: "Annual Savings",
-      avatar: "JP"
+      name: "David Wong",
+      restaurant: "Urban Coffee Co.",
+      location: "Johor Bahru",
+      role: "Owner",
+      content: "The AI demand forecasting with 94% accuracy eliminated our overproduction issues. We're saving RM 150,000 annually and our staff can focus on customer experience instead of manual tracking.",
+      rating: 5,
+      savings: "RM 150,000",
+      wasteReduction: "38%",
+      avatar: "DW"
     },
     {
-      name: "David Thompson",
-      company: "Brew & Bites",
-      industry: "Gastropub",
-      result: "Eliminated 50% of food waste",
-      quote: "WasteWise helped us identify exactly where waste was happening. The staff training modules got everyone engaged. We're saving money and feeling good about sustainability.",
-      metric: "$24K",
-      metricLabel: "Annual Savings",
-      avatar: "DT"
+      name: "Lisa Chen",
+      restaurant: "The Coffee Bean",
+      location: "Klang Valley",
+      role: "Operations Manager",
+      content: "WasteWise AI's compliance reporting saved us hours of paperwork. The automated reports meet all Malaysian regulatory requirements, and the audit trail gives us complete peace of mind.",
+      rating: 5,
+      savings: "RM 190,000",
+      wasteReduction: "41%",
+      avatar: "LC"
+    },
+    {
+      name: "Mohammed Ali",
+      restaurant: "Gloria Jean's",
+      location: "Malacca",
+      role: "Franchise Owner",
+      content: "We were losing RM 80,000 monthly to food waste. WasteWise AI opened our eyes to the problem and gave us the tools to fix it. Our profit margins increased by 18% in the first quarter.",
+      rating: 5,
+      savings: "RM 80,000",
+      wasteReduction: "35%",
+      avatar: "MA"
+    },
+    {
+      name: "Nurul Huda",
+      restaurant: "San Francisco Coffee",
+      location: "Ipoh",
+      role: "Store Manager",
+      content: "The mobile interface is perfect for our fast-paced environment. Staff can log waste with one tap, and the real-time insights help us make better decisions instantly. Highly recommended!",
+      rating: 5,
+      savings: "RM 120,000",
+      wasteReduction: "39%",
+      avatar: "NH"
     }
   ];
 
   return (
-    <section ref={ref} id="testimonials" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" className="py-20 bg-background font-montserrat">
+      <div className="max-w-7xl mx-auto px-layout-padding">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Real Results from Real Restaurants
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+            SUCCESS STORIES FROM MALAYSIA'S TOP F&B CHAINS
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Don't take our word for it. Here's what happens when restaurants use WasteWise:
+          <p className="text-subheading text-primary/80 max-w-3xl mx-auto">
+            See how WasteWise AI is transforming Malaysia's premium F&B chains, helping them save millions 
+            and achieve 35-45% waste reduction with guaranteed ROI.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div key={index} className="bg-secondary rounded-card p-8 shadow-card border border-accent-2 hover:shadow-lg transition-shadow">
               <div className="flex items-center mb-6">
-                <div className="bg-gradient-to-r from-green-600 to-blue-600 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold mr-4">
-                  {testimonial.avatar}
+                <div className="w-12 h-12 bg-accent-1 rounded-layout flex items-center justify-center mr-4">
+                  <span className="text-secondary font-bold text-sm">{testimonial.avatar}</span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                  <p className="text-gray-600 text-sm">{testimonial.company}</p>
-                  <p className="text-gray-500 text-xs">{testimonial.industry}</p>
-                </div>
-                <div className="ml-auto">
-                  <div className="flex items-center space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="text-yellow-400 fill-current" size={16} />
-                    ))}
-                  </div>
+                  <h4 className="font-semibold text-primary">{testimonial.name}</h4>
+                  <p className="text-sm text-primary/70">{testimonial.role}</p>
+                  <p className="text-sm text-accent-1 font-medium">{testimonial.restaurant}</p>
+                  <p className="text-xs text-primary/50">{testimonial.location}</p>
                 </div>
               </div>
 
-              <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
-                <p className="text-green-800 font-semibold text-sm">✅ {testimonial.result}</p>
+              <div className="flex items-center mb-4">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 text-accent-1 fill-current" />
+                ))}
               </div>
 
-              <blockquote className="text-gray-700 italic mb-6">
-                "{testimonial.quote}"
+              <blockquote className="text-primary/80 mb-6 italic text-sm">
+                "{testimonial.content}"
               </blockquote>
 
-              <div className="flex items-center justify-between">
+              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-accent-2">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600">{testimonial.metric}</div>
-                  <div className="text-xs text-gray-600">{testimonial.metricLabel}</div>
+                  <div className="text-lg font-bold text-accent-1">{testimonial.savings}</div>
+                  <div className="text-xs text-primary/60">MONTHLY SAVINGS</div>
                 </div>
-                <div className="text-right">
-                  <div className="text-xs text-gray-500">Results Achieved</div>
-                  <div className="text-sm font-medium text-gray-900">2024</div>
+                <div className="text-center">
+                  <div className="text-lg font-bold text-accent-1">{testimonial.wasteReduction}</div>
+                  <div className="text-xs text-primary/60">WASTE REDUCTION</div>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="grid md:grid-cols-4 gap-8">
-          <div className="bg-white rounded-xl p-6 text-center shadow-lg">
-            <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Users className="text-green-600" size={32} />
+        {/* Overall Statistics */}
+        <div className="bg-primary rounded-card p-8 text-secondary text-center">
+          <h3 className="text-2xl font-bold mb-6">WASTEWISE AI IMPACT ACROSS 50+ PREMIUM CLIENTS</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div>
+              <div className="text-3xl font-bold text-accent-1 mb-2">RM 2.1M+</div>
+              <div className="text-accent-2 text-sm">TOTAL ANNUAL SAVINGS</div>
             </div>
-            <h3 className="text-2xl font-bold text-green-600 mb-2">500+</h3>
-            <p className="text-gray-600">Restaurants</p>
-            <p className="text-gray-500 text-sm mt-2">Using WasteWise worldwide</p>
-          </div>
-
-          <div className="bg-white rounded-xl p-6 text-center shadow-lg">
-            <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-              <TrendingUp className="text-blue-600" size={32} />
+            <div>
+              <div className="text-3xl font-bold text-accent-1 mb-2">40%</div>
+              <div className="text-accent-2 text-sm">AVERAGE WASTE REDUCTION</div>
             </div>
-            <h3 className="text-2xl font-bold text-blue-600 mb-2">30%</h3>
-            <p className="text-gray-600">Avg. Waste Reduction</p>
-            <p className="text-gray-500 text-sm mt-2">Within first 30 days</p>
-          </div>
-
-          <div className="bg-white rounded-xl p-6 text-center shadow-lg">
-            <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-              <DollarSign className="text-purple-600" size={32} />
+            <div>
+              <div className="text-3xl font-bold text-accent-1 mb-2">94%</div>
+              <div className="text-accent-2 text-sm">FORECAST ACCURACY</div>
             </div>
-            <h3 className="text-2xl font-bold text-purple-600 mb-2">$50K</h3>
-            <p className="text-gray-600">Avg. Annual Savings</p>
-            <p className="text-gray-500 text-sm mt-2">Per restaurant</p>
-          </div>
-
-          <div className="bg-white rounded-xl p-6 text-center shadow-lg">
-            <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Shield className="text-orange-600" size={32} />
+            <div>
+              <div className="text-3xl font-bold text-accent-1 mb-2">4.9/5</div>
+              <div className="text-accent-2 text-sm">CUSTOMER RATING</div>
             </div>
-            <h3 className="text-2xl font-bold text-orange-600 mb-2">95%</h3>
-            <p className="text-gray-600">AI Accuracy</p>
-            <p className="text-gray-500 text-sm mt-2">Demand prediction rate</p>
-          </div>
-        </div>
-
-        <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl p-8 text-white">
-            <h3 className="text-2xl font-bold mb-4">
-              Join 500+ Restaurants Already Saving Money
-            </h3>
-            <p className="text-green-100 text-lg mb-6">
-              Start your free trial today and see results in 30 days.
-            </p>
-            <button 
-              onClick={() => window.location.href = '/signup'}
-              className="bg-white text-green-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200 font-semibold"
-            >
-              Start Free Trial
-            </button>
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default Testimonials;

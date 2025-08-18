@@ -1,98 +1,117 @@
 import React from 'react';
-import { AlertTriangle, Clock, DollarSign, Users, Trash2, TrendingDown } from 'lucide-react';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { AlertTriangle, DollarSign, Clock, Users, TrendingDown, Shield } from 'lucide-react';
 
-export default function ProblemAgitation() {
-  const { ref } = useIntersectionObserver({ sectionName: 'problem_agitation' });
+const ProblemAgitation: React.FC = () => {
+  const problems = [
+    {
+      icon: DollarSign,
+      title: "RM 3.2B ANNUAL WASTE COST",
+      description: "Malaysia's F&B industry loses RM 3.2 billion annually to food waste, directly impacting your bottom line and profitability.",
+      impact: "RM 50K-200K monthly waste per location"
+    },
+    {
+      icon: Clock,
+      title: "MANUAL INVENTORY NIGHTMARE",
+      description: "Staff spend 20+ hours weekly on manual tracking, leading to human errors, stockouts, and overordering that compounds waste.",
+      impact: "40% of inventory goes unused"
+    },
+    {
+      icon: TrendingDown,
+      title: "42% AVERAGE WASTE RATE",
+      description: "Coffee chains and restaurants average 42% waste rates due to poor demand forecasting and reactive inventory management.",
+      impact: "RM 100K+ annual losses per location"
+    },
+    {
+      icon: Users,
+      title: "STAFF FRUSTRATION & TURNOVER",
+      description: "Kitchen staff overwhelmed with paperwork instead of focusing on food quality and customer experience.",
+      impact: "15% higher staff turnover rates"
+    },
+    {
+      icon: AlertTriangle,
+      title: "COMPLIANCE & AUDIT RISKS",
+      description: "Manual processes create audit trails that are difficult to maintain and verify, risking regulatory compliance issues.",
+      impact: "RM 50K+ potential fines annually"
+    },
+    {
+      icon: Shield,
+      title: "COMPETITIVE DISADVANTAGE",
+      description: "While you struggle with waste, competitors using AI solutions are optimizing operations and capturing market share.",
+      impact: "15-25% market share loss risk"
+    }
+  ];
 
   return (
-    <section ref={ref} id="about" className="py-20 bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-secondary font-montserrat">
+      <div className="max-w-7xl mx-auto px-layout-padding">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Here's What Happens When You Don't Fix Food Waste...
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+            THE REAL COST OF F&B WASTE IN MALAYSIA
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Every day you wait, you're literally throwing money in the trash. Here's the brutal truth about what food waste is doing to your restaurant right now.
+          <p className="text-subheading text-primary/80 max-w-3xl mx-auto">
+            Every year, Malaysia's F&B industry loses RM 3.2 billion to preventable waste. 
+            Top revenue generators are losing RM 50K-200K monthly per location. 
+            It's time to stop the bleeding.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="bg-red-900/50 border border-red-800 rounded-lg p-6 text-center">
-            <div className="bg-red-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-              <DollarSign className="text-red-200" size={32} />
+          {problems.map((problem, index) => (
+            <div key={index} className="bg-background rounded-card p-8 shadow-card border border-accent-2 hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-accent-1/10 rounded-layout flex items-center justify-center mb-6">
+                <problem.icon className="w-6 h-6 text-accent-1" />
+              </div>
+              
+              <h3 className="text-lg font-bold text-primary mb-4">
+                {problem.title}
+              </h3>
+              
+              <p className="text-body text-primary/70 mb-6 leading-relaxed">
+                {problem.description}
+              </p>
+              
+              <div className="bg-accent-1/5 rounded-layout p-4 border-l-4 border-accent-1">
+                <p className="text-sm font-semibold text-accent-1">
+                  IMPACT: {problem.impact}
+                </p>
+              </div>
             </div>
-            <h3 className="text-xl font-bold text-red-200 mb-2">Profit Loss</h3>
-            <p className="text-red-300 text-sm">
-              Restaurants lose an average of $50,000 annually to food waste. That's $137 per day going straight to the dumpster.
-            </p>
-          </div>
-
-          <div className="bg-orange-900/50 border border-orange-800 rounded-lg p-6 text-center">
-            <div className="bg-orange-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Trash2 className="text-orange-200" size={32} />
-            </div>
-            <h3 className="text-xl font-bold text-orange-200 mb-2">Food Waste</h3>
-            <p className="text-orange-300 text-sm">
-              30-40% of all food produced is wasted. Your restaurant is likely throwing away 1 in 3 meals you prepare.
-            </p>
-          </div>
-
-          <div className="bg-yellow-900/50 border border-yellow-800 rounded-lg p-6 text-center">
-            <div className="bg-yellow-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-              <AlertTriangle className="text-yellow-200" size={32} />
-            </div>
-            <h3 className="text-xl font-bold text-yellow-200 mb-2">Inventory Issues</h3>
-            <p className="text-yellow-300 text-sm">
-              Poor forecasting leads to stockouts and overstocking. You're either disappointing customers or wasting money.
-            </p>
-          </div>
-
-          <div className="bg-purple-900/50 border border-purple-800 rounded-lg p-6 text-center">
-            <div className="bg-purple-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Clock className="text-purple-200" size={32} />
-            </div>
-            <h3 className="text-xl font-bold text-purple-200 mb-2">Staff Time Waste</h3>
-            <p className="text-purple-300 text-sm">
-              Manual waste tracking takes 2-3 hours daily. Your staff could be serving customers instead of filling out forms.
-            </p>
-          </div>
-
-          <div className="bg-blue-900/50 border border-blue-800 rounded-lg p-6 text-center">
-            <div className="bg-blue-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-              <TrendingDown className="text-blue-200" size={32} />
-            </div>
-            <h3 className="text-xl font-bold text-blue-200 mb-2">Customer Satisfaction</h3>
-            <p className="text-blue-300 text-sm">
-              Stockouts mean disappointed customers. 60% won't return after a bad experience with unavailable menu items.
-            </p>
-          </div>
-
-          <div className="bg-green-900/50 border border-green-800 rounded-lg p-6 text-center">
-            <div className="bg-green-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Users className="text-green-200" size={32} />
-            </div>
-            <h3 className="text-xl font-bold text-green-200 mb-2">Competition</h3>
-            <p className="text-green-300 text-sm">
-              While you waste money, competitors using AI are optimizing costs and stealing your customers with better prices.
-            </p>
-          </div>
+          ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <div className="bg-red-600/20 border border-red-500 rounded-lg p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-red-400 mb-4">
-              The Brutal Math: You're Losing $137 Every Single Day
+        {/* Financial Impact Summary */}
+        <div className="mt-16 bg-primary rounded-card p-8 text-secondary">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold mb-4">
+              THE BOTTOM LINE IMPACT
             </h3>
-            <p className="text-red-300 text-lg leading-relaxed">
-              While you're reading this, your competitors who fixed their waste problems are capturing market share, 
-              offering better prices, and scaling faster than ever. The question isn't whether you can afford to fix this...
-              <br/><br/>
-              <span className="font-bold text-white">The question is: Can you afford NOT to?</span>
+            <p className="text-subheading opacity-90">
+              For Malaysia's top F&B revenue generators (RM 2M-10M annually)
             </p>
+          </div>
+          
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-accent-1 mb-2">RM 3.2B</div>
+              <div className="text-sm opacity-80">ANNUAL INDUSTRY WASTE</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-accent-1 mb-2">RM 150K</div>
+              <div className="text-sm opacity-80">AVERAGE MONTHLY LOSS</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-accent-1 mb-2">42%</div>
+              <div className="text-sm opacity-80">AVERAGE WASTE RATE</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-accent-1 mb-2">20hr</div>
+              <div className="text-sm opacity-80">WEEKLY MANUAL WORK</div>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default ProblemAgitation;
