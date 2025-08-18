@@ -48,7 +48,7 @@ const SignupPage: React.FC = () => {
                 START YOUR FREE 30-DAY TRIAL
               </h1>
               <p className="text-primary/70">
-                Join 50+ premium F&B chains already saving millions with WasteWise AI
+                Join 50+ premium F&B chains already saving millions with Servora AI
               </p>
             </div>
 
@@ -187,7 +187,7 @@ const SignupPage: React.FC = () => {
           {/* Benefits Sidebar */}
           <div className="space-y-6">
             <div className="bg-primary rounded-card p-8 text-secondary">
-              <h2 className="text-2xl font-bold mb-6">WHY CHOOSE WASTEWISE AI?</h2>
+              <h2 className="text-2xl font-bold mb-6">WHY CHOOSE SERVORA AI?</h2>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-accent-1 flex-shrink-0 mt-0.5" />

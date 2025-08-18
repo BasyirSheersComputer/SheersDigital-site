@@ -20,10 +20,10 @@ const Header: React.FC<HeaderProps> = ({ onBookDemo }) => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-accent-1 rounded-layout flex items-center justify-center">
-                <span className="text-secondary font-bold text-sm">W</span>
+                <span className="text-secondary font-bold text-sm">S</span>
               </div>
               <div>
-                <span className="text-xl font-bold text-primary">WASTEWISE AI</span>
+                <span className="text-xl font-bold text-primary">SERVORA AI</span>
                 <span className="text-xs text-primary/70 block -mt-1">Premium F&B Intelligence</span>
               </div>
             </Link>

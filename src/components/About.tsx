@@ -8,10 +8,10 @@ const About: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-              THE WASTEWISE AI STORY
+              THE SERVORA AI STORY
             </h2>
             <p className="text-body text-primary/70 mb-6 leading-relaxed">
-              WasteWise AI was born from a critical observation: Malaysia's F&B industry is losing RM 3.2 billion annually to preventable waste. 
+              Servora AI was born from a critical observation: Malaysia's F&B industry is losing RM 3.2 billion annually to preventable waste. 
               While top revenue generators focus on growth, they're silently losing RM 50K-200K monthly per location to inefficient operations.
             </p>
             <p className="text-body text-primary/70 mb-8 leading-relaxed">
@@ -104,7 +104,7 @@ const About: React.FC = () => {
                 Together, we can transform Malaysia's F&B industry.
               </p>
               <div className="text-3xl font-bold">50+ PREMIUM CLIENTS</div>
-              <div className="text-subheading opacity-90">Already achieving 40% waste reduction with WasteWise AI</div>
+              <div className="text-subheading opacity-90">Already achieving 40% waste reduction with Servora AI</div>
             </div>
           </div>
         </div>

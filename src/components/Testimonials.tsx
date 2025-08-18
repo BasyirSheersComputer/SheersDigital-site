@@ -8,7 +8,7 @@ const Testimonials: React.FC = () => {
       restaurant: "Starbucks Malaysia",
       location: "Kuala Lumpur",
       role: "Operations Director",
-      content: "WasteWise AI transformed our operations across 50+ locations. We achieved 42% waste reduction in just 30 days, saving RM 180,000 monthly. The Malaysia-specific AI models are incredibly accurate!",
+      content: "Servora AI transformed our operations across 50+ locations. We achieved 42% waste reduction in just 30 days, saving RM 180,000 monthly. The Malaysia-specific AI models are incredibly accurate!",
       rating: 5,
       savings: "RM 180,000",
       wasteReduction: "42%",
@@ -19,7 +19,7 @@ const Testimonials: React.FC = () => {
       restaurant: "Secret Recipe",
       location: "Penang",
       role: "General Manager",
-      content: "As a premium F&B chain, we needed enterprise-grade waste management. WasteWise AI delivered 45% waste reduction and RM 220,000 annual savings. The multi-location control is game-changing.",
+      content: "As a premium F&B chain, we needed enterprise-grade waste management. Servora AI delivered 45% waste reduction and RM 220,000 annual savings. The multi-location control is game-changing.",
       rating: 5,
       savings: "RM 220,000",
       wasteReduction: "45%",
@@ -41,7 +41,7 @@ const Testimonials: React.FC = () => {
       restaurant: "The Coffee Bean",
       location: "Klang Valley",
       role: "Operations Manager",
-      content: "WasteWise AI's compliance reporting saved us hours of paperwork. The automated reports meet all Malaysian regulatory requirements, and the audit trail gives us complete peace of mind.",
+      content: "Servora AI's compliance reporting saved us hours of paperwork. The automated reports meet all Malaysian regulatory requirements, and the audit trail gives us complete peace of mind.",
       rating: 5,
       savings: "RM 190,000",
       wasteReduction: "41%",
@@ -52,7 +52,7 @@ const Testimonials: React.FC = () => {
       restaurant: "Gloria Jean's",
       location: "Malacca",
       role: "Franchise Owner",
-      content: "We were losing RM 80,000 monthly to food waste. WasteWise AI opened our eyes to the problem and gave us the tools to fix it. Our profit margins increased by 18% in the first quarter.",
+      content: "We were losing RM 80,000 monthly to food waste. Servora AI opened our eyes to the problem and gave us the tools to fix it. Our profit margins increased by 18% in the first quarter.",
       rating: 5,
       savings: "RM 80,000",
       wasteReduction: "35%",
@@ -79,7 +79,7 @@ const Testimonials: React.FC = () => {
             SUCCESS STORIES FROM MALAYSIA'S TOP F&B CHAINS
           </h2>
           <p className="text-subheading text-primary/80 max-w-3xl mx-auto">
-            See how WasteWise AI is transforming Malaysia's premium F&B chains, helping them save millions 
+            See how Servora AI is transforming Malaysia's premium F&B chains, helping them save millions 
             and achieve 35-45% waste reduction with guaranteed ROI.
           </p>
         </div>
@@ -125,7 +125,7 @@ const Testimonials: React.FC = () => {
 
         {/* Overall Statistics */}
         <div className="bg-primary rounded-card p-8 text-secondary text-center">
-          <h3 className="text-2xl font-bold mb-6">WASTEWISE AI IMPACT ACROSS 50+ PREMIUM CLIENTS</h3>
+          <h3 className="text-2xl font-bold mb-6">SERVORA AI IMPACT ACROSS 50+ PREMIUM CLIENTS</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
               <div className="text-3xl font-bold text-accent-1 mb-2">RM 2.1M+</div>

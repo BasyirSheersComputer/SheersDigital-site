@@ -15,7 +15,7 @@ const CTA: React.FC<CTAProps> = ({ onBookDemo }) => {
             STOP LOSING RM 50K-200K MONTHLY TO F&B WASTE
           </h2>
           <p className="text-subheading text-accent-2 mb-8 max-w-3xl mx-auto">
-            Join 50+ premium F&B chains already saving millions with WasteWise AI. 
+            Join 50+ premium F&B chains already saving millions with Servora AI. 
             Start your free trial today and achieve 35-45% waste reduction with guaranteed ROI in 30 days.
           </p>
 

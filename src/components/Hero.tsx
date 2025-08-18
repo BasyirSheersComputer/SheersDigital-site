@@ -27,7 +27,7 @@ const Hero: React.FC<HeroProps> = ({ onBookDemo }) => {
 
           {/* Subheadline */}
           <p className="text-subheading text-primary/80 mb-8 max-w-3xl mx-auto leading-relaxed">
-            WasteWise AI delivers premium AI-powered waste management for Malaysia's top F&B revenue generators. 
+            Servora AI delivers premium AI-powered waste management for Malaysia's top F&B revenue generators. 
             Achieve 35-45% waste reduction with guaranteed ROI in 30 days.
           </p>
 

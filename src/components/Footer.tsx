@@ -11,10 +11,10 @@ const Footer: React.FC = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-6">
               <div className="w-10 h-10 bg-accent-1 rounded-layout flex items-center justify-center">
-                <span className="text-secondary font-bold text-lg">W</span>
+                <span className="text-secondary font-bold text-lg">S</span>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-secondary">WASTEWISE AI</h3>
+                <h3 className="text-xl font-bold text-secondary">SERVORA AI</h3>
                 <p className="text-accent-2 text-sm">Premium F&B Intelligence</p>
               </div>
             </div>
@@ -115,7 +115,7 @@ const Footer: React.FC = () => {
               <Mail className="w-5 h-5 text-accent-1" />
               <div>
                 <p className="text-accent-2 text-sm">Email</p>
-                <p className="text-secondary">hello@wastewise-ai.com</p>
+                <p className="text-secondary">hello@servora-ai.com</p>
               </div>
             </div>
             <div className="flex items-center space-x-3">

@@ -92,7 +92,7 @@ const Solutions: React.FC = () => {
             PREMIUM AI FEATURES FOR TOP F&B REVENUE GENERATORS
           </h2>
           <p className="text-subheading text-primary/80 max-w-3xl mx-auto">
-            WasteWise AI delivers enterprise-grade features designed specifically for Malaysia's top F&B revenue generators. 
+            Servora AI delivers enterprise-grade features designed specifically for Malaysia's top F&B revenue generators. 
             Achieve 35-45% waste reduction with guaranteed ROI in 30 days.
           </p>
         </div>
