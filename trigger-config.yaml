@@ -1,0 +1,11 @@
+name: projects/sheers-software/triggers/servora-ai-deploy
+description: "Auto-deploy Servora AI on push to main branch"
+github:
+  owner: BasyirSheersComputer
+  name: SheersDigital-site
+  push:
+    branch: main
+filename: cloudbuild.yaml
+substitutions:
+  _REGION: asia-southeast1
+  _SERVICE_NAME: servora-ai
