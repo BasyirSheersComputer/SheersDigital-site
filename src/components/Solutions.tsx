@@ -1,85 +1,118 @@
 import React from 'react';
-import { Brain, Cloud, Zap, CheckCircle, ArrowRight, Award, Clock, TrendingUp, Rocket } from 'lucide-react';
+import { Brain, BarChart3, Zap, CheckCircle, ArrowRight, Smartphone, Users, Shield } from 'lucide-react';
 import { trackCTAClick, trackCalendlyOpen } from '../utils/analytics';
-import GrowthChart from './charts/GrowthChart';
 
 interface SolutionsProps {
   onBookCall: () => void;
 }
 
 export default function Solutions({ onBookCall }: SolutionsProps) {
-  const handleBookCall = (source: string) => {
+  const handleStartTrial = (source: string) => {
+    trackCTAClick('solutions', source);
+    window.location.href = '/signup';
+  };
+
+  const handleBookDemo = (source: string) => {
     trackCTAClick('solutions', source);
     trackCalendlyOpen('solutions');
     onBookCall();
   };
 
-  const solutions = [
+  const features = [
     {
       icon: Brain,
-      title: "AI Automation Revolution",
-      hook: "The $1M AI Secret That Automates 85% of Your Business",
-      problem: "Your team wastes 40+ hours weekly on tasks AI can do in minutes",
-      solution: "Custom AI automation that runs your business while you sleep",
+      title: "AI-Powered Demand Forecasting",
+      problem: "You're Guessing How Much Food to Prepare",
+      solution: "AI predicts demand with 95% accuracy",
       benefits: [
-        "Eliminate 85% of manual work in 30 days",
-        "AI customer service that never sleeps (24/7 revenue)",
-        "Predictive analytics that see the future",
-        "Scale to 10X revenue without hiring anyone"
+        "Predict daily demand based on 50+ factors",
+        "Weather, events, and historical data analysis",
+        "Reduce overproduction by 40%",
+        "Never run out of popular items again"
       ],
-      timeline: "30 days",
-      investment: "From RM25,000",
-      color: "purple",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop&q=80",
-      keywords: "AI automation malaysia, artificial intelligence, machine learning, business automation"
+      timeline: "Immediate results",
+      investment: "Included in $29/month",
+      color: "blue"
     },
     {
-      icon: Cloud,
-      title: "Cloud Transformation Domination",
-      hook: "How to 10X Your Business Speed While Cutting Costs 60%",
-      problem: "Legacy systems are bleeding RM50K+ monthly and killing growth",
-      solution: "Military-grade cloud infrastructure that scales infinitely",
+      icon: BarChart3,
+      title: "Real-Time Waste Tracking",
+      problem: "Manual Tracking Takes Hours Daily",
+      solution: "Automated waste monitoring & analytics",
       benefits: [
-        "10X faster operations overnight",
-        "60% cost reduction guaranteed",
-        "Infinite scalability (handle 1M customers instantly)",
-        "Bulletproof security (Fort Knox level)"
+        "Photo-based waste documentation",
+        "Real-time waste composition analysis",
+        "Staff accountability tracking",
+        "Automated compliance reporting"
       ],
-      timeline: "45 days",
-      investment: "From RM35,000",
-      color: "blue",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop&q=80",
-      keywords: "cloud transformation malaysia, digital infrastructure, cloud migration, scalability"
+      timeline: "Set up in 1 day",
+      investment: "Included in $29/month",
+      color: "emerald"
     },
     {
-      icon: Rocket,
-      title: "Digital Ecosystem Mastery",
-      hook: "The Complete Digital Empire That Prints Money 24/7",
-      problem: "Disconnected systems creating chaos and lost opportunities",
-      solution: "Integrated digital ecosystem that works like a money machine",
+      icon: Zap,
+      title: "Smart Inventory Management",
+      problem: "Stockouts & Overstocking Cost You $20K+ Yearly",
+      solution: "Intelligent inventory optimization",
       benefits: [
-        "All systems talking to each other (no more chaos)",
-        "Real-time business intelligence (see everything)",
-        "Automated revenue streams (money while sleeping)",
-        "Market domination positioning"
+        "Automatic reorder recommendations",
+        "Multi-location inventory sync",
+        "Supplier performance tracking",
+        "Cost optimization suggestions"
       ],
-      timeline: "60 days",
-      investment: "From RM50,000",
-      color: "emerald",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop&q=80",
-      keywords: "digital ecosystem malaysia, business integration, digital solutions, automation platform"
+      timeline: "Optimized in 1 week",
+      investment: "Included in $29/month",
+      color: "purple"
+    },
+    {
+      icon: Smartphone,
+      title: "Mobile-First Interface",
+      problem: "Complex Systems Confuse Your Staff",
+      solution: "Simple mobile app for everyone",
+      benefits: [
+        "One-tap waste logging",
+        "Photo documentation",
+        "Real-time notifications",
+        "Works on any device"
+      ],
+      timeline: "Staff trained in 1 day",
+      investment: "Included in $29/month",
+      color: "orange"
+    },
+    {
+      icon: Users,
+      title: "Staff Training & Engagement",
+      problem: "Untrained Staff Waste More Food",
+      solution: "Built-in training & gamification",
+      benefits: [
+        "Interactive training modules",
+        "Waste reduction challenges",
+        "Performance leaderboards",
+        "Certification system"
+      ],
+      timeline: "Engagement starts immediately",
+      investment: "Included in $29/month",
+      color: "green"
+    },
+    {
+      icon: Shield,
+      title: "Compliance & Reporting",
+      problem: "Manual Reports Take Days to Create",
+      solution: "Automated compliance & analytics",
+      benefits: [
+        "Regulatory compliance reports",
+        "Sustainability reporting",
+        "Executive dashboards",
+        "Export to PDF/Excel"
+      ],
+      timeline: "Reports generated instantly",
+      investment: "Included in $29/month",
+      color: "red"
     }
   ];
 
   const getColorClasses = (color: string) => {
     const colorMap = {
-      purple: {
-        bg: "bg-purple-50",
-        border: "border-purple-200",
-        icon: "bg-purple-600",
-        text: "text-purple-600",
-        button: "bg-purple-600 hover:bg-purple-700"
-      },
       blue: {
         bg: "bg-blue-50",
         border: "border-blue-200",
@@ -93,104 +126,106 @@ export default function Solutions({ onBookCall }: SolutionsProps) {
         icon: "bg-emerald-600",
         text: "text-emerald-600",
         button: "bg-emerald-600 hover:bg-emerald-700"
+      },
+      purple: {
+        bg: "bg-purple-50",
+        border: "border-purple-200",
+        icon: "bg-purple-600",
+        text: "text-purple-600",
+        button: "bg-purple-600 hover:bg-purple-700"
+      },
+      orange: {
+        bg: "bg-orange-50",
+        border: "border-orange-200",
+        icon: "bg-orange-600",
+        text: "text-orange-600",
+        button: "bg-orange-600 hover:bg-orange-700"
+      },
+      green: {
+        bg: "bg-green-50",
+        border: "border-green-200",
+        icon: "bg-green-600",
+        text: "text-green-600",
+        button: "bg-green-600 hover:bg-green-700"
+      },
+      red: {
+        bg: "bg-red-50",
+        border: "border-red-200",
+        icon: "bg-red-600",
+        text: "text-red-600",
+        button: "bg-red-600 hover:bg-red-700"
       }
     };
     return colorMap[color as keyof typeof colorMap];
   };
 
   return (
-    <section id="solutions" className="py-32 bg-gray-50">
+    <section id="features" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Section */}
-        <div className="text-center mb-20">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <Award className="text-yellow-500" size={24} />
-            <span className="text-yellow-600 font-bold">Malaysia's #1 Digital Transformation Company</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-            The 3-Step System That Turns Any Business Into a 
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600"> Digital Money Machine</span>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            How WasteWise Solves Your Waste Problems
           </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-            Stop competing on price. Start dominating with technology. Here's the exact system we use to 
-            10X Malaysian businesses in 90 days (even if they're starting from zero).
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Our AI-powered platform combines 6 powerful features to eliminate food waste and boost your profits. 
+            Everything you need in one simple platform.
           </p>
         </div>
 
-        {/* Growth Chart */}
-        <div className="mb-20">
-          <GrowthChart />
-        </div>
-
-        {/* Solutions Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-20">
-          {solutions.map((solution, index) => {
-            const colors = getColorClasses(solution.color);
-            const Icon = solution.icon;
+        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
+          {features.map((feature, index) => {
+            const colors = getColorClasses(feature.color);
+            const Icon = feature.icon;
             
             return (
-              <div key={index} className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
-                {/* Image Header */}
-                <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={solution.image} 
-                    alt={solution.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className={`absolute top-4 left-4 ${colors.icon} w-12 h-12 rounded-full flex items-center justify-center`}>
-                    <Icon className="text-white" size={24} />
+              <div key={index} className={`${colors.bg} ${colors.border} border-2 rounded-2xl p-8 hover:shadow-lg transition-all duration-300`}>
+                <div className={`${colors.icon} w-16 h-16 rounded-full flex items-center justify-center mb-6`}>
+                  <Icon className="text-white" size={32} />
+                </div>
+                
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">{feature.title}</h3>
+                
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+                  <p className="text-red-800 font-medium text-sm">❌ {feature.problem}</p>
+                </div>
+                
+                <div className="bg-white rounded-lg p-4 mb-6 border">
+                  <p className="text-gray-900 font-medium text-sm">✅ {feature.solution}</p>
+                </div>
+
+                <h4 className="font-bold text-gray-900 mb-3">What You Get:</h4>
+                <ul className="space-y-2 mb-6">
+                  {feature.benefits.map((benefit, idx) => (
+                    <li key={idx} className="flex items-start space-x-2">
+                      <CheckCircle className={`${colors.text} flex-shrink-0 mt-0.5`} size={16} />
+                      <span className="text-gray-700 text-sm">{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div>
+                    <p className="text-gray-600 text-xs font-medium">Results:</p>
+                    <p className="text-gray-900 font-bold">{feature.timeline}</p>
                   </div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-xl font-bold text-white mb-1">{solution.title}</h3>
+                  <div>
+                    <p className="text-gray-600 text-xs font-medium">Cost:</p>
+                    <p className="text-gray-900 font-bold">{feature.investment}</p>
                   </div>
                 </div>
 
-                <div className="p-6">
-                  {/* Hook */}
-                  <div className="bg-yellow-100 border border-yellow-300 rounded-lg p-3 mb-4">
-                    <p className="text-yellow-800 font-bold text-sm">{solution.hook}</p>
-                  </div>
-                  
-                  {/* Problem */}
-                  <div className="bg-red-50 border border-red-200 rounded-lg p-3 mb-4">
-                    <p className="text-red-800 text-sm">❌ {solution.problem}</p>
-                  </div>
-                  
-                  {/* Solution */}
-                  <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-4">
-                    <p className="text-green-800 font-medium text-sm">✅ {solution.solution}</p>
-                  </div>
-
-                  {/* Benefits */}
-                  <h4 className="font-bold text-gray-900 mb-3">What You Get:</h4>
-                  <ul className="space-y-2 mb-6">
-                    {solution.benefits.map((benefit, idx) => (
-                      <li key={idx} className="flex items-start space-x-2">
-                        <CheckCircle className={`${colors.text} flex-shrink-0 mt-0.5`} size={16} />
-                        <span className="text-gray-700 text-sm">{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Timeline & Investment */}
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="text-center">
-                      <p className="text-gray-600 text-xs font-medium">Timeline:</p>
-                      <p className="text-gray-900 font-bold">{solution.timeline}</p>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-gray-600 text-xs font-medium">Investment:</p>
-                      <p className="text-gray-900 font-bold">{solution.investment}</p>
-                    </div>
-                  </div>
-
+                <div className="flex gap-2">
                   <button
-                    onClick={() => handleBookCall(`Get ${solution.title}`)}
-                    className={`w-full ${colors.button} text-white px-6 py-3 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2 font-semibold`}
+                    onClick={() => handleStartTrial(`Start Trial - ${feature.title}`)}
+                    className={`flex-1 ${colors.button} text-white px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium`}
                   >
-                    <span>Get This Now</span>
-                    <ArrowRight size={16} />
+                    Start Free Trial
+                  </button>
+                  <button
+                    onClick={() => handleBookDemo(`Book Demo - ${feature.title}`)}
+                    className="flex-1 border border-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:border-gray-400 hover:bg-gray-50 transition-colors duration-200 text-sm font-medium"
+                  >
+                    See Demo
                   </button>
                 </div>
               </div>
@@ -198,68 +233,25 @@ export default function Solutions({ onBookCall }: SolutionsProps) {
           })}
         </div>
 
-        {/* Social Proof Section */}
-        <div className="grid md:grid-cols-4 gap-6 mb-16">
-          <div className="text-center bg-white rounded-xl p-6 shadow-lg">
-            <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-              <TrendingUp className="text-purple-600" size={24} />
+        <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl p-8 text-center">
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            Get All 6 Features + 30-Day Free Trial
+          </h3>
+          <p className="text-green-100 text-lg mb-6">
+            Complete waste management solution. Most restaurants see 30% waste reduction within 30 days.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="text-white">
+              <span className="text-3xl font-bold">$29/month</span>
+              <span className="text-green-200 text-sm ml-2">after free trial</span>
             </div>
-            <div className="text-3xl font-bold text-purple-600">500+</div>
-            <div className="text-sm text-gray-600">Businesses Transformed</div>
-          </div>
-          <div className="text-center bg-white rounded-xl p-6 shadow-lg">
-            <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-              <Rocket className="text-blue-600" size={24} />
-            </div>
-            <div className="text-3xl font-bold text-blue-600">1,247%</div>
-            <div className="text-sm text-gray-600">Average ROI</div>
-          </div>
-          <div className="text-center bg-white rounded-xl p-6 shadow-lg">
-            <div className="bg-emerald-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-              <Clock className="text-emerald-600" size={24} />
-            </div>
-            <div className="text-3xl font-bold text-emerald-600">90</div>
-            <div className="text-sm text-gray-600">Days to 10X</div>
-          </div>
-          <div className="text-center bg-white rounded-xl p-6 shadow-lg">
-            <div className="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-              <Award className="text-yellow-600" size={24} />
-            </div>
-            <div className="text-3xl font-bold text-yellow-600">4.9★</div>
-            <div className="text-sm text-gray-600">Client Rating</div>
-          </div>
-        </div>
-
-        {/* Ultimate Package */}
-        <div className="relative bg-gradient-to-r from-purple-600 via-blue-600 to-emerald-600 rounded-2xl p-8 text-center overflow-hidden">
-          <div className="absolute inset-0 opacity-20">
-            <img 
-              src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1200&h=400&fit=crop&q=80" 
-              alt="Digital transformation success"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="relative">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              The "Digital Empire" Package
-            </h3>
-            <p className="text-blue-100 text-lg mb-6">
-              All 3 systems + 12 months of hand-holding + guaranteed 10X results or we work for free.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <div className="text-white">
-                <span className="text-4xl font-bold">RM75,000</span>
-                <span className="text-blue-200 line-through ml-2 text-xl">RM110,000</span>
-                <div className="text-sm text-blue-200">Save RM35,000 + Risk-Free Guarantee</div>
-              </div>
-              <button
-                onClick={() => handleBookCall('Digital Empire Package - Book Strategy Call')}
-                className="bg-yellow-400 text-black px-8 py-4 rounded-lg hover:bg-yellow-500 transition-colors duration-200 font-bold flex items-center space-x-2 shadow-xl"
-              >
-                <span>Claim Your Digital Empire</span>
-                <ArrowRight size={16} />
-              </button>
-            </div>
+            <button
+              onClick={() => handleStartTrial('Complete Package - Start Free Trial')}
+              className="bg-white text-green-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200 font-semibold flex items-center space-x-2"
+            >
+              <span>Start Free Trial</span>
+              <ArrowRight size={16} />
+            </button>
           </div>
         </div>
       </div>

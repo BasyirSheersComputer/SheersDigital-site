@@ -1,100 +1,77 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Linkedin, Facebook, Instagram, Award, Shield, Zap } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Mail, Phone, MapPin, Linkedin, Facebook, Instagram, Globe } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900 text-white py-12">
+    <footer className="bg-gray-900 text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="col-span-2">
             <div className="flex items-center mb-4">
-              <div className="bg-gradient-to-r from-yellow-400 to-orange-500 w-12 h-12 rounded-xl flex items-center justify-center mr-3">
-                <Zap className="text-black" size={24} />
+              <div className="bg-gradient-to-r from-green-600 to-blue-600 w-12 h-12 rounded-lg flex items-center justify-center mr-3">
+                <span className="text-white font-bold text-xl">W</span>
               </div>
               <div>
-                <h3 className="text-2xl font-bold">Sheers Technologies</h3>
-                <p className="text-gray-400 text-sm">Digital Transformation | AI Automation | Malaysia</p>
+                <h3 className="text-xl font-bold">WasteWise</h3>
+                <p className="text-gray-400 text-sm">AI-Powered Restaurant Waste Management</p>
               </div>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
-              Malaysia's #1 digital transformation company. We turn traditional businesses into 
-              digital money machines using AI automation and cloud technology.
+              The leading AI platform for restaurant waste management. Help 500+ restaurants reduce waste by 30% 
+              and save thousands annually through intelligent demand forecasting and inventory optimization.
             </p>
-            
-            {/* Trust Badges */}
-            <div className="flex items-center space-x-4 mb-6">
-              <div className="flex items-center space-x-2 bg-yellow-500/20 px-3 py-1 rounded-full">
-                <Award size={16} className="text-yellow-400" />
-                <span className="text-yellow-300 text-sm">Malaysia's #1 Rated</span>
-              </div>
-              <div className="flex items-center space-x-2 bg-emerald-500/20 px-3 py-1 rounded-full">
-                <Shield size={16} className="text-emerald-400" />
-                <span className="text-emerald-300 text-sm">PDPA Compliant</span>
-              </div>
-            </div>
-            
             <div className="flex space-x-4">
-              <a href="#" className="bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition-colors">
+              <a href="#" className="bg-gray-800 p-2 rounded-lg hover:bg-gray-700 transition-colors">
                 <Linkedin size={20} />
               </a>
-              <a href="#" className="bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition-colors">
+              <a href="#" className="bg-gray-800 p-2 rounded-lg hover:bg-gray-700 transition-colors">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="bg-gray-800 p-3 rounded-lg hover:bg-gray-700 transition-colors">
+              <a href="#" className="bg-gray-800 p-2 rounded-lg hover:bg-gray-700 transition-colors">
                 <Instagram size={20} />
               </a>
             </div>
           </div>
 
           <div>
-            <h4 className="font-bold mb-4 text-lg">Digital Solutions</h4>
+            <h4 className="font-bold mb-4">Features</h4>
             <ul className="space-y-2 text-gray-300">
-              <li><Link to="/services/cloud-migration" className="hover:text-yellow-400 transition-colors">AI Automation Revolution</Link></li>
-              <li><Link to="/services/cybersecurity" className="hover:text-yellow-400 transition-colors">Cybersecurity & Data Protection</Link></li>
-              <li><Link to="/services/mobile-app-development" className="hover:text-yellow-400 transition-colors">Mobile App Development</Link></li>
-              <li><Link to="/services/web-application-development" className="hover:text-yellow-400 transition-colors">Web Application Development</Link></li>
-              <li><Link to="/services/process-automation" className="hover:text-yellow-400 transition-colors">Business Process Automation</Link></li>
-              <li><Link to="/services/it-consulting" className="hover:text-yellow-400 transition-colors">Digital Transformation Consulting</Link></li>
-              <li><Link to="/services/support-maintenance" className="hover:text-yellow-400 transition-colors">24/7 Digital Support</Link></li>
+              <li><a href="#features" className="hover:text-green-400 transition-colors">AI Demand Forecasting</a></li>
+              <li><a href="#features" className="hover:text-green-400 transition-colors">Waste Tracking</a></li>
+              <li><a href="#features" className="hover:text-green-400 transition-colors">Inventory Management</a></li>
+              <li><a href="#features" className="hover:text-green-400 transition-colors">Staff Training</a></li>
+              <li><a href="#features" className="hover:text-green-400 transition-colors">Analytics & Reports</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold mb-4 text-lg">Contact Digital Experts</h4>
+            <h4 className="font-bold mb-4">Contact</h4>
             <div className="space-y-3 text-gray-300">
-              <div className="flex items-start space-x-3">
-                <MapPin size={16} className="text-yellow-400 mt-1" />
-                <div>
-                  <span className="text-sm">Level 1, Villa Putra<br/>Jalan Sultan Ismail<br/>Kuala Lumpur 50480, Malaysia</span>
-                </div>
+              <div className="flex items-center space-x-3">
+                <Globe size={16} className="text-green-400" />
+                <span className="text-sm">Serving restaurants worldwide<br/>Headquarters: San Francisco, CA</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone size={16} className="text-yellow-400" />
-                <span className="text-sm">+60 11-6326 3808</span>
+                <Phone size={16} className="text-green-400" />
+                <span className="text-sm">+1 (855) WASTEWISE</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail size={16} className="text-yellow-400" />
-                <span className="text-sm">sales@sheerscomputer.com</span>
-              </div>
-              
-              <div className="mt-4 p-4 bg-gradient-to-r from-purple-600/30 to-blue-600/30 rounded-lg border border-purple-500/30">
-                <p className="text-yellow-300 text-sm font-medium">🚀 24/7 Digital Transformation Support</p>
-                <p className="text-blue-200 text-xs">Emergency AI automation & cloud support</p>
+                <Mail size={16} className="text-green-400" />
+                <span className="text-sm">hello@wastewise.com</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-8 pt-8">
+        <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2024 Sheers Technologies Sdn. Bhd. All rights reserved. | SSM: MA0256368-X | Digital Transformation Malaysia
+              © 2024 WasteWise. All rights reserved. | Making sustainability profitable.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link to="/privacy-policy" className="text-gray-400 hover:text-yellow-400 text-sm transition-colors">Privacy Policy</Link>
-              <Link to="/terms-of-service" className="text-gray-400 hover:text-yellow-400 text-sm transition-colors">Terms of Service</Link>
-              <Link to="/data-protection" className="text-gray-400 hover:text-yellow-400 text-sm transition-colors">PDPA Compliance</Link>
+              <a href="/privacy-policy" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Privacy Policy</a>
+              <a href="/terms-of-service" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Terms of Service</a>
+              <a href="/data-protection" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Data Protection</a>
             </div>
           </div>
         </div>

@@ -1,63 +1,60 @@
 import React from 'react';
-import { Users, Award, Target, Clock, CheckCircle, TrendingUp } from 'lucide-react';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { Users, Award, Target, Clock, CheckCircle, TrendingUp, Brain, Globe } from 'lucide-react';
 
 export default function About() {
-  const { ref } = useIntersectionObserver({ sectionName: 'about' });
-  
   const stats = [
-    { number: '200+', label: 'Projects Completed', icon: Target },
-    { number: '98%', label: 'Success Rate', icon: Award },
-    { number: '24h', label: 'Response Time', icon: Clock },
-    { number: '5 Years', label: 'Industry Experience', icon: TrendingUp }
+    { number: '500+', label: 'Restaurants Using WasteWise', icon: Users },
+    { number: '30%', label: 'Average Waste Reduction', icon: Target },
+    { number: '95%', label: 'AI Prediction Accuracy', icon: Brain },
+    { number: '50+', label: 'Countries Served', icon: Globe }
   ];
 
   const team = [
     {
       name: 'Ahmad Basyir',
       role: 'Founder & CEO',
-      experience: '7+ years in enterprise IT',
-      specialization: 'Cloud Architecture & Digital Transformation',
-      credentials: 'Microsoft Certified: Azure DevOps Engineer, PMP',
+      experience: '10+ years in food service tech',
+      specialization: 'AI & Machine Learning for Restaurants',
+      credentials: 'Stanford AI, Former Google ML Engineer',
       avatar: 'AB'
     },
     {
-      name: 'Fareez Nan',
-      role: 'Head of Engineering',
-      experience: '12+ years in cybersecurity',
-      specialization: 'Enterprise Security & Compliance',
-      credentials: 'CISSP, CISM, ISO 27001 Lead Auditor',
-      avatar: 'FN'
+      name: 'Sarah Chen',
+      role: 'Head of Product',
+      experience: '8+ years in restaurant operations',
+      specialization: 'Restaurant Technology & UX Design',
+      credentials: 'Former Starbucks Operations Manager',
+      avatar: 'SC'
     },
     {
-      name: 'Ahmad Darwis',
-      role: 'Lead Automation Engineer',
-      experience: '10+ years in process automation',
-      specialization: 'Business Process Automation & Integration',
-      credentials: 'Microsoft Certified: Azure Solutions Architect',
-      avatar: 'AF'
+      name: 'Marcus Rodriguez',
+      role: 'Lead Data Scientist',
+      experience: '12+ years in predictive analytics',
+      specialization: 'Demand Forecasting & Inventory Optimization',
+      credentials: 'PhD in Operations Research, MIT',
+      avatar: 'MR'
     }
   ];
 
   const values = [
     {
-      title: 'Results-Driven',
-      description: 'We measure success by your ROI, not hours billed. Every project must deliver measurable business value.',
+      title: 'Sustainability First',
+      description: 'We believe every restaurant can be profitable while being environmentally responsible. Our AI helps you achieve both.',
       icon: Target
     },
     {
-      title: 'Transparency',
-      description: 'No hidden costs, no technical jargon. We explain everything in plain English and deliver exactly what we promise.',
-      icon: CheckCircle
+      title: 'Data-Driven Decisions',
+      description: 'No more guessing. Our AI analyzes 50+ factors to predict demand with 95% accuracy, eliminating waste and stockouts.',
+      icon: Brain
     },
     {
-      title: 'Speed',
-      description: 'Time is money. We deliver solutions in 30-90 days, not 6-12 months like traditional IT companies.',
+      title: 'Simple & Fast',
+      description: 'Get started in minutes, not months. Our mobile-first platform works on any device and requires no technical expertise.',
       icon: Clock
     },
     {
-      title: 'Partnership',
-      description: 'We become an extension of your team, not just another vendor. Your success is our success.',
+      title: 'Restaurant-Focused',
+      description: 'Built by restaurant people, for restaurant people. We understand your challenges because we\'ve lived them.',
       icon: Users
     }
   ];
@@ -65,16 +62,16 @@ export default function About() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 via-white to-emerald-50 py-20">
+      <section className="bg-gradient-to-br from-green-50 via-white to-blue-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              The IT Problem Solvers
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-600"> KL Trusts</span>
+              The AI Platform That
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600"> Eliminates Food Waste</span>
             </h1>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              We're not your typical IT company. We're the team that fixes what others can't, 
-              delivers what others won't, and guarantees results that others don't dare promise.
+              We're not just another software company. We're the team that's revolutionizing how restaurants 
+              manage waste, predict demand, and optimize operations using cutting-edge AI technology.
             </p>
           </div>
 
@@ -84,7 +81,7 @@ export default function About() {
               return (
                 <div key={index} className="text-center">
                   <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="bg-gradient-to-r from-blue-600 to-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="bg-gradient-to-r from-green-600 to-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Icon className="text-white" size={32} />
                     </div>
                     <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
@@ -103,38 +100,36 @@ export default function About() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Why We Started Sheers Technologies
+                Why We Built WasteWise
               </h2>
               <div className="space-y-6 text-gray-700 leading-relaxed">
                 <p>
-                  In 2019, we watched too many KL businesses struggle with the same 3 IT problems: 
-                  outdated systems draining profits, security vulnerabilities threatening their future, 
-                  and manual processes killing productivity.
+                  In 2020, we watched restaurants throw away 30-40% of their food while customers went hungry. 
+                  The problem wasn't lack of care - it was lack of data and predictive capabilities.
                 </p>
                 <p>
-                  Traditional IT companies were charging premium prices for mediocre results, 
-                  taking 6-12 months for projects that should take weeks, and speaking in technical 
-                  jargon that left business owners confused and frustrated.
+                  Traditional inventory management relied on guesswork and manual tracking. 
+                  Restaurants were either overstocking (wasting money) or understocking (losing customers).
                 </p>
                 <p>
-                  We decided to do things differently. We focus on solving problems, not selling products. 
-                  We deliver results in 30-90 days, not quarters. We speak in ROI, not technical specifications.
+                  We decided to solve this with AI. By analyzing weather, events, historical data, and 50+ other factors, 
+                  we can predict demand with 95% accuracy, helping restaurants reduce waste by 30% on average.
                 </p>
-                <p className="font-semibold text-blue-600">
-                  Today, we've helped 200+ KL businesses save millions in IT costs while scaling faster than ever.
+                <p className="font-semibold text-green-600">
+                  Today, 500+ restaurants worldwide use WasteWise to save millions annually while serving their communities better.
                 </p>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
+            <div className="bg-gradient-to-br from-green-600 to-blue-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-6">Our Mission</h3>
-              <p className="text-blue-100 mb-6 leading-relaxed">
-                To eliminate the 3 biggest IT problems that prevent KL businesses from scaling, 
-                so they can focus on what they do best: growing their business.
+              <p className="text-green-100 mb-6 leading-relaxed">
+                To eliminate food waste in restaurants worldwide through AI-powered demand forecasting and 
+                intelligent inventory management, making sustainability profitable.
               </p>
               <div className="bg-white/10 rounded-lg p-4">
                 <h4 className="font-bold mb-2">Our Promise</h4>
-                <p className="text-blue-100 text-sm">
-                  Every project delivers measurable ROI within 90 days, or we work for free until it does.
+                <p className="text-green-100 text-sm">
+                  Reduce your food waste by 30% in 30 days, or your subscription is free until you do.
                 </p>
               </div>
             </div>
@@ -147,11 +142,11 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Meet the Problem Solvers
+              Meet the WasteWise Team
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our team combines decades of enterprise IT experience with a startup mentality. 
-              We move fast, think strategically, and deliver results.
+              Our team combines deep expertise in AI, restaurant operations, and sustainability. 
+              We're passionate about solving real problems with cutting-edge technology.
             </p>
           </div>
 
@@ -159,11 +154,11 @@ export default function About() {
             {team.map((member, index) => (
               <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="text-center mb-6">
-                  <div className="bg-gradient-to-r from-blue-600 to-purple-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="bg-gradient-to-r from-green-600 to-blue-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span className="text-white font-bold text-2xl">{member.avatar}</span>
                   </div>
                   <h3 className="text-xl font-bold text-gray-900">{member.name}</h3>
-                  <p className="text-blue-600 font-medium">{member.role}</p>
+                  <p className="text-green-600 font-medium">{member.role}</p>
                 </div>
                 
                 <div className="space-y-4">
@@ -194,8 +189,8 @@ export default function About() {
               What Drives Us
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              These aren't just words on a wall. They're the principles that guide every decision, 
-              every project, and every client interaction.
+              These aren't just words on a wall. They're the principles that guide every feature, 
+              every decision, and every interaction with our restaurant partners.
             </p>
           </div>
 
@@ -204,8 +199,8 @@ export default function About() {
               const Icon = value.icon;
               return (
                 <div key={index} className="text-center">
-                  <div className="bg-gradient-to-br from-blue-50 to-emerald-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
-                    <div className="bg-gradient-to-r from-blue-600 to-emerald-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300">
+                    <div className="bg-gradient-to-r from-green-600 to-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Icon className="text-white" size={32} />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
@@ -219,16 +214,19 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
+      <section className="py-20 bg-gradient-to-br from-gray-900 via-green-900 to-blue-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Solve Your IT Problems?
+            Ready to Eliminate Food Waste?
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Join 200+ KL businesses who've eliminated their biggest IT headaches and scaled faster than ever.
+            Join 500+ restaurants worldwide who've reduced waste by 30% and saved thousands monthly.
           </p>
-          <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 text-lg font-semibold">
-            Book Your Free Strategy Call
+          <button 
+            onClick={() => window.location.href = '/signup'}
+            className="bg-gradient-to-r from-green-600 to-blue-600 text-white px-8 py-4 rounded-lg hover:from-green-700 hover:to-blue-700 transition-all duration-200 text-lg font-semibold"
+          >
+            Start Your Free Trial
           </button>
         </div>
       </section>
