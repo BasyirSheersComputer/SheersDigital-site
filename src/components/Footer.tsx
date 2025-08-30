@@ -1,156 +1,69 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Zap, MapPin, Phone, Mail } from 'lucide-react';
 
-const Footer: React.FC = () => {
+const Footer = () => {
   return (
-    <footer className="bg-primary text-accent-2 font-montserrat">
-      <div className="max-w-7xl mx-auto px-layout-padding py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="bg-slate-900 text-white py-12">
+      <div className="container mx-auto px-6">
+        <div className="grid lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-accent-1 rounded-layout flex items-center justify-center">
-                <span className="text-secondary font-bold text-lg">S</span>
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="bg-blue-600 p-2 rounded-lg">
+                <Zap className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-secondary">SERVORA AI</h3>
-                <p className="text-accent-2 text-sm">Premium F&B Intelligence</p>
+                <h3 className="text-xl font-bold">Sheers Software Sdn Bhd</h3>
+                <p className="text-sm text-slate-400">High-Energy F&B Solutions</p>
               </div>
             </div>
-            <p className="text-accent-2 mb-6 max-w-md">
-              Premium AI-powered waste management platform for Malaysia's top F&B revenue generators. 
-              Achieve 35-45% waste reduction with guaranteed ROI in 30 days.
+            <p className="text-slate-300 mb-6 leading-relaxed">
+              We're a dynamic new entrant revolutionizing how Malaysian F&B operators 
+              manage inventory, reduce waste, and maximize profitability through cutting-edge technology.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-accent-2 hover:text-accent-1 transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-accent-2 hover:text-accent-1 transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-accent-2 hover:text-accent-1 transition-colors">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-accent-2 hover:text-accent-1 transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </a>
+            <div className="space-y-2 text-sm text-slate-400">
+              <div className="flex items-center">
+                <MapPin className="w-4 h-4 mr-2" />
+                <span>Kuala Lumpur, Malaysia</span>
+              </div>
+              <div className="flex items-center">
+                <Phone className="w-4 h-4 mr-2" />
+                <span>+60 3-2110 5555</span>
+              </div>
+              <div className="flex items-center">
+                <Mail className="w-4 h-4 mr-2" />
+                <span>solutions@sheers.my</span>
+              </div>
             </div>
           </div>
 
-          {/* Features */}
+          {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold text-secondary mb-6">FEATURES</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/#features" className="text-accent-2 hover:text-accent-1 transition-colors">
-                  AI Demand Forecasting
-                </Link>
-              </li>
-              <li>
-                <Link to="/#features" className="text-accent-2 hover:text-accent-1 transition-colors">
-                  Waste Tracking
-                </Link>
-              </li>
-              <li>
-                <Link to="/#features" className="text-accent-2 hover:text-accent-1 transition-colors">
-                  Inventory Management
-                </Link>
-              </li>
-              <li>
-                <Link to="/#features" className="text-accent-2 hover:text-accent-1 transition-colors">
-                  Operational Dashboard
-                </Link>
-              </li>
-              <li>
-                <Link to="/#features" className="text-accent-2 hover:text-accent-1 transition-colors">
-                  Staff Training
-                </Link>
-              </li>
-              <li>
-                <Link to="/#features" className="text-accent-2 hover:text-accent-1 transition-colors">
-                  Compliance Reporting
-                </Link>
-              </li>
+            <h4 className="font-semibold mb-4">Quick Solutions</h4>
+            <ul className="space-y-2 text-sm text-slate-400">
+              <li><a href="/inventory-integration" className="hover:text-white transition-colors">Inventory Integration</a></li>
+              <li><a href="/waste-logging-automation" className="hover:text-white transition-colors">Waste Logging Automation</a></li>
+              <li><a href="/supplier-integration" className="hover:text-white transition-colors">Supplier Integration</a></li>
+              <li><a href="/ai-forecasting" className="hover:text-white transition-colors">AI Forecasting</a></li>
+              <li><a href="/compliance-automation" className="hover:text-white transition-colors">Compliance Automation</a></li>
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Resources */}
           <div>
-            <h4 className="text-lg font-semibold text-secondary mb-6">COMPANY</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/#about" className="text-accent-2 hover:text-accent-1 transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/#testimonials" className="text-accent-2 hover:text-accent-1 transition-colors">
-                  Success Stories
-                </Link>
-              </li>
-              <li>
-                <Link to="/privacy-policy" className="text-accent-2 hover:text-accent-1 transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link to="/terms-of-service" className="text-accent-2 hover:text-accent-1 transition-colors">
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <Link to="/data-protection" className="text-accent-2 hover:text-accent-1 transition-colors">
-                  Data Protection
-                </Link>
-              </li>
+            <h4 className="font-semibold mb-4">Resources</h4>
+            <ul className="space-y-2 text-sm text-slate-400">
+              <li><a href="/wastewise-platform" className="hover:text-white transition-colors">WasteWise Platform</a></li>
+              <li><a href="/roi-calculator" className="hover:text-white transition-colors">Free ROI Calculator</a></li>
+              <li><a href="/industry-reports" className="hover:text-white transition-colors">Industry Reports</a></li>
+              <li><a href="/implementation-guide" className="hover:text-white transition-colors">Implementation Guide</a></li>
+              <li><a href="/support-center" className="hover:text-white transition-colors">Support Center</a></li>
             </ul>
           </div>
         </div>
 
-        {/* Contact Info */}
-        <div className="border-t border-accent-2/20 mt-12 pt-8">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="flex items-center space-x-3">
-              <Mail className="w-5 h-5 text-accent-1" />
-              <div>
-                <p className="text-accent-2 text-sm">Email</p>
-                <p className="text-secondary">hello@servora-ai.com</p>
-              </div>
-            </div>
-            <div className="flex items-center space-x-3">
-              <Phone className="w-5 h-5 text-accent-1" />
-              <div>
-                <p className="text-accent-2 text-sm">Phone</p>
-                <p className="text-secondary">+60 11-6326 3808</p>
-              </div>
-            </div>
-            <div className="flex items-center space-x-3">
-              <MapPin className="w-5 h-5 text-accent-1" />
-              <div>
-                <p className="text-accent-2 text-sm">Address</p>
-                <p className="text-secondary">11.9, Megan Avenue 1, 189, Jalan Tun Razak, Kuala Lumpur, Malaysia</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="border-t border-accent-2/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-accent-2 text-sm">
-            © 2024 Sheers Software Sdn. Bhd. All rights reserved.
-          </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/privacy-policy" className="text-accent-2 hover:text-accent-1 transition-colors text-sm">
-              Privacy
-            </Link>
-            <Link to="/terms-of-service" className="text-accent-2 hover:text-accent-1 transition-colors text-sm">
-              Terms
-            </Link>
-            <Link to="/data-protection" className="text-accent-2 hover:text-accent-1 transition-colors text-sm">
-              Data Protection
-            </Link>
-          </div>
+        <div className="border-t border-slate-800 mt-12 pt-8 text-center text-slate-400">
+          <p>&copy; 2025 Sheers Software Sdn Bhd. All rights reserved. Transforming Malaysian F&B operations one outlet at a time.</p>
         </div>
       </div>
     </footer>
