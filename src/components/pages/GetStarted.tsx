@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Clock, DollarSign, TrendingUp, Shield, Users, Zap } from 'lucide-react';
+import { ArrowRight, CheckCircle, Clock, TrendingUp, Shield } from 'lucide-react';
 import Header from '../Header';
 import Footer from '../Footer';
+import { useCalendlyModal } from '../../hooks/useCalendlyModal';
+import CalendlyModal from '../CalendlyModal';
 
 const GetStarted = () => {
   const [selectedPackage, setSelectedPackage] = useState('quick-win');
   const [selectedSolutions, setSelectedSolutions] = useState<string[]>([]);
+  const { isOpen, openModal, closeModal } = useCalendlyModal();
 
   const solutions = [
     {
@@ -328,7 +330,10 @@ const GetStarted = () => {
               </div>
 
               <div className="text-center">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-12 py-4 rounded-lg font-semibold text-lg transition-all duration-300 flex items-center justify-center mx-auto group">
+                <button 
+                  onClick={openModal}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-12 py-4 rounded-lg font-semibold text-lg transition-all duration-300 flex items-center justify-center mx-auto group"
+                >
                   Start Your Transformation Now
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -368,6 +373,8 @@ const GetStarted = () => {
       </section>
 
       <Footer />
+      
+      <CalendlyModal isOpen={isOpen} onClose={closeModal} />
     </div>
   );
 };

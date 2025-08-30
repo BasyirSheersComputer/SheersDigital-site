@@ -24,15 +24,15 @@ const Footer = () => {
             <div className="space-y-2 text-sm text-slate-400">
               <div className="flex items-center">
                 <MapPin className="w-4 h-4 mr-2" />
-                <span>Kuala Lumpur, Malaysia</span>
+                <span>Suite 11.9, Megan Avenue 1, 50450 Kuala Lumpur, Malaysia</span>
               </div>
               <div className="flex items-center">
                 <Phone className="w-4 h-4 mr-2" />
-                <span>+60 3-2110 5555</span>
+                <span>+60 11-6326 3808</span>
               </div>
               <div className="flex items-center">
                 <Mail className="w-4 h-4 mr-2" />
-                <span>solutions@sheers.my</span>
+                <span>a.basyir@sheerssoft.com</span>
               </div>
             </div>
           </div>

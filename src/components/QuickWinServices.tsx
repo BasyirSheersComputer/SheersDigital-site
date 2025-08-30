@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Package, BarChart3, Users, Brain, FileText, ArrowRight, CheckCircle } from 'lucide-react';
+import { useCalendlyModal } from '../hooks/useCalendlyModal';
+import CalendlyModal from './CalendlyModal';
 
 const QuickWinServices = () => {
+  const { isOpen, openModal, closeModal } = useCalendlyModal();
   const services = [
     {
       icon: <Package className="w-8 h-8" />,
@@ -99,10 +101,13 @@ const QuickWinServices = () => {
                 <span className="text-sm text-slate-500">One-time setup</span>
               </div>
 
-              <Link to="/get-started" className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center group">
+              <button 
+                onClick={openModal}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center group"
+              >
                 Start This Solution
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </button>
             </div>
           ))}
         </div>
@@ -116,12 +121,17 @@ const QuickWinServices = () => {
               Start with any Quick-Win solution and automatically qualify for 50% off 
               your first year of WasteWise platform subscription.
             </p>
-            <Link to="/get-started" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+            <button 
+              onClick={openModal}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
+            >
               Claim This Offer Now
-            </Link>
+            </button>
           </div>
         </div>
       </div>
+      
+      <CalendlyModal isOpen={isOpen} onClose={closeModal} />
     </section>
   );
 };

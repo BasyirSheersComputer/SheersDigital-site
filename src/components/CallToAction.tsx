@@ -1,8 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Phone, Mail, ArrowRight, Clock, CheckCircle } from 'lucide-react';
+import { Phone, Mail, Clock, CheckCircle } from 'lucide-react';
+import { useCalendlyModal } from '../hooks/useCalendlyModal';
+import CalendlyModal from './CalendlyModal';
 
 const CallToAction = () => {
+  const { isOpen, openModal, closeModal } = useCalendlyModal();
+
   return (
     <section id="contact" className="py-20 bg-slate-900 text-white">
       <div className="container mx-auto px-6">
@@ -39,9 +42,12 @@ const CallToAction = () => {
                   <span>50% off WasteWise upgrade</span>
                 </div>
               </div>
-              <Link to="/get-started" className="bg-white text-blue-600 hover:bg-slate-100 px-8 py-4 rounded-lg font-semibold transition-colors w-full">
+              <button 
+                onClick={openModal}
+                className="bg-white text-blue-600 hover:bg-slate-100 px-8 py-4 rounded-lg font-semibold transition-colors w-full"
+              >
                 Book Free Consultation
-              </Link>
+              </button>
             </div>
 
             {/* Full Platform Option */}
@@ -64,9 +70,12 @@ const CallToAction = () => {
                   <span>Dedicated success manager</span>
                 </div>
               </div>
-              <Link to="/get-started" className="bg-slate-600 hover:bg-slate-500 text-white px-8 py-4 rounded-lg font-semibold transition-colors w-full">
+              <button 
+                onClick={openModal}
+                className="bg-slate-600 hover:bg-slate-500 text-white px-8 py-4 rounded-lg font-semibold transition-colors w-full"
+              >
                 Start Free Trial
-              </Link>
+              </button>
             </div>
           </div>
 
@@ -80,7 +89,7 @@ const CallToAction = () => {
                 </div>
                 <div className="text-left">
                   <p className="font-semibold">Call Now</p>
-                  <p className="text-slate-300">+60 3-2110 5555</p>
+                  <p className="text-slate-300">+60 11-6326 3808</p>
                 </div>
               </div>
               <div className="flex items-center justify-center space-x-4">
@@ -89,7 +98,7 @@ const CallToAction = () => {
                 </div>
                 <div className="text-left">
                   <p className="font-semibold">Email Us</p>
-                  <p className="text-slate-300">solutions@sheers.my</p>
+                  <p className="text-slate-300">a.basyir@sheerssoft.com</p>
                 </div>
               </div>
             </div>
@@ -102,6 +111,8 @@ const CallToAction = () => {
           </div>
         </div>
       </div>
+      
+      <CalendlyModal isOpen={isOpen} onClose={closeModal} />
     </section>
   );
 };

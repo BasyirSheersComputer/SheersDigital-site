@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Star, Quote } from 'lucide-react';
+import { useCalendlyModal } from '../hooks/useCalendlyModal';
+import CalendlyModal from './CalendlyModal';
 
 const Testimonials = () => {
+  const { isOpen, openModal, closeModal } = useCalendlyModal();
   const testimonials = [
     {
       name: "Ahmad Rahman",
@@ -106,9 +109,12 @@ const Testimonials = () => {
               Start with WasteWise and transform your F&B operations. Get a free consultation to see how our platform can help you reduce waste and increase profitability.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-              <Link to="/get-started" className="bg-blue-600 hover:bg-blue-700 text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold transition-colors text-sm md:text-base">
+              <button 
+                onClick={openModal}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold transition-colors text-sm md:text-base"
+              >
                 Book Free Consultation
-              </Link>
+              </button>
               <Link to="/get-started" className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold transition-colors text-sm md:text-base">
                 View Case Studies
               </Link>
@@ -116,6 +122,8 @@ const Testimonials = () => {
           </div>
         </div>
       </div>
+      
+      <CalendlyModal isOpen={isOpen} onClose={closeModal} />
     </section>
   );
 };

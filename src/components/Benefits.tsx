@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { TrendingUp, Shield, Clock, Award } from 'lucide-react';
+import { useCalendlyModal } from '../hooks/useCalendlyModal';
+import CalendlyModal from './CalendlyModal';
 
 const Benefits = () => {
+  const { isOpen, openModal, closeModal } = useCalendlyModal();
   const testimonials = [
     {
       name: "Ahmad Rahman",
@@ -104,11 +106,16 @@ const Benefits = () => {
             </div>
           </div>
 
-          <Link to="/get-started" className="bg-white text-blue-600 hover:bg-slate-100 px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+          <button 
+            onClick={openModal}
+            className="bg-white text-blue-600 hover:bg-slate-100 px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
+          >
             Get Your Custom ROI Report
-          </Link>
+          </button>
         </div>
       </div>
+      
+      <CalendlyModal isOpen={isOpen} onClose={closeModal} />
     </section>
   );
 };

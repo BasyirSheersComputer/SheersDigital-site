@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, TrendingDown, Clock } from 'lucide-react';
+import { useCalendlyModal } from '../hooks/useCalendlyModal';
+import CalendlyModal from './CalendlyModal';
 
 const Hero = () => {
+  const { isOpen, openModal, closeModal } = useCalendlyModal();
+
   return (
     <section id="home" className="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white py-20">
       <div className="container mx-auto px-6">
@@ -18,10 +22,13 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Link to="/get-started" className="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 flex items-center justify-center group">
+              <button 
+                onClick={openModal}
+                className="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 flex items-center justify-center group"
+              >
                 Get Free Inventory Audit
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </button>
               <Link to="/get-started" className="border-2 border-slate-400 hover:border-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300">
                 View Quick Solutions
               </Link>
@@ -60,6 +67,8 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      
+      <CalendlyModal isOpen={isOpen} onClose={closeModal} />
     </section>
   );
 };
