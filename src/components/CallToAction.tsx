@@ -11,11 +11,11 @@ const CallToAction = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6">
-            Ready to Transform Your F&B Operation?
+            Ready to Dominate Your F&B Market?
           </h2>
           <p className="text-xl text-slate-300 mb-12">
-            Join 250+ Malaysian F&B operators who've already eliminated inventory chaos 
-            and boosted their profits with our solutions.
+            Join 250+ premium Malaysian F&B chains who've already eliminated operational chaos 
+            and secured their market leadership with our solutions.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -24,9 +24,9 @@ const CallToAction = () => {
               <div className="absolute top-4 right-4 bg-white text-blue-600 px-3 py-1 rounded-full text-sm font-bold">
                 RECOMMENDED
               </div>
-              <h3 className="text-2xl font-bold mb-4">Quick-Win Solution</h3>
+              <h3 className="text-2xl font-bold mb-4">Enterprise Starter Solution</h3>
               <p className="text-blue-100 mb-6">
-                Start with one targeted solution and see immediate results in 7 days.
+                Start with one targeted solution and see immediate competitive advantage in 7 days.
               </p>
               <div className="space-y-3 mb-8">
                 <div className="flex items-center justify-center">
@@ -54,7 +54,7 @@ const CallToAction = () => {
             <div className="bg-slate-800 border border-slate-600 rounded-2xl p-8 text-center">
               <h3 className="text-2xl font-bold mb-4">Full WasteWise Platform</h3>
               <p className="text-slate-300 mb-6">
-                Complete transformation with all features and ongoing optimization support.
+                Complete market domination with all features and ongoing optimization support.
               </p>
               <div className="space-y-3 mb-8">
                 <div className="flex items-center justify-center">
@@ -81,7 +81,7 @@ const CallToAction = () => {
 
           {/* Contact Information */}
           <div className="bg-slate-800 rounded-xl p-8 border border-slate-700">
-            <h3 className="text-2xl font-bold mb-6">Speak with Our F&B Specialists</h3>
+            <h3 className="text-2xl font-bold mb-6">Speak with Our Enterprise F&B Specialists</h3>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="flex items-center justify-center space-x-4">
                 <div className="bg-blue-600 p-3 rounded-lg">

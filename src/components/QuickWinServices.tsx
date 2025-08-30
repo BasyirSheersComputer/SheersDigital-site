@@ -8,48 +8,48 @@ const QuickWinServices = () => {
   const services = [
     {
       icon: <Package className="w-8 h-8" />,
-      title: "Inventory & Stock Management Integration",
-      description: "Seamlessly connect your existing POS and inventory systems with real-time stock tracking and automated alerts.",
+      title: "Eliminate Stockouts & Overstocking",
+      description: "Never run out of ingredients or waste money on excess inventory again with real-time stock tracking and automated alerts.",
       pain: "Eliminates manual tracking errors and stockouts",
       timeline: "7 days",
-      price: "From RM 2,500",
-      features: ["Real-time stock alerts", "POS integration", "Automated reporting", "Mobile dashboard"]
+      price: "From RM 8,500",
+      features: ["Real-time stock alerts", "POS integration", "Automated reporting", "Mobile dashboard", "Multi-location sync", "Advanced analytics"]
     },
     {
       icon: <BarChart3 className="w-8 h-8" />,
-      title: "Waste Logging & Data Capture Automation",
-      description: "Implement automated waste data collection using mobile apps and barcode scanning integrated with analytics.",
+      title: "End Food Waste & Boost Profit Margins",
+      description: "Automatically track and eliminate waste to maximize your profitability with mobile apps and barcode scanning.",
       pain: "Simplifies daily waste tracking, improves accuracy",
       timeline: "5 days",
-      price: "From RM 1,800",
-      features: ["Mobile waste logging", "Photo documentation", "Automated categorization", "Weekly insights"]
+      price: "From RM 6,500",
+      features: ["Mobile waste logging", "Photo documentation", "Automated categorization", "Weekly insights", "AI-powered analysis", "Real-time alerts"]
     },
     {
       icon: <Users className="w-8 h-8" />,
-      title: "Supplier & Procurement System Integration",
-      description: "Integrate supplier databases and procurement workflows for better performance tracking and cost comparison.",
+      title: "Optimize Procurement & Reduce Costs",
+      description: "Get the best prices and quality from suppliers while automating orders for better performance tracking.",
       pain: "Reduces procurement costs by 15-20%",
       timeline: "10 days",
-      price: "From RM 3,200",
-      features: ["Supplier performance tracking", "Cost comparison tools", "Order automation", "Quality metrics"]
+      price: "From RM 12,500",
+      features: ["Supplier performance tracking", "Cost comparison tools", "Order automation", "Quality metrics", "Contract management", "Payment automation"]
     },
     {
       icon: <Brain className="w-8 h-8" />,
-      title: "AI-Driven Demand Forecasting Plug-in",
-      description: "Deploy AI forecasting tools that predict demand patterns using your sales and operational data.",
+      title: "Predict Demand & Maximize Sales",
+      description: "Use AI to forecast customer demand and optimize your menu planning using your sales and operational data.",
       pain: "Solves overstock/understock issues immediately",
       timeline: "14 days",
-      price: "From RM 4,500",
-      features: ["AI demand prediction", "Sales pattern analysis", "Seasonal adjustments", "Order recommendations"]
+      price: "From RM 18,500",
+      features: ["AI demand prediction", "Sales pattern analysis", "Seasonal adjustments", "Order recommendations", "Machine learning optimization", "Predictive analytics"]
     },
     {
       icon: <FileText className="w-8 h-8" />,
-      title: "Custom Reporting & Compliance Automation",
-      description: "Automate regulatory and internal reporting for quick, error-free compliance and transparency.",
+      title: "Automate Compliance & Reduce Risk",
+      description: "Stay compliant with regulations while saving time on reporting for quick, error-free compliance and transparency.",
       pain: "Cuts 8+ hours of manual reporting weekly",
       timeline: "7 days",
-      price: "From RM 2,000",
-      features: ["Automated compliance reports", "Custom dashboards", "Audit trail", "Regulatory alignment"]
+      price: "From RM 7,500",
+      features: ["Automated compliance reports", "Custom dashboards", "Audit trail", "Regulatory alignment", "Real-time monitoring", "Automated submissions"]
     }
   ];
 
@@ -58,11 +58,11 @@ const QuickWinServices = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-slate-800 mb-4">
-            Quick-Win Solutions That Pay for Themselves
+            Enterprise Solutions That Transform Operations
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Choose any one of our targeted solutions to see immediate results. 
-            Each service integrates seamlessly with our WasteWise platform for long-term success.
+            Choose any one of our targeted solutions to see immediate competitive advantage. 
+            Each service integrates seamlessly with our WasteWise platform for long-term market dominance.
           </p>
         </div>
 
@@ -105,7 +105,7 @@ const QuickWinServices = () => {
                 onClick={openModal}
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center group"
               >
-                Start This Solution
+                Transform This Area
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
@@ -115,17 +115,17 @@ const QuickWinServices = () => {
         <div className="mt-12 text-center">
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-blue-800 mb-4">
-              🚀 Fast Track to Success
+              🚀 Fast Track to Market Dominance
             </h3>
             <p className="text-blue-700 text-lg mb-6">
-              Start with any Quick-Win solution and automatically qualify for 50% off 
+              Start with any enterprise solution and automatically qualify for 50% off 
               your first year of WasteWise platform subscription.
             </p>
             <button 
               onClick={openModal}
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
             >
-              Claim This Offer Now
+              Claim Your Competitive Advantage
             </button>
           </div>
         </div>

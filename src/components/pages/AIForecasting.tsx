@@ -127,7 +127,7 @@ const AIForecasting = () => {
                   <div className="bg-white rounded-lg p-4">
                     <div className="flex justify-between items-center mb-2">
                       <span className="text-slate-600">Cost Savings</span>
-                      <span className="font-bold text-purple-600">RM 15,000/month</span>
+                      <span className="font-bold text-purple-600">RM 45,000/month</span>
                     </div>
                     <div className="w-full bg-slate-200 rounded-full h-2">
                       <div className="bg-purple-600 h-2 rounded-full" style={{ width: '85%' }}></div>
@@ -186,7 +186,7 @@ const AIForecasting = () => {
                   Accurate forecasting means you order exactly what you need. 
                   Minimize food waste and maximize profitability.
                 </p>
-                <div className="text-2xl font-bold text-green-600">RM 15K saved</div>
+                <div className="text-2xl font-bold text-green-600">RM 45K saved</div>
               </div>
             </div>
           </div>
@@ -259,7 +259,7 @@ const AIForecasting = () => {
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-slate-600">Monthly Cost Savings</span>
-                        <span className="font-bold text-purple-600">RM 12,000</span>
+                        <span className="font-bold text-purple-600">RM 35,000</span>
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-slate-600">Forecast Accuracy</span>

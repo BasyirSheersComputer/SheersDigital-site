@@ -10,7 +10,7 @@ const Benefits = () => {
       name: "Ahmad Rahman",
       position: "Operations Manager",
       company: "Warung Sedap Chain",
-      testimonial: "After implementing the Inventory Integration solution, we reduced food waste by 40% and saved RM 12,000 in the first month alone.",
+              testimonial: "After implementing the Inventory Integration solution, we reduced food waste by 40% and saved RM 35,000 in the first month alone.",
       result: "40% waste reduction"
     },
     {
@@ -93,7 +93,7 @@ const Benefits = () => {
           
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-              <div className="text-3xl font-bold mb-2">RM 8,500</div>
+              <div className="text-3xl font-bold mb-2">RM 25,000</div>
               <div className="text-blue-100">Monthly waste reduction</div>
             </div>
             <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">

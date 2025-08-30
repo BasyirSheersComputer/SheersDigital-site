@@ -11,7 +11,7 @@ const Testimonials = () => {
       name: "Ahmad Rahman",
       position: "Owner, Nasi Lemak Corner",
       company: "F&B Business",
-      content: "WasteWise transformed our inventory management. We reduced food waste by 45% and saved RM 8,000 monthly. The platform is so easy to use and gives us complete visibility over our operations.",
+              content: "WasteWise transformed our inventory management. We reduced food waste by 45% and saved RM 25,000 monthly. The platform is so easy to use and gives us complete visibility over our operations.",
       rating: 5,
       image: "👨‍🍳",
       category: "WasteWise Platform"
@@ -20,7 +20,7 @@ const Testimonials = () => {
       name: "Sarah Lim",
       position: "Operations Manager",
       company: "Café Delight Chain",
-      content: "The WasteWise platform was game-changing for our 5-location chain. Our systems are now 3x faster and we can manage all locations from one dashboard. The AI forecasting is incredibly accurate.",
+              content: "The WasteWise platform was game-changing for our 5-location chain. Our systems are now 3x faster and we can manage all locations from one dashboard. The AI forecasting is incredibly accurate and saved us RM 45,000 monthly.",
       rating: 5,
       image: "👩‍💼",
       category: "WasteWise Platform"
@@ -29,7 +29,7 @@ const Testimonials = () => {
       name: "David Chen",
       position: "CEO",
       company: "Fresh Bites Restaurant",
-      content: "WasteWise gave us complete visibility and control over our inventory. The supplier integration feature alone saved us 15 hours per week. Our food costs dropped by 30% in the first quarter.",
+              content: "WasteWise gave us complete visibility and control over our inventory. The supplier integration feature alone saved us 15 hours per week and RM 35,000 monthly. Our food costs dropped by 30% in the first quarter.",
       rating: 5,
       image: "👨‍💻",
       category: "WasteWise Platform"
