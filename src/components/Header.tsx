@@ -9,6 +9,22 @@ const Header = () => {
   const location = useLocation();
   const scrollToSection = useScrollToSection();
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Handle hover with delay
+  const handleMouseEnter = () => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+    setIsProductsDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    hoverTimeoutRef.current = setTimeout(() => {
+      setIsProductsDropdownOpen(false);
+    }, 150); // 150ms delay
+  };
 
   // Close dropdown when clicking outside (for mobile)
   useEffect(() => {
@@ -25,6 +41,9 @@ const Header = () => {
     
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current);
+      }
     };
   }, []);
 
@@ -50,8 +69,8 @@ const Header = () => {
             <div 
               className="relative" 
               ref={dropdownRef}
-              onMouseEnter={() => setIsProductsDropdownOpen(true)}
-              onMouseLeave={() => setIsProductsDropdownOpen(false)}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
               <button
                 className="flex items-center space-x-1 hover:text-blue-400 transition-colors bg-transparent border-none cursor-pointer"
