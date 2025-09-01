@@ -41,11 +41,11 @@ const WasteWisePlatform = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-4xl font-bold mb-6">
-              The Complete WasteWise Platform
+              The WasteWise Platform That Powers Everything
             </h2>
             <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-              Once you've experienced success with our Quick-Win solutions, 
-              upgrade to the full WasteWise platform for comprehensive F&B optimization.
+              Our comprehensive WasteWise platform powers all our solutions, providing 
+              the foundation for complete F&B optimization and market dominance.
             </p>
 
             <div className="space-y-6">
@@ -81,12 +81,11 @@ const WasteWisePlatform = () => {
             </div>
 
             <div className="mt-8 p-6 bg-blue-600/20 rounded-xl border border-blue-500/30">
-              <h4 className="text-lg font-semibold mb-2">Platform Pricing</h4>
+              <h4 className="text-lg font-semibold mb-2">Included with Every Solution</h4>
               <div className="flex items-baseline space-x-2">
-                <span className="text-3xl font-bold">RM 299</span>
-                <span className="text-slate-400">per outlet/month</span>
+                <span className="text-3xl font-bold">No Extra Cost</span>
               </div>
-              <p className="text-sm text-slate-400 mt-2">30-day free trial • Cancel anytime</p>
+              <p className="text-sm text-slate-400 mt-2">Full platform access included with any enterprise solution</p>
             </div>
           </div>
 
@@ -105,9 +104,9 @@ const WasteWisePlatform = () => {
 
         <div className="mt-16 text-center">
           <button className="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
-            Start Free 30-Day Trial
+            Get Started with Any Solution
           </button>
-          <p className="text-slate-400 mt-3">No credit card required • Full feature access</p>
+          <p className="text-slate-400 mt-3">Full WasteWise platform access included • No additional cost</p>
         </div>
       </div>
     </section>
