@@ -63,7 +63,18 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="hover:text-blue-400 transition-colors">Home</Link>
+            <button 
+              onClick={() => {
+                if (location.pathname === '/') {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                  window.location.href = '/';
+                }
+              }}
+              className="hover:text-blue-400 transition-colors bg-transparent border-none cursor-pointer"
+            >
+              Home
+            </button>
             
             {/* Products Dropdown */}
             <div 
@@ -137,7 +148,19 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden mt-4 pb-4 border-t border-slate-700">
             <div className="flex flex-col space-y-4 pt-4">
-              <Link to="/" className="hover:text-blue-400 transition-colors">Home</Link>
+              <button 
+                onClick={() => {
+                  if (location.pathname === '/') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  } else {
+                    window.location.href = '/';
+                  }
+                  setIsMenuOpen(false);
+                }}
+                className="hover:text-blue-400 transition-colors bg-transparent border-none cursor-pointer text-left"
+              >
+                Home
+              </button>
               
               {/* Mobile Products Dropdown */}
               <div>
