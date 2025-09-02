@@ -2,8 +2,12 @@ import React from 'react';
 import { ArrowRight, CheckCircle, Truck, Clock, TrendingUp, Database, Users, DollarSign } from 'lucide-react';
 import Header from '../Header';
 import Footer from '../Footer';
+import { useSolutionForm } from '../../hooks/useSolutionForm';
+import SolutionForms from '../SolutionForms';
 
 const SupplierIntegration = () => {
+  const { isFormOpen, currentSolution, openForm, closeForm } = useSolutionForm();
+
   return (
     <>
       <Header />
@@ -21,8 +25,11 @@ const SupplierIntegration = () => {
                 Our supplier integration creates a seamless supply chain that saves you time and money.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group">
-                  Connect Your Suppliers
+                <button 
+                  onClick={() => openForm('supplier-integration')}
+                  className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group"
+                >
+                  Get Free Consultation
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button className="border-2 border-slate-300 hover:border-slate-400 text-slate-700 px-8 py-4 rounded-lg font-semibold transition-colors text-lg">
@@ -104,28 +111,28 @@ const SupplierIntegration = () => {
               </div>
 
               <div className="bg-slate-50 rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-slate-800 mb-6">Integration Benefits</h3>
+                <h3 className="text-2xl font-bold text-slate-800 mb-6">Supply Chain Benefits</h3>
                 <div className="space-y-6">
                   <div className="flex items-center justify-between p-4 bg-white rounded-lg">
                     <div>
-                      <h4 className="font-bold text-slate-800">Reduce Lead Times</h4>
-                      <p className="text-slate-600 text-sm">Faster order processing</p>
+                      <h4 className="font-bold text-slate-800">Lead Time Reduction</h4>
+                      <p className="text-slate-600 text-sm">Faster delivery from suppliers</p>
                     </div>
-                    <div className="text-2xl font-bold text-green-600">60%</div>
+                    <div className="text-2xl font-bold text-purple-600">60%</div>
                   </div>
                   <div className="flex items-center justify-between p-4 bg-white rounded-lg">
                     <div>
-                      <h4 className="font-bold text-slate-800">Optimize Stock Levels</h4>
-                      <p className="text-slate-600 text-sm">Prevent overstocking</p>
+                      <h4 className="font-bold text-slate-800">Order Accuracy</h4>
+                      <p className="text-slate-600 text-sm">Eliminate manual errors</p>
                     </div>
-                    <div className="text-2xl font-bold text-blue-600">40%</div>
+                    <div className="text-2xl font-bold text-blue-600">99%</div>
                   </div>
                   <div className="flex items-center justify-between p-4 bg-white rounded-lg">
                     <div>
-                      <h4 className="font-bold text-slate-800">Strengthen Partnerships</h4>
-                      <p className="text-slate-600 text-sm">Better collaboration</p>
+                      <h4 className="font-bold text-slate-800">Time Savings</h4>
+                      <p className="text-slate-600 text-sm">Automated supplier management</p>
                     </div>
-                    <div className="text-2xl font-bold text-purple-600">100%</div>
+                    <div className="text-2xl font-bold text-green-600">6 hours/week</div>
                   </div>
                 </div>
               </div>
@@ -133,54 +140,47 @@ const SupplierIntegration = () => {
           </div>
         </section>
 
-        {/* Value Proposition */}
+        {/* Implementation Process */}
         <section className="py-16 md:py-20 bg-slate-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-                Why Supplier Integration Matters
+                Get Started in 30 Days
               </h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                Traditional supplier relationships are riddled with inefficiencies. 
-                Our integration solution transforms these pain points into competitive advantages.
+                Our proven 3-step process connects you with suppliers quickly and efficiently.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white rounded-2xl p-8 text-center">
-                <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Clock className="w-8 h-8 text-purple-600" />
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              <div className="text-center">
+                <div className="bg-purple-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                  1
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">Reduce Lead Times</h3>
-                <p className="text-slate-600 mb-4">
-                  Automated ordering eliminates manual delays. Get ingredients faster 
-                  and reduce the risk of running out during peak hours.
+                <h3 className="text-lg font-bold text-slate-800 mb-2">Supplier Assessment</h3>
+                <p className="text-slate-600 text-sm">
+                  We evaluate your current suppliers and identify integration opportunities
                 </p>
-                <div className="text-2xl font-bold text-purple-600">60% faster</div>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <TrendingUp className="w-8 h-8 text-blue-600" />
+              <div className="text-center">
+                <div className="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                  2
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">Optimize Stock Levels</h3>
-                <p className="text-slate-600 mb-4">
-                  AI-powered forecasting prevents overstocking and shortages. 
-                  Maintain perfect inventory levels automatically.
+                <h3 className="text-lg font-bold text-slate-800 mb-2">System Integration</h3>
+                <p className="text-slate-600 text-sm">
+                  Connect your systems with supplier platforms in just 15 days
                 </p>
-                <div className="text-2xl font-bold text-blue-600">40% reduction</div>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 text-center">
-                <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-8 h-8 text-green-600" />
+              <div className="text-center">
+                <div className="bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                  3
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">Strengthen Partnerships</h3>
-                <p className="text-slate-600 mb-4">
-                  Transparent data sharing builds trust with suppliers. 
-                  Collaborative forecasting leads to better pricing and availability.
+                <h3 className="text-lg font-bold text-slate-800 mb-2">Go Live & Optimize</h3>
+                <p className="text-slate-600 text-sm">
+                  Start automated ordering and optimize for maximum efficiency
                 </p>
-                <div className="text-2xl font-bold text-green-600">Better deals</div>
               </div>
             </div>
           </div>
@@ -268,8 +268,11 @@ const SupplierIntegration = () => {
               Join hundreds of F&B businesses that have revolutionized their supply chain operations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group">
-                Connect Your Suppliers
+              <button 
+                onClick={() => openForm('supplier-integration')}
+                className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group"
+              >
+                Get Free Consultation
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
               <button className="border-2 border-white text-white hover:bg-white hover:text-purple-600 px-8 py-4 rounded-lg font-semibold transition-colors text-lg">
@@ -283,6 +286,13 @@ const SupplierIntegration = () => {
         </section>
       </div>
       <Footer />
+      
+      {/* Solution Form Modal */}
+      <SolutionForms
+        solution={currentSolution}
+        isOpen={isFormOpen}
+        onClose={closeForm}
+      />
     </>
   );
 };

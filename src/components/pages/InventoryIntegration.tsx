@@ -1,9 +1,13 @@
 import React from 'react';
-import { ArrowRight, CheckCircle, Zap, AlertTriangle, Database, TrendingUp, Clock, DollarSign } from 'lucide-react';
+import { ArrowRight, CheckCircle, Package, BarChart3, Clock, Users, Zap } from 'lucide-react';
 import Header from '../Header';
 import Footer from '../Footer';
+import { useSolutionForm } from '../../hooks/useSolutionForm';
+import SolutionForms from '../SolutionForms';
 
 const InventoryIntegration = () => {
+  const { isFormOpen, currentSolution, openForm, closeForm } = useSolutionForm();
+
   return (
     <>
       <Header />
@@ -13,15 +17,18 @@ const InventoryIntegration = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-                Seamless Inventory Management: 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600"> Integrated for Efficiency</span>
+                Real-Time Inventory: 
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600"> Never Run Out Again</span>
               </h1>
               <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-                Stop losing money to inventory chaos. Our integrated system provides real-time tracking, 
-                automated alerts, and supplier sync to eliminate waste and boost your bottom line.
+                Stop losing sales to stockouts and money to over-ordering. Our integrated inventory system 
+                gives you real-time visibility and automated ordering to optimize your supply chain.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group">
+                <button 
+                  onClick={() => openForm('inventory-integration')}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group"
+                >
                   Get Free Demo
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -33,92 +40,136 @@ const InventoryIntegration = () => {
           </div>
         </section>
 
-        {/* Key Features & Benefits */}
+        {/* Core Features */}
         <section className="py-16 md:py-20 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-                Why Malaysian F&B Businesses Choose Our Integration
+                Integrated Inventory Management That Works
               </h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                Join 500+ restaurants that have eliminated inventory waste and saved an average of RM 15,000 monthly.
+                Our comprehensive inventory system connects all your locations, suppliers, and POS systems 
+                for seamless inventory control and optimization.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Zap className="w-8 h-8 text-blue-600" />
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="space-y-8">
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Package className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-slate-800 mb-2">Real-Time Tracking</h3>
+                      <p className="text-slate-600">
+                        See your inventory levels across all locations in real-time. 
+                        Track stock movements, usage patterns, and reorder points instantly.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                      <BarChart3 className="w-6 h-6 text-green-600" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-slate-800 mb-2">Automated Ordering</h3>
+                      <p className="text-slate-600">
+                        Set up automatic reorder points and let our system handle supplier orders. 
+                        Never run out of ingredients or over-order again.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Users className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-slate-800 mb-2">Multi-Location Sync</h3>
+                      <p className="text-slate-600">
+                        Manage inventory across all your outlets from one dashboard. 
+                        Transfer stock between locations and optimize distribution.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-orange-100 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Zap className="w-6 h-6 text-orange-600" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-slate-800 mb-2">Smart Alerts</h3>
+                      <p className="text-slate-600">
+                        Get instant notifications for low stock, expiring items, and unusual usage patterns. 
+                        Stay ahead of inventory issues before they become problems.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">Automated Tracking</h3>
-                <p className="text-slate-600">
-                  Real-time updates when waste is logged or supplies received. No more manual counting errors.
-                </p>
               </div>
 
-              <div className="text-center">
-                <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Database className="w-8 h-8 text-green-600" />
+              <div className="bg-slate-50 rounded-2xl p-8">
+                <h3 className="text-2xl font-bold text-slate-800 mb-6">Inventory Benefits</h3>
+                <div className="space-y-6">
+                  <div className="flex items-center justify-between p-4 bg-white rounded-lg">
+                    <div>
+                      <h4 className="font-bold text-slate-800">Stockout Prevention</h4>
+                      <p className="text-slate-600 text-sm">Never lose sales to missing ingredients</p>
+                    </div>
+                    <div className="text-2xl font-bold text-green-600">99%</div>
+                  </div>
+                  <div className="flex items-center justify-between p-4 bg-white rounded-lg">
+                    <div>
+                      <h4 className="font-bold text-slate-800">Waste Reduction</h4>
+                      <p className="text-slate-600 text-sm">Optimize ordering quantities</p>
+                    </div>
+                    <div className="text-2xl font-bold text-blue-600">45%</div>
+                  </div>
+                  <div className="flex items-center justify-between p-4 bg-white rounded-lg">
+                    <div>
+                      <h4 className="font-bold text-slate-800">Time Savings</h4>
+                      <p className="text-slate-600 text-sm">Automated inventory management</p>
+                    </div>
+                    <div className="text-2xl font-bold text-purple-600">6 hours/week</div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">Centralized Dashboard</h3>
-                <p className="text-slate-600">
-                  Single view of all inventory across multiple locations. Make decisions with confidence.
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <AlertTriangle className="w-8 h-8 text-orange-600" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">Smart Alerts</h3>
-                <p className="text-slate-600">
-                  Low-stock alerts and expiration reminders prevent waste and stockouts automatically.
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <TrendingUp className="w-8 h-8 text-purple-600" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">Supplier Sync</h3>
-                <p className="text-slate-600">
-                  Direct connection with supplier systems for automated reordering and better pricing.
-                </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* How It Works */}
+        {/* Implementation Process */}
         <section className="py-16 md:py-20 bg-slate-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-                Get Started in 3 Simple Steps
+                Get Started in 7 Days
               </h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                Our streamlined setup process gets you up and running in just 7 days, not months.
+                Our proven 3-step process gets your inventory system up and running quickly.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               <div className="text-center">
                 <div className="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                   1
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">Connect Your System</h3>
-                <p className="text-slate-600">
-                  We integrate with your existing POS and inventory systems in just 2 days. No disruption to your operations.
+                <h3 className="text-lg font-bold text-slate-800 mb-2">Connect Systems</h3>
+                <p className="text-slate-600 text-sm">
+                  We integrate with your existing POS, accounting, and supplier systems in 3 days
                 </p>
               </div>
 
               <div className="text-center">
-                <div className="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                <div className="bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                   2
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">Configure Rules</h3>
-                <p className="text-slate-600">
-                  Set up your tracking preferences, alert thresholds, and supplier connections in 3 days.
+                <h3 className="text-lg font-bold text-slate-800 mb-2">Configure Rules</h3>
+                <p className="text-slate-600 text-sm">
+                  Set up your tracking preferences, alert thresholds, and supplier connections in 3 days
                 </p>
               </div>
 
@@ -126,8 +177,8 @@ const InventoryIntegration = () => {
                 <div className="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                   3
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">Monitor & Optimize</h3>
-                <p className="text-slate-600">
+                <h3 className="text-lg font-bold text-slate-800 mb-2">Monitor & Optimize</h3>
+                <p className="text-slate-600 text-sm">
                   Start seeing results immediately. Our team helps you optimize for maximum savings.
                 </p>
               </div>
@@ -195,7 +246,10 @@ const InventoryIntegration = () => {
               with our integrated inventory solution.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group">
+              <button 
+                onClick={() => openForm('inventory-integration')}
+                className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group"
+              >
                 Get Free Demo
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
@@ -210,6 +264,13 @@ const InventoryIntegration = () => {
         </section>
       </div>
       <Footer />
+      
+      {/* Solution Form Modal */}
+      <SolutionForms
+        solution={currentSolution}
+        isOpen={isFormOpen}
+        onClose={closeForm}
+      />
     </>
   );
 };

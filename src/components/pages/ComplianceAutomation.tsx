@@ -2,8 +2,12 @@ import React from 'react';
 import { ArrowRight, CheckCircle, Shield, FileText, AlertTriangle, Clock, DollarSign, Users } from 'lucide-react';
 import Header from '../Header';
 import Footer from '../Footer';
+import { useSolutionForm } from '../../hooks/useSolutionForm';
+import SolutionForms from '../SolutionForms';
 
 const ComplianceAutomation = () => {
+  const { isFormOpen, currentSolution, openForm, closeForm } = useSolutionForm();
+
   return (
     <>
       <Header />
@@ -21,8 +25,11 @@ const ComplianceAutomation = () => {
                 ensures you're always compliant while saving 8+ hours weekly on manual reporting.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group">
-                  Start Your Compliance Journey
+                <button 
+                  onClick={() => openForm('compliance-automation')}
+                  className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group"
+                >
+                  Get Free Compliance Assessment
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button className="border-2 border-slate-300 hover:border-slate-400 text-slate-700 px-8 py-4 rounded-lg font-semibold transition-colors text-lg">
@@ -103,103 +110,6 @@ const ComplianceAutomation = () => {
                 </div>
               </div>
 
-              <div className="bg-slate-50 rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-slate-800 mb-6">Compliance Benefits</h3>
-                <div className="space-y-6">
-                  <div className="flex items-center justify-between p-4 bg-white rounded-lg">
-                    <div>
-                      <h4 className="font-bold text-slate-800">Risk Reduction</h4>
-                      <p className="text-slate-600 text-sm">Eliminate compliance violations</p>
-                    </div>
-                    <div className="text-2xl font-bold text-green-600">100%</div>
-                  </div>
-                  <div className="flex items-center justify-between p-4 bg-white rounded-lg">
-                    <div>
-                      <h4 className="font-bold text-slate-800">Time Savings</h4>
-                      <p className="text-slate-600 text-sm">Automated reporting</p>
-                    </div>
-                    <div className="text-2xl font-bold text-blue-600">8+ hours/week</div>
-                  </div>
-                  <div className="flex items-center justify-between p-4 bg-white rounded-lg">
-                    <div>
-                      <h4 className="font-bold text-slate-800">Peace of Mind</h4>
-                      <p className="text-slate-600 text-sm">Always compliant</p>
-                    </div>
-                    <div className="text-2xl font-bold text-purple-600">24/7</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Why It Matters */}
-        <section className="py-16 md:py-20 bg-slate-50">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-                Why Compliance Automation Matters
-              </h2>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                Manual compliance management is risky, time-consuming, and expensive. 
-                Our automated solution transforms compliance from a burden into a competitive advantage.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white rounded-2xl p-8 text-center">
-                <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Shield className="w-8 h-8 text-red-600" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">Risk Reduction</h3>
-                <p className="text-slate-600 mb-4">
-                  Eliminate the risk of fines, penalties, and legal issues. 
-                  Automated compliance ensures you're always within regulations.
-                </p>
-                <div className="text-2xl font-bold text-red-600">Zero violations</div>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Clock className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">Time Savings</h3>
-                <p className="text-slate-600 mb-4">
-                  Save 8+ hours weekly on manual compliance tasks. 
-                  Focus on growing your business instead of paperwork.
-                </p>
-                <div className="text-2xl font-bold text-blue-600">8+ hours/week</div>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 text-center">
-                <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <DollarSign className="w-8 h-8 text-green-600" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">Peace of Mind</h3>
-                <p className="text-slate-600 mb-4">
-                  Sleep soundly knowing your compliance is handled automatically. 
-                  No more worrying about missed deadlines or violations.
-                </p>
-                <div className="text-2xl font-bold text-green-600">100% secure</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Compliance Checklist */}
-        <section className="py-16 md:py-20 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-                  Free Compliance Assessment
-                </h2>
-                <p className="text-xl text-slate-600">
-                  Download our comprehensive compliance checklist to assess your current status 
-                  and identify areas for improvement.
-                </p>
-              </div>
-
               <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-2xl p-8">
                 <div className="grid md:grid-cols-2 gap-8 items-center">
                   <div>
@@ -234,31 +144,73 @@ const ComplianceAutomation = () => {
                     <h3 className="text-xl font-bold text-slate-800 mb-4 text-center">
                       Get Your Free Assessment
                     </h3>
-                    <div className="space-y-4">
-                      <input 
-                        type="text" 
-                        placeholder="Your Name" 
-                        className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                      />
-                      <input 
-                        type="email" 
-                        placeholder="Email Address" 
-                        className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                      />
-                      <input 
-                        type="text" 
-                        placeholder="Business Name" 
-                        className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                      />
-                      <button className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-semibold transition-colors">
-                        Download Free Assessment
-                      </button>
-                    </div>
+                    <p className="text-slate-600 text-sm mb-4 text-center">
+                      Get your personalized compliance roadmap and stop worrying about regulatory violations.
+                    </p>
+                    <button 
+                      onClick={() => openForm('compliance-automation')}
+                      className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-semibold transition-colors"
+                    >
+                      Get Free Assessment
+                    </button>
                     <p className="text-slate-600 text-sm mt-4 text-center">
-                      No spam • Instant download • No commitment required
+                      No spam • Instant access • No commitment required
                     </p>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Benefits */}
+        <section className="py-16 md:py-20 bg-slate-50">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
+                Transform Your Compliance Process
+              </h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                Join hundreds of Malaysian F&B businesses that have automated their compliance 
+                and eliminated regulatory worries.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="bg-white rounded-2xl p-8 text-center">
+                <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Clock className="w-8 h-8 text-red-600" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-800 mb-3">Massive Time Savings</h3>
+                <p className="text-slate-600 mb-4">
+                  Reduce compliance reporting time from 8 hours to just 30 minutes weekly. 
+                  That's 30+ hours saved monthly for your team.
+                </p>
+                <div className="text-2xl font-bold text-red-600">30+ hours/month</div>
+              </div>
+
+              <div className="bg-white rounded-2xl p-8 text-center">
+                <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Shield className="w-8 h-8 text-orange-600" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-800 mb-3">100% Compliance</h3>
+                <p className="text-slate-600 mb-4">
+                  Never miss a deadline or requirement again. Our system ensures 
+                  you're always compliant with current regulations.
+                </p>
+                <div className="text-2xl font-bold text-orange-600">100% compliance</div>
+              </div>
+
+              <div className="bg-white rounded-2xl p-8 text-center">
+                <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <DollarSign className="w-8 h-8 text-green-600" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-800 mb-3">Avoid Fines</h3>
+                <p className="text-slate-600 mb-4">
+                  Prevent costly regulatory fines and penalties. Our system keeps you 
+                  ahead of compliance requirements.
+                </p>
+                <div className="text-2xl font-bold text-green-600">Zero fines</div>
               </div>
             </div>
           </div>
@@ -275,8 +227,11 @@ const ComplianceAutomation = () => {
               transformed their compliance processes with our automated solution.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-red-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group">
-                Start Your Compliance Journey
+              <button 
+                onClick={() => openForm('compliance-automation')}
+                className="bg-white text-red-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group"
+              >
+                Get Free Compliance Assessment
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
               <button className="border-2 border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 rounded-lg font-semibold transition-colors text-lg">
@@ -290,6 +245,13 @@ const ComplianceAutomation = () => {
         </section>
       </div>
       <Footer />
+      
+      {/* Solution Form Modal */}
+      <SolutionForms
+        solution={currentSolution}
+        isOpen={isFormOpen}
+        onClose={closeForm}
+      />
     </>
   );
 };
