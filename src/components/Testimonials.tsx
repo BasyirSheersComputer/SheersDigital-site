@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Star, Quote } from 'lucide-react';
 import { useCalendlyModal } from '../hooks/useCalendlyModal';
 import CalendlyModal from './CalendlyModal';
+import { AnimatedSection } from './AnimatedSection';
 
 const Testimonials = () => {
   const { isOpen, openModal, closeModal } = useCalendlyModal();
@@ -66,61 +67,67 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="py-16 md:py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-            Success Stories from Malaysian F&B Leaders
-          </h2>
-          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
-            See how the WasteWise platform is transforming F&B operations across Malaysia with intelligent inventory management and waste reduction.
-          </p>
-        </div>
+        <AnimatedSection animation="slideUp" delay={0.2}>
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
+              Success Stories from Malaysian F&B Leaders
+            </h2>
+            <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
+              See how the WasteWise platform is transforming F&B operations across Malaysia with intelligent inventory management and waste reduction.
+            </p>
+          </div>
+        </AnimatedSection>
 
         {/* Testimonials Grid */}
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-gray-50 p-6 rounded-lg shadow-md">
-              <div className="flex items-center mb-4 text-yellow-500">
-                {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <Star key={i} className="h-5 w-5" />
-                ))}
+            <AnimatedSection key={index} animation="slideUp" delay={0.1 * (index + 1)}>
+              <div className="bg-gray-50 p-6 rounded-lg shadow-md">
+                <div className="flex items-center mb-4 text-yellow-500">
+                  {Array.from({ length: testimonial.rating }).map((_, i) => (
+                    <Star key={i} className="h-5 w-5" />
+                  ))}
+                </div>
+                <p className="text-lg text-slate-800 mb-4">
+                  <Quote className="h-6 w-6 inline-block mr-2 text-slate-600" />
+                  {testimonial.content}
+                </p>
+                <div className="flex items-center mt-4 text-slate-600 text-sm">
+                  <span>{testimonial.name}</span>
+                  <span className="mx-1">•</span>
+                  <span>{testimonial.position}</span>
+                  <span className="mx-1">•</span>
+                  <span>{testimonial.company}</span>
+                </div>
               </div>
-              <p className="text-lg text-slate-800 mb-4">
-                <Quote className="h-6 w-6 inline-block mr-2 text-slate-600" />
-                {testimonial.content}
-              </p>
-              <div className="flex items-center mt-4 text-slate-600 text-sm">
-                <span>{testimonial.name}</span>
-                <span className="mx-1">•</span>
-                <span>{testimonial.position}</span>
-                <span className="mx-1">•</span>
-                <span>{testimonial.company}</span>
-              </div>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
 
         {/* CTA Section */}
-        <div className="mt-8 md:mt-12 text-center">
-          <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 md:p-8 max-w-4xl mx-auto">
-            <h3 className="text-xl md:text-2xl font-bold text-blue-800 mb-3 md:mb-4">
-              Join These Success Stories
-            </h3>
-            <p className="text-blue-700 text-base md:text-lg mb-4 md:mb-6">
-              Start with WasteWise and transform your F&B operations. Get a free consultation to see how our platform can help you reduce waste and increase profitability.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-              <button 
-                onClick={openModal}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold transition-colors text-sm md:text-base"
-              >
-                Book Free Consultation
-              </button>
-              <Link to="/get-started" className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold transition-colors text-sm md:text-base">
-                View Case Studies
-              </Link>
+        <AnimatedSection animation="slideUp" delay={0.6}>
+          <div className="mt-8 md:mt-12 text-center">
+            <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 md:p-8 max-w-4xl mx-auto">
+              <h3 className="text-xl md:text-2xl font-bold text-blue-800 mb-3 md:mb-4">
+                Join These Success Stories
+              </h3>
+              <p className="text-blue-700 text-base md:text-lg mb-4 md:mb-6">
+                Start with WasteWise and transform your F&B operations. Get a free consultation to see how our platform can help you reduce waste and increase profitability.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+                <button 
+                  onClick={openModal}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold transition-colors text-sm md:text-base"
+                >
+                  Book Free Consultation
+                </button>
+                <Link to="/get-started" className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold transition-colors text-sm md:text-base">
+                  View Case Studies
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
+        </AnimatedSection>
       </div>
       
       <CalendlyModal isOpen={isOpen} onClose={closeModal} />

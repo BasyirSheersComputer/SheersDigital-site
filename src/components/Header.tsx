@@ -6,12 +6,15 @@ import { useScrollToSection } from '../hooks/useScrollToSection';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
+  const [isSolutionsDropdownOpen, setIsSolutionsDropdownOpen] = useState(false);
   const location = useLocation();
   const scrollToSection = useScrollToSection();
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const solutionsDropdownRef = useRef<HTMLDivElement>(null);
+  const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const solutionsHoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Handle hover with delay
+  // Handle hover with delay for Products
   const handleMouseEnter = () => {
     if (hoverTimeoutRef.current) {
       clearTimeout(hoverTimeoutRef.current);
@@ -26,11 +29,29 @@ const Header = () => {
     }, 150); // 150ms delay
   };
 
+  // Handle hover with delay for Solutions
+  const handleSolutionsMouseEnter = () => {
+    if (solutionsHoverTimeoutRef.current) {
+      clearTimeout(solutionsHoverTimeoutRef.current);
+      solutionsHoverTimeoutRef.current = null;
+    }
+    setIsSolutionsDropdownOpen(true);
+  };
+
+  const handleSolutionsMouseLeave = () => {
+    solutionsHoverTimeoutRef.current = setTimeout(() => {
+      setIsSolutionsDropdownOpen(false);
+    }, 150); // 150ms delay
+  };
+
   // Close dropdown when clicking outside (for mobile)
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsProductsDropdownOpen(false);
+      }
+      if (solutionsDropdownRef.current && !solutionsDropdownRef.current.contains(event.target as Node)) {
+        setIsSolutionsDropdownOpen(false);
       }
     };
 
@@ -43,6 +64,9 @@ const Header = () => {
       document.removeEventListener('mousedown', handleClickOutside);
       if (hoverTimeoutRef.current) {
         clearTimeout(hoverTimeoutRef.current);
+      }
+      if (solutionsHoverTimeoutRef.current) {
+        clearTimeout(solutionsHoverTimeoutRef.current);
       }
     };
   }, []);
@@ -75,6 +99,63 @@ const Header = () => {
             >
               Home
             </button>
+            
+            {/* Solutions Dropdown */}
+            <div 
+              className="relative" 
+              ref={solutionsDropdownRef}
+              onMouseEnter={handleSolutionsMouseEnter}
+              onMouseLeave={handleSolutionsMouseLeave}
+            >
+              <button
+                className="flex items-center space-x-1 hover:text-blue-400 transition-colors bg-transparent border-none cursor-pointer"
+              >
+                <span>Solutions</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${isSolutionsDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {isSolutionsDropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 w-64 bg-slate-700 rounded-lg shadow-lg border border-slate-600 z-50">
+                  <div className="py-2">
+                    <a
+                      href="/inventory-integration"
+                      className="block px-4 py-3 text-sm hover:bg-slate-600 transition-colors border-b border-slate-600"
+                    >
+                      <div className="font-semibold text-blue-400">Eliminate Stockouts & Overstocking</div>
+                      <div className="text-xs text-slate-300 mt-1">From RM 8,500 • 7 days setup</div>
+                    </a>
+                    <a
+                      href="/waste-logging-automation"
+                      className="block px-4 py-3 text-sm hover:bg-slate-600 transition-colors border-b border-slate-600"
+                    >
+                      <div className="font-semibold text-blue-400">End Food Waste & Boost Profit Margins</div>
+                      <div className="text-xs text-slate-300 mt-1">From RM 6,500 • 5 days setup</div>
+                    </a>
+                    <a
+                      href="/supplier-integration"
+                      className="block px-4 py-3 text-sm hover:bg-slate-600 transition-colors border-b border-slate-600"
+                    >
+                      <div className="font-semibold text-blue-400">Optimize Procurement & Reduce Costs</div>
+                      <div className="text-xs text-slate-300 mt-1">From RM 12,500 • 10 days setup</div>
+                    </a>
+                    <a
+                      href="/ai-forecasting"
+                      className="block px-4 py-3 text-sm hover:bg-slate-600 transition-colors border-b border-slate-600"
+                    >
+                      <div className="font-semibold text-blue-400">Predict Demand & Maximize Sales</div>
+                      <div className="text-xs text-slate-300 mt-1">From RM 18,500 • 14 days setup</div>
+                    </a>
+                    <a
+                      href="/compliance-automation"
+                      className="block px-4 py-3 text-sm hover:bg-slate-600 transition-colors"
+                    >
+                      <div className="font-semibold text-blue-400">Automate Compliance & Reduce Risk</div>
+                      <div className="text-xs text-slate-300 mt-1">From RM 7,500 • 7 days setup</div>
+                    </a>
+                  </div>
+                </div>
+              )}
+            </div>
             
             {/* Products Dropdown */}
             <div 
@@ -161,6 +242,77 @@ const Header = () => {
               >
                 Home
               </button>
+              
+              {/* Mobile Solutions Dropdown */}
+              <div>
+                <button
+                  onClick={() => setIsSolutionsDropdownOpen(!isSolutionsDropdownOpen)}
+                  className="flex items-center justify-between w-full hover:text-blue-400 transition-colors bg-transparent border-none cursor-pointer text-left"
+                >
+                  <span>Solutions</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform ${isSolutionsDropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                {isSolutionsDropdownOpen && (
+                  <div className="ml-4 mt-2 space-y-3">
+                    <a
+                      href="/inventory-integration"
+                      className="block text-sm hover:text-blue-400 transition-colors"
+                      onClick={() => {
+                        setIsSolutionsDropdownOpen(false);
+                        setIsMenuOpen(false);
+                      }}
+                    >
+                      <div className="font-semibold text-blue-400">Eliminate Stockouts & Overstocking</div>
+                      <div className="text-xs text-slate-300">From RM 8,500 • 7 days</div>
+                    </a>
+                    <a
+                      href="/waste-logging-automation"
+                      className="block text-sm hover:text-blue-400 transition-colors"
+                      onClick={() => {
+                        setIsSolutionsDropdownOpen(false);
+                        setIsMenuOpen(false);
+                      }}
+                    >
+                      <div className="font-semibold text-blue-400">End Food Waste & Boost Profit Margins</div>
+                      <div className="text-xs text-slate-300">From RM 6,500 • 5 days</div>
+                    </a>
+                    <a
+                      href="/supplier-integration"
+                      className="block text-sm hover:text-blue-400 transition-colors"
+                      onClick={() => {
+                        setIsSolutionsDropdownOpen(false);
+                        setIsMenuOpen(false);
+                      }}
+                    >
+                      <div className="font-semibold text-blue-400">Optimize Procurement & Reduce Costs</div>
+                      <div className="text-xs text-slate-300">From RM 12,500 • 10 days</div>
+                    </a>
+                    <a
+                      href="/ai-forecasting"
+                      className="block text-sm hover:text-blue-400 transition-colors"
+                      onClick={() => {
+                        setIsSolutionsDropdownOpen(false);
+                        setIsMenuOpen(false);
+                      }}
+                    >
+                      <div className="font-semibold text-blue-400">Predict Demand & Maximize Sales</div>
+                      <div className="text-xs text-slate-300">From RM 18,500 • 14 days</div>
+                    </a>
+                    <a
+                      href="/compliance-automation"
+                      className="block text-sm hover:text-blue-400 transition-colors"
+                      onClick={() => {
+                        setIsSolutionsDropdownOpen(false);
+                        setIsMenuOpen(false);
+                      }}
+                    >
+                      <div className="font-semibold text-blue-400">Automate Compliance & Reduce Risk</div>
+                      <div className="text-xs text-slate-300">From RM 7,500 • 7 days</div>
+                    </a>
+                  </div>
+                )}
+              </div>
               
               {/* Mobile Products Dropdown */}
               <div>
