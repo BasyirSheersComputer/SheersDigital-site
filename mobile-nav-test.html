@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Navigation Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8fafc;
+        }
+        
+        .header {
+            background: #1e293b;
+            color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            min-height: 44px;
+            min-width: 44px;
+            touch-action: manipulation;
+        }
+        
+        .desktop-nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .desktop-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s;
+        }
+        
+        .desktop-nav a:hover {
+            background: #334155;
+        }
+        
+        .mobile-nav {
+            display: none;
+            background: #1e293b;
+            border-top: 1px solid #334155;
+            padding: 1rem;
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: background-color 0.2s;
+            min-height: 44px;
+            touch-action: manipulation;
+        }
+        
+        .mobile-nav a:hover {
+            background: #334155;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #334155;
+            min-width: 200px;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        
+        .dropdown-content a {
+            color: white;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid #475569;
+        }
+        
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+        
+        .dropdown-content a:hover {
+            background: #475569;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .test-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .test-button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 0.5rem;
+            min-height: 44px;
+            touch-action: manipulation;
+            transition: background-color 0.2s;
+        }
+        
+        .test-button:hover {
+            background: #2563eb;
+        }
+        
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        /* Mobile Safari specific fixes */
+        @supports (-webkit-touch-callout: none) {
+            .mobile-nav a {
+                -webkit-tap-highlight-color: transparent;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                user-select: none;
+            }
+            
+            .test-button {
+                -webkit-tap-highlight-color: transparent;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                user-select: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">Sheers Digital</div>
+            
+            <nav class="desktop-nav">
+                <a href="#home">Home</a>
+                <div class="dropdown">
+                    <a href="#solutions">Solutions</a>
+                    <div class="dropdown-content">
+                        <a href="/inventory-integration">Inventory Integration</a>
+                        <a href="/waste-logging-automation">Waste Logging</a>
+                        <a href="/supplier-integration">Supplier Integration</a>
+                        <a href="/ai-forecasting">AI Forecasting</a>
+                        <a href="/compliance-automation">Compliance</a>
+                    </div>
+                </div>
+                <a href="#contact">Contact</a>
+            </nav>
+            
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+        
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="#home" onclick="closeMobileMenu()">Home</a>
+            <a href="/inventory-integration" onclick="closeMobileMenu()">Inventory Integration</a>
+            <a href="/waste-logging-automation" onclick="closeMobileMenu()">Waste Logging</a>
+            <a href="/supplier-integration" onclick="closeMobileMenu()">Supplier Integration</a>
+            <a href="/ai-forecasting" onclick="closeMobileMenu()">AI Forecasting</a>
+            <a href="/compliance-automation" onclick="closeMobileMenu()">Compliance</a>
+            <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+        </nav>
+    </header>
+
+    <div class="content">
+        <div class="test-section">
+            <h2>Mobile Navigation Test</h2>
+            <p>This page tests the mobile navigation functionality. Try opening the mobile menu and clicking on solution links.</p>
+            
+            <h3>Test Buttons</h3>
+            <button class="test-button" onclick="testClick('Button 1')">Test Button 1</button>
+            <button class="test-button" onclick="testClick('Button 2')">Test Button 2</button>
+            <button class="test-button" onclick="testClick('Button 3')">Test Button 3</button>
+            
+            <h3>Test Links</h3>
+            <a href="/inventory-integration" class="test-button" style="text-decoration: none; display: inline-block;">Inventory Integration</a>
+            <a href="/ai-forecasting" class="test-button" style="text-decoration: none; display: inline-block;">AI Forecasting</a>
+        </div>
+        
+        <div class="test-section">
+            <h3>Instructions</h3>
+            <ol>
+                <li>Open this page on a mobile device or use browser dev tools to simulate mobile</li>
+                <li>Tap the hamburger menu (☰) to open mobile navigation</li>
+                <li>Try tapping on different solution links</li>
+                <li>Test the buttons to ensure they respond to touch</li>
+                <li>Check if navigation closes after clicking links</li>
+            </ol>
+        </div>
+        
+        <div class="test-section">
+            <h3>Expected Behavior</h3>
+            <ul>
+                <li>Mobile menu should open/close smoothly</li>
+                <li>All links should be clickable with proper touch targets (44px minimum)</li>
+                <li>Menu should close after clicking any link</li>
+                <li>No scrolling issues or z-index problems</li>
+                <li>Touch feedback should be immediate and responsive</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('active');
+            
+            // Prevent body scroll when menu is open
+            if (mobileNav.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'unset';
+            }
+        }
+        
+        function closeMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = 'unset';
+        }
+        
+        function testClick(buttonName) {
+            alert(`Clicked: ${buttonName}`);
+        }
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!mobileNav.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = 'unset';
+            }
+        });
+        
+        // Close mobile menu on route change (simulate)
+        window.addEventListener('popstate', function() {
+            closeMobileMenu();
+        });
+        
+        // Add touch event logging for debugging
+        document.addEventListener('touchstart', function(event) {
+            console.log('Touch start:', event.target);
+        });
+        
+        document.addEventListener('touchend', function(event) {
+            console.log('Touch end:', event.target);
+        });
+        
+        // Log when page loads
+        console.log('Mobile Navigation Test Page Loaded');
+        console.log('User Agent:', navigator.userAgent);
+        console.log('Touch Support:', 'ontouchstart' in window);
+    </script>
+</body>
+</html>

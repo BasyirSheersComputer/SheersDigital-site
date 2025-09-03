@@ -104,85 +104,144 @@
 
 /* Mobile Safari Fixes */
 @supports (-webkit-touch-callout: none) {
-  /* iOS Safari specific fixes */
-  .fixed {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-  }
+  .fixed { -webkit-transform: translateZ(0); transform: translateZ(0); }
+  .modal-fix { -webkit-overflow-scrolling: touch; -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+  button, input, select, textarea { -webkit-appearance: none; -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
+  button { min-height: 44px; min-width: 44px; }
+  input, select, textarea { min-height: 44px; -webkit-text-size-adjust: 100%; }
   
-  /* Fix for iOS Safari modal positioning */
-  .modal-fix {
-    -webkit-overflow-scrolling: touch;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-  
-  /* Improve touch targets on iOS */
-  button, input, select, textarea {
-    -webkit-appearance: none;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    user-select: none;
-  }
-  
-  /* Fix for iOS Safari button sizing */
-  button {
-    min-height: 44px;
-    min-width: 44px;
-  }
-  
-  /* Fix for iOS Safari input sizing */
-  input, select, textarea {
-    min-height: 44px;
-    -webkit-text-size-adjust: 100%;
-  }
+  /* Mobile navigation specific fixes */
+  .mobile-nav { -webkit-transform: translateZ(0); transform: translateZ(0); }
+  .mobile-dropdown { -webkit-overflow-scrolling: touch; }
 }
 
 /* Touch-friendly improvements */
-.touch-manipulation {
-  touch-action: manipulation;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  user-select: none;
-}
+.touch-manipulation { touch-action: manipulation; -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
 
 /* Mobile form improvements */
 @media (max-width: 768px) {
-  /* Ensure proper touch target sizes */
-  button, input, select, textarea {
-    min-height: 44px;
-    min-width: 44px;
+  button, input, select, textarea { min-height: 44px; min-width: 44px; }
+  .modal-mobile { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 9999; -webkit-overflow-scrolling: touch; }
+  .backdrop-mobile { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); }
+  .form-scroll-mobile { -webkit-overflow-scrolling: touch; overflow-y: auto; max-height: calc(100vh - 120px); }
+  
+  /* Mobile navigation improvements */
+  .mobile-nav { 
+    position: relative; 
+    z-index: 1000; 
+    -webkit-overflow-scrolling: touch; 
+    overflow-y: auto; 
+    max-height: calc(100vh - 200px); 
   }
   
-  /* Improve modal positioning on mobile */
-  .modal-mobile {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 9999;
-    -webkit-overflow-scrolling: touch;
+  .mobile-dropdown { 
+    position: relative; 
+    z-index: 1001; 
+    background: rgba(51, 65, 85, 0.95); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+    border-radius: 8px; 
+    margin: 8px 0; 
+    padding: 12px; 
   }
   
-  /* Fix mobile Safari backdrop issues */
-  .backdrop-mobile {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
+  /* Ensure mobile menu items are properly spaced */
+  .mobile-nav button,
+  .mobile-nav a { 
+    padding: 12px 16px; 
+    margin: 4px 0; 
+    border-radius: 8px; 
+    transition: all 0.2s ease; 
   }
   
-  /* Improve mobile form scrolling */
-  .form-scroll-mobile {
-    -webkit-overflow-scrolling: touch;
-    overflow-y: auto;
-    max-height: calc(100vh - 120px);
+  .mobile-nav button:hover,
+  .mobile-nav a:hover { 
+    background: rgba(59, 130, 246, 0.1); 
+    transform: translateX(4px); 
+  }
+  
+  /* Mobile menu button improvements */
+  .mobile-menu-btn { 
+    position: relative; 
+    z-index: 1002; 
+    padding: 8px; 
+    border-radius: 8px; 
+    transition: all 0.2s ease; 
+  }
+  
+  .mobile-menu-btn:active { 
+    background: rgba(255, 255, 255, 0.1); 
+    transform: scale(0.95); 
+  }
+}
+
+/* Mobile-specific button states */
+@media (hover: none) and (pointer: coarse) {
+  .mobile-button { transition: none; }
+  .mobile-button:active { transform: scale(0.98); opacity: 0.8; }
+  
+  /* Additional mobile button improvements */
+  .mobile-button:focus { 
+    outline: 2px solid #3b82f6; 
+    outline-offset: 2px; 
+  }
+  
+  /* Mobile navigation focus states */
+  .mobile-nav button:focus,
+  .mobile-nav a:focus { 
+    outline: 2px solid #3b82f6; 
+    outline-offset: 2px; 
+    background: rgba(59, 130, 246, 0.1); 
+  }
+}
+
+/* Additional mobile navigation improvements */
+@media (max-width: 768px) {
+  /* Ensure proper stacking context */
+  header { z-index: 1000; }
+  
+  /* Mobile menu overlay */
+  .mobile-nav-overlay { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 999; 
+  }
+  
+  /* Mobile navigation container */
+  .mobile-nav-container { 
+    position: relative; 
+    z-index: 1001; 
+    background: #1e293b; 
+    border-top: 1px solid #334155; 
+    padding: 16px; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
+  }
+  
+  /* Mobile dropdown animations */
+  .mobile-dropdown-enter { 
+    opacity: 0; 
+    transform: translateY(-10px); 
+    transition: all 0.2s ease; 
+  }
+  
+  .mobile-dropdown-enter-active { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+  
+  .mobile-dropdown-exit { 
+    opacity: 1; 
+    transform: translateY(0); 
+    transition: all 0.2s ease; 
+  }
+  
+  .mobile-dropdown-exit-active { 
+    opacity: 0; 
+    transform: translateY(-10px); 
   }
 }
 
@@ -215,16 +274,4 @@
 .focus-visible:focus {
   outline: 2px solid #3b82f6;
   outline-offset: 2px;
-}
-
-/* Mobile-specific button states */
-@media (hover: none) and (pointer: coarse) {
-  .mobile-button {
-    transition: none;
-  }
-  
-  .mobile-button:active {
-    transform: scale(0.98);
-    opacity: 0.8;
-  }
 }
