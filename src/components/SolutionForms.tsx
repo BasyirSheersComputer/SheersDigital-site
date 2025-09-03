@@ -41,6 +41,7 @@ const SolutionForms: React.FC<SolutionFormProps> = ({ solution, isOpen, onClose 
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
+  const backdropRef = useRef<HTMLDivElement>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -74,9 +75,13 @@ const SolutionForms: React.FC<SolutionFormProps> = ({ solution, isOpen, onClose 
   };
 
   const handleBackdropClick = (e: React.MouseEvent) => {
-    if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+    if (backdropRef.current && !backdropRef.current.contains(e.target as Node)) {
       onClose();
     }
+  };
+
+  const handleModalClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
   };
 
   // Close form on Escape key press
@@ -287,8 +292,16 @@ const SolutionForms: React.FC<SolutionFormProps> = ({ solution, isOpen, onClose 
 
   if (isSubmitted) {
     return (
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-        <div className="bg-white rounded-2xl p-8 max-w-md w-full text-center">
+      <div 
+        ref={backdropRef}
+        className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] p-4 backdrop-mobile modal-mobile"
+        onClick={handleBackdropClick}
+      >
+        <div 
+          ref={modalRef}
+          className="bg-white rounded-2xl p-8 max-w-md w-full text-center modal-fix"
+          onClick={handleModalClick}
+        >
           <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
             <CheckCircle className="w-8 h-8 text-green-600" />
           </div>
@@ -298,7 +311,7 @@ const SolutionForms: React.FC<SolutionFormProps> = ({ solution, isOpen, onClose 
           </p>
           <button
             onClick={onClose}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors"
+            className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors min-h-[44px] touch-manipulation w-full mobile-button"
           >
             Close
           </button>
@@ -309,19 +322,21 @@ const SolutionForms: React.FC<SolutionFormProps> = ({ solution, isOpen, onClose 
 
   return (
     <div 
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+      ref={backdropRef}
+      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] p-4 backdrop-mobile modal-mobile"
       onClick={handleBackdropClick}
     >
       <div 
         ref={modalRef}
-        className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
-        onClick={(e) => e.stopPropagation()}
+        className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto modal-fix form-scroll-mobile"
+        onClick={handleModalClick}
       >
         {/* Header */}
         <div className={`bg-gradient-to-r from-${config.color}-600 to-${config.color}-700 p-6 rounded-t-2xl text-white relative`}>
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-white hover:text-gray-200 transition-colors"
+            className="absolute top-4 right-4 text-white hover:text-gray-200 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center touch-manipulation mobile-button"
+            aria-label="Close form"
           >
             <X className="w-6 h-6" />
           </button>
@@ -331,7 +346,7 @@ const SolutionForms: React.FC<SolutionFormProps> = ({ solution, isOpen, onClose 
             </div>
             <div>
               <h2 className="text-2xl font-bold">{config.title}</h2>
-              <p className="text-${config.color}-100">{config.subtitle}</p>
+              <p className={`text-${config.color}-100`}>{config.subtitle}</p>
             </div>
           </div>
         </div>
@@ -348,7 +363,7 @@ const SolutionForms: React.FC<SolutionFormProps> = ({ solution, isOpen, onClose 
             <div className="pt-4">
               <button
                 type="submit"
-                className={`w-full bg-${config.color}-600 hover:bg-${config.color}-700 text-white py-3 rounded-lg font-semibold transition-colors flex items-center justify-center group`}
+                className={`w-full bg-${config.color}-600 hover:bg-${config.color}-700 text-white py-3 rounded-lg font-semibold transition-colors flex items-center justify-center group min-h-[44px] touch-manipulation mobile-button`}
               >
                 Submit Request
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

@@ -1,0 +1,69 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sheerssoft-domain-config
+  labels:
+    app: sheersdigital-site
+data:
+  DOMAIN: "sheerssoft.com"
+  WWW_DOMAIN: "www.sheerssoft.com"
+  API_URL: "https://api.sheerssoft.com"
+  APP_NAME: "Sheers Digital"
+  ENVIRONMENT: "production"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sheerssoft-domain-service
+  labels:
+    app: sheersdigital-site
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: http
+    - port: 443
+      targetPort: 443
+      protocol: TCP
+      name: https
+  selector:
+    app: sheersdigital-site
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sheerssoft-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  tls:
+    - hosts:
+        - sheerssoft.com
+        - www.sheerssoft.com
+      secretName: sheerssoft-tls
+  rules:
+    - host: sheerssoft.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sheerssoft-domain-service
+                port:
+                  number: 80
+    - host: www.sheerssoft.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sheerssoft-domain-service
+                port:
+                  number: 80

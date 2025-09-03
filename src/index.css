@@ -101,3 +101,130 @@
 .animate-delay-800 { animation-delay: 0.8s; }
 .animate-delay-900 { animation-delay: 0.9s; }
 .animate-delay-1000 { animation-delay: 1s; }
+
+/* Mobile Safari Fixes */
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari specific fixes */
+  .fixed {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  
+  /* Fix for iOS Safari modal positioning */
+  .modal-fix {
+    -webkit-overflow-scrolling: touch;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  
+  /* Improve touch targets on iOS */
+  button, input, select, textarea {
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  /* Fix for iOS Safari button sizing */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Fix for iOS Safari input sizing */
+  input, select, textarea {
+    min-height: 44px;
+    -webkit-text-size-adjust: 100%;
+  }
+}
+
+/* Touch-friendly improvements */
+.touch-manipulation {
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Mobile form improvements */
+@media (max-width: 768px) {
+  /* Ensure proper touch target sizes */
+  button, input, select, textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Improve modal positioning on mobile */
+  .modal-mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Fix mobile Safari backdrop issues */
+  .backdrop-mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+  }
+  
+  /* Improve mobile form scrolling */
+  .form-scroll-mobile {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+    max-height: calc(100vh - 120px);
+  }
+}
+
+/* High DPI display improvements */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .high-dpi {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Dark mode support for mobile */
+@media (prefers-color-scheme: dark) {
+  .dark-mode-support {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus improvements for mobile */
+.focus-visible:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Mobile-specific button states */
+@media (hover: none) and (pointer: coarse) {
+  .mobile-button {
+    transition: none;
+  }
+  
+  .mobile-button:active {
+    transform: scale(0.98);
+    opacity: 0.8;
+  }
+}

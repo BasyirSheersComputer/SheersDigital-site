@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Mobile Form Test - SheersSoft.com</title>
+    <style>
+        /* Mobile Safari Fixes */
+        @supports (-webkit-touch-callout: none) {
+            .fixed {
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+            }
+            
+            .modal-fix {
+                -webkit-overflow-scrolling: touch;
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+            
+            button, input, select, textarea {
+                -webkit-appearance: none;
+                -webkit-tap-highlight-color: transparent;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                user-select: none;
+            }
+            
+            button {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            input, select, textarea {
+                min-height: 44px;
+                -webkit-text-size-adjust: 100%;
+            }
+        }
+
+        /* Touch-friendly improvements */
+        .touch-manipulation {
+            touch-action: manipulation;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        /* Mobile form improvements */
+        @media (max-width: 768px) {
+            button, input, select, textarea {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            .modal-mobile {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 9999;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .backdrop-mobile {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+                -webkit-backdrop-filter: blur(5px);
+                backdrop-filter: blur(5px);
+            }
+            
+            .form-scroll-mobile {
+                -webkit-overflow-scrolling: touch;
+                overflow-y: auto;
+                max-height: calc(100vh - 120px);
+            }
+        }
+
+        /* Mobile-specific button states */
+        @media (hover: none) and (pointer: coarse) {
+            .mobile-button {
+                transition: none;
+            }
+            
+            .mobile-button:active {
+                transform: scale(0.98);
+                opacity: 0.8;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .test-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .test-button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 10px 5px;
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        .test-button:hover {
+            background: #2563eb;
+        }
+
+        .test-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 16px;
+            margin: 10px 0;
+            min-height: 44px;
+        }
+
+        .test-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .status {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .status.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+
+        .status.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 Mobile Form Test</h1>
+        <p>This page tests the mobile Safari compatibility fixes for form interactions.</p>
+        
+        <div class="status success">
+            ✅ Test Environment: Mobile Safari Compatibility Mode
+        </div>
+
+        <h2>Test Buttons (44px minimum touch targets)</h2>
+        <button class="test-button touch-manipulation mobile-button" onclick="testButton('Button 1')">
+            Test Button 1
+        </button>
+        <button class="test-button touch-manipulation mobile-button" onclick="testButton('Button 2')">
+            Test Button 2
+        </button>
+        <button class="test-button touch-manipulation mobile-button" onclick="testButton('Button 3')">
+            Test Button 3
+        </button>
+
+        <h2>Test Form Inputs</h2>
+        <input type="text" class="test-input touch-manipulation" placeholder="Test input field" />
+        <select class="test-input touch-manipulation">
+            <option>Select an option</option>
+            <option>Option 1</option>
+            <option>Option 2</option>
+            <option>Option 3</option>
+        </select>
+        <textarea class="test-input touch-manipulation" placeholder="Test textarea" rows="3"></textarea>
+
+        <h2>Modal Test</h2>
+        <button class="test-button touch-manipulation mobile-button" onclick="openModal()">
+            Open Test Modal
+        </button>
+
+        <div class="status info">
+            📱 <strong>Mobile Safari Test Instructions:</strong>
+            <ul>
+                <li>Test all buttons - they should be easily tappable</li>
+                <li>Test form inputs - they should be responsive to touch</li>
+                <li>Test modal opening/closing</li>
+                <li>Check for any touch event issues</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Test Modal -->
+    <div id="testModal" class="modal backdrop-mobile modal-mobile">
+        <div class="modal-content modal-fix form-scroll-mobile">
+            <button class="close-button touch-manipulation mobile-button" onclick="closeModal()">×</button>
+            <h2>Test Modal</h2>
+            <p>This modal tests the mobile Safari fixes for modal interactions.</p>
+            
+            <div style="margin: 20px 0;">
+                <button class="test-button touch-manipulation mobile-button" onclick="testButton('Modal Button')">
+                    Modal Test Button
+                </button>
+            </div>
+            
+            <p>Try interacting with this modal on mobile Safari. It should work smoothly without any touch event issues.</p>
+        </div>
+    </div>
+
+    <script>
+        function testButton(buttonName) {
+            console.log(`${buttonName} clicked successfully`);
+            alert(`${buttonName} clicked successfully! Touch events working.`);
+        }
+
+        function openModal() {
+            document.getElementById('testModal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('testModal').classList.remove('show');
+            document.body.style.overflow = 'unset';
+        }
+
+        // Close modal when clicking backdrop
+        document.getElementById('testModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Test touch events
+        document.addEventListener('touchstart', function(e) {
+            console.log('Touch event detected:', e.type);
+        }, { passive: true });
+
+        // Test form submission
+        document.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Form submission test successful!');
+        });
+
+        // Log mobile detection
+        if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+            console.log('iOS device detected - testing Safari compatibility');
+            document.body.classList.add('ios-device');
+        }
+
+        if (/Android/.test(navigator.userAgent)) {
+            console.log('Android device detected');
+            document.body.classList.add('android-device');
+        }
+    </script>
+</body>
+</html>

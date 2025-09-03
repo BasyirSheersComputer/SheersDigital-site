@@ -1,12 +1,13 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: wastewise-app
+  name: sheersdigital-site
   annotations:
     run.googleapis.com/ingress: all
     run.googleapis.com/execution-environment: gen2
     run.googleapis.com/cpu-throttling: "false"
     run.googleapis.com/startup-cpu-boost: "true"
+    run.googleapis.com/domain: "sheerssoft.com"
 spec:
   template:
     metadata:
@@ -21,7 +22,7 @@ spec:
       containerConcurrency: 80
       timeoutSeconds: 300
       containers:
-        - image: gcr.io/PROJECT_ID/wastewise-app:latest
+        - image: gcr.io/PROJECT_ID/sheersdigital-site:latest
           ports:
             - containerPort: 80
           resources:
@@ -35,15 +36,17 @@ spec:
             - name: NODE_ENV
               value: "production"
             - name: VITE_APP_NAME
-              value: "WasteWise"
+              value: "Sheers Digital"
             - name: VITE_APP_ENVIRONMENT
               value: "production"
             - name: VITE_API_URL
-              value: "https://api.wastewise.com"
+              value: "https://api.sheerssoft.com"
             - name: VITE_ANALYTICS_ID
               value: "G-RMQN4C5EVG"
             - name: VITE_FACEBOOK_PIXEL_ID
               value: "383314790605759"
+            - name: VITE_DOMAIN
+              value: "sheerssoft.com"
           livenessProbe:
             httpGet:
               path: /
