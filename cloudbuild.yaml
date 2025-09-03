@@ -1,19 +1,19 @@
 steps:
   # Build the Docker image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/servora-ai:$COMMIT_SHA', '.']
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/sheersdigital-site:$COMMIT_SHA', '.']
   
   # Push the image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/servora-ai:$COMMIT_SHA']
+    args: ['push', 'gcr.io/$PROJECT_ID/sheersdigital-site:$COMMIT_SHA']
   
   # Tag the image as latest
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['tag', 'gcr.io/$PROJECT_ID/servora-ai:$COMMIT_SHA', 'gcr.io/$PROJECT_ID/servora-ai:latest']
+    args: ['tag', 'gcr.io/$PROJECT_ID/sheersdigital-site:$COMMIT_SHA', 'gcr.io/$PROJECT_ID/sheersdigital-site:latest']
   
   # Push the latest tag
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/servora-ai:latest']
+    args: ['push', 'gcr.io/$PROJECT_ID/sheersdigital-site:latest']
   
   # Deploy to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -21,9 +21,9 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - 'servora-ai'
+      - 'sheersdigital-site'
       - '--image'
-      - 'gcr.io/$PROJECT_ID/servora-ai:$COMMIT_SHA'
+      - 'gcr.io/$PROJECT_ID/sheersdigital-site:$COMMIT_SHA'
       - '--region'
       - 'asia-southeast1'
       - '--platform'
@@ -42,20 +42,22 @@ steps:
       - '--set-env-vars'
       - 'NODE_ENV=production'
       - '--set-env-vars'
-      - 'VITE_APP_NAME=Servora AI'
+      - 'VITE_APP_NAME=Sheers Digital'
       - '--set-env-vars'
       - 'VITE_APP_ENVIRONMENT=production'
       - '--set-env-vars'
-      - 'VITE_API_URL=https://api.servora-ai.com'
+      - 'VITE_API_URL=https://api.sheerssoft.com'
       - '--set-env-vars'
       - 'VITE_ANALYTICS_ID=G-RMQN4C5EVG'
       - '--set-env-vars'
       - 'VITE_FACEBOOK_PIXEL_ID=383314790605759'
+      - '--set-env-vars'
+      - 'VITE_DOMAIN=sheerssoft.com'
 
 # Store images in Google Container Registry
 images:
-  - 'gcr.io/$PROJECT_ID/servora-ai:$COMMIT_SHA'
-  - 'gcr.io/$PROJECT_ID/servora-ai:latest'
+  - 'gcr.io/$PROJECT_ID/sheersdigital-site:$COMMIT_SHA'
+  - 'gcr.io/$PROJECT_ID/sheersdigital-site:latest'
 
 # Build timeout
 timeout: '1200s'
