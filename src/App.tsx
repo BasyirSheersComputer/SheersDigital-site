@@ -5,11 +5,12 @@ import Hero from './components/Hero';
 import PainPoints from './components/PainPoints';
 import QuickWinServices from './components/QuickWinServices';
 import WasteWisePlatform from './components/WasteWisePlatform';
-
+import SEOHead from './components/SEOHead';
 import Benefits from './components/Benefits';
 import Testimonials from './components/Testimonials';
 import CallToAction from './components/CallToAction';
 import Footer from './components/Footer';
+import { getSEOConfig } from './config/seo';
 
 // Import page components
 import InventoryIntegration from './components/pages/InventoryIntegration';
@@ -25,11 +26,20 @@ import SupportCenter from './components/pages/SupportCenter';
 import GetStarted from './components/pages/GetStarted';
 
 function App() {
+  const homeSEO = getSEOConfig('home');
+  
   return (
     <Routes>
       {/* Home Page */}
       <Route path="/" element={
         <div className="min-h-screen bg-white">
+          <SEOHead
+            title={homeSEO.title}
+            description={homeSEO.description}
+            keywords={homeSEO.keywords}
+            canonicalUrl={homeSEO.canonicalUrl}
+            structuredData={homeSEO.structuredData}
+          />
           <Header />
           <Hero />
           <PainPoints />

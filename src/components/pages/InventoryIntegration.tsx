@@ -2,14 +2,47 @@ import React from 'react';
 import { ArrowRight, CheckCircle, Package, BarChart3, Clock, Users, Zap } from 'lucide-react';
 import Header from '../Header';
 import Footer from '../Footer';
+import SEOHead from '../SEOHead';
 import { useSolutionForm } from '../../hooks/useSolutionForm';
 import SolutionForms from '../SolutionForms';
 
 const InventoryIntegration = () => {
   const { isFormOpen, currentSolution, openForm, closeForm } = useSolutionForm();
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Inventory Integration System",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web Browser",
+    "description": "Real-time inventory management system for F&B businesses. Eliminate stockouts and overstocking with automated ordering and multi-location sync.",
+    "offers": {
+      "@type": "Offer",
+      "price": "8500",
+      "priceCurrency": "MYR",
+      "availability": "https://schema.org/InStock"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "Sheers Software Sdn Bhd"
+    },
+    "featureList": [
+      "Real-time inventory tracking",
+      "Automated supplier ordering",
+      "Multi-location synchronization",
+      "Smart alerts and notifications"
+    ]
+  };
+
   return (
     <>
+      <SEOHead
+        title="Real-Time Inventory Management - Eliminate Stockouts & Overstocking"
+        description="Stop losing sales to stockouts and money to over-ordering. Our integrated inventory system gives you real-time visibility and automated ordering to optimize your supply chain. From RM 8,500 • 7 days setup."
+        keywords="inventory management Malaysia, restaurant inventory system, stock management, automated ordering, F&B inventory software, real-time tracking, multi-location inventory"
+        canonicalUrl="https://sheerssoft.com/inventory-integration"
+        structuredData={structuredData}
+      />
       <Header />
       <div className="min-h-screen bg-white">
         {/* Hero Section */}

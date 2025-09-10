@@ -2,14 +2,24 @@ import React from 'react';
 import { ArrowRight, DollarSign, TrendingUp, Target } from 'lucide-react';
 import Header from '../Header';
 import Footer from '../Footer';
+import SEOHead from '../SEOHead';
 import { useSolutionForm } from '../../hooks/useSolutionForm';
 import SolutionForms from '../SolutionForms';
+import { getSEOConfig } from '../../config/seo';
 
 const WasteLoggingAutomation = () => {
   const { isFormOpen, currentSolution, openForm, closeForm } = useSolutionForm();
+  const seoConfig = getSEOConfig('wasteLoggingAutomation');
 
   return (
     <>
+      <SEOHead
+        title={seoConfig.title}
+        description={seoConfig.description}
+        keywords={seoConfig.keywords}
+        canonicalUrl={seoConfig.canonicalUrl}
+        structuredData={seoConfig.structuredData}
+      />
       <Header />
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
