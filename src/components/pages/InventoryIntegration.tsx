@@ -50,12 +50,12 @@ const InventoryIntegration = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-                Real-Time Inventory: 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600"> Never Run Out Again</span>
+                Restaurant Inventory Management System Malaysia: 
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600"> Real-Time Stock Tracking F&B</span>
               </h1>
               <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-                Stop losing sales to stockouts and money to over-ordering. Our integrated inventory system 
-                gives you real-time visibility and automated ordering to optimize your supply chain.
+                Stop losing sales to stockouts and money to over-ordering. Our <strong>restaurant inventory management system Malaysia</strong> 
+                provides <strong>real-time stock tracking F&B</strong> with <strong>automated restaurant ordering system</strong> to optimize your supply chain.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
@@ -78,11 +78,11 @@ const InventoryIntegration = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-                Integrated Inventory Management That Works
+                Multi-Location Inventory Software with POS Integration Malaysia
               </h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                Our comprehensive inventory system connects all your locations, suppliers, and POS systems 
-                for seamless inventory control and optimization.
+                Our comprehensive <strong>restaurant inventory management system</strong> connects all your locations, suppliers, and POS systems 
+                for seamless <strong>multi-location inventory software</strong> control and optimization with <strong>POS inventory integration Malaysia</strong>.
               </p>
             </div>
 

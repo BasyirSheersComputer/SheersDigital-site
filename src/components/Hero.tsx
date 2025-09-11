@@ -56,12 +56,13 @@ const Hero = () => {
               <AnimatedSection animation="slideUp" delay={0.2}>
                 <div className="space-y-6">
                   <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                    Stop Losing <span className="text-red-400">RM 45,000+</span> Monthly: The Secret to Turning 
-                    <span className="text-blue-300"> Chaos into Competitive Advantage</span>
+                    Malaysia's Leading <span className="text-blue-300">Restaurant Software</span> & 
+                    <span className="text-red-400"> F&B Management System</span>
                   </h1>
                   <p className="text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
-                    Premium F&B chains lose <strong>RM 45,000+ monthly</strong> through operational inefficiencies that kill your profit margins. 
-                    Our enterprise-grade solutions powered by the WasteWise platform turn chaos into competitive advantage in 7 days.
+                    Premium F&B chains lose <strong>RM 45,000+ monthly</strong> through operational inefficiencies. 
+                    Our <strong>restaurant automation Malaysia</strong> solutions with <strong>inventory management</strong>, 
+                    <strong>waste reduction</strong>, and <strong>AI forecasting</strong> turn chaos into competitive advantage in 7 days.
                   </p>
                 </div>
               </AnimatedSection>

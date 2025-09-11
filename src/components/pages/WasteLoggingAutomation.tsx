@@ -27,13 +27,12 @@ const WasteLoggingAutomation = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-                Stop Losing 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-green-600"> RM 25,000+ Monthly</span>
-                <br />to Food Waste
+                Food Waste Management Software Malaysia: 
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-green-600"> Restaurant Waste Tracking System</span>
               </h1>
               <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-                Premium F&B chains hemorrhage money through preventable food waste. Our automated waste logging 
-                system eliminates waste tracking errors and boosts your profit margins by 15-20% in 30 days.
+                Premium F&B chains hemorrhage money through preventable food waste. Our <strong>food waste management software Malaysia</strong> 
+                with <strong>restaurant waste tracking system</strong> and <strong>F&B waste reduction automation</strong> eliminates waste tracking errors and boosts profit margins by 15-20% in 30 days.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 

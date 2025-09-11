@@ -1,0 +1,73 @@
+{
+  "timestamp": "2025-09-11T02:49:40.457Z",
+  "totalKeywords": 8,
+  "tier1Keywords": 3,
+  "tier2Keywords": 2,
+  "tier3Keywords": 3,
+  "keywords": [
+    {
+      "keyword": "restaurant software Malaysia",
+      "priority": "Tier 1",
+      "targetRanking": 1,
+      "searchVolume": "2,400-4,800/month",
+      "competition": "Medium",
+      "commercialIntent": "Very High"
+    },
+    {
+      "keyword": "restaurant inventory management system Malaysia",
+      "priority": "Tier 1",
+      "targetRanking": 1,
+      "searchVolume": "1,800-3,600/month",
+      "competition": "Medium",
+      "commercialIntent": "Very High"
+    },
+    {
+      "keyword": "food waste management software Malaysia",
+      "priority": "Tier 1",
+      "targetRanking": 1,
+      "searchVolume": "1,200-2,400/month",
+      "competition": "Low-Medium",
+      "commercialIntent": "Very High"
+    },
+    {
+      "keyword": "F&B management system Malaysia",
+      "priority": "Tier 2",
+      "targetRanking": 3,
+      "searchVolume": "1,600-3,200/month",
+      "competition": "Medium",
+      "commercialIntent": "High"
+    },
+    {
+      "keyword": "real-time stock tracking F&B",
+      "priority": "Tier 2",
+      "targetRanking": 3,
+      "searchVolume": "800-1,600/month",
+      "competition": "Low",
+      "commercialIntent": "Very High"
+    },
+    {
+      "keyword": "restaurant automation Malaysia",
+      "priority": "Tier 3",
+      "targetRanking": 5,
+      "searchVolume": "600-1,200/month",
+      "competition": "Low",
+      "commercialIntent": "High"
+    },
+    {
+      "keyword": "AI demand forecasting restaurant",
+      "priority": "Tier 3",
+      "targetRanking": 5,
+      "searchVolume": "400-800/month",
+      "competition": "Low",
+      "commercialIntent": "Very High"
+    },
+    {
+      "keyword": "restaurant supplier management software",
+      "priority": "Tier 3",
+      "targetRanking": 5,
+      "searchVolume": "300-600/month",
+      "competition": "Low",
+      "commercialIntent": "Very High"
+    }
+  ]
+}

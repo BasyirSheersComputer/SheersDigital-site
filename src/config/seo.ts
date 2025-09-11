@@ -24,7 +24,12 @@ export const defaultSEO: SEOConfig = {
 
 export const pageSEO: Record<string, SEOConfig> = {
   home: {
-    ...defaultSEO,
+    title: "Restaurant Software Malaysia - F&B Management System | Sheers Software",
+    description: "Malaysia's leading restaurant software and F&B management system. Transform your operations with inventory management, waste reduction, supplier automation, and AI forecasting. Save RM 45,000+ monthly. Free consultation available.",
+    keywords: "restaurant software Malaysia, F&B management system Malaysia, restaurant automation Malaysia, food service software Malaysia, restaurant technology Malaysia, F&B software Malaysia, restaurant management system, Malaysian restaurant technology, F&B automation, restaurant POS integration, supply chain optimization",
+    canonicalUrl: "https://sheerssoft.com",
+    ogImage: "https://sheerssoft.com/og-image.jpg",
+    ogType: "website",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "Organization",
@@ -57,9 +62,9 @@ export const pageSEO: Record<string, SEOConfig> = {
   },
   
   inventoryIntegration: {
-    title: "Real-Time Inventory Management - Eliminate Stockouts & Overstocking",
-    description: "Stop losing sales to stockouts and money to over-ordering. Our integrated inventory system gives you real-time visibility and automated ordering to optimize your supply chain. From RM 8,500 • 7 days setup.",
-    keywords: "inventory management Malaysia, restaurant inventory system, stock management, automated ordering, F&B inventory software, real-time tracking, multi-location inventory",
+    title: "Restaurant Inventory Management System Malaysia - Real-Time Stock Tracking F&B",
+    description: "Eliminate stockouts and overstocking with Malaysia's leading restaurant inventory management system. Real-time stock tracking, automated ordering, and multi-location inventory software. Save RM 25,000+ monthly. From RM 8,500 • 7 days setup.",
+    keywords: "restaurant inventory management system Malaysia, real-time stock tracking F&B, automated restaurant ordering system, multi-location inventory software, POS inventory integration Malaysia, F&B inventory management, restaurant stock control software, food and beverage inventory solutions",
     canonicalUrl: "https://sheerssoft.com/inventory-integration",
     ogImage: "https://sheerssoft.com/og-image.jpg",
     ogType: "website",
@@ -90,9 +95,9 @@ export const pageSEO: Record<string, SEOConfig> = {
   },
 
   wasteLoggingAutomation: {
-    title: "Waste Logging Automation - End Food Waste & Boost Profit Margins",
-    description: "Automate food waste tracking and reduce losses by up to 40%. Our intelligent waste logging system helps you identify patterns, optimize portions, and maximize profit margins. From RM 6,500 • 5 days setup.",
-    keywords: "food waste management Malaysia, restaurant waste tracking, waste reduction software, F&B waste automation, profit optimization, food cost control",
+    title: "Food Waste Management Software Malaysia - Restaurant Waste Tracking System",
+    description: "End food waste and boost profit margins with Malaysia's top food waste management software. Restaurant waste tracking system with F&B waste reduction automation. Save RM 18,000+ monthly. From RM 6,500 • 5 days setup.",
+    keywords: "food waste management software Malaysia, restaurant waste tracking system, F&B waste reduction automation, food cost control software restaurant, waste logging app Malaysia, restaurant waste management, food waste tracking software, F&B waste analytics",
     canonicalUrl: "https://sheerssoft.com/waste-logging-automation",
     ogImage: "https://sheerssoft.com/og-image.jpg",
     ogType: "website",
@@ -117,9 +122,9 @@ export const pageSEO: Record<string, SEOConfig> = {
   },
 
   supplierIntegration: {
-    title: "Supplier Integration - Optimize Procurement & Reduce Costs",
-    description: "Streamline your supplier relationships and reduce procurement costs by up to 25%. Our integrated supplier management system automates ordering, tracks performance, and optimizes pricing. From RM 12,500 • 10 days setup.",
-    keywords: "supplier management Malaysia, procurement optimization, F&B supplier integration, cost reduction software, automated ordering, supplier performance tracking",
+    title: "Restaurant Supplier Management Software - F&B Procurement Automation Malaysia",
+    description: "Optimize procurement and reduce costs with Malaysia's leading restaurant supplier management software. F&B procurement automation with automated supplier ordering system. Save RM 35,000+ monthly. From RM 12,500 • 10 days setup.",
+    keywords: "restaurant supplier management software, F&B procurement automation Malaysia, automated supplier ordering system, restaurant vendor management platform, supply chain optimization F&B, supplier integration software, restaurant procurement system, F&B supplier automation",
     canonicalUrl: "https://sheerssoft.com/supplier-integration",
     ogImage: "https://sheerssoft.com/og-image.jpg",
     ogType: "website",
@@ -144,9 +149,9 @@ export const pageSEO: Record<string, SEOConfig> = {
   },
 
   aiForecasting: {
-    title: "AI Forecasting - Predict Demand & Maximize Sales",
-    description: "Leverage AI to predict customer demand and optimize your menu planning. Our intelligent forecasting system helps you reduce waste, increase sales, and improve customer satisfaction. From RM 18,500 • 14 days setup.",
-    keywords: "AI forecasting Malaysia, demand prediction, restaurant AI, sales optimization, menu planning software, predictive analytics F&B",
+    title: "AI Demand Forecasting Restaurant - F&B Sales Prediction Software Malaysia",
+    description: "Predict demand and maximize sales with Malaysia's advanced AI demand forecasting restaurant system. F&B sales prediction software with machine learning restaurant analytics. Save RM 45,000+ monthly. From RM 18,500 • 14 days setup.",
+    keywords: "AI demand forecasting restaurant, F&B sales prediction software, restaurant demand planning automation, machine learning restaurant analytics, predictive analytics F&B Malaysia, AI restaurant forecasting, F&B demand prediction software, restaurant sales optimization AI",
     canonicalUrl: "https://sheerssoft.com/ai-forecasting",
     ogImage: "https://sheerssoft.com/og-image.jpg",
     ogType: "website",
@@ -171,9 +176,9 @@ export const pageSEO: Record<string, SEOConfig> = {
   },
 
   complianceAutomation: {
-    title: "Compliance Automation - Automate Compliance & Reduce Risk",
-    description: "Stay compliant with food safety regulations and reduce compliance costs by 60%. Our automated compliance system tracks certifications, manages documentation, and ensures regulatory adherence. From RM 7,500 • 7 days setup.",
-    keywords: "food safety compliance Malaysia, restaurant compliance software, regulatory automation, food safety management, compliance tracking, risk reduction",
+    title: "Restaurant Compliance Management Software - F&B Regulatory Compliance Automation Malaysia",
+    description: "Automate compliance and reduce risk with Malaysia's leading restaurant compliance management software. F&B regulatory compliance automation with food safety compliance software. Reduce costs by 60%. From RM 7,500 • 7 days setup.",
+    keywords: "restaurant compliance management software, F&B regulatory compliance automation, food safety compliance software Malaysia, restaurant audit automation system, compliance tracking software F&B, restaurant regulatory software, F&B compliance automation, food safety management system Malaysia",
     canonicalUrl: "https://sheerssoft.com/compliance-automation",
     ogImage: "https://sheerssoft.com/og-image.jpg",
     ogType: "website",
@@ -198,9 +203,9 @@ export const pageSEO: Record<string, SEOConfig> = {
   },
 
   wasteWisePlatform: {
-    title: "WasteWise Platform - Complete F&B Management Solution",
-    description: "The all-in-one platform that transforms your F&B operations. Integrate inventory, waste management, supplier relations, and AI forecasting in one powerful system. Starting from RM 25,000.",
-    keywords: "WasteWise platform, complete F&B management, restaurant management system, integrated F&B software, comprehensive restaurant solution",
+    title: "Complete Restaurant Management System Malaysia - Integrated F&B Management Platform",
+    description: "Transform your F&B operations with Malaysia's leading complete restaurant management system. Integrated F&B management platform with all-in-one restaurant software. Save RM 100,000+ monthly. Starting from RM 25,000.",
+    keywords: "complete restaurant management system Malaysia, integrated F&B management platform, all-in-one restaurant software Malaysia, comprehensive F&B automation solution, enterprise restaurant management platform, restaurant management system Malaysia, F&B management software Malaysia, integrated restaurant solution",
     canonicalUrl: "https://sheerssoft.com/wastewise-platform",
     ogImage: "https://sheerssoft.com/og-image.jpg",
     ogType: "website",

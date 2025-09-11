@@ -10,6 +10,7 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "generate-sitemap": "node scripts/generate-sitemap.js",
+    "test-keywords": "node scripts/test-keyword-rankings.js",
     "build:seo": "npm run generate-sitemap && npm run build:prod",
     "deploy": "npm run build:seo && gcloud run deploy sheersdigital-site --source .",
     "deploy:gcp": "gcloud run deploy sheersdigital-site --image gcr.io/$PROJECT_ID/sheersdigital-site:latest --region asia-southeast1 --platform managed --allow-unauthenticated"
