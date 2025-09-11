@@ -1,0 +1,102 @@
+{
+  "website": "https://sheerssoft.com",
+  "auditDate": "2025-09-11T03:43:40.291Z",
+  "pages": [
+    {
+      "path": "/",
+      "title": "Homepage",
+      "description": "Main landing page"
+    },
+    {
+      "path": "/inventory-integration",
+      "title": "Inventory Integration",
+      "description": "Inventory management solution"
+    },
+    {
+      "path": "/waste-logging-automation",
+      "title": "Waste Logging Automation",
+      "description": "Food waste management solution"
+    },
+    {
+      "path": "/supplier-integration",
+      "title": "Supplier Integration",
+      "description": "Supplier management solution"
+    },
+    {
+      "path": "/ai-forecasting",
+      "title": "AI Forecasting",
+      "description": "AI demand forecasting solution"
+    },
+    {
+      "path": "/compliance-automation",
+      "title": "Compliance Automation",
+      "description": "Compliance management solution"
+    },
+    {
+      "path": "/wastewise-platform",
+      "title": "WasteWise Platform",
+      "description": "Complete F&B management platform"
+    },
+    {
+      "path": "/roi-calculator",
+      "title": "ROI Calculator",
+      "description": "ROI calculation tool"
+    },
+    {
+      "path": "/industry-reports",
+      "title": "Industry Reports",
+      "description": "Industry insights and reports"
+    },
+    {
+      "path": "/implementation-guide",
+      "title": "Implementation Guide",
+      "description": "Implementation guidance"
+    },
+    {
+      "path": "/support-center",
+      "title": "Support Center",
+      "description": "Customer support resources"
+    },
+    {
+      "path": "/get-started",
+      "title": "Get Started",
+      "description": "Getting started page"
+    }
+  ],
+  "seoFiles": [
+    {
+      "path": "/robots.txt",
+      "description": "Robots.txt file for crawler guidance"
+    },
+    {
+      "path": "/sitemap.xml",
+      "description": "XML sitemap for search engines"
+    },
+    {
+      "path": "/favicon.ico",
+      "description": "Favicon for browser display"
+    }
+  ],
+  "keywords": [
+    "restaurant software Malaysia",
+    "F&B management system Malaysia",
+    "restaurant inventory management system Malaysia",
+    "food waste management software Malaysia",
+    "real-time stock tracking F&B",
+    "restaurant automation Malaysia",
+    "AI demand forecasting restaurant",
+    "restaurant supplier management software"
+  ],
+  "testingSteps": [
+    "1. Test homepage accessibility and loading",
+    "2. Verify all solution pages are accessible",
+    "3. Check robots.txt and sitemap.xml",
+    "4. Test navigation menu functionality",
+    "5. Verify mobile responsiveness",
+    "6. Check page loading speeds",
+    "7. Test all internal links",
+    "8. Verify meta tags and keywords",
+    "9. Test contact forms and CTAs",
+    "10. Check footer links and information"
+  ]
+}

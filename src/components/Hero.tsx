@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, TrendingDown, Clock, CheckCircle, X } from 'lucide-react';
 import { AnimatedSection } from './AnimatedSection';
+import { FormService, ContactFormData } from '../services/formService';
 
 const Hero = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -12,6 +13,8 @@ const Hero = () => {
     locations: ''
   });
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
@@ -20,29 +23,52 @@ const Hero = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the data to your backend
-    console.log('Form submitted:', formData);
-    setIsFormSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsFormSubmitted(false);
-      setFormData({ name: '', email: '', companySize: '', locations: '' });
-      setIsFormOpen(false);
-    }, 3000);
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const contactData: ContactFormData = {
+        name: formData.name,
+        email: formData.email,
+        companySize: formData.companySize,
+        locations: formData.locations,
+        service: 'Homepage Contact Form'
+      };
+
+      const result = await FormService.submitContactForm(contactData);
+      
+      if (result.success) {
+        setIsFormSubmitted(true);
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setIsFormSubmitted(false);
+          setFormData({ name: '', email: '', companySize: '', locations: '' });
+          setIsFormOpen(false);
+        }, 3000);
+      } else {
+        setSubmitError(result.error || 'Failed to submit form');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitError('Failed to submit form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const openForm = () => {
     setIsFormOpen(true);
     setIsFormSubmitted(false);
+    setSubmitError(null);
     setFormData({ name: '', email: '', companySize: '', locations: '' });
   };
 
   const closeForm = () => {
     setIsFormOpen(false);
     setIsFormSubmitted(false);
+    setSubmitError(null);
     setFormData({ name: '', email: '', companySize: '', locations: '' });
   };
 
@@ -162,6 +188,11 @@ const Hero = () => {
                   </p>
                   
                   <form onSubmit={handleSubmit} className="space-y-4">
+                    {submitError && (
+                      <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+                        {submitError}
+                      </div>
+                    )}
                     <div className="space-y-4">
                       <input
                         type="text"
@@ -170,7 +201,8 @@ const Hero = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+                        disabled={isSubmitting}
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent disabled:opacity-50"
                       />
                       <input
                         type="email"
@@ -179,14 +211,16 @@ const Hero = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+                        disabled={isSubmitting}
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent disabled:opacity-50"
                       />
                       <select
                         name="companySize"
                         value={formData.companySize}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+                        disabled={isSubmitting}
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent disabled:opacity-50"
                       >
                         <option value="">Company Size</option>
                         <option value="1-10">1-10 employees</option>
@@ -199,7 +233,8 @@ const Hero = () => {
                         value={formData.locations}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+                        disabled={isSubmitting}
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent disabled:opacity-50"
                       >
                         <option value="">Number of Locations</option>
                         <option value="1">1 location</option>
@@ -211,10 +246,11 @@ const Hero = () => {
                     
                     <button 
                       type="submit"
-                      className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300 flex items-center justify-center group"
+                      disabled={isSubmitting}
+                      className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 disabled:from-blue-400 disabled:to-blue-500 px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300 flex items-center justify-center group disabled:cursor-not-allowed"
                     >
-                      Get Free Waste Audit
-                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      {isSubmitting ? 'Submitting...' : 'Get Free Waste Audit'}
+                      {!isSubmitting && <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />}
                     </button>
                   </form>
                 </>

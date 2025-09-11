@@ -4,6 +4,7 @@ import Header from '../Header';
 import Footer from '../Footer';
 import { useSolutionForm } from '../../hooks/useSolutionForm';
 import SolutionForms from '../SolutionForms';
+import { FormService, ROICalculatorData } from '../../services/formService';
 
 const ROICalculator = () => {
   const { isFormOpen, currentSolution, openForm, closeForm } = useSolutionForm();
@@ -15,6 +16,8 @@ const ROICalculator = () => {
   });
 
   const [results, setResults] = useState<any>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -23,8 +26,10 @@ const ROICalculator = () => {
     });
   };
 
-  const calculateROI = (e: React.FormEvent) => {
+  const calculateROI = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError(null);
     
     const revenue = parseFloat(formData.monthlyRevenue) || 0;
     const waste = parseFloat(formData.currentWaste) || 0;
@@ -37,12 +42,40 @@ const ROICalculator = () => {
     const totalSavings = wasteReduction + timeSavings;
     const roi = ((totalSavings * 12) / (locations * 5000)) * 100; // Assuming RM 5000 setup cost per location
 
-    setResults({
+    const calculatedResults = {
       wasteReduction,
       timeSavings,
       savings: totalSavings,
       roi: Math.round(roi)
-    });
+    };
+
+    setResults(calculatedResults);
+
+    // Submit to database
+    try {
+      const roiData: ROICalculatorData = {
+        name: 'Anonymous User',
+        email: 'anonymous@example.com',
+        company: 'Anonymous Company',
+        monthlyRevenue: formData.monthlyRevenue,
+        currentWaste: formData.currentWaste,
+        locations: formData.locations,
+        employees: formData.employees,
+        calculatedROI: calculatedResults.roi,
+        calculatedSavings: calculatedResults.savings
+      };
+
+      const result = await FormService.submitROICalculator(roiData);
+      
+      if (!result.success) {
+        setSubmitError(result.error || 'Failed to save calculation');
+      }
+    } catch (error) {
+      console.error('ROI calculation submission error:', error);
+      setSubmitError('Failed to save calculation. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -94,6 +127,11 @@ const ROICalculator = () => {
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
                     <h3 className="text-xl font-bold text-slate-800 mb-6">Your Business Data</h3>
+                    {submitError && (
+                      <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-4">
+                        {submitError}
+                      </div>
+                    )}
                     <form onSubmit={calculateROI} className="space-y-4">
                       <div>
                         <label className="block text-sm font-medium text-slate-700 mb-2">
@@ -147,8 +185,12 @@ const ROICalculator = () => {
                           className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                         />
                       </div>
-                      <button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold transition-colors">
-                        Calculate ROI
+                      <button 
+                        type="submit" 
+                        disabled={isSubmitting}
+                        className="w-full bg-green-600 hover:bg-green-700 disabled:bg-green-400 text-white py-3 rounded-lg font-semibold transition-colors disabled:cursor-not-allowed"
+                      >
+                        {isSubmitting ? 'Calculating...' : 'Calculate ROI'}
                       </button>
                     </form>
                   </div>
