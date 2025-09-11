@@ -11,7 +11,9 @@ const supabaseServiceKey = process.env.VITE_SUPABASE_SERVICE_ROLE_KEY;
 // Check if service key is loaded
 if (!supabaseServiceKey) {
   console.error('❌ VITE_SUPABASE_SERVICE_ROLE_KEY not found in environment variables');
-  console.error('Please add VITE_SUPABASE_SERVICE_ROLE_KEY to your .env file');
+  console.error('⚠️  SECURITY NOTICE: Service role key has been removed for security reasons');
+  console.error('📋 For admin operations, temporarily add the service key to .env');
+  console.error('🔒 Remember to remove it after use to prevent leaks');
   process.exit(1);
 }
 
