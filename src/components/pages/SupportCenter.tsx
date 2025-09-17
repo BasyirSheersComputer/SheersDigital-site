@@ -140,11 +140,11 @@ const SupportCenter = () => {
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
                 We're Here to Help: 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600"> The WasteWise Support Center</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600"> The Servora Support Center</span>
               </h1>
               <p className="text-xl text-slate-600 mb-8 leading-relaxed">
                 Get the help you need when you need it. Our comprehensive support resources and expert team 
-                are here to ensure your success with WasteWise.
+                are here to ensure your success with Servora.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group">
@@ -441,7 +441,7 @@ const SupportCenter = () => {
               Still Need Help?
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              Our support team is here to help you succeed with WasteWise. 
+              Our support team is here to help you succeed with Servora. 
               Don't hesitate to reach out for assistance.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

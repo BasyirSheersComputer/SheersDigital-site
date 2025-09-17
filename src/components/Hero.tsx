@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, TrendingDown, Clock, CheckCircle, X } from 'lucide-react';
+import { ArrowRight, TrendingDown, Clock, CheckCircle, X, Play, Shield } from 'lucide-react';
 import { AnimatedSection } from './AnimatedSection';
 import { FormService, ContactFormData } from '../services/formService';
 
@@ -76,29 +76,53 @@ const Hero = () => {
     <>
       <section id="home" className="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white py-20">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="space-y-12">
-              {/* Main Headline Section */}
-              <AnimatedSection animation="slideUp" delay={0.2}>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Side - Video */}
+            <AnimatedSection animation="slideRight" delay={0.2}>
+              <div className="relative">
+                <div className="bg-slate-800 rounded-2xl p-8 border border-slate-700">
+                  <div className="aspect-video bg-slate-700 rounded-xl flex items-center justify-center relative overflow-hidden">
+                    {/* Placeholder for video - replace with actual video */}
+                    <div className="text-center">
+                      <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform cursor-pointer">
+                        <Play className="w-8 h-8 ml-1" />
+                      </div>
+                      <h3 className="text-xl font-semibold mb-2">See Servora in Action</h3>
+                      <p className="text-slate-400 text-sm">Watch how we transform F&B operations in 7 days</p>
+                    </div>
+                  </div>
+                  <div className="mt-4 flex items-center justify-center space-x-4 text-sm text-slate-400">
+                    <div className="flex items-center">
+                      <Clock className="w-4 h-4 mr-1" />
+                      3:45 min
+                    </div>
+                    <div className="flex items-center">
+                      <TrendingDown className="w-4 h-4 mr-1" />
+                      RM 45K+ saved
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Right Side - Hero Copy */}
+            <AnimatedSection animation="slideLeft" delay={0.4}>
+              <div className="space-y-8">
                 <div className="space-y-6">
                   <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                     Malaysia's Leading <span className="text-blue-300">Restaurant Software</span> & 
                     <span className="text-red-400"> F&B Management System</span>
                   </h1>
-                  <p className="text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
+                  <p className="text-xl text-slate-300 leading-relaxed">
                     Premium F&B chains lose <strong>RM 45,000+ monthly</strong> through operational inefficiencies. 
                     Our <strong>restaurant automation Malaysia</strong> solutions with <strong>inventory management</strong>, 
                     <strong>waste reduction</strong>, and <strong>AI forecasting</strong> turn chaos into competitive advantage in 7 days.
                   </p>
                 </div>
-              </AnimatedSection>
-              
-              {/* CTA Section */}
-              <AnimatedSection animation="slideUp" delay={0.4}>
+                
+                {/* CTA Section */}
                 <div className="space-y-6">
-                  {/* Primary and Secondary CTAs Side by Side */}
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    {/* Primary CTA Button */}
+                  <div className="flex flex-col sm:flex-row gap-4">
                     <button 
                       onClick={openForm}
                       className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 px-10 py-5 rounded-lg font-bold text-xl transition-all duration-300 flex items-center justify-center group shadow-2xl transform hover:scale-105"
@@ -107,7 +131,6 @@ const Hero = () => {
                       <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform" />
                     </button>
 
-                    {/* Secondary CTA */}
                     <Link 
                       to="/roi-calculator"
                       className="w-full sm:w-auto bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-900 px-10 py-5 rounded-lg font-semibold text-xl transition-all duration-300 flex items-center justify-center group"
@@ -121,45 +144,41 @@ const Hero = () => {
                     No credit card required • Instant access
                   </p>
                 </div>
-              </AnimatedSection>
 
-              {/* Benefits Section */}
-              <AnimatedSection animation="slideUp" delay={0.6}>
-                <div className="flex items-center justify-center space-x-12 text-sm text-slate-400">
-                  <div className="flex items-center">
-                    <TrendingDown className="w-4 h-4 mr-2" />
-                    Reduce Waste by 40%
+                {/* Guarantee Section */}
+                <div className="bg-blue-600/20 border border-blue-500/30 rounded-xl p-6">
+                  <div className="flex items-center space-x-3 mb-3">
+                    <Shield className="w-6 h-6 text-blue-400" />
+                    <h3 className="text-lg font-semibold">30-Day Money-Back Guarantee</h3>
                   </div>
-                  <div className="flex items-center">
-                    <Clock className="w-4 h-4 mr-2" />
-                    Setup in 7 Days
-                  </div>
+                  <p className="text-slate-300 text-sm">
+                    If you don't see at least RM 25,000 in monthly savings within 30 days, we'll refund your investment completely. 
+                    No questions asked.
+                  </p>
                 </div>
-              </AnimatedSection>
 
-              {/* Social Proof Section */}
-              <AnimatedSection animation="slideUp" delay={0.8}>
-                <div className="border-t border-slate-700 pt-8">
-                  <p className="text-slate-400 text-sm mb-6">
+                {/* Social Proof */}
+                <div className="border-t border-slate-700 pt-6">
+                  <p className="text-slate-400 text-sm mb-4">
                     Trusted by 100+ F&B chains including...
                   </p>
-                  <div className="flex justify-center items-center space-x-8 opacity-70">
-                    <div className="bg-white/5 px-4 py-3 rounded-lg border border-white/10">
-                      <span className="text-white font-semibold">McDonald's</span>
+                  <div className="flex flex-wrap gap-4 opacity-70">
+                    <div className="bg-white/5 px-4 py-2 rounded-lg border border-white/10">
+                      <span className="text-white font-semibold text-sm">McDonald's</span>
                     </div>
-                    <div className="bg-white/5 px-4 py-3 rounded-lg border border-white/10">
-                      <span className="text-white font-semibold">KFC</span>
+                    <div className="bg-white/5 px-4 py-2 rounded-lg border border-white/10">
+                      <span className="text-white font-semibold text-sm">KFC</span>
                     </div>
-                    <div className="bg-white/5 px-4 py-3 rounded-lg border border-white/10">
-                      <span className="text-white font-semibold">Pizza Hut</span>
+                    <div className="bg-white/5 px-4 py-2 rounded-lg border border-white/10">
+                      <span className="text-white font-semibold text-sm">Pizza Hut</span>
                     </div>
-                    <div className="bg-white/5 px-4 py-3 rounded-lg border border-white/10">
-                      <span className="text-white font-semibold">Starbucks</span>
+                    <div className="bg-white/5 px-4 py-2 rounded-lg border border-white/10">
+                      <span className="text-white font-semibold text-sm">Starbucks</span>
                     </div>
                   </div>
                 </div>
-              </AnimatedSection>
-            </div>
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>

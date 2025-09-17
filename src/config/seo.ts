@@ -1,5 +1,5 @@
 /**
- * SEO Configuration for Sheers Software Website
+ * SEO Configuration for Servora Website
  * Centralized SEO settings and metadata
  */
 
@@ -14,7 +14,7 @@ export interface SEOConfig {
 }
 
 export const defaultSEO: SEOConfig = {
-  title: "Sheers Software - Transform Your F&B Empire | Reclaim RM 45,000 Monthly",
+  title: "Servora - Transform Your F&B Empire | Reclaim RM 45,000 Monthly",
   description: "Premium Malaysian F&B chains: Stop losing RM 45,000 monthly to operational chaos. Get enterprise solutions in 7 days. 250+ chains optimized. Free consultation available.",
   keywords: "F&B software Malaysia, restaurant management system, inventory management, food waste reduction, Malaysian restaurant technology, F&B automation, restaurant POS integration, supply chain optimization",
   canonicalUrl: "https://sheerssoft.com",
@@ -24,7 +24,7 @@ export const defaultSEO: SEOConfig = {
 
 export const pageSEO: Record<string, SEOConfig> = {
   home: {
-    title: "Restaurant Software Malaysia - F&B Management System | Sheers Software",
+    title: "Restaurant Software Malaysia - F&B Management System | Servora",
     description: "Malaysia's leading restaurant software and F&B management system. Transform your operations with inventory management, waste reduction, supplier automation, and AI forecasting. Save RM 45,000+ monthly. Free consultation available.",
     keywords: "restaurant software Malaysia, F&B management system Malaysia, restaurant automation Malaysia, food service software Malaysia, restaurant technology Malaysia, F&B software Malaysia, restaurant management system, Malaysian restaurant technology, F&B automation, restaurant POS integration, supply chain optimization",
     canonicalUrl: "https://sheerssoft.com",
@@ -33,7 +33,8 @@ export const pageSEO: Record<string, SEOConfig> = {
     structuredData: {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Sheers Software Sdn Bhd",
+      "name": "Servora",
+      "legalName": "Sheers Software Sdn. Bhd.",
       "url": "https://sheerssoft.com",
       "logo": "https://sheerssoft.com/logo.png",
       "description": "Premium F&B software solutions for Malaysian restaurants. Transform operational chaos into competitive advantage with our enterprise-grade inventory, waste management, and automation systems.",
@@ -83,7 +84,8 @@ export const pageSEO: Record<string, SEOConfig> = {
       },
       "provider": {
         "@type": "Organization",
-        "name": "Sheers Software Sdn Bhd"
+        "name": "Servora",
+        "legalName": "Sheers Software Sdn. Bhd."
       },
       "featureList": [
         "Real-time inventory tracking",
@@ -116,7 +118,8 @@ export const pageSEO: Record<string, SEOConfig> = {
       },
       "provider": {
         "@type": "Organization",
-        "name": "Sheers Software Sdn Bhd"
+        "name": "Servora",
+        "legalName": "Sheers Software Sdn. Bhd."
       }
     }
   },
@@ -143,7 +146,8 @@ export const pageSEO: Record<string, SEOConfig> = {
       },
       "provider": {
         "@type": "Organization",
-        "name": "Sheers Software Sdn Bhd"
+        "name": "Servora",
+        "legalName": "Sheers Software Sdn. Bhd."
       }
     }
   },
@@ -170,7 +174,8 @@ export const pageSEO: Record<string, SEOConfig> = {
       },
       "provider": {
         "@type": "Organization",
-        "name": "Sheers Software Sdn Bhd"
+        "name": "Servora",
+        "legalName": "Sheers Software Sdn. Bhd."
       }
     }
   },
@@ -197,7 +202,8 @@ export const pageSEO: Record<string, SEOConfig> = {
       },
       "provider": {
         "@type": "Organization",
-        "name": "Sheers Software Sdn Bhd"
+        "name": "Servora",
+        "legalName": "Sheers Software Sdn. Bhd."
       }
     }
   },
@@ -224,7 +230,8 @@ export const pageSEO: Record<string, SEOConfig> = {
       },
       "provider": {
         "@type": "Organization",
-        "name": "Sheers Software Sdn Bhd"
+        "name": "Servora",
+        "legalName": "Sheers Software Sdn. Bhd."
       }
     }
   },
@@ -258,7 +265,7 @@ export const pageSEO: Record<string, SEOConfig> = {
 
   supportCenter: {
     title: "Support Center - Get Help & Resources",
-    description: "Access comprehensive support resources, documentation, and help for all Sheers Software solutions. Get the assistance you need to maximize your F&B operations.",
+    description: "Access comprehensive support resources, documentation, and help for all Servora solutions. Get the assistance you need to maximize your F&B operations.",
     keywords: "F&B software support, restaurant software help, technical support, documentation, user guides, customer support",
     canonicalUrl: "https://sheerssoft.com/support-center",
     ogImage: "https://sheerssoft.com/og-image.jpg",

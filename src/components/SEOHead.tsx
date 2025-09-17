@@ -13,7 +13,7 @@ interface SEOHeadProps {
 }
 
 const SEOHead: React.FC<SEOHeadProps> = ({
-  title = "Sheers Software - Transform Your F&B Empire | Reclaim RM 45,000 Monthly",
+  title = "Servora - Transform Your F&B Empire | Reclaim RM 45,000 Monthly",
   description = "Premium Malaysian F&B chains: Stop losing RM 45,000 monthly to operational chaos. Get enterprise solutions in 7 days. 250+ chains optimized. Free consultation available.",
   keywords = "F&B software Malaysia, restaurant management system, inventory management, food waste reduction, Malaysian restaurant technology, F&B automation, restaurant POS integration, supply chain optimization",
   canonicalUrl = "https://sheerssoft.com",
@@ -22,7 +22,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   structuredData,
   noIndex = false
 }) => {
-  const fullTitle = title.includes('Sheers Software') ? title : `${title} | Sheers Software`;
+  const fullTitle = title.includes('Servora') ? title : `${title} | Servora`;
   
   return (
     <Helmet>
@@ -42,7 +42,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage} />
-      <meta property="og:site_name" content="Sheers Software" />
+      <meta property="og:site_name" content="Servora" />
       <meta property="og:locale" content="en_MY" />
       
       {/* Twitter */}

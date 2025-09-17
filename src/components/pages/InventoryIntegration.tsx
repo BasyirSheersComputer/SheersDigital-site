@@ -24,7 +24,7 @@ const InventoryIntegration = () => {
     },
     "provider": {
       "@type": "Organization",
-      "name": "Sheers Software Sdn Bhd"
+      "name": "Servora"
     },
     "featureList": [
       "Real-time inventory tracking",

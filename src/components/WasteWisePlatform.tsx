@@ -43,10 +43,10 @@ const WasteWisePlatform = () => {
           <div>
             <AnimatedSection animation="slideRight" delay={0.2}>
               <h2 className="text-4xl font-bold mb-6">
-                The WasteWise Platform That Powers Everything
+                The Servora Platform That Powers Everything
               </h2>
               <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-                Our comprehensive WasteWise platform powers all our solutions, providing 
+                Our comprehensive Servora platform powers all our solutions, providing 
                 the foundation for complete F&B optimization and market dominance.
               </p>
             </AnimatedSection>
@@ -120,7 +120,7 @@ const WasteWisePlatform = () => {
             <button className="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
               Get Started with Any Solution
             </button>
-            <p className="text-slate-400 mt-3">Full WasteWise platform access included • No additional cost</p>
+            <p className="text-slate-400 mt-3">Full Servora platform access included • No additional cost</p>
           </div>
         </AnimatedSection>
       </div>

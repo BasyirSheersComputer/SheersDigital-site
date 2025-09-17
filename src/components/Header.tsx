@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, Zap, ChevronDown } from 'lucide-react';
+import { Menu, X, Utensils, ChevronDown } from 'lucide-react';
 import { useScrollToSection } from '../hooks/useScrollToSection';
 
 const Header = () => {
@@ -139,12 +139,13 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-            <div className="bg-blue-600 p-2 rounded-lg">
-              <Zap className="w-6 h-6" />
+            <div className="bg-green-600 p-2 rounded-lg">
+              <Utensils className="w-6 h-6" />
             </div>
             <div>
-              <h1 className="text-xl font-bold">Sheers Software</h1>
-              <p className="text-sm text-slate-300">Sdn Bhd</p>
+              <h1 className="text-xl font-bold">Servora</h1>
+              <p className="text-sm text-slate-300">Boost Profits • Reduce Waste</p>
+              <p className="text-xs text-slate-400">by Sheers Software Sdn. Bhd.</p>
             </div>
           </Link>
 
@@ -237,14 +238,12 @@ const Header = () => {
               {isProductsDropdownOpen && (
                 <div className="absolute top-full left-0 mt-2 w-48 bg-slate-700 rounded-lg shadow-lg border border-slate-600 z-50">
                   <div className="py-2">
-                    <a
-                      href="https://servora-ai.sheerssoft.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      to="/servora-development"
                       className="block px-4 py-2 text-sm hover:bg-slate-600 transition-colors"
                     >
-                      Servora
-                    </a>
+                      Servora <span className="text-xs text-slate-400">(Under Development)</span>
+                    </Link>
                   </div>
                 </div>
               )}
@@ -366,18 +365,16 @@ const Header = () => {
                 
                 {isProductsDropdownOpen && (
                   <div className="ml-4 mt-2 space-y-2 bg-slate-700 rounded-lg p-3 mobile-dropdown">
-                    <a
-                      href="https://servora-ai.sheerssoft.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      to="/servora-development"
                       className="block text-sm hover:text-blue-400 transition-colors min-h-[44px] touch-manipulation mobile-button flex items-center"
                       onClick={() => {
                         setIsProductsDropdownOpen(false);
                         setIsMenuOpen(false);
                       }}
                     >
-                      Servora
-                    </a>
+                      Servora <span className="text-xs text-slate-400 ml-1">(Under Development)</span>
+                    </Link>
                   </div>
                 )}
               </div>

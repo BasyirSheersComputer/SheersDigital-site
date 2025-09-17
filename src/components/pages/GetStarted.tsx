@@ -138,7 +138,7 @@ const GetStarted = () => {
       features: [
         'Free consultation & audit',
         '7-day implementation',
-        '50% off WasteWise upgrade',
+        '50% off Servora upgrade',
         '30-day support included',
         'ROI guarantee',
         'Premium onboarding'
@@ -147,7 +147,7 @@ const GetStarted = () => {
     },
     {
       id: 'wastewise-platform',
-             title: 'Full WasteWise Platform',
+             title: 'Full Servora Platform',
        subtitle: 'Complete Market Domination',
        description: 'Get everything you need for complete operational excellence and market leadership',
       price: 'RM 25,000/month',

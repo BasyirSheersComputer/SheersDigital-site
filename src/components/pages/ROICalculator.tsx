@@ -293,7 +293,7 @@ const ROICalculator = () => {
               Ready to Start Saving?
             </h2>
             <p className="text-xl text-green-100 mb-8 max-w-3xl mx-auto">
-              Get your full personalized report and discover how WasteWise can transform your waste management.
+              Get your full personalized report and discover how Servora can transform your waste management.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 

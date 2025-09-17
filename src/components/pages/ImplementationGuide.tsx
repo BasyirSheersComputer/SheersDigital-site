@@ -93,7 +93,7 @@ const ImplementationGuide = () => {
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
                 Your Blueprint for Success: 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-blue-600"> The WasteWise Implementation Guide</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-blue-600"> The Servora Implementation Guide</span>
               </h1>
               <p className="text-xl text-slate-600 mb-8 leading-relaxed">
                 Implementation doesn't have to be complicated. Our comprehensive guide ensures a smooth transition 
@@ -121,7 +121,7 @@ const ImplementationGuide = () => {
               </h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto">
                 From initial planning to ongoing optimization, our guide covers every aspect of 
-                implementing WasteWise in your business.
+                implementing Servora in your business.
               </p>
             </div>
 

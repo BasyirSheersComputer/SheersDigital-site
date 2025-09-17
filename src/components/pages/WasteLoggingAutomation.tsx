@@ -177,7 +177,7 @@ const WasteLoggingAutomation = () => {
                     </ul>
                   </div>
                   <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                    <h4 className="font-bold text-green-800 mb-2">With WasteWise (Profit Recovery)</h4>
+                    <h4 className="font-bold text-green-800 mb-2">With Servora (Profit Recovery)</h4>
                     <ul className="text-green-700 text-sm space-y-1">
                       <li>• RM 20,000+ monthly savings from waste reduction</li>
                       <li>• 15-20% profit margin recovery</li>

@@ -101,7 +101,7 @@ const WasteWisePlatform = () => {
                 Complete Waste Management Ecosystem
               </h2>
               <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                WasteWise is more than just a platform - it's your complete digital partner for 
+                Servora is more than just a platform - it's your complete digital partner for 
                 transforming waste management into a competitive advantage.
               </p>
             </div>
@@ -109,7 +109,7 @@ const WasteWisePlatform = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h3 className="text-2xl font-bold text-slate-800 mb-6">
-                  Why Choose the WasteWise Platform?
+                  Why Choose the Servora Platform?
                 </h3>
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
@@ -232,7 +232,7 @@ const WasteWisePlatform = () => {
                   See the Platform in Action
                 </h2>
                 <p className="text-xl text-slate-600">
-                  Watch how the WasteWise platform transforms waste management for Malaysian F&B businesses.
+                  Watch how the Servora platform transforms waste management for Malaysian F&B businesses.
                 </p>
               </div>
 
@@ -264,7 +264,7 @@ const WasteWisePlatform = () => {
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
               Join hundreds of Malaysian F&B businesses that have revolutionized their operations 
-              with the WasteWise platform.
+              with the Servora platform.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group">

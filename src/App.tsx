@@ -2,13 +2,15 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import PainPoints from './components/PainPoints';
-import QuickWinServices from './components/QuickWinServices';
-import WasteWisePlatform from './components/WasteWisePlatform';
+import InfluencerTestimonial from './components/InfluencerTestimonial';
+import ComparisonTable from './components/ComparisonTable';
+import GetStartedCTA from './components/GetStartedCTA';
+import CustomerReviews from './components/CustomerReviews';
+import ResearchEvidence from './components/ResearchEvidence';
+import BenefitCopy from './components/BenefitCopy';
+import FAQ from './components/FAQ';
+import CommunityMovement from './components/CommunityMovement';
 import SEOHead from './components/SEOHead';
-import Benefits from './components/Benefits';
-import Testimonials from './components/Testimonials';
-import CallToAction from './components/CallToAction';
 import Footer from './components/Footer';
 import { getSEOConfig } from './config/seo';
 
@@ -24,6 +26,7 @@ import IndustryReports from './components/pages/IndustryReports';
 import ImplementationGuide from './components/pages/ImplementationGuide';
 import SupportCenter from './components/pages/SupportCenter';
 import GetStarted from './components/pages/GetStarted';
+import ServoraDevelopment from './components/pages/ServoraDevelopment';
 
 function App() {
   const homeSEO = getSEOConfig('home');
@@ -42,12 +45,14 @@ function App() {
           />
           <Header />
           <Hero />
-          <PainPoints />
-          <QuickWinServices />
-          <WasteWisePlatform />
-          <Benefits />
-          <Testimonials />
-          <CallToAction />
+          <InfluencerTestimonial />
+          <ComparisonTable />
+          <GetStartedCTA />
+          <CustomerReviews />
+          <ResearchEvidence />
+          <BenefitCopy />
+          <FAQ />
+          <CommunityMovement />
           <Footer />
         </div>
       } />
@@ -64,6 +69,7 @@ function App() {
       <Route path="/implementation-guide" element={<ImplementationGuide />} />
       <Route path="/support-center" element={<SupportCenter />} />
       <Route path="/get-started" element={<GetStarted />} />
+      <Route path="/servora-development" element={<ServoraDevelopment />} />
     </Routes>
   );
 }

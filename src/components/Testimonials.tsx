@@ -12,55 +12,55 @@ const Testimonials = () => {
       name: "Ahmad Rahman",
       position: "Owner, Nasi Lemak Corner",
       company: "F&B Business",
-              content: "WasteWise transformed our inventory management. We reduced food waste by 45% and saved RM 25,000 monthly. The platform is so easy to use and gives us complete visibility over our operations.",
+              content: "Servora transformed our inventory management. We reduced food waste by 45% and saved RM 25,000 monthly. The platform is so easy to use and gives us complete visibility over our operations.",
       rating: 5,
       image: "👨‍🍳",
-      category: "WasteWise Platform"
+      category: "Servora Platform"
     },
     {
       name: "Sarah Lim",
       position: "Operations Manager",
       company: "Café Delight Chain",
-              content: "The WasteWise platform was game-changing for our 5-location chain. Our systems are now 3x faster and we can manage all locations from one dashboard. The AI forecasting is incredibly accurate and saved us RM 45,000 monthly.",
+              content: "The Servora platform was game-changing for our 5-location chain. Our systems are now 3x faster and we can manage all locations from one dashboard. The AI forecasting is incredibly accurate and saved us RM 45,000 monthly.",
       rating: 5,
       image: "👩‍💼",
-      category: "WasteWise Platform"
+      category: "Servora Platform"
     },
     {
       name: "David Chen",
       position: "CEO",
       company: "Fresh Bites Restaurant",
-              content: "WasteWise gave us complete visibility and control over our inventory. The supplier integration feature alone saved us 15 hours per week and RM 35,000 monthly. Our food costs dropped by 30% in the first quarter.",
+              content: "Servora gave us complete visibility and control over our inventory. The supplier integration feature alone saved us 15 hours per week and RM 35,000 monthly. Our food costs dropped by 30% in the first quarter.",
       rating: 5,
       image: "👨‍💻",
-      category: "WasteWise Platform"
+      category: "Servora Platform"
     },
     {
       name: "Nurul Huda",
       position: "Manager",
       company: "Warung Pak Mat",
-      content: "The WasteWise platform helped us manage our increased inventory perfectly. The waste logging automation feature is brilliant - we now track everything automatically and have reduced waste by 60%.",
+      content: "The Servora platform helped us manage our increased inventory perfectly. The waste logging automation feature is brilliant - we now track everything automatically and have reduced waste by 60%.",
       rating: 5,
       image: "👩‍🍳",
-      category: "WasteWise Platform"
+      category: "Servora Platform"
     },
     {
       name: "Rajesh Kumar",
       position: "Operations Director",
       company: "Spice Garden Group",
-      content: "WasteWise was the foundation of our digital transformation. The compliance automation feature ensures we never miss regulatory requirements, and the reporting is comprehensive and easy to understand.",
+      content: "Servora was the foundation of our digital transformation. The compliance automation feature ensures we never miss regulatory requirements, and the reporting is comprehensive and easy to understand.",
       rating: 5,
       image: "👨‍🔧",
-      category: "WasteWise Platform"
+      category: "Servora Platform"
     },
     {
       name: "Lisa Wong",
       position: "Owner",
       company: "Bubble Tea Paradise",
-      content: "WasteWise's inventory tracking and AI forecasting saved us 20 hours per week. We now have complete control over our supply chain and operations. The ROI calculator showed us exactly how much we'd save.",
+      content: "Servora's inventory tracking and AI forecasting saved us 20 hours per week. We now have complete control over our supply chain and operations. The ROI calculator showed us exactly how much we'd save.",
       rating: 5,
       image: "👩‍🎨",
-      category: "WasteWise Platform"
+      category: "Servora Platform"
     }
   ];
 
@@ -73,7 +73,7 @@ const Testimonials = () => {
               Success Stories from Malaysian F&B Leaders
             </h2>
             <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
-              See how the WasteWise platform is transforming F&B operations across Malaysia with intelligent inventory management and waste reduction.
+              See how the Servora platform is transforming F&B operations across Malaysia with intelligent inventory management and waste reduction.
             </p>
           </div>
         </AnimatedSection>
@@ -112,7 +112,7 @@ const Testimonials = () => {
                 Join These Success Stories
               </h3>
               <p className="text-blue-700 text-base md:text-lg mb-4 md:mb-6">
-                Start with WasteWise and transform your F&B operations. Get a free consultation to see how our platform can help you reduce waste and increase profitability.
+                Start with Servora and transform your F&B operations. Get a free consultation to see how our platform can help you reduce waste and increase profitability.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
                 <button 

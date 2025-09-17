@@ -64,7 +64,7 @@ const QuickWinServices = () => {
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               Choose any one of our targeted solutions to see immediate competitive advantage. 
-              Each service is powered by our comprehensive WasteWise platform for seamless integration and long-term market dominance.
+              Each service is powered by our comprehensive Servora platform for seamless integration and long-term market dominance.
             </p>
           </div>
         </AnimatedSection>
@@ -124,7 +124,7 @@ const QuickWinServices = () => {
                 🚀 Fast Track to Market Dominance
               </h3>
               <p className="text-blue-700 text-lg mb-6">
-                Start with any enterprise solution and get immediate access to the full WasteWise platform 
+                Start with any enterprise solution and get immediate access to the full Servora platform 
                 with advanced analytics, AI insights, and multi-location management included.
               </p>
               <button 

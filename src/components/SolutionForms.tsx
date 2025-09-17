@@ -176,7 +176,7 @@ const SolutionForms: React.FC<SolutionFormProps> = ({ solution, isOpen, onClose 
         fields: ['name', 'email', 'company', 'companySize', 'locations', 'specificNeeds']
       },
       'waste-wise-platform': {
-        title: 'WasteWise Platform',
+        title: 'Servora Platform',
         subtitle: 'Get your free platform demo',
         description: 'Experience the complete waste management solution that transforms your business',
         color: 'green',

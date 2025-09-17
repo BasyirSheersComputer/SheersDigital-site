@@ -271,7 +271,7 @@ const IndustryReports = () => {
               Ready to Transform Your Business?
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              Download our reports to get started, then contact us to learn how WasteWise 
+              Download our reports to get started, then contact us to learn how Servora 
               can help implement these insights in your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
