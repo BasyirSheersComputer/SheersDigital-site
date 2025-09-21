@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, TrendingDown, Clock, CheckCircle, X, Play, Shield } from 'lucide-react';
+import { ArrowRight, TrendingDown, Clock, CheckCircle, X } from 'lucide-react';
 import { AnimatedSection } from './AnimatedSection';
-import { FormService, ContactFormData } from '../services/formService';
+import { supabaseService, WasteAuditRequest } from '../lib/supabase';
 
 const Hero = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -13,8 +13,6 @@ const Hero = () => {
     locations: ''
   });
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
@@ -25,50 +23,45 @@ const Hero = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitError(null);
-
+    
     try {
-      const contactData: ContactFormData = {
+      // Prepare data for database
+      const wasteAuditData: WasteAuditRequest = {
         name: formData.name,
         email: formData.email,
-        companySize: formData.companySize,
-        locations: formData.locations,
-        service: 'Homepage Contact Form'
+        company_size: formData.companySize as '1-10' | '11-50' | '51-200' | '200+',
+        locations: formData.locations as '1' | '2-5' | '6-20' | '20+',
+        source: 'hero_form'
       };
-
-      const result = await FormService.submitContactForm(contactData);
       
-      if (result.success) {
-        setIsFormSubmitted(true);
-        // Reset form after 3 seconds
-        setTimeout(() => {
-          setIsFormSubmitted(false);
-          setFormData({ name: '', email: '', companySize: '', locations: '' });
-          setIsFormOpen(false);
-        }, 3000);
-      } else {
-        setSubmitError(result.error || 'Failed to submit form');
-      }
+      // Save to database
+      const result = await supabaseService.submitWasteAudit(wasteAuditData);
+      console.log('Waste audit saved to database:', result);
+      
+      setIsFormSubmitted(true);
+      
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setIsFormSubmitted(false);
+        setFormData({ name: '', email: '', companySize: '', locations: '' });
+        setIsFormOpen(false);
+      }, 3000);
     } catch (error) {
-      console.error('Form submission error:', error);
-      setSubmitError('Failed to submit form. Please try again.');
-    } finally {
-      setIsSubmitting(false);
+      console.error('Error saving waste audit:', error);
+      // You could show an error message to the user here
+      alert('There was an error submitting your request. Please try again.');
     }
   };
 
   const openForm = () => {
     setIsFormOpen(true);
     setIsFormSubmitted(false);
-    setSubmitError(null);
     setFormData({ name: '', email: '', companySize: '', locations: '' });
   };
 
   const closeForm = () => {
     setIsFormOpen(false);
     setIsFormSubmitted(false);
-    setSubmitError(null);
     setFormData({ name: '', email: '', companySize: '', locations: '' });
   };
 
@@ -76,53 +69,28 @@ const Hero = () => {
     <>
       <section id="home" className="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white py-20">
         <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left Side - Video */}
-            <AnimatedSection animation="slideRight" delay={0.2}>
-              <div className="relative">
-                <div className="bg-slate-800 rounded-2xl p-8 border border-slate-700">
-                  <div className="aspect-video bg-slate-700 rounded-xl flex items-center justify-center relative overflow-hidden">
-                    {/* Placeholder for video - replace with actual video */}
-                    <div className="text-center">
-                      <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform cursor-pointer">
-                        <Play className="w-8 h-8 ml-1" />
-                      </div>
-                      <h3 className="text-xl font-semibold mb-2">See Servora in Action</h3>
-                      <p className="text-slate-400 text-sm">Watch how we transform F&B operations in 7 days</p>
-                    </div>
-                  </div>
-                  <div className="mt-4 flex items-center justify-center space-x-4 text-sm text-slate-400">
-                    <div className="flex items-center">
-                      <Clock className="w-4 h-4 mr-1" />
-                      3:45 min
-                    </div>
-                    <div className="flex items-center">
-                      <TrendingDown className="w-4 h-4 mr-1" />
-                      RM 45K+ saved
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
-
-            {/* Right Side - Hero Copy */}
-            <AnimatedSection animation="slideLeft" delay={0.4}>
-              <div className="space-y-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="space-y-12">
+              {/* Main Headline Section */}
+              <AnimatedSection animation="slideUp" delay={0.2}>
                 <div className="space-y-6">
                   <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                    Malaysia's Leading <span className="text-blue-300">Restaurant Software</span> & 
-                    <span className="text-red-400"> F&B Management System</span>
+                    Stop Losing <span className="text-red-400">RM 45,000+</span> Monthly: The Secret to Turning 
+                    <span className="text-blue-300"> Chaos into Competitive Advantage</span>
                   </h1>
-                  <p className="text-xl text-slate-300 leading-relaxed">
-                    Premium F&B chains lose <strong>RM 45,000+ monthly</strong> through operational inefficiencies. 
-                    Our <strong>restaurant automation Malaysia</strong> solutions with <strong>inventory management</strong>, 
-                    <strong>waste reduction</strong>, and <strong>AI forecasting</strong> turn chaos into competitive advantage in 7 days.
+                  <p className="text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
+                    Premium F&B chains lose <strong>RM 45,000+ monthly</strong> through operational inefficiencies that kill your profit margins. 
+                    Our enterprise-grade solutions powered by the WasteWise platform turn chaos into competitive advantage in 7 days.
                   </p>
                 </div>
-                
-                {/* CTA Section */}
+              </AnimatedSection>
+              
+              {/* CTA Section */}
+              <AnimatedSection animation="slideUp" delay={0.4}>
                 <div className="space-y-6">
-                  <div className="flex flex-col sm:flex-row gap-4">
+                  {/* Primary and Secondary CTAs Side by Side */}
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    {/* Primary CTA Button */}
                     <button 
                       onClick={openForm}
                       className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 px-10 py-5 rounded-lg font-bold text-xl transition-all duration-300 flex items-center justify-center group shadow-2xl transform hover:scale-105"
@@ -131,6 +99,7 @@ const Hero = () => {
                       <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform" />
                     </button>
 
+                    {/* Secondary CTA */}
                     <Link 
                       to="/roi-calculator"
                       className="w-full sm:w-auto bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-900 px-10 py-5 rounded-lg font-semibold text-xl transition-all duration-300 flex items-center justify-center group"
@@ -144,41 +113,45 @@ const Hero = () => {
                     No credit card required • Instant access
                   </p>
                 </div>
+              </AnimatedSection>
 
-                {/* Guarantee Section */}
-                <div className="bg-blue-600/20 border border-blue-500/30 rounded-xl p-6">
-                  <div className="flex items-center space-x-3 mb-3">
-                    <Shield className="w-6 h-6 text-blue-400" />
-                    <h3 className="text-lg font-semibold">30-Day Money-Back Guarantee</h3>
+              {/* Benefits Section */}
+              <AnimatedSection animation="slideUp" delay={0.6}>
+                <div className="flex items-center justify-center space-x-12 text-sm text-slate-400">
+                  <div className="flex items-center">
+                    <TrendingDown className="w-4 h-4 mr-2" />
+                    Reduce Waste by 40%
                   </div>
-                  <p className="text-slate-300 text-sm">
-                    If you don't see at least RM 25,000 in monthly savings within 30 days, we'll refund your investment completely. 
-                    No questions asked.
-                  </p>
+                  <div className="flex items-center">
+                    <Clock className="w-4 h-4 mr-2" />
+                    Setup in 7 Days
+                  </div>
                 </div>
+              </AnimatedSection>
 
-                {/* Social Proof */}
-                <div className="border-t border-slate-700 pt-6">
-                  <p className="text-slate-400 text-sm mb-4">
+              {/* Social Proof Section */}
+              <AnimatedSection animation="slideUp" delay={0.8}>
+                <div className="border-t border-slate-700 pt-8">
+                  <p className="text-slate-400 text-sm mb-6">
                     Trusted by 100+ F&B chains including...
                   </p>
-                  <div className="flex flex-wrap gap-4 opacity-70">
-                    <div className="bg-white/5 px-4 py-2 rounded-lg border border-white/10">
-                      <span className="text-white font-semibold text-sm">McDonald's</span>
+                  <div className="flex justify-center items-center space-x-8 opacity-70">
+                    <div className="bg-white/5 px-4 py-3 rounded-lg border border-white/10">
+                      <span className="text-white font-semibold">McDonald's</span>
                     </div>
-                    <div className="bg-white/5 px-4 py-2 rounded-lg border border-white/10">
-                      <span className="text-white font-semibold text-sm">KFC</span>
+                    <div className="bg-white/5 px-4 py-3 rounded-lg border border-white/10">
+                      <span className="text-white font-semibold">KFC</span>
                     </div>
-                    <div className="bg-white/5 px-4 py-2 rounded-lg border border-white/10">
-                      <span className="text-white font-semibold text-sm">Pizza Hut</span>
+                    <div className="bg-white/5 px-4 py-3 rounded-lg border border-white/10">
+                      <span className="text-white font-semibold">Pizza Hut</span>
                     </div>
-                    <div className="bg-white/5 px-4 py-2 rounded-lg border border-white/10">
-                      <span className="text-white font-semibold text-sm">Starbucks</span>
+                    <div className="bg-white/5 px-4 py-3 rounded-lg border border-white/10">
+                      <span className="text-white font-semibold">Starbucks</span>
                     </div>
                   </div>
                 </div>
-              </div>
-            </AnimatedSection>
+              </AnimatedSection>
+            </div>
           </div>
         </div>
       </section>
@@ -207,11 +180,6 @@ const Hero = () => {
                   </p>
                   
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    {submitError && (
-                      <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
-                        {submitError}
-                      </div>
-                    )}
                     <div className="space-y-4">
                       <input
                         type="text"
@@ -220,8 +188,7 @@ const Hero = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        disabled={isSubmitting}
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent disabled:opacity-50"
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
                       />
                       <input
                         type="email"
@@ -230,16 +197,14 @@ const Hero = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        disabled={isSubmitting}
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent disabled:opacity-50"
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
                       />
                       <select
                         name="companySize"
                         value={formData.companySize}
                         onChange={handleInputChange}
                         required
-                        disabled={isSubmitting}
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent disabled:opacity-50"
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
                       >
                         <option value="">Company Size</option>
                         <option value="1-10">1-10 employees</option>
@@ -252,8 +217,7 @@ const Hero = () => {
                         value={formData.locations}
                         onChange={handleInputChange}
                         required
-                        disabled={isSubmitting}
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent disabled:opacity-50"
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
                       >
                         <option value="">Number of Locations</option>
                         <option value="1">1 location</option>
@@ -265,11 +229,10 @@ const Hero = () => {
                     
                     <button 
                       type="submit"
-                      disabled={isSubmitting}
-                      className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 disabled:from-blue-400 disabled:to-blue-500 px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300 flex items-center justify-center group disabled:cursor-not-allowed"
+                      className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300 flex items-center justify-center group"
                     >
-                      {isSubmitting ? 'Submitting...' : 'Get Free Waste Audit'}
-                      {!isSubmitting && <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />}
+                      Get Free Waste Audit
+                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </form>
                 </>

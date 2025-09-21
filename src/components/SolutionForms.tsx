@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ArrowRight, X, CheckCircle, Brain, Shield, BarChart3, Package, Users, FileText, Target, TrendingUp } from 'lucide-react';
-import { FormService, SolutionFormData } from '../services/formService';
+import { supabaseService, SolutionInquiry } from '../lib/supabase';
 
 interface SolutionFormProps {
   solution: string;
@@ -41,8 +41,6 @@ const SolutionForms: React.FC<SolutionFormProps> = ({ solution, isOpen, onClose 
     specificNeeds: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState<string | null>(null);
   const modalRef = useRef<HTMLDivElement>(null);
   const backdropRef = useRef<HTMLDivElement>(null);
 
@@ -55,51 +53,48 @@ const SolutionForms: React.FC<SolutionFormProps> = ({ solution, isOpen, onClose 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitError(null);
-
+    
     try {
-      const solutionData: SolutionFormData = {
+      // Prepare data for database
+      const solutionInquiryData: SolutionInquiry = {
+        solution_type: solution as any,
         name: formData.name,
         email: formData.email,
         company: formData.company,
         phone: formData.phone,
-        companySize: formData.companySize,
-        locations: formData.locations,
-        currentWaste: formData.currentWaste,
-        monthlyRevenue: formData.monthlyRevenue,
-        specificNeeds: formData.specificNeeds,
-        solution: solution
+        company_size: formData.companySize as any,
+        locations: formData.locations as any,
+        current_waste: formData.currentWaste as any,
+        monthly_revenue: formData.monthlyRevenue as any,
+        specific_needs: formData.specificNeeds
       };
-
-      const result = await FormService.submitSolutionForm(solutionData);
       
-      if (result.success) {
-        setIsSubmitted(true);
-        // Reset form after 3 seconds
-        setTimeout(() => {
-          setIsSubmitted(false);
-          setFormData({
-            name: '',
-            email: '',
-            company: '',
-            phone: '',
-            companySize: '',
-            locations: '',
-            currentWaste: '',
-            monthlyRevenue: '',
-            specificNeeds: ''
-          });
-          onClose();
-        }, 3000);
-      } else {
-        setSubmitError(result.error || 'Failed to submit form');
-      }
+      // Save to database
+      const result = await supabaseService.submitSolutionInquiry(solutionInquiryData);
+      console.log('Solution inquiry saved to database:', result);
+      
+      setIsSubmitted(true);
+      
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          phone: '',
+          companySize: '',
+          locations: '',
+          currentWaste: '',
+          monthlyRevenue: '',
+          specificNeeds: ''
+        });
+        onClose();
+      }, 3000);
     } catch (error) {
-      console.error('Form submission error:', error);
-      setSubmitError('Failed to submit form. Please try again.');
-    } finally {
-      setIsSubmitting(false);
+      console.error('Error saving solution inquiry:', error);
+      // You could show an error message to the user here
+      alert('There was an error submitting your request. Please try again.');
     }
   };
 
@@ -176,7 +171,7 @@ const SolutionForms: React.FC<SolutionFormProps> = ({ solution, isOpen, onClose 
         fields: ['name', 'email', 'company', 'companySize', 'locations', 'specificNeeds']
       },
       'waste-wise-platform': {
-        title: 'Servora Platform',
+        title: 'WasteWise Platform',
         subtitle: 'Get your free platform demo',
         description: 'Experience the complete waste management solution that transforms your business',
         color: 'green',
@@ -384,12 +379,6 @@ const SolutionForms: React.FC<SolutionFormProps> = ({ solution, isOpen, onClose 
         <div className="p-6">
           <p className="text-slate-600 mb-6">{config.description}</p>
           
-          {submitError && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-4">
-              {submitError}
-            </div>
-          )}
-          
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid md:grid-cols-2 gap-4">
               {config.fields.map(field => renderField(field))}
@@ -398,11 +387,10 @@ const SolutionForms: React.FC<SolutionFormProps> = ({ solution, isOpen, onClose 
             <div className="pt-4">
               <button
                 type="submit"
-                disabled={isSubmitting}
-                className={`w-full bg-${config.color}-600 hover:bg-${config.color}-700 disabled:bg-${config.color}-400 text-white py-3 rounded-lg font-semibold transition-colors flex items-center justify-center group min-h-[44px] touch-manipulation mobile-button disabled:cursor-not-allowed`}
+                className={`w-full bg-${config.color}-600 hover:bg-${config.color}-700 text-white py-3 rounded-lg font-semibold transition-colors flex items-center justify-center group min-h-[44px] touch-manipulation mobile-button`}
               >
-                {isSubmitting ? 'Submitting...' : 'Submit Request'}
-                {!isSubmitting && <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />}
+                Submit Request
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
           </form>

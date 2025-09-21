@@ -4,20 +4,21 @@ import Header from '../Header';
 import Footer from '../Footer';
 import { useSolutionForm } from '../../hooks/useSolutionForm';
 import SolutionForms from '../SolutionForms';
-import { FormService, ROICalculatorData } from '../../services/formService';
+import { supabaseService, ROICalculation } from '../../lib/supabase';
 
 const ROICalculator = () => {
   const { isFormOpen, currentSolution, openForm, closeForm } = useSolutionForm();
   const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    companySize: '11-50 employees',
+    locations: '1 location',
     monthlyRevenue: '',
-    currentWaste: '',
-    locations: '',
-    employees: ''
+    currentWaste: ''
   });
 
   const [results, setResults] = useState<any>(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -28,13 +29,11 @@ const ROICalculator = () => {
 
   const calculateROI = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitError(null);
     
     const revenue = parseFloat(formData.monthlyRevenue) || 0;
     const waste = parseFloat(formData.currentWaste) || 0;
-    const locations = parseInt(formData.locations) || 1;
-    const employees = parseInt(formData.employees) || 10;
+    const locations = parseInt(formData.locations.split(' ')[0]) || 1;
+    const employees = parseInt(formData.companySize.split(' ')[0]) || 10;
 
     // Calculate savings based on industry averages
     const wasteReduction = waste * 0.4; // 40% waste reduction
@@ -42,39 +41,35 @@ const ROICalculator = () => {
     const totalSavings = wasteReduction + timeSavings;
     const roi = ((totalSavings * 12) / (locations * 5000)) * 100; // Assuming RM 5000 setup cost per location
 
-    const calculatedResults = {
+    setResults({
       wasteReduction,
       timeSavings,
       savings: totalSavings,
       roi: Math.round(roi)
-    };
+    });
 
-    setResults(calculatedResults);
-
-    // Submit to database
-    try {
-      const roiData: ROICalculatorData = {
-        name: 'Anonymous User',
-        email: 'anonymous@example.com',
-        company: 'Anonymous Company',
-        monthlyRevenue: formData.monthlyRevenue,
-        currentWaste: formData.currentWaste,
-        locations: formData.locations,
-        employees: formData.employees,
-        calculatedROI: calculatedResults.roi,
-        calculatedSavings: calculatedResults.savings
-      };
-
-      const result = await FormService.submitROICalculator(roiData);
-      
-      if (!result.success) {
-        setSubmitError(result.error || 'Failed to save calculation');
+    // Save to database if we have user info
+    if (formData.name && formData.email && formData.company) {
+      try {
+        const roiCalculationData: ROICalculation = {
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          company_size: formData.companySize as any,
+          locations: formData.locations as any,
+          monthly_revenue: revenue,
+          current_waste: waste,
+          calculated_savings: totalSavings,
+          roi_percentage: Math.round(roi),
+          payback_period_months: (locations * 5000) / totalSavings
+        };
+        
+        const result = await supabaseService.submitROICalculation(roiCalculationData);
+        console.log('ROI calculation saved to database:', result);
+      } catch (error) {
+        console.error('Error saving ROI calculation:', error);
+        // Don't show error to user as calculation still works
       }
-    } catch (error) {
-      console.error('ROI calculation submission error:', error);
-      setSubmitError('Failed to save calculation. Please try again.');
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
@@ -127,12 +122,85 @@ const ROICalculator = () => {
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
                     <h3 className="text-xl font-bold text-slate-800 mb-6">Your Business Data</h3>
-                    {submitError && (
-                      <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-4">
-                        {submitError}
-                      </div>
-                    )}
                     <form onSubmit={calculateROI} className="space-y-4">
+                      {/* User Information */}
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-slate-700 mb-2">
+                            Full Name
+                          </label>
+                          <input 
+                            type="text" 
+                            name="name"
+                            value={formData.name}
+                            onChange={handleInputChange}
+                            placeholder="Your full name" 
+                            className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-slate-700 mb-2">
+                            Email
+                          </label>
+                          <input 
+                            type="email" 
+                            name="email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            placeholder="your.email@company.com" 
+                            className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-2">
+                          Company Name
+                        </label>
+                        <input 
+                          type="text" 
+                          name="company"
+                          value={formData.company}
+                          onChange={handleInputChange}
+                          placeholder="Your company name" 
+                          className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        />
+                      </div>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-slate-700 mb-2">
+                            Company Size
+                          </label>
+                          <select 
+                            name="companySize"
+                            value={formData.companySize}
+                            onChange={handleInputChange}
+                            className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                          >
+                            <option value="1-10 employees">1-10 employees</option>
+                            <option value="11-50 employees">11-50 employees</option>
+                            <option value="51-200 employees">51-200 employees</option>
+                            <option value="200+ employees">200+ employees</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-slate-700 mb-2">
+                            Number of Locations
+                          </label>
+                          <select 
+                            name="locations"
+                            value={formData.locations}
+                            onChange={handleInputChange}
+                            className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                          >
+                            <option value="1 location">1 location</option>
+                            <option value="2-5 locations">2-5 locations</option>
+                            <option value="6-20 locations">6-20 locations</option>
+                            <option value="20+ locations">20+ locations</option>
+                          </select>
+                        </div>
+                      </div>
+                      
+                      {/* Business Data */}
                       <div>
                         <label className="block text-sm font-medium text-slate-700 mb-2">
                           Monthly Revenue (RM)
@@ -159,38 +227,9 @@ const ROICalculator = () => {
                           className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                         />
                       </div>
-                      <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-2">
-                          Number of Locations
-                        </label>
-                        <input 
-                          type="number" 
-                          name="locations"
-                          value={formData.locations}
-                          onChange={handleInputChange}
-                          placeholder="2" 
-                          className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-2">
-                          Total Employees
-                        </label>
-                        <input 
-                          type="number" 
-                          name="employees"
-                          value={formData.employees}
-                          onChange={handleInputChange}
-                          placeholder="25" 
-                          className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                        />
-                      </div>
-                      <button 
-                        type="submit" 
-                        disabled={isSubmitting}
-                        className="w-full bg-green-600 hover:bg-green-700 disabled:bg-green-400 text-white py-3 rounded-lg font-semibold transition-colors disabled:cursor-not-allowed"
-                      >
-                        {isSubmitting ? 'Calculating...' : 'Calculate ROI'}
+
+                      <button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold transition-colors">
+                        Calculate ROI
                       </button>
                     </form>
                   </div>
@@ -293,7 +332,7 @@ const ROICalculator = () => {
               Ready to Start Saving?
             </h2>
             <p className="text-xl text-green-100 mb-8 max-w-3xl mx-auto">
-              Get your full personalized report and discover how Servora can transform your waste management.
+              Get your full personalized report and discover how WasteWise can transform your waste management.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 

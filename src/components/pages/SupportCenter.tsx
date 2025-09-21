@@ -2,71 +2,59 @@ import React, { useState } from 'react';
 import { ArrowRight, Search, MessageCircle, Phone, Mail, FileText, Users, HelpCircle, BookOpen } from 'lucide-react';
 import Header from '../Header';
 import Footer from '../Footer';
-import { FormService, SupportFormData } from '../../services/formService';
+import { supabaseService, SupportTicket } from '../../lib/supabase';
 
 const SupportCenter = () => {
-  const [supportFormData, setSupportFormData] = useState({
-    firstName: '',
-    lastName: '',
+  const [formData, setFormData] = useState({
+    first_name: '',
+    last_name: '',
     email: '',
-    phone: '',
-    company: '',
     subject: '',
-    message: '',
-    priority: 'medium'
+    priority: 'Low - General question',
+    message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState<string | null>(null);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
-  const handleSupportInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    setSupportFormData({
-      ...supportFormData,
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSupportSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitError(null);
-
+    
     try {
-      const supportData: SupportFormData = {
-        firstName: supportFormData.firstName,
-        lastName: supportFormData.lastName,
-        email: supportFormData.email,
-        phone: supportFormData.phone,
-        company: supportFormData.company,
-        subject: supportFormData.subject,
-        message: supportFormData.message,
-        priority: supportFormData.priority
+      const supportTicketData: SupportTicket = {
+        first_name: formData.first_name,
+        last_name: formData.last_name,
+        email: formData.email,
+        subject: formData.subject,
+        priority: formData.priority as any,
+        message: formData.message
       };
-
-      const result = await FormService.submitSupportForm(supportData);
       
-      if (result.success) {
-        setIsSubmitted(true);
-        // Reset form after 3 seconds
-        setTimeout(() => {
-          setIsSubmitted(false);
-          setSupportFormData({
-            firstName: '',
-            lastName: '',
-            email: '',
-            phone: '',
-            company: '',
-            subject: '',
-            message: '',
-            priority: 'medium'
-          });
-        }, 3000);
-      } else {
-        setSubmitError(result.error || 'Failed to submit support ticket');
-      }
+      const result = await supabaseService.submitSupportTicket(supportTicketData);
+      console.log('Support ticket saved to database:', result);
+      
+      setSubmitSuccess(true);
+      setFormData({
+        first_name: '',
+        last_name: '',
+        email: '',
+        subject: '',
+        priority: 'Low - General question',
+        message: ''
+      });
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => setSubmitSuccess(false), 5000);
     } catch (error) {
-      console.error('Support form submission error:', error);
-      setSubmitError('Failed to submit support ticket. Please try again.');
+      console.error('Error saving support ticket:', error);
+      alert('There was an error submitting your ticket. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -140,11 +128,11 @@ const SupportCenter = () => {
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
                 We're Here to Help: 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600"> The Servora Support Center</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600"> The WasteWise Support Center</span>
               </h1>
               <p className="text-xl text-slate-600 mb-8 leading-relaxed">
                 Get the help you need when you need it. Our comprehensive support resources and expert team 
-                are here to ensure your success with Servora.
+                are here to ensure your success with WasteWise.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group">
@@ -301,134 +289,115 @@ const SupportCenter = () => {
                   </p>
                 </div>
 
-                {isSubmitted ? (
-                  <div className="text-center py-8">
-                    <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <MessageCircle className="w-8 h-8 text-green-600" />
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {submitSuccess && (
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-green-800">
+                      ✅ Your support ticket has been submitted successfully! We'll get back to you soon.
                     </div>
-                    <h3 className="text-xl font-bold text-slate-800 mb-2">Support Ticket Submitted!</h3>
-                    <p className="text-slate-600">
-                      Thank you for contacting us. We'll get back to you within 24 hours.
-                    </p>
+                  )}
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 mb-2">
+                        First Name
+                      </label>
+                      <input 
+                        type="text" 
+                        name="first_name"
+                        value={formData.first_name}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        placeholder="Your first name"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 mb-2">
+                        Last Name
+                      </label>
+                      <input 
+                        type="text" 
+                        name="last_name"
+                        value={formData.last_name}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        placeholder="Your last name"
+                      />
+                    </div>
                   </div>
-                ) : (
-                  <>
-                    {submitError && (
-                      <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-4">
-                        {submitError}
-                      </div>
-                    )}
-                    <form onSubmit={handleSupportSubmit} className="space-y-6">
-                      <div className="grid md:grid-cols-2 gap-6">
-                        <div>
-                          <label className="block text-sm font-medium text-slate-700 mb-2">
-                            First Name
-                          </label>
-                          <input 
-                            type="text" 
-                            name="firstName"
-                            value={supportFormData.firstName}
-                            onChange={handleSupportInputChange}
-                            required
-                            disabled={isSubmitting}
-                            className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50"
-                            placeholder="Your first name"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-medium text-slate-700 mb-2">
-                            Last Name
-                          </label>
-                          <input 
-                            type="text" 
-                            name="lastName"
-                            value={supportFormData.lastName}
-                            onChange={handleSupportInputChange}
-                            required
-                            disabled={isSubmitting}
-                            className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50"
-                            placeholder="Your last name"
-                          />
-                        </div>
-                      </div>
 
-                      <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-2">
-                          Email Address
-                        </label>
-                        <input 
-                          type="email" 
-                          name="email"
-                          value={supportFormData.email}
-                          onChange={handleSupportInputChange}
-                          required
-                          disabled={isSubmitting}
-                          className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50"
-                          placeholder="your.email@company.com"
-                        />
-                      </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      Email Address
+                    </label>
+                    <input 
+                      type="email" 
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="your.email@company.com"
+                    />
+                  </div>
 
-                      <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-2">
-                          Subject
-                        </label>
-                        <input 
-                          type="text" 
-                          name="subject"
-                          value={supportFormData.subject}
-                          onChange={handleSupportInputChange}
-                          required
-                          disabled={isSubmitting}
-                          className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50"
-                          placeholder="Brief description of your issue"
-                        />
-                      </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      Subject
+                    </label>
+                    <input 
+                      type="text" 
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="Brief description of your issue"
+                    />
+                  </div>
 
-                      <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-2">
-                          Priority
-                        </label>
-                        <select 
-                          name="priority"
-                          value={supportFormData.priority}
-                          onChange={handleSupportInputChange}
-                          disabled={isSubmitting}
-                          className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50"
-                        >
-                          <option value="low">Low - General question</option>
-                          <option value="medium">Medium - Feature request</option>
-                          <option value="high">High - System issue</option>
-                          <option value="urgent">Urgent - System down</option>
-                        </select>
-                      </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      Priority
+                    </label>
+                    <select 
+                      name="priority"
+                      value={formData.priority}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    >
+                      <option value="Low - General question">Low - General question</option>
+                      <option value="Medium - Feature request">Medium - Feature request</option>
+                      <option value="High - System issue">High - System issue</option>
+                      <option value="Urgent - System down">Urgent - System down</option>
+                    </select>
+                  </div>
 
-                      <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-2">
-                          Message
-                        </label>
-                        <textarea 
-                          name="message"
-                          value={supportFormData.message}
-                          onChange={handleSupportInputChange}
-                          required
-                          disabled={isSubmitting}
-                          rows={6}
-                          className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50"
-                          placeholder="Please describe your issue in detail..."
-                        ></textarea>
-                      </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                      Message
+                    </label>
+                    <textarea 
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
+                      rows={6}
+                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="Please describe your issue in detail..."
+                    ></textarea>
+                  </div>
 
-                      <button 
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white py-3 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group disabled:cursor-not-allowed"
-                      >
-                        {isSubmitting ? 'Submitting...' : 'Submit Ticket'}
-                        {!isSubmitting && <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />}
-                      </button>
-                    </form>
-                  </>
-                )}
+                  <button 
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white py-3 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group"
+                  >
+                    {isSubmitting ? 'Submitting...' : 'Submit Ticket'}
+                    {!isSubmitting && <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />}
+                  </button>
+                </form>
               </div>
             </div>
           </div>
@@ -441,7 +410,7 @@ const SupportCenter = () => {
               Still Need Help?
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              Our support team is here to help you succeed with Servora. 
+              Our support team is here to help you succeed with WasteWise. 
               Don't hesitate to reach out for assistance.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
