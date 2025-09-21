@@ -261,26 +261,25 @@ const SupplierIntegration = () => {
         <section className="py-16 md:py-20 bg-gradient-to-r from-purple-600 to-blue-600">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Transform Your Supply Chain?
+              Ready to Transform Your F&B Operations?
             </h2>
             <p className="text-xl text-purple-100 mb-8 max-w-3xl mx-auto">
-              Connect with your suppliers today and start seeing results in just 30 days. 
-              Join hundreds of F&B businesses that have revolutionized their supply chain operations.
+              Join 250+ premium Malaysian F&B chains with our template platform and professional services approach.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 onClick={() => openForm('supplier-integration')}
                 className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group"
               >
-                Get Free Consultation
+                View Template Plans
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
               <button className="border-2 border-white text-white hover:bg-white hover:text-purple-600 px-8 py-4 rounded-lg font-semibold transition-colors text-lg">
-                See a Demo
+                Professional Services
               </button>
             </div>
             <p className="text-purple-200 text-sm mt-4">
-              Free consultation • 30-day implementation • 99% supplier compatibility
+              Professional: RM 5K/month per 10 outlets • Enterprise: RM 10K/month per 10 outlets
             </p>
           </div>
         </section>

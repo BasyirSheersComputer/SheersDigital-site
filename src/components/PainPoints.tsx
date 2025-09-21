@@ -34,30 +34,30 @@ const PainPoints = () => {
   ];
 
   return (
-    <section className="py-16 bg-slate-50">
-      <div className="container mx-auto px-6">
+    <section className="py-12 sm:py-16 bg-slate-50">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection animation="slideUp" delay={0.2}>
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
               The Profit Killers Destroying Premium F&B Chains
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto">
               Based on 2024 research across 500+ premium Malaysian F&B chains, 
               these operational inefficiencies are eroding your competitive advantage.
             </p>
           </div>
         </AnimatedSection>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {painPoints.map((point, index) => (
             <AnimatedSection key={index} animation="slideUp" delay={0.1 * (index + 1)}>
-              <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300 group">
-                <div className="text-red-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="bg-white rounded-xl p-4 sm:p-6 shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300 group">
+                <div className="text-red-600 mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
                   {point.icon}
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">{point.title}</h3>
-                <p className="text-slate-600 mb-4 leading-relaxed">{point.description}</p>
-                <div className="text-sm font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full inline-block">
+                <h3 className="text-lg sm:text-xl font-bold text-slate-800 mb-2 sm:mb-3">{point.title}</h3>
+                <p className="text-sm sm:text-base text-slate-600 mb-3 sm:mb-4 leading-relaxed">{point.description}</p>
+                <div className="text-xs sm:text-sm font-semibold text-blue-600 bg-blue-50 px-2 sm:px-3 py-1 rounded-full inline-block">
                   {point.stat}
                 </div>
               </div>

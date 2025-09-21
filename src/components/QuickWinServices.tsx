@@ -55,34 +55,34 @@ const QuickWinServices = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-white">
-      <div className="container mx-auto px-6">
+    <section id="services" className="py-12 sm:py-16 lg:py-20 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection animation="slideUp" delay={0.2}>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">
-              Enterprise Solutions That Transform Operations
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mb-4">
+              Template Solutions + Professional Services
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Choose any one of our targeted solutions to see immediate competitive advantage. 
-              Each service is powered by our comprehensive Servora platform for seamless integration and long-term market dominance.
+            <p className="text-base sm:text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto">
+              Start with our scalable template solutions, then add professional services for custom integrations, 
+              dedicated support, and bespoke implementations tailored to your enterprise needs.
             </p>
           </div>
         </AnimatedSection>
 
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service, index) => (
             <AnimatedSection key={index} animation="slideUp" delay={0.1 * (index + 1)}>
-              <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300 group relative overflow-hidden">
-                <div className="absolute top-0 right-0 bg-blue-600 text-white px-4 py-2 rounded-bl-lg text-sm font-semibold">
+              <div className="bg-slate-50 rounded-2xl p-4 sm:p-6 lg:p-8 border border-slate-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300 group relative overflow-hidden">
+                <div className="absolute top-0 right-0 bg-blue-600 text-white px-2 sm:px-4 py-1 sm:py-2 rounded-bl-lg text-xs sm:text-sm font-semibold">
                   {service.timeline}
                 </div>
                 
-                <div className="text-blue-600 mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="text-blue-600 mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
                   {service.icon}
                 </div>
                 
-                <h3 className="text-xl font-bold text-slate-800 mb-4">{service.title}</h3>
-                <p className="text-slate-600 mb-4 leading-relaxed">{service.description}</p>
+                <h3 className="text-lg sm:text-xl font-bold text-slate-800 mb-3 sm:mb-4">{service.title}</h3>
+                <p className="text-sm sm:text-base text-slate-600 mb-3 sm:mb-4 leading-relaxed">{service.description}</p>
                 
                 <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
                   <div className="flex items-center text-green-800">
@@ -100,9 +100,22 @@ const QuickWinServices = () => {
                   ))}
                 </div>
 
-                <div className="flex items-center justify-between mb-6">
-                  <span className="text-2xl font-bold text-slate-800">{service.price}</span>
-                  <span className="text-sm text-slate-500">One-time setup</span>
+                <div className="space-y-3 mb-6">
+                  <div className="bg-blue-50 rounded-lg p-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-lg font-semibold text-slate-800">Template Solution</span>
+                      <span className="text-sm text-slate-500">Included in plans</span>
+                    </div>
+                    <div className="text-sm text-slate-600 mt-1">Core features, standard integrations, basic support</div>
+                  </div>
+                  
+                  <div className="bg-yellow-50 rounded-lg p-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-lg font-semibold text-slate-800">Professional Services</span>
+                      <span className="text-lg font-bold text-slate-800">{service.price}</span>
+                    </div>
+                    <div className="text-sm text-slate-600 mt-1">Custom implementation, dedicated support, bespoke integrations</div>
+                  </div>
                 </div>
 
                 <button 
@@ -121,17 +134,29 @@ const QuickWinServices = () => {
           <div className="mt-12 text-center">
             <div className="bg-blue-50 border border-blue-200 rounded-xl p-8 max-w-4xl mx-auto">
               <h3 className="text-2xl font-bold text-blue-800 mb-4">
-                🚀 Fast Track to Market Dominance
+                🎯 Template Platform + Professional Services
               </h3>
               <p className="text-blue-700 text-lg mb-6">
-                Start with any enterprise solution and get immediate access to the full Servora platform 
-                with advanced analytics, AI insights, and multi-location management included.
+                Get started with our scalable template platform (Professional or Enterprise plans), 
+                then add professional services for custom implementations, dedicated support, and bespoke integrations.
               </p>
+              <div className="grid md:grid-cols-2 gap-4 mb-6">
+                <div className="bg-white rounded-lg p-4 border border-blue-200">
+                  <h4 className="font-semibold text-blue-800 mb-2">Template Platform</h4>
+                  <p className="text-sm text-blue-600">Professional: RM 5,000/month per 10 outlets</p>
+                  <p className="text-sm text-blue-600">Enterprise: RM 10,000/month per 10 outlets</p>
+                </div>
+                <div className="bg-white rounded-lg p-4 border border-yellow-200">
+                  <h4 className="font-semibold text-yellow-800 mb-2">Professional Services</h4>
+                  <p className="text-sm text-yellow-600">Implementation: RM 100K-200K+ one-time</p>
+                  <p className="text-sm text-yellow-600">Account Manager: RM 15K-25K/month</p>
+                </div>
+              </div>
               <button 
                 onClick={openModal}
                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
               >
-                Claim Your Competitive Advantage
+                Discuss Your Enterprise Needs
               </button>
             </div>
           </div>

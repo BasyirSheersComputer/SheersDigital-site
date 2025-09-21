@@ -1,252 +1,201 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, TrendingDown, Clock, CheckCircle, X } from 'lucide-react';
-import { AnimatedSection } from './AnimatedSection';
-import { FormService, ContactFormData } from '../services/formService';
+import { ArrowRight, ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
 
 const Hero = () => {
-  const [isFormOpen, setIsFormOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    companySize: '',
-    locations: ''
-  });
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [imageErrors, setImageErrors] = useState<{ [key: number]: boolean }>({});
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    try {
-      // Prepare data for database
-      const wasteAuditData: WasteAuditRequest = {
-        name: formData.name,
-        email: formData.email,
-        company_size: formData.companySize as '1-10' | '11-50' | '51-200' | '200+',
-        locations: formData.locations as '1' | '2-5' | '6-20' | '20+',
-        source: 'hero_form'
-      };
-      
-      // Save to database
-      const result = await FormService.submitContactForm(contactData);
-      console.log('Waste audit saved to database:', result);
-      
-      setIsFormSubmitted(true);
-      
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        setIsFormSubmitted(false);
-        setFormData({ name: '', email: '', companySize: '', locations: '' });
-        setIsFormOpen(false);
-      }, 3000);
-    } catch (error) {
-      console.error('Error saving waste audit:', error);
-      // You could show an error message to the user here
-      alert('There was an error submitting your request. Please try again.');
+  // Slides data
+  const slides = [
+    {
+      id: 1,
+      title: "Meet Servora AI",
+      description: "This AI-powered platform's unrivalled flexibility and smart features like Live Inventory Tracking and Waste Prediction, enable you to do more than you ever imagined.",
+      buttonText: "Shop Servora AI",
+      buttonLink: "https://servora-ai.com",
+      background: "bg-amber-700",
+      image: "/img/slide1.jpg"
+    },
+    {
+      id: 2,
+      title: "Eliminate Food Waste",
+      description: "Transform your restaurant operations with AI-driven waste reduction. Boost profit margins by up to 15% while reducing food waste by 40%.",
+      buttonText: "Get Started",
+      buttonLink: "/waste-logging-automation",
+      background: "bg-green-800",
+      image: "/img/slide2.jpg"
+    },
+    {
+      id: 3,
+      title: "Smart Inventory Management",
+      description: "Never run out of ingredients again. Our AI predicts demand and optimizes inventory levels, reducing stockouts by 90% and overstocking by 60%.",
+      buttonText: "Learn More",
+      buttonLink: "/inventory-integration",
+      background: "bg-purple-800",
+      image: "/img/slide3.jpg"
     }
+  ];
+
+  // Preload images
+  useEffect(() => {
+    slides.forEach(slide => {
+      const img = new Image();
+      img.src = slide.image;
+    });
+  }, []);
+
+  // Auto-advance slides
+  useEffect(() => {
+    if (!isPaused) {
+      const interval = setInterval(() => {
+        setCurrentSlide((prev) => (prev + 1) % slides.length);
+      }, 5000);
+      return () => clearInterval(interval);
+    }
+  }, [isPaused, slides.length]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
 
-  const openForm = () => {
-    setIsFormOpen(true);
-    setIsFormSubmitted(false);
-    setFormData({ name: '', email: '', companySize: '', locations: '' });
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
-  const closeForm = () => {
-    setIsFormOpen(false);
-    setIsFormSubmitted(false);
-    setFormData({ name: '', email: '', companySize: '', locations: '' });
+  const togglePause = () => {
+    setIsPaused(!isPaused);
   };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
+  const handleImageError = (slideId: number) => {
+    setImageErrors(prev => ({ ...prev, [slideId]: true }));
+  };
+
 
   return (
     <>
-      <section id="home" className="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white py-20">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="space-y-12">
-              {/* Main Headline Section */}
-              <AnimatedSection animation="slideUp" delay={0.2}>
-                <div className="space-y-6">
-                  <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                    Stop Losing <span className="text-red-400">RM 45,000+</span> Monthly: The Secret to Turning 
-                    <span className="text-blue-300"> Chaos into Competitive Advantage</span>
-                  </h1>
-                  <p className="text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
-                    Premium F&B chains lose <strong>RM 45,000+ monthly</strong> through operational inefficiencies that kill your profit margins. 
-                    Our enterprise-grade solutions powered by the WasteWise platform turn chaos into competitive advantage in 7 days.
-                  </p>
-                </div>
-              </AnimatedSection>
-              
-              {/* CTA Section */}
-              <AnimatedSection animation="slideUp" delay={0.4}>
-                <div className="space-y-6">
-                  {/* Primary and Secondary CTAs Side by Side */}
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    {/* Primary CTA Button */}
-                    <button 
-                      onClick={openForm}
-                      className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 px-10 py-5 rounded-lg font-bold text-xl transition-all duration-300 flex items-center justify-center group shadow-2xl transform hover:scale-105"
-                    >
-                      Get Your Free Waste Audit
-                      <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform" />
-                    </button>
+      {/* Hero Slideshow with Sliding Transitions */}
+      <section id="home" className="relative overflow-hidden h-screen w-full">
+        {/* Slides Container */}
+        <div 
+          className="flex h-full transition-transform duration-1000 ease-in-out"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {slides.map((slide, index) => (
+            <div
+              key={slide.id}
+              className={`${slide.background} text-white w-full h-full flex-shrink-0 relative`}
+            >
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+                <div className="max-w-7xl mx-auto w-full">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center h-full min-h-0">
+                    {/* Left Panel - Text Content */}
+                    <div className="space-y-6 lg:space-y-8 order-2 lg:order-1">
+                      <div className="bg-white bg-opacity-20 backdrop-blur-md rounded-lg p-4 sm:p-6 lg:p-8 shadow-2xl">
+                        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-4 sm:mb-6 text-white drop-shadow-lg">
+                          {slide.title}
+                        </h1>
+                        <p className="text-base sm:text-lg lg:text-xl text-white leading-relaxed mb-6 sm:mb-8 drop-shadow-md">
+                          {slide.description}
+                        </p>
+                        <div className="flex justify-start">
+                          <a
+                            href={slide.buttonLink}
+                            target={slide.buttonLink.startsWith('http') ? '_blank' : '_self'}
+                            rel={slide.buttonLink.startsWith('http') ? 'noopener noreferrer' : ''}
+                            className="bg-blue-600 hover:bg-blue-700 px-4 sm:px-6 lg:px-8 py-3 sm:py-4 rounded-lg font-semibold text-sm sm:text-base lg:text-lg transition-colors flex items-center justify-center group shadow-lg hover:shadow-xl w-full sm:w-auto"
+                          >
+                            {slide.buttonText}
+                            <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
 
-                    {/* Secondary CTA */}
-                    <Link 
-                      to="/roi-calculator"
-                      className="w-full sm:w-auto bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-900 px-10 py-5 rounded-lg font-semibold text-xl transition-all duration-300 flex items-center justify-center group"
-                    >
-                      See How Much You're Losing
-                      <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </div>
-                  
-                  <p className="text-slate-400 text-sm">
-                    No credit card required • Instant access
-                  </p>
-                </div>
-              </AnimatedSection>
-
-              {/* Benefits Section */}
-              <AnimatedSection animation="slideUp" delay={0.6}>
-                <div className="flex items-center justify-center space-x-12 text-sm text-slate-400">
-                  <div className="flex items-center">
-                    <TrendingDown className="w-4 h-4 mr-2" />
-                    Reduce Waste by 40%
-                  </div>
-                  <div className="flex items-center">
-                    <Clock className="w-4 h-4 mr-2" />
-                    Setup in 7 Days
-                  </div>
-                </div>
-              </AnimatedSection>
-
-              {/* Social Proof Section */}
-              <AnimatedSection animation="slideUp" delay={0.8}>
-                <div className="border-t border-slate-700 pt-8">
-                  <p className="text-slate-400 text-sm mb-6">
-                    Trusted by 100+ F&B chains including...
-                  </p>
-                  <div className="flex justify-center items-center space-x-8 opacity-70">
-                    <div className="bg-white/5 px-4 py-3 rounded-lg border border-white/10">
-                      <span className="text-white font-semibold">McDonald's</span>
-                    </div>
-                    <div className="bg-white/5 px-4 py-3 rounded-lg border border-white/10">
-                      <span className="text-white font-semibold">KFC</span>
-                    </div>
-                    <div className="bg-white/5 px-4 py-3 rounded-lg border border-white/10">
-                      <span className="text-white font-semibold">Pizza Hut</span>
-                    </div>
-                    <div className="bg-white/5 px-4 py-3 rounded-lg border border-white/10">
-                      <span className="text-white font-semibold">Starbucks</span>
+                    {/* Right Panel - High-Resolution Image */}
+                    <div className="relative order-1 lg:order-2">
+                      <div className="bg-white bg-opacity-15 backdrop-blur-md rounded-lg p-4 sm:p-6 lg:p-8 text-center overflow-hidden shadow-2xl">
+                        <div className="relative">
+                          {!imageErrors[slide.id] ? (
+                            <img
+                              src={slide.image}
+                              alt={slide.title}
+                              className={`w-full rounded-lg shadow-2xl object-cover ${
+                                slide.id === 2 ? 'h-64 sm:h-80 lg:h-96' : 'h-56 sm:h-72 lg:h-80'
+                              }`}
+                              loading="lazy"
+                              onError={() => handleImageError(slide.id)}
+                            />
+                          ) : (
+                            <div className={`w-full bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg shadow-2xl flex items-center justify-center ${
+                              slide.id === 2 ? 'h-64 sm:h-80 lg:h-96' : 'h-56 sm:h-72 lg:h-80'
+                            }`}>
+                              <div className="text-center text-white">
+                                <div className="text-4xl sm:text-5xl lg:text-6xl mb-2 sm:mb-4">🤖</div>
+                                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2">Servora AI</h3>
+                                <p className="text-xs sm:text-sm opacity-90">AI-Powered Restaurant Management</p>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </AnimatedSection>
+              </div>
             </div>
+          ))}
+        </div>
+
+        {/* Navigation Controls */}
+        <div className="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-2 sm:space-x-3 lg:space-x-4 z-10">
+          {/* Pause/Play Button */}
+          <button
+            onClick={togglePause}
+            className="bg-white bg-opacity-20 hover:bg-opacity-30 p-2 sm:p-3 rounded-full transition-all duration-300 backdrop-blur-sm touch-manipulation"
+            aria-label={isPaused ? "Play slideshow" : "Pause slideshow"}
+          >
+            {isPaused ? <Play className="w-4 h-4 sm:w-5 sm:h-5 text-white" /> : <Pause className="w-4 h-4 sm:w-5 sm:h-5 text-white" />}
+          </button>
+
+          {/* Previous Button */}
+          <button
+            onClick={prevSlide}
+            className="bg-white bg-opacity-20 hover:bg-opacity-30 p-2 sm:p-3 rounded-full transition-all duration-300 backdrop-blur-sm touch-manipulation"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+          </button>
+
+          {/* Slide Indicators */}
+          <div className="flex space-x-1 sm:space-x-2">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 touch-manipulation ${
+                  index === currentSlide ? 'bg-white' : 'bg-white bg-opacity-40'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
           </div>
+
+          {/* Next Button */}
+          <button
+            onClick={nextSlide}
+            className="bg-white bg-opacity-20 hover:bg-opacity-30 p-2 sm:p-3 rounded-full transition-all duration-300 backdrop-blur-sm touch-manipulation"
+            aria-label="Next slide"
+          >
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+          </button>
         </div>
       </section>
-
-      {/* Waste Audit Form Popup */}
-      {isFormOpen && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
-            {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b border-gray-200">
-              <h3 className="text-2xl font-bold text-gray-900">Free Waste Audit</h3>
-              <button
-                onClick={closeForm}
-                className="text-gray-400 hover:text-gray-600 transition-colors"
-              >
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-
-            {/* Form Content */}
-            <div className="p-6">
-              {!isFormSubmitted ? (
-                <>
-                  <p className="text-gray-600 mb-6">
-                    Discover exactly how much money you're losing to waste and inefficiencies
-                  </p>
-                  
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="space-y-4">
-                      <input
-                        type="text"
-                        name="name"
-                        placeholder="Your Name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
-                      />
-                      <input
-                        type="email"
-                        name="email"
-                        placeholder="Business Email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
-                      />
-                      <select
-                        name="companySize"
-                        value={formData.companySize}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
-                      >
-                        <option value="">Company Size</option>
-                        <option value="1-10">1-10 employees</option>
-                        <option value="11-50">11-50 employees</option>
-                        <option value="51-200">51-200 employees</option>
-                        <option value="200+">200+ employees</option>
-                      </select>
-                      <select
-                        name="locations"
-                        value={formData.locations}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
-                      >
-                        <option value="">Number of Locations</option>
-                        <option value="1">1 location</option>
-                        <option value="2-5">2-5 locations</option>
-                        <option value="6-20">6-20 locations</option>
-                        <option value="20+">20+ locations</option>
-                      </select>
-                    </div>
-                    
-                    <button 
-                      type="submit"
-                      className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300 flex items-center justify-center group"
-                    >
-                      Get Free Waste Audit
-                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                  </form>
-                </>
-              ) : (
-                <div className="text-center py-8">
-                  <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                  <h4 className="text-xl font-bold text-green-600 mb-2">Thank You!</h4>
-                  <p className="text-gray-600">We'll send your personalized waste audit within 24 hours.</p>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 };
