@@ -4,7 +4,7 @@ import Header from '../Header';
 import Footer from '../Footer';
 import { useSolutionForm } from '../../hooks/useSolutionForm';
 import SolutionForms from '../SolutionForms';
-import { supabaseService, ROICalculation } from '../../lib/supabase';
+import { FormService, ROICalculatorData } from '../../services/formService';
 
 const ROICalculator = () => {
   const { isFormOpen, currentSolution, openForm, closeForm } = useSolutionForm();
@@ -64,7 +64,7 @@ const ROICalculator = () => {
           payback_period_months: (locations * 5000) / totalSavings
         };
         
-        const result = await supabaseService.submitROICalculation(roiCalculationData);
+        const result = await FormService.submitROICalculation(roiCalculationData);
         console.log('ROI calculation saved to database:', result);
       } catch (error) {
         console.error('Error saving ROI calculation:', error);

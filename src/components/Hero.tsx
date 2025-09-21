@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, TrendingDown, Clock, CheckCircle, X } from 'lucide-react';
 import { AnimatedSection } from './AnimatedSection';
-import { supabaseService, WasteAuditRequest } from '../lib/supabase';
+import { FormService, ContactFormData } from '../services/formService';
 
 const Hero = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -35,7 +35,7 @@ const Hero = () => {
       };
       
       // Save to database
-      const result = await supabaseService.submitWasteAudit(wasteAuditData);
+      const result = await FormService.submitContactForm(contactData);
       console.log('Waste audit saved to database:', result);
       
       setIsFormSubmitted(true);

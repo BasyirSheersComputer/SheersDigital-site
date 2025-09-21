@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ArrowRight, Search, MessageCircle, Phone, Mail, FileText, Users, HelpCircle, BookOpen } from 'lucide-react';
 import Header from '../Header';
 import Footer from '../Footer';
-import { supabaseService, SupportTicket } from '../../lib/supabase';
+import { FormService, SupportFormData } from '../../services/formService';
 
 const SupportCenter = () => {
   const [formData, setFormData] = useState({
@@ -37,7 +37,7 @@ const SupportCenter = () => {
         message: formData.message
       };
       
-      const result = await supabaseService.submitSupportTicket(supportTicketData);
+      const result = await FormService.submitSupportForm(supportFormData);
       console.log('Support ticket saved to database:', result);
       
       setSubmitSuccess(true);

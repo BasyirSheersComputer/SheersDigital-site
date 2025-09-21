@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ArrowRight, X, CheckCircle, Brain, Shield, BarChart3, Package, Users, FileText, Target, TrendingUp } from 'lucide-react';
-import { supabaseService, SolutionInquiry } from '../lib/supabase';
+import { FormService, SolutionFormData } from '../services/formService';
 
 interface SolutionFormProps {
   solution: string;
@@ -70,7 +70,7 @@ const SolutionForms: React.FC<SolutionFormProps> = ({ solution, isOpen, onClose 
       };
       
       // Save to database
-      const result = await supabaseService.submitSolutionInquiry(solutionInquiryData);
+      const result = await FormService.submitSolutionForm(solutionFormData);
       console.log('Solution inquiry saved to database:', result);
       
       setIsSubmitted(true);
