@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
 
 const Hero = () => {
@@ -44,7 +43,7 @@ const Hero = () => {
       const img = new Image();
       img.src = slide.image;
     });
-  }, []);
+  }, [slides]);
 
   // Auto-advance slides
   useEffect(() => {
@@ -86,7 +85,7 @@ const Hero = () => {
           className="flex h-full transition-transform duration-1000 ease-in-out"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
-          {slides.map((slide, index) => (
+          {slides.map((slide) => (
             <div
               key={slide.id}
               className={`${slide.background} text-white w-full h-full flex-shrink-0 relative`}
@@ -96,22 +95,22 @@ const Hero = () => {
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center h-full min-h-0">
                     {/* Left Panel - Text Content */}
                     <div className="space-y-6 lg:space-y-8 order-2 lg:order-1">
-                      <div className="bg-white bg-opacity-20 backdrop-blur-md rounded-lg p-4 sm:p-6 lg:p-8 shadow-2xl">
-                        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-4 sm:mb-6 text-white drop-shadow-lg">
+                      <div className="bg-white bg-opacity-20 backdrop-blur-lg rounded-2xl p-6 sm:p-8 lg:p-10 shadow-2xl border border-white border-opacity-20 animate-hero-slide-in-left">
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 sm:mb-8 text-white drop-shadow-2xl animate-hero-fade-in animate-delay-200">
                           {slide.title}
                         </h1>
-                        <p className="text-base sm:text-lg lg:text-xl text-white leading-relaxed mb-6 sm:mb-8 drop-shadow-md">
+                        <p className="text-lg sm:text-xl lg:text-2xl text-white leading-relaxed mb-8 sm:mb-10 drop-shadow-lg max-w-2xl animate-hero-fade-in animate-delay-400">
                           {slide.description}
                         </p>
-                        <div className="flex justify-start">
+                        <div className="flex justify-start animate-hero-fade-in animate-delay-600">
                           <a
                             href={slide.buttonLink}
                             target={slide.buttonLink.startsWith('http') ? '_blank' : '_self'}
                             rel={slide.buttonLink.startsWith('http') ? 'noopener noreferrer' : ''}
-                            className="bg-blue-600 hover:bg-blue-700 px-4 sm:px-6 lg:px-8 py-3 sm:py-4 rounded-lg font-semibold text-sm sm:text-base lg:text-lg transition-colors flex items-center justify-center group shadow-lg hover:shadow-xl w-full sm:w-auto"
+                            className="bg-blue-600 hover:bg-blue-700 px-8 sm:px-10 lg:px-12 py-4 sm:py-5 rounded-xl font-semibold text-lg sm:text-xl lg:text-2xl transition-all duration-300 flex items-center justify-center group shadow-2xl hover:shadow-3xl w-full sm:w-auto transform hover:scale-105 hover:-translate-y-1"
                           >
                             {slide.buttonText}
-                            <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+                            <ArrowRight className="ml-3 w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-2 transition-transform duration-300" />
                           </a>
                         </div>
                       </div>
@@ -119,26 +118,26 @@ const Hero = () => {
 
                     {/* Right Panel - High-Resolution Image */}
                     <div className="relative order-1 lg:order-2">
-                      <div className="bg-white bg-opacity-15 backdrop-blur-md rounded-lg p-4 sm:p-6 lg:p-8 text-center overflow-hidden shadow-2xl">
-                        <div className="relative">
+                      <div className="bg-white bg-opacity-20 backdrop-blur-lg rounded-2xl p-6 sm:p-8 lg:p-10 text-center overflow-hidden shadow-2xl border border-white border-opacity-20 animate-hero-slide-in-right">
+                        <div className="relative animate-hero-scale-in animate-delay-300">
                           {!imageErrors[slide.id] ? (
                             <img
                               src={slide.image}
                               alt={slide.title}
-                              className={`w-full rounded-lg shadow-2xl object-cover ${
-                                slide.id === 2 ? 'h-64 sm:h-80 lg:h-96' : 'h-56 sm:h-72 lg:h-80'
+                              className={`w-full rounded-xl shadow-2xl object-cover transition-transform duration-500 hover:scale-105 ${
+                                slide.id === 2 ? 'h-80 sm:h-96 lg:h-[28rem] xl:h-[32rem]' : 'h-72 sm:h-88 lg:h-[24rem] xl:h-[28rem]'
                               }`}
                               loading="lazy"
                               onError={() => handleImageError(slide.id)}
                             />
                           ) : (
-                            <div className={`w-full bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg shadow-2xl flex items-center justify-center ${
-                              slide.id === 2 ? 'h-64 sm:h-80 lg:h-96' : 'h-56 sm:h-72 lg:h-80'
+                            <div className={`w-full bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl shadow-2xl flex items-center justify-center transition-transform duration-500 hover:scale-105 ${
+                              slide.id === 2 ? 'h-80 sm:h-96 lg:h-[28rem] xl:h-[32rem]' : 'h-72 sm:h-88 lg:h-[24rem] xl:h-[28rem]'
                             }`}>
                               <div className="text-center text-white">
-                                <div className="text-4xl sm:text-5xl lg:text-6xl mb-2 sm:mb-4">🤖</div>
-                                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2">Servora AI</h3>
-                                <p className="text-xs sm:text-sm opacity-90">AI-Powered Restaurant Management</p>
+                                <div className="text-5xl sm:text-6xl lg:text-7xl mb-3 sm:mb-4">🤖</div>
+                                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3">Servora AI</h3>
+                                <p className="text-sm sm:text-base opacity-90">AI-Powered Restaurant Management</p>
                               </div>
                             </div>
                           )}
@@ -153,33 +152,33 @@ const Hero = () => {
         </div>
 
         {/* Navigation Controls */}
-        <div className="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-2 sm:space-x-3 lg:space-x-4 z-10">
+        <div className="absolute bottom-6 sm:bottom-8 lg:bottom-12 left-1/2 transform -translate-x-1/2 flex items-center space-x-3 sm:space-x-4 lg:space-x-6 z-20">
           {/* Pause/Play Button */}
           <button
             onClick={togglePause}
-            className="bg-white bg-opacity-20 hover:bg-opacity-30 p-2 sm:p-3 rounded-full transition-all duration-300 backdrop-blur-sm touch-manipulation"
+            className="bg-white bg-opacity-25 hover:bg-opacity-40 p-3 sm:p-4 rounded-full transition-all duration-300 backdrop-blur-md touch-manipulation shadow-lg hover:shadow-xl border border-white border-opacity-20"
             aria-label={isPaused ? "Play slideshow" : "Pause slideshow"}
           >
-            {isPaused ? <Play className="w-4 h-4 sm:w-5 sm:h-5 text-white" /> : <Pause className="w-4 h-4 sm:w-5 sm:h-5 text-white" />}
+            {isPaused ? <Play className="w-5 h-5 sm:w-6 sm:h-6 text-white" /> : <Pause className="w-5 h-5 sm:w-6 sm:h-6 text-white" />}
           </button>
 
           {/* Previous Button */}
           <button
             onClick={prevSlide}
-            className="bg-white bg-opacity-20 hover:bg-opacity-30 p-2 sm:p-3 rounded-full transition-all duration-300 backdrop-blur-sm touch-manipulation"
+            className="bg-white bg-opacity-25 hover:bg-opacity-40 p-3 sm:p-4 rounded-full transition-all duration-300 backdrop-blur-md touch-manipulation shadow-lg hover:shadow-xl border border-white border-opacity-20"
             aria-label="Previous slide"
           >
-            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
           </button>
 
           {/* Slide Indicators */}
-          <div className="flex space-x-1 sm:space-x-2">
+          <div className="flex space-x-2 sm:space-x-3">
             {slides.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 touch-manipulation ${
-                  index === currentSlide ? 'bg-white' : 'bg-white bg-opacity-40'
+                className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-300 touch-manipulation shadow-lg ${
+                  index === currentSlide ? 'bg-white scale-125' : 'bg-white bg-opacity-50 hover:bg-opacity-75'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -189,10 +188,10 @@ const Hero = () => {
           {/* Next Button */}
           <button
             onClick={nextSlide}
-            className="bg-white bg-opacity-20 hover:bg-opacity-30 p-2 sm:p-3 rounded-full transition-all duration-300 backdrop-blur-sm touch-manipulation"
+            className="bg-white bg-opacity-25 hover:bg-opacity-40 p-3 sm:p-4 rounded-full transition-all duration-300 backdrop-blur-md touch-manipulation shadow-lg hover:shadow-xl border border-white border-opacity-20"
             aria-label="Next slide"
           >
-            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
           </button>
         </div>
       </section>
