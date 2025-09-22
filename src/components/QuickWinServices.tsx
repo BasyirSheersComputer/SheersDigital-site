@@ -143,8 +143,8 @@ const QuickWinServices = () => {
               <div className="grid md:grid-cols-2 gap-4 mb-6">
                 <div className="bg-white rounded-lg p-4 border border-blue-200">
                   <h4 className="font-semibold text-blue-800 mb-2">Template Platform</h4>
-                  <p className="text-sm text-blue-600">Professional: RM 5,000/month per 10 outlets</p>
-                  <p className="text-sm text-blue-600">Enterprise: RM 10,000/month per 10 outlets</p>
+                  <p className="text-sm text-blue-600">Professional: RM 5,000/month for 10 outlets</p>
+                  <p className="text-sm text-blue-600">Enterprise: RM 10,000/month for 10 outlets</p>
                 </div>
                 <div className="bg-white rounded-lg p-4 border border-yellow-200">
                   <h4 className="font-semibold text-yellow-800 mb-2">Professional Services</h4>

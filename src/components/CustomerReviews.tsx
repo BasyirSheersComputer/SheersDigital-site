@@ -9,10 +9,10 @@ const CustomerReviews = () => {
       position: "Owner",
       company: "Nasi Lemak Corner",
       location: "Kuala Lumpur",
-      content: "Servora transformed our inventory management completely. We reduced food waste by 45% and saved RM 25,000 monthly. The platform is so intuitive and gives us complete visibility over our operations.",
+      content: "Servora transformed our inventory management completely. We reduced food waste by 45% and saved RM 20,000+ monthly. The platform is so intuitive and gives us complete visibility over our operations.",
       rating: 5,
       image: "👨‍🍳",
-      savings: "RM 25,000/month",
+      savings: "RM 20,000+/month",
       timeframe: "3 months"
     },
     {

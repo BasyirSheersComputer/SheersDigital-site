@@ -30,7 +30,7 @@ const CallToAction = () => {
                 </div>
                 <h3 className="text-2xl font-bold mb-4">Enterprise Starter Solution</h3>
                 <p className="text-blue-100 mb-6">
-                  Start with one targeted solution and see immediate competitive advantage in 7 days.
+                  Start with one targeted solution and see immediate competitive advantage in 5 days.
                 </p>
                 <div className="space-y-3 mb-8">
                   <div className="flex items-center justify-center">
@@ -39,7 +39,7 @@ const CallToAction = () => {
                   </div>
                   <div className="flex items-center justify-center">
                     <CheckCircle className="w-5 h-5 mr-2" />
-                    <span>7-day implementation</span>
+                    <span>5-day results guarantee</span>
                   </div>
                   <div className="flex items-center justify-center">
                     <CheckCircle className="w-5 h-5 mr-2" />
@@ -65,7 +65,7 @@ const CallToAction = () => {
                 <div className="space-y-3 mb-8">
                   <div className="flex items-center justify-center">
                     <CheckCircle className="w-5 h-5 mr-2 text-green-400" />
-                    <span>30-day free trial</span>
+                    <span>30-day money-back guarantee</span>
                   </div>
                   <div className="flex items-center justify-center">
                     <CheckCircle className="w-5 h-5 mr-2 text-green-400" />

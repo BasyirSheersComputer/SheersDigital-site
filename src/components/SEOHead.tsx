@@ -13,8 +13,8 @@ interface SEOHeadProps {
 }
 
 const SEOHead: React.FC<SEOHeadProps> = ({
-  title = "Servora - Transform Your F&B Empire | Reclaim RM 45,000 Monthly",
-  description = "Premium Malaysian F&B chains: Stop losing RM 45,000 monthly to operational chaos. Get enterprise solutions in 7 days. 250+ chains optimized. Free consultation available.",
+  title = "Servora - Transform Your F&B Empire | Reclaim RM 20,000+ Monthly",
+  description = "Premium Malaysian F&B chains: Stop losing RM 20,000+ monthly to operational chaos. Get enterprise solutions with 5-day results guarantee. 250+ chains optimized. Free consultation available.",
   keywords = "F&B software Malaysia, restaurant management system, inventory management, food waste reduction, Malaysian restaurant technology, F&B automation, restaurant POS integration, supply chain optimization",
   canonicalUrl = "https://sheerssoft.com",
   ogImage = "https://sheerssoft.com/og-image.jpg",

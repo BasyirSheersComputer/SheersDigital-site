@@ -10,7 +10,7 @@ const Benefits = () => {
   const stats = [
     { icon: <TrendingUp className="w-8 h-8" />, value: "RM 2.3M", label: "Saved by clients in 2024" },
     { icon: <Shield className="w-8 h-8" />, value: "250+", label: "F&B outlets optimized" },
-    { icon: <Clock className="w-8 h-8" />, value: "7 days", label: "Average implementation" },
+    { icon: <Clock className="w-8 h-8" />, value: "5 days", label: "Results guarantee" },
     { icon: <Award className="w-8 h-8" />, value: "98%", label: "Client satisfaction rate" }
   ];
 
@@ -42,11 +42,11 @@ const Benefits = () => {
             
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-                <div className="text-3xl font-bold mb-2">RM 25,000</div>
+                <div className="text-3xl font-bold mb-2">RM 20,000+</div>
                 <div className="text-blue-100">Monthly waste reduction</div>
               </div>
               <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-                <div className="text-3xl font-bold mb-2">15%</div>
+                <div className="text-3xl font-bold mb-2">15-20%</div>
                 <div className="text-blue-100">Profit margin improvement</div>
               </div>
               <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">

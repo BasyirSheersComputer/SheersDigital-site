@@ -149,7 +149,7 @@ const SolutionForms: React.FC<SolutionFormProps> = ({ solution, isOpen, onClose 
       'waste-logging-automation': {
         title: 'Waste Logging Automation',
         subtitle: 'Get your free waste audit',
-        description: 'Stop losing RM 25,000+ monthly. Get your personalized waste reduction plan',
+        description: 'Stop losing RM 20,000+ monthly. Get your personalized waste reduction plan',
         color: 'red',
         icon: FileText,
         fields: ['name', 'email', 'company', 'companySize', 'locations', 'currentWaste', 'monthlyRevenue']
@@ -234,7 +234,7 @@ const SolutionForms: React.FC<SolutionFormProps> = ({ solution, isOpen, onClose 
       currentWaste: {
         label: 'Current Monthly Waste (RM)',
         type: 'select',
-        options: ['Under RM 5,000', 'RM 5,000 - RM 15,000', 'RM 15,000 - RM 25,000', 'RM 25,000+'],
+        options: ['Under RM 5,000', 'RM 5,000 - RM 15,000', 'RM 15,000 - RM 20,000', 'RM 20,000+'],
         required: false
       },
       monthlyRevenue: {

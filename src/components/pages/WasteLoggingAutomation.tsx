@@ -32,7 +32,7 @@ const WasteLoggingAutomation = () => {
               </h1>
               <p className="text-xl text-slate-600 mb-8 leading-relaxed">
                 Premium F&B chains hemorrhage money through preventable food waste. Our <strong>food waste management software Malaysia</strong> 
-                with <strong>restaurant waste tracking system</strong> and <strong>F&B waste reduction automation</strong> eliminates waste tracking errors and boosts profit margins by 15-20% in 30 days.
+                with <strong>restaurant waste tracking system</strong> and <strong>F&B waste reduction automation</strong> eliminates waste tracking errors and helps you recover 15-20% of your profit margins within 30 days of implementation.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
@@ -69,9 +69,9 @@ const WasteLoggingAutomation = () => {
                 </div>
                 <h3 className="text-xl font-bold text-slate-800 mb-3">Direct Food Loss</h3>
                 <p className="text-slate-600 mb-4">
-                  Average F&B outlet loses RM 15,000-25,000 monthly to expired ingredients
+                  Average F&B outlet loses RM 20,000+ monthly to preventable food waste
                 </p>
-                <div className="text-2xl font-bold text-red-600">RM 15K-25K/month</div>
+                <div className="text-2xl font-bold text-red-600">RM 20K+/month</div>
               </div>
 
               <div className="bg-orange-50 border border-orange-200 rounded-xl p-8 text-center">
@@ -99,7 +99,7 @@ const WasteLoggingAutomation = () => {
 
             <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-2xl p-8 text-white text-center">
               <h3 className="text-2xl font-bold mb-4">
-                Total Monthly Loss: RM 25,000+
+                Total Monthly Loss: RM 20,000+
               </h3>
               <p className="text-red-100 text-lg">
                 This is money that could be reinvested in marketing, staff training, or new menu development
@@ -171,7 +171,7 @@ const WasteLoggingAutomation = () => {
                   <div className="bg-red-50 border border-red-200 rounded-lg p-4">
                     <h4 className="font-bold text-red-800 mb-2">Current State (Losing Money)</h4>
                     <ul className="text-red-700 text-sm space-y-1">
-                      <li>• RM 25,000+ monthly food waste losses</li>
+                      <li>• RM 20,000+ monthly food waste losses</li>
                       <li>• 15-20% profit margin erosion</li>
                       <li>• 8+ hours weekly on manual tracking</li>
                     </ul>
@@ -209,7 +209,7 @@ const WasteLoggingAutomation = () => {
                 </div>
                 <h3 className="text-xl font-bold text-slate-800 mb-3">Average Monthly Savings</h3>
                 <p className="text-slate-600 mb-4">
-                  Our clients save an average of RM 20,000+ monthly by eliminating preventable food waste
+                  Our clients see an average monthly savings of RM 20,000+ by eliminating preventable food waste
                 </p>
                 <div className="text-2xl font-bold text-green-600">RM 20K+/month</div>
               </div>
@@ -231,7 +231,7 @@ const WasteLoggingAutomation = () => {
                 </div>
                 <h3 className="text-xl font-bold text-slate-800 mb-3">Implementation Speed</h3>
                 <p className="text-slate-600 mb-4">
-                  Start seeing results in just 5 days. Full system optimization within 30 days
+                  We help you start seeing results in just 5 days. Full system optimization within 30 days
                 </p>
                 <div className="text-2xl font-bold text-purple-600">5 days to results</div>
               </div>
@@ -243,7 +243,7 @@ const WasteLoggingAutomation = () => {
         <section className="py-16 md:py-20 bg-gradient-to-r from-red-600 to-green-600">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Stop Losing RM 25,000+ Monthly?
+              Ready to Stop Losing RM 20,000+ Monthly?
             </h2>
             <p className="text-xl text-red-100 mb-8 max-w-3xl mx-auto">
               Transform your waste management from a profit killer to a profit generator. 

@@ -16,7 +16,7 @@ const FAQ = () => {
   const faqs = [
     {
       question: "How quickly can I see results with Servora?",
-      answer: "Most clients see immediate improvements within the first week of implementation. Significant cost savings typically become apparent within 2-3 months, with full ROI achieved within 6 months. Our fastest client saw RM 25,000 in monthly savings within just 30 days."
+      answer: "We guarantee you'll start seeing results in just 5 days. Our clients see immediate improvements within the first week of implementation, with significant cost savings becoming apparent within 30 days. Most clients achieve RM 20,000+ in monthly savings within 30 days of implementation."
     },
     {
       question: "What's included in the free consultation?",
@@ -32,7 +32,7 @@ const FAQ = () => {
     },
     {
       question: "What if I'm not satisfied with the results?",
-      answer: "We offer a 30-day money-back guarantee. If you don't see at least RM 25,000 in monthly savings within 30 days, we'll refund your investment completely, no questions asked. We're confident in our results because we've helped 250+ businesses achieve these savings."
+      answer: "We offer a 30-day money-back guarantee. If you don't see at least RM 20,000+ in monthly savings within 30 days, we'll refund your investment completely, no questions asked. We're confident in our results because we've helped 250+ businesses achieve these savings."
     },
     {
       question: "How does Servora compare to other restaurant software?",

@@ -64,7 +64,7 @@ export const pageSEO: Record<string, SEOConfig> = {
   
   inventoryIntegration: {
     title: "Restaurant Inventory Management System Malaysia - Real-Time Stock Tracking F&B",
-    description: "Eliminate stockouts and overstocking with Malaysia's leading restaurant inventory management system. Real-time stock tracking, automated ordering, and multi-location inventory software. Save RM 25,000+ monthly. From RM 8,500 • 7 days setup.",
+    description: "Eliminate stockouts and overstocking with Malaysia's leading restaurant inventory management system. Real-time stock tracking, automated ordering, and multi-location inventory software. Save RM 20,000+ monthly. From RM 8,500 • 7 days setup.",
     keywords: "restaurant inventory management system Malaysia, real-time stock tracking F&B, automated restaurant ordering system, multi-location inventory software, POS inventory integration Malaysia, F&B inventory management, restaurant stock control software, food and beverage inventory solutions",
     canonicalUrl: "https://sheerssoft.com/inventory-integration",
     ogImage: "https://sheerssoft.com/og-image.jpg",

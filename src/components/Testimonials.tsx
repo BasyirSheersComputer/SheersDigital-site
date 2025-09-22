@@ -12,7 +12,7 @@ const Testimonials = () => {
       name: "Ahmad Rahman",
       position: "Owner, Nasi Lemak Corner",
       company: "F&B Business",
-              content: "Servora transformed our inventory management. We reduced food waste by 45% and saved RM 25,000 monthly. The platform is so easy to use and gives us complete visibility over our operations.",
+              content: "Servora transformed our inventory management. We reduced food waste by 45% and saved RM 20,000+ monthly. The platform is so easy to use and gives us complete visibility over our operations.",
       rating: 5,
       image: "👨‍🍳",
       category: "Servora Platform"

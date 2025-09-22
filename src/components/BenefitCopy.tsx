@@ -118,7 +118,7 @@ const BenefitCopy = () => {
             
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-                <div className="text-3xl font-bold mb-2">RM 25,000</div>
+                <div className="text-3xl font-bold mb-2">RM 20,000+</div>
                 <div className="text-blue-100">Monthly waste reduction</div>
               </div>
               <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
@@ -141,7 +141,7 @@ const BenefitCopy = () => {
                 </div>
                 <div>
                   <div className="text-sm text-blue-200 mb-2">Monthly Returns</div>
-                  <div className="text-2xl font-bold">RM 25,000 - 45,000</div>
+                  <div className="text-2xl font-bold">RM 20,000+ - 45,000</div>
                   <div className="text-sm text-blue-200">Ongoing savings</div>
                 </div>
               </div>

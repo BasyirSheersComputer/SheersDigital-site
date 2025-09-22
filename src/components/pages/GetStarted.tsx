@@ -87,7 +87,7 @@ const GetStarted = () => {
        price: 'RM 8,500',
        timeline: '7 days',
        features: ['Real-time stock alerts', 'POS integration', 'Automated reporting', 'Mobile dashboard', 'Multi-location sync', 'Advanced analytics'],
-       savings: 'RM 25,000/month'
+       savings: 'RM 20,000+/month'
      },
      {
        id: 'waste-logging',
@@ -130,31 +130,32 @@ const GetStarted = () => {
   const packages = [
     {
       id: 'quick-win',
-             title: 'Enterprise Starter Solution',
+             title: 'Professional Plan',
        subtitle: 'Start Small, Dominate Big',
-       description: 'Choose one targeted solution and see immediate competitive advantage in 7 days',
-      price: 'From RM 6,500',
-      savings: 'RM 18,000-45,000/month',
+       description: 'Choose one targeted solution and see immediate competitive advantage in 5 days',
+      price: 'RM 5,000/month',
+      savings: 'RM 20,000+/month',
       features: [
         'Free consultation & audit',
-        '7-day implementation',
-        '50% off Servora upgrade',
-        '30-day support included',
-        'ROI guarantee',
-        'Premium onboarding'
+        '5-day implementation',
+        '30-day money-back guarantee',
+        'Dedicated account management',
+        '24/7 technical support',
+        'Staff training included'
       ],
       popular: false
     },
     {
       id: 'wastewise-platform',
-             title: 'Full Servora Platform',
+             title: 'Enterprise Plan',
        subtitle: 'Complete Market Domination',
        description: 'Get everything you need for complete operational excellence and market leadership',
-      price: 'RM 25,000/month',
-      savings: 'RM 75,000-120,000/month',
+      price: 'RM 10,000/month',
+      savings: 'RM 240,000+/year',
       features: [
         'All 5 solutions included',
-        '30-day free trial',
+        '5-day results guarantee',
+        '30-day money-back guarantee',
         'Dedicated success manager',
         '24/7 priority support',
         'Custom integrations',
@@ -177,7 +178,7 @@ const GetStarted = () => {
 
   const calculateTotalPrice = () => {
     if (selectedPackage === 'wastewise-platform') {
-      return 'RM 25,000/month';
+      return 'RM 10,000/month';
     }
     
     const selectedSolutionsData = solutions.filter(s => selectedSolutions.includes(s.id));
@@ -191,7 +192,7 @@ const GetStarted = () => {
 
   const calculateTotalSavings = () => {
     if (selectedPackage === 'wastewise-platform') {
-      return 'RM 75,000-120,000/month';
+      return 'RM 240,000+/year';
     }
     
     const selectedSolutionsData = solutions.filter(s => selectedSolutions.includes(s.id));
@@ -532,8 +533,8 @@ const GetStarted = () => {
                   <div className="text-slate-300">Monthly Savings</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-yellow-400 mb-2">7-14 Days</div>
-                  <div className="text-slate-300">Implementation</div>
+                <div className="text-3xl font-bold text-yellow-400 mb-2">5 Days</div>
+                <div className="text-slate-300">Results Guarantee</div>
                 </div>
               </div>
 
@@ -557,7 +558,7 @@ const GetStarted = () => {
                   <ul className="space-y-2">
                     <li className="flex items-center text-green-300">
                       <CheckCircle className="w-5 h-5 mr-2" />
-                      ROI guarantee
+                      30-day money-back guarantee
                     </li>
                     <li className="flex items-center text-green-300">
                       <CheckCircle className="w-5 h-5 mr-2" />
@@ -602,8 +603,8 @@ const GetStarted = () => {
                 <div className="text-slate-600">Total Savings Generated</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">7 Days</div>
-                <div className="text-slate-600">Average Implementation</div>
+                <div className="text-4xl font-bold text-blue-600 mb-2">5 Days</div>
+                <div className="text-slate-600">Results Guarantee</div>
               </div>
               <div className="text-center">
                 <div className="text-4xl font-bold text-blue-600 mb-2">24/7</div>
