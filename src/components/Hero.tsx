@@ -10,27 +10,27 @@ const Hero = () => {
    const slides = [
      {
        id: 1,
-       title: "Meet Servora AI",
-       description: "This AI-powered platform's unrivalled flexibility and smart features like Live Inventory Tracking and Waste Prediction, enable you to do more than you ever imagined.",
-       buttonText: "Shop Servora AI",
-       buttonLink: "https://servora-ai.sheerssoft.com",
+       title: "Save RM 32,000+ Monthly",
+       description: "Transform your F&B operations with AI-powered automation. Our clients save an average of RM 32,000 monthly through waste reduction, inventory optimization, and operational efficiency.",
+       buttonText: "Start Saving Today",
+       buttonLink: "/get-started",
        background: "bg-transparent",
        image: "/img/slide1.jpg"
      },
      {
        id: 2,
-       title: "Eliminate Food Waste",
-       description: "Transform your restaurant operations with AI-driven waste reduction. Boost profit margins by up to 15% while reducing food waste by 40%.",
-       buttonText: "Get Started",
+       title: "Eliminate 42% Food Waste",
+       description: "Reduce food waste by 42% and boost profit margins by 15% with our AI-driven waste prediction and inventory management system. Start seeing results in just 5 days.",
+       buttonText: "Reduce Waste Now",
        buttonLink: "/waste-logging-automation",
        background: "bg-transparent",
        image: "/img/slide2.jpg"
      },
      {
        id: 3,
-       title: "Smart Inventory Management",
-       description: "Never run out of ingredients again. Our AI predicts demand and optimizes inventory levels, reducing stockouts by 90% and overstocking by 60%.",
-       buttonText: "Learn More",
+       title: "Save 18 Hours Weekly",
+       description: "Automate manual processes and save 18 hours weekly on inventory management, supplier coordination, and compliance tracking. Focus on growing your business, not paperwork.",
+       buttonText: "Automate Operations",
        buttonLink: "/inventory-integration",
        background: "bg-transparent",
        image: "/img/slide3.jpg"

@@ -14,8 +14,8 @@ export interface SEOConfig {
 }
 
 export const defaultSEO: SEOConfig = {
-  title: "Servora - Template Platform + Professional Services | F&B Operations Transformation",
-  description: "Premium Malaysian F&B chains: Professional Plan (RM 5K/month per 10 outlets) + Enterprise Plan (RM 10K/month per 10 outlets). Professional services for custom implementations. 250+ chains optimized.",
+  title: "Save RM 32,000+ Monthly | F&B Operations Transformation | Servora",
+  description: "Transform your F&B operations and save RM 32,000+ monthly. Reduce food waste by 42%, save 18 hours weekly, and achieve ROI in 2.3 months. Professional services from RM 5K/month per 10 outlets.",
   keywords: "F&B software Malaysia, restaurant management system, template platform, professional services, Malaysian restaurant technology, F&B automation, restaurant POS integration, supply chain optimization, enterprise F&B solutions",
   canonicalUrl: "https://sheerssoft.com",
   ogImage: "https://sheerssoft.com/og-image.jpg",
@@ -24,8 +24,8 @@ export const defaultSEO: SEOConfig = {
 
 export const pageSEO: Record<string, SEOConfig> = {
   home: {
-    title: "Template Platform + Professional Services | F&B Management System Malaysia | Servora",
-    description: "Malaysia's leading F&B management system with template platform (Professional: RM 5K/month per 10 outlets, Enterprise: RM 10K/month per 10 outlets) + professional services for custom implementations. Transform operations with inventory management, waste reduction, supplier automation, and AI forecasting.",
+    title: "Save RM 32,000+ Monthly | Eliminate Food Waste & Boost Profits | F&B Management System Malaysia | Servora",
+    description: "Transform your F&B operations and save RM 32,000+ monthly with Malaysia's leading restaurant management system. Reduce food waste by 42%, save 18 hours weekly, and achieve ROI in just 2.3 months. Professional services from RM 5K/month per 10 outlets.",
     keywords: "restaurant software Malaysia, F&B management system Malaysia, template platform, professional services, restaurant automation Malaysia, food service software Malaysia, restaurant technology Malaysia, F&B software Malaysia, restaurant management system, Malaysian restaurant technology, F&B automation, restaurant POS integration, supply chain optimization, enterprise F&B solutions",
     canonicalUrl: "https://sheerssoft.com",
     ogImage: "https://sheerssoft.com/og-image.jpg",
@@ -37,7 +37,7 @@ export const pageSEO: Record<string, SEOConfig> = {
       "legalName": "Sheers Software Sdn. Bhd.",
       "url": "https://sheerssoft.com",
       "logo": "https://sheerssoft.com/logo.png",
-      "description": "Premium F&B software solutions for Malaysian restaurants. Transform operational chaos into competitive advantage with our enterprise-grade inventory, waste management, and automation systems.",
+      "description": "Save RM 32,000+ monthly with Malaysia's leading F&B management system. Reduce food waste by 42%, save 18 hours weekly, and achieve ROI in 2.3 months. Transform operational chaos into competitive advantage.",
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "MY",
