@@ -12,6 +12,7 @@ import FAQ from './components/FAQ';
 import CommunityMovement from './components/CommunityMovement';
 import SEOHead from './components/SEOHead';
 import Footer from './components/Footer';
+import FloatingNavigation from './components/FloatingNavigation';
 import { getSEOConfig } from './config/seo';
 
 // Import page components
@@ -44,16 +45,37 @@ function App() {
             structuredData={homeSEO.structuredData}
           />
           <Header />
-          <Hero />
-          <InfluencerTestimonial />
-          <ComparisonTable />
-          <GetStartedCTA />
-          <CustomerReviews />
-          <ResearchEvidence />
-          <BenefitCopy />
-          <FAQ />
-          <CommunityMovement />
+          <main>
+            <section id="hero">
+              <Hero />
+            </section>
+            <section id="testimonials">
+              <InfluencerTestimonial />
+            </section>
+            <section id="comparison">
+              <ComparisonTable />
+            </section>
+            <section id="pricing">
+              <GetStartedCTA />
+            </section>
+            <section id="reviews">
+              <CustomerReviews />
+            </section>
+            <section id="research">
+              <ResearchEvidence />
+            </section>
+            <section id="benefits">
+              <BenefitCopy />
+            </section>
+            <section id="faq">
+              <FAQ />
+            </section>
+            <section id="community">
+              <CommunityMovement />
+            </section>
+          </main>
           <Footer />
+          <FloatingNavigation />
         </div>
       } />
 

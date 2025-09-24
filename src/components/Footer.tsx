@@ -1,5 +1,5 @@
 import React from 'react';
-import { Utensils, MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -9,8 +9,18 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="bg-green-600 p-2 rounded-lg">
-                <Utensils className="w-6 h-6" />
+              <div className="relative w-12 h-12 flex-shrink-0">
+                <img 
+                  src="/img/logo.png"
+                  alt="Sheers Software Sdn Bhd Logo"
+                  className="w-full h-full object-contain filter drop-shadow-sm"
+                  loading="eager"
+                  style={{
+                    filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1))',
+                    background: 'transparent',
+                    mixBlendMode: 'normal'
+                  }}
+                />
               </div>
               <div>
                 <h3 className="text-xl font-bold">Sheers Software Sdn Bhd</h3>

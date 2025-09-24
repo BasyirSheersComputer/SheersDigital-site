@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
 import { AnimatedSection } from './AnimatedSection';
+import CollapsibleSection from './CollapsibleSection';
 
 const FAQ = () => {
   const [openItems, setOpenItems] = useState<number[]>([]);
@@ -59,16 +60,19 @@ const FAQ = () => {
   return (
     <section id="faq" className="py-20 bg-white">
       <div className="container mx-auto px-6">
-        <AnimatedSection animation="slideUp" delay={0.2}>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">
-              Frequently Asked Questions
-            </h2>
+        <CollapsibleSection
+          id="faq-section"
+          title="Frequently Asked Questions"
+          icon={HelpCircle}
+          defaultExpanded={false}
+          className="mb-8"
+          enableVerticalScroll={false}
+        >
+          <div className="text-center mb-8">
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               Get answers to the most common questions about Servora and how it can transform your F&B operations
             </p>
           </div>
-        </AnimatedSection>
 
         <div className="max-w-4xl mx-auto">
           <div className="space-y-4">
@@ -124,6 +128,7 @@ const FAQ = () => {
             </div>
           </AnimatedSection>
         </div>
+        </CollapsibleSection>
       </div>
     </section>
   );

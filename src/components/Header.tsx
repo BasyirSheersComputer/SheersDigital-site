@@ -198,12 +198,20 @@ const Header = () => {
         <div className="flex items-center justify-between h-14 sm:h-16 min-h-0">
           {/* Left Side - Branding and Primary Navigation */}
           <div className="flex items-center space-x-4 sm:space-x-6 lg:space-x-8 min-w-0 flex-shrink-0">
-            <Link to="/" className="flex items-center space-x-1 sm:space-x-2 hover:opacity-80 transition-opacity">
-              <div className="flex space-x-0.5 sm:space-x-1">
-                <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-sm"></div>
-                <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-sm"></div>
-                <div className="w-2 h-2 sm:w-3 sm:h-3 bg-blue-500 rounded-sm"></div>
-                <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500 rounded-sm"></div>
+            <Link to="/" className="flex items-center space-x-2 sm:space-x-3 hover:opacity-80 transition-opacity">
+              {/* Corporate Logo */}
+              <div className="relative w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0 logo-transparent">
+                <img 
+                  src="/img/logo.png"
+                  alt="Sheerssoft Logo"
+                  className="w-full h-full object-contain filter drop-shadow-sm"
+                  loading="eager"
+                  style={{
+                    filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1))',
+                    background: 'transparent',
+                    mixBlendMode: 'normal'
+                  }}
+                />
               </div>
               <span className="text-lg sm:text-xl font-semibold text-gray-900 whitespace-nowrap">Sheerssoft</span>
             </Link>
@@ -436,103 +444,144 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden min-h-[44px] min-w-[44px] touch-manipulation mobile-menu-btn text-gray-700 hover:text-gray-900"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden min-h-[44px] min-w-[44px] touch-manipulation mobile-menu-btn text-gray-700 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md p-2"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setIsMenuOpen(!isMenuOpen);
+            }}
             aria-label="Toggle mobile menu"
+            aria-expanded={isMenuOpen}
+            type="button"
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <div className="relative w-6 h-6">
+              <Menu 
+                className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${
+                  isMenuOpen ? 'opacity-0 rotate-180' : 'opacity-100 rotate-0'
+                }`} 
+              />
+              <X 
+                className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${
+                  isMenuOpen ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-180'
+                }`} 
+              />
+            </div>
           </button>
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
+        <div 
+          className={`lg:hidden fixed inset-0 z-40 transition-all duration-300 ${
+            isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+          }`}
+        >
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/20 backdrop-blur-sm"
+            onClick={() => setIsMenuOpen(false)}
+          />
+          
+          {/* Menu Panel */}
           <nav 
             ref={mobileMenuRef}
-            className="lg:hidden mt-4 pb-4 border-t border-gray-200 bg-white mobile-nav"
+            className={`absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-xl transform transition-transform duration-300 ${
+              isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+            }`}
           >
-            <div className="flex flex-col space-y-4 pt-4">
+            <div className="flex flex-col space-y-2 pt-6 px-2">
+              {/* Servora AI Link */}
               <a 
                 href="https://servora-ai.sheerssoft.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-700 hover:text-gray-900 transition-colors text-left min-h-[44px] touch-manipulation mobile-button font-medium"
+                className="flex items-center px-4 py-4 text-gray-700 hover:text-gray-900 hover:bg-blue-50 transition-all duration-200 text-left min-h-[56px] touch-manipulation mobile-button font-medium text-base rounded-lg border border-gray-100 active:bg-blue-100 active:scale-[0.98]"
               >
-                Servora AI
+                <span className="text-lg">Servora AI</span>
               </a>
               
               {/* Mobile Solutions Dropdown */}
-              <div>
+              <div className="space-y-2">
                 <button
                   onClick={() => setIsSolutionsDropdownOpen(!isSolutionsDropdownOpen)}
-                  className="flex items-center justify-between w-full text-gray-700 hover:text-gray-900 transition-colors bg-transparent border-none cursor-pointer text-left min-h-[44px] touch-manipulation mobile-button font-medium"
+                  className="flex items-center justify-between w-full px-4 py-4 text-gray-700 hover:text-gray-900 hover:bg-blue-50 transition-all duration-200 bg-transparent border border-gray-100 cursor-pointer text-left min-h-[56px] touch-manipulation mobile-button font-medium text-base rounded-lg active:bg-blue-100 active:scale-[0.98]"
                 >
-                  <span>Solutions</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform ${isSolutionsDropdownOpen ? 'rotate-180' : ''}`} />
+                  <span className="text-lg">Solutions</span>
+                  <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${isSolutionsDropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
                 
                 {isSolutionsDropdownOpen && (
-                  <div className="ml-4 mt-2 space-y-3 bg-gray-50 rounded-lg p-3 mobile-dropdown border border-gray-200">
+                  <div className="ml-4 mt-3 space-y-3 bg-gray-50 rounded-xl p-4 mobile-dropdown border border-gray-200 shadow-sm">
+                    <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Quick Win Solutions</div>
+                    
                     <button
                       onClick={() => handleMobileLinkClick('/inventory-integration')}
-                      className="block text-sm text-gray-700 hover:text-gray-900 transition-colors text-left w-full min-h-[44px] touch-manipulation mobile-button bg-transparent border-none"
+                      className="block w-full px-4 py-4 text-left min-h-[64px] touch-manipulation mobile-button bg-white border border-gray-200 rounded-lg hover:bg-blue-50 hover:border-blue-200 transition-all duration-200 active:bg-blue-100 active:scale-[0.98] shadow-sm"
                     >
-                      <div className="font-semibold text-gray-900">Eliminate Stockouts & Overstocking</div>
-                      <div className="text-xs text-gray-600">From RM 8,500 • 7 days</div>
+                      <div className="font-semibold text-gray-900 text-base mb-1">Eliminate Stockouts & Overstocking</div>
+                      <div className="text-sm text-gray-600">From RM 8,500 • 7 days</div>
                     </button>
+                    
                     <button
                       onClick={() => handleMobileLinkClick('/waste-logging-automation')}
-                      className="block text-sm text-gray-700 hover:text-gray-900 transition-colors text-left w-full min-h-[44px] touch-manipulation mobile-button bg-transparent border-none"
+                      className="block w-full px-4 py-4 text-left min-h-[64px] touch-manipulation mobile-button bg-white border border-gray-200 rounded-lg hover:bg-blue-50 hover:border-blue-200 transition-all duration-200 active:bg-blue-100 active:scale-[0.98] shadow-sm"
                     >
-                      <div className="font-semibold text-gray-900">End Food Waste & Boost Profit Margins</div>
-                      <div className="text-xs text-gray-600">From RM 6,500 • 5 days</div>
+                      <div className="font-semibold text-gray-900 text-base mb-1">End Food Waste & Boost Profit Margins</div>
+                      <div className="text-sm text-gray-600">From RM 6,500 • 5 days</div>
                     </button>
+                    
                     <button
                       onClick={() => handleMobileLinkClick('/supplier-integration')}
-                      className="block text-sm text-gray-700 hover:text-gray-900 transition-colors text-left w-full min-h-[44px] touch-manipulation mobile-button bg-transparent border-none"
+                      className="block w-full px-4 py-4 text-left min-h-[64px] touch-manipulation mobile-button bg-white border border-gray-200 rounded-lg hover:bg-blue-50 hover:border-blue-200 transition-all duration-200 active:bg-blue-100 active:scale-[0.98] shadow-sm"
                     >
-                      <div className="font-semibold text-gray-900">Optimize Procurement & Reduce Costs</div>
-                      <div className="text-xs text-gray-600">From RM 12,500 • 10 days</div>
+                      <div className="font-semibold text-gray-900 text-base mb-1">Optimize Procurement & Reduce Costs</div>
+                      <div className="text-sm text-gray-600">From RM 12,500 • 10 days</div>
                     </button>
+                    
                     <button
                       onClick={() => handleMobileLinkClick('/ai-forecasting')}
-                      className="block text-sm text-gray-700 hover:text-gray-900 transition-colors text-left w-full min-h-[44px] touch-manipulation mobile-button bg-transparent border-none"
+                      className="block w-full px-4 py-4 text-left min-h-[64px] touch-manipulation mobile-button bg-white border border-gray-200 rounded-lg hover:bg-blue-50 hover:border-blue-200 transition-all duration-200 active:bg-blue-100 active:scale-[0.98] shadow-sm"
                     >
-                      <div className="font-semibold text-gray-900">Predict Demand & Maximize Sales</div>
-                      <div className="text-xs text-gray-600">From RM 18,500 • 14 days</div>
+                      <div className="font-semibold text-gray-900 text-base mb-1">Predict Demand & Maximize Sales</div>
+                      <div className="text-sm text-gray-600">From RM 18,500 • 14 days</div>
                     </button>
+                    
                     <button
                       onClick={() => handleMobileLinkClick('/compliance-automation')}
-                      className="block text-sm text-gray-700 hover:text-gray-900 transition-colors text-left w-full min-h-[44px] touch-manipulation mobile-button bg-transparent border-none"
+                      className="block w-full px-4 py-4 text-left min-h-[64px] touch-manipulation mobile-button bg-white border border-gray-200 rounded-lg hover:bg-blue-50 hover:border-blue-200 transition-all duration-200 active:bg-blue-100 active:scale-[0.98] shadow-sm"
                     >
-                      <div className="font-semibold text-gray-900">Automate Compliance & Reduce Risk</div>
-                      <div className="text-xs text-gray-600">From RM 7,500 • 7 days</div>
+                      <div className="font-semibold text-gray-900 text-base mb-1">Automate Compliance & Reduce Risk</div>
+                      <div className="text-sm text-gray-600">From RM 7,500 • 7 days</div>
                     </button>
                   </div>
                 )}
               </div>
               
               {/* Mobile Products Dropdown */}
-              <div>
+              <div className="space-y-2">
                 <button
                   onClick={() => setIsProductsDropdownOpen(!isProductsDropdownOpen)}
-                  className="flex items-center justify-between w-full text-gray-700 hover:text-gray-900 transition-colors bg-transparent border-none cursor-pointer text-left min-h-[44px] touch-manipulation mobile-button font-medium"
+                  className="flex items-center justify-between w-full px-4 py-4 text-gray-700 hover:text-gray-900 hover:bg-blue-50 transition-all duration-200 bg-transparent border border-gray-100 cursor-pointer text-left min-h-[56px] touch-manipulation mobile-button font-medium text-base rounded-lg active:bg-blue-100 active:scale-[0.98]"
                 >
-                  <span>Products</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform ${isProductsDropdownOpen ? 'rotate-180' : ''}`} />
+                  <span className="text-lg">Products</span>
+                  <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${isProductsDropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
                 
                 {isProductsDropdownOpen && (
-                  <div className="ml-4 mt-2 space-y-2 bg-gray-50 rounded-lg p-3 mobile-dropdown border border-gray-200">
+                  <div className="ml-4 mt-3 bg-gray-50 rounded-xl p-4 mobile-dropdown border border-gray-200 shadow-sm">
+                    <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3 px-2">Our Products</div>
+                    
                     <Link
                       to="/servora-development"
-                      className="block text-sm text-gray-700 hover:text-gray-900 transition-colors min-h-[44px] touch-manipulation mobile-button flex items-center"
+                      className="block w-full px-4 py-4 text-left min-h-[64px] touch-manipulation mobile-button bg-white border border-gray-200 rounded-lg hover:bg-blue-50 hover:border-blue-200 transition-all duration-200 active:bg-blue-100 active:scale-[0.98] shadow-sm flex items-center"
                       onClick={() => {
                         setIsProductsDropdownOpen(false);
                         setIsMenuOpen(false);
                       }}
                     >
-                      <div className="font-semibold text-gray-900">Servora Platform</div>
-                      <div className="text-xs text-gray-600 ml-1">Under Development</div>
+                      <div className="flex flex-col">
+                        <div className="font-semibold text-gray-900 text-base">Servora Platform</div>
+                        <div className="text-sm text-gray-600 mt-1">Under Development</div>
+                      </div>
                     </Link>
                   </div>
                 )}
@@ -540,13 +589,13 @@ const Header = () => {
               
               <button 
                 onClick={handleContactClick}
-                className="text-gray-700 hover:text-gray-900 transition-colors bg-transparent border-none cursor-pointer text-left min-h-[44px] touch-manipulation mobile-button font-medium"
+                className="flex items-center px-4 py-4 text-gray-700 hover:text-gray-900 hover:bg-blue-50 transition-all duration-200 bg-transparent border border-gray-100 cursor-pointer text-left min-h-[56px] touch-manipulation mobile-button font-medium text-base rounded-lg active:bg-blue-100 active:scale-[0.98]"
               >
-                Support
+                <span className="text-lg">Support</span>
               </button>
             </div>
           </nav>
-        )}
+        </div>
       </div>
     </header>
   );
