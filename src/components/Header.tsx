@@ -211,7 +211,7 @@ const Header = () => {
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-6">
               <a 
-                href="https://servora-ai.com"
+                href="https://servora-ai.sheerssoft.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-700 hover:text-gray-900 transition-colors font-medium"
@@ -452,7 +452,7 @@ const Header = () => {
           >
             <div className="flex flex-col space-y-4 pt-4">
               <a 
-                href="https://servora-ai.com"
+                href="https://servora-ai.sheerssoft.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-700 hover:text-gray-900 transition-colors text-left min-h-[44px] touch-manipulation mobile-button font-medium"

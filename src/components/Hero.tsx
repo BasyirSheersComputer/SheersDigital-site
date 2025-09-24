@@ -13,7 +13,7 @@ const Hero = () => {
       title: "Meet Servora AI",
       description: "This AI-powered platform's unrivalled flexibility and smart features like Live Inventory Tracking and Waste Prediction, enable you to do more than you ever imagined.",
       buttonText: "Shop Servora AI",
-      buttonLink: "https://servora-ai.com",
+      buttonLink: "https://servora-ai.sheerssoft.com",
       background: "bg-amber-700",
       image: "/img/slide1.jpg"
     },
