@@ -52,30 +52,25 @@ export default {
         }
       },
       fontSize: {
-        'heading': ['48px', {
-          fontFamily: 'Inter, system-ui, sans-serif',
-          fontWeight: '700',
-          lineHeight: '1.1',
-          letterSpacing: '-0.02em'
-        }],
-        'body': ['16px', {
-          fontFamily: 'Inter, system-ui, sans-serif',
-          fontWeight: '400',
-          lineHeight: '1.6',
-          letterSpacing: '0.01em'
-        }],
-        'button': ['14px', {
-          fontFamily: 'Inter, system-ui, sans-serif',
-          fontWeight: '600',
-          lineHeight: '1.4',
-          letterSpacing: '0.02em'
-        }],
-        'elegant': ['18px', {
-          fontFamily: 'Georgia, serif',
-          fontWeight: '400',
-          lineHeight: '1.7',
-          fontStyle: 'italic'
-        }]
+        'xs': ['0.75rem', { lineHeight: '1rem' }],
+        'sm': ['0.875rem', { lineHeight: '1.5rem' }],
+        'base': ['1rem', { lineHeight: '1.75rem' }],
+        'lg': ['1.125rem', { lineHeight: '2rem' }],
+        'xl': ['1.25rem', { lineHeight: '2rem' }],
+        '2xl': ['1.5rem', { lineHeight: '2.25rem' }],
+        '3xl': ['1.875rem', { lineHeight: '2.5rem' }],
+        '4xl': ['2.25rem', { lineHeight: '2.75rem' }],
+        '5xl': ['3rem', { lineHeight: '1.2' }],
+        '6xl': ['3.75rem', { lineHeight: '1.1' }],
+        '7xl': ['4.5rem', { lineHeight: '1' }],
+      },
+      letterSpacing: {
+        tighter: '-0.05em',
+        tight: '-0.025em',
+        normal: '0em',
+        wide: '0.025em',
+        wider: '0.05em',
+        widest: '0.1em',
       },
       spacing: {
         'small': '12px',

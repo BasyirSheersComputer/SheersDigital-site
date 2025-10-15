@@ -76,15 +76,10 @@ const CustomerReviews = () => {
   return (
     <section id="customer-reviews" className="py-20 bg-slate-50">
       <div className="container mx-auto px-6">
-        <CollapsibleSection
-          id="customer-reviews-section"
-          title="Real Results from Real Malaysian F&B Businesses"
-          icon={Users}
-          defaultExpanded={false}
-          className="mb-8"
-          maxContentHeight="600px"
-          enableVerticalScroll={true}
-        >
+        <div className="mb-8">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center tracking-tight">
+            Real Results from Real Malaysian F&B Businesses
+          </h2>
           <div className="text-center mb-10 sm:mb-12">
             <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
               See how Servora is transforming operations and driving profitability across Malaysia's F&B industry
@@ -184,7 +179,7 @@ const CustomerReviews = () => {
               </div>
             </div>
           </AnimatedSection>
-        </CollapsibleSection>
+        </div>
       </div>
     </section>
   );

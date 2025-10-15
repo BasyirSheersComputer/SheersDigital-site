@@ -193,36 +193,35 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-white text-gray-900 shadow-sm sticky top-0 z-50 border-b border-gray-200 w-full overflow-hidden">
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
-        <div className="flex items-center justify-between h-14 sm:h-16 min-h-0">
+    <header className="bg-white text-gray-900 shadow-sm sticky top-0 z-50 border-b border-gray-100 w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
           {/* Left Side - Branding and Primary Navigation */}
-          <div className="flex items-center space-x-4 sm:space-x-6 lg:space-x-8 min-w-0 flex-shrink-0">
-            <Link to="/" className="flex items-center space-x-2 sm:space-x-3 hover:opacity-80 transition-opacity">
+          <div className="flex items-center space-x-12 min-w-0 flex-shrink-0">
+            <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
               {/* Corporate Logo */}
-              <div className="relative w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0 logo-transparent">
+              <div className="relative w-10 h-10 flex-shrink-0 logo-transparent">
                 <img 
                   src="/img/logo.png"
                   alt="Sheerssoft Logo"
-                  className="w-full h-full object-contain filter drop-shadow-sm"
+                  className="w-full h-full object-contain"
                   loading="eager"
                   style={{
-                    filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1))',
                     background: 'transparent',
                     mixBlendMode: 'normal'
                   }}
                 />
               </div>
-              <span className="text-lg sm:text-xl font-semibold text-gray-900 whitespace-nowrap">Sheerssoft</span>
+              <span className="text-xl font-semibold text-gray-900 whitespace-nowrap tracking-tight">Sheerssoft</span>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-6">
+            <nav className="hidden lg:flex items-center space-x-8">
               <a 
                 href="https://servora-ai.sheerssoft.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-700 hover:text-gray-900 transition-colors font-medium"
+                className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium"
               >
                 Servora AI
               </a>
@@ -235,49 +234,49 @@ const Header = () => {
                 onMouseLeave={handleSolutionsMouseLeave}
               >
                 <button
-                  className="flex items-center space-x-1 text-gray-700 hover:text-gray-900 transition-colors bg-transparent border-none cursor-pointer font-medium"
+                  className="flex items-center space-x-1 text-gray-600 hover:text-gray-900 transition-colors bg-transparent border-none cursor-pointer text-sm font-medium"
                 >
                   <span>Solutions</span>
                   <ChevronDown className={`w-4 h-4 transition-transform ${isSolutionsDropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
               
                 {isSolutionsDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-1 w-80 bg-white rounded-md shadow-lg border border-gray-200 z-50">
-                    <div className="py-2">
+                  <div className="absolute top-full left-0 mt-2 w-96 bg-white rounded-xl shadow-xl border border-gray-100 z-50 py-3">
+                    <div className="space-y-1">
                       <Link
                         to="/inventory-integration"
-                        className="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors border-b border-gray-100"
+                        className="block px-5 py-4 hover:bg-gray-50 transition-colors"
                       >
-                        <div className="font-semibold text-gray-900">Eliminate Stockouts & Overstocking</div>
-                        <div className="text-xs text-gray-600 mt-1">From RM 8,500 • 7 days setup</div>
+                        <div className="font-medium text-gray-900 text-sm mb-1">Eliminate Stockouts & Overstocking</div>
+                        <div className="text-xs text-gray-500">From RM 8,500 • 7 days setup</div>
                       </Link>
                       <Link
                         to="/waste-logging-automation"
-                        className="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors border-b border-gray-100"
+                        className="block px-5 py-4 hover:bg-gray-50 transition-colors"
                       >
-                        <div className="font-semibold text-gray-900">End Food Waste & Boost Profit Margins</div>
-                        <div className="text-xs text-gray-600 mt-1">From RM 6,500 • 5 days setup</div>
+                        <div className="font-medium text-gray-900 text-sm mb-1">End Food Waste & Boost Profit Margins</div>
+                        <div className="text-xs text-gray-500">From RM 6,500 • 5 days setup</div>
                       </Link>
                       <Link
                         to="/supplier-integration"
-                        className="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors border-b border-gray-100"
+                        className="block px-5 py-4 hover:bg-gray-50 transition-colors"
                       >
-                        <div className="font-semibold text-gray-900">Optimize Procurement & Reduce Costs</div>
-                        <div className="text-xs text-gray-600 mt-1">From RM 12,500 • 10 days setup</div>
+                        <div className="font-medium text-gray-900 text-sm mb-1">Optimize Procurement & Reduce Costs</div>
+                        <div className="text-xs text-gray-500">From RM 12,500 • 10 days setup</div>
                       </Link>
                       <Link
                         to="/ai-forecasting"
-                        className="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors border-b border-gray-100"
+                        className="block px-5 py-4 hover:bg-gray-50 transition-colors"
                       >
-                        <div className="font-semibold text-gray-900">Predict Demand & Maximize Sales</div>
-                        <div className="text-xs text-gray-600 mt-1">From RM 18,500 • 14 days setup</div>
+                        <div className="font-medium text-gray-900 text-sm mb-1">Predict Demand & Maximize Sales</div>
+                        <div className="text-xs text-gray-500">From RM 18,500 • 14 days setup</div>
                       </Link>
                       <Link
                         to="/compliance-automation"
-                        className="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors"
+                        className="block px-5 py-4 hover:bg-gray-50 transition-colors"
                       >
-                        <div className="font-semibold text-gray-900">Automate Compliance & Reduce Risk</div>
-                        <div className="text-xs text-gray-600 mt-1">From RM 7,500 • 7 days setup</div>
+                        <div className="font-medium text-gray-900 text-sm mb-1">Automate Compliance & Reduce Risk</div>
+                        <div className="text-xs text-gray-500">From RM 7,500 • 7 days setup</div>
                       </Link>
                     </div>
                   </div>
@@ -292,21 +291,21 @@ const Header = () => {
                 onMouseLeave={handleMouseLeave}
               >
                 <button
-                  className="flex items-center space-x-1 text-gray-700 hover:text-gray-900 transition-colors bg-transparent border-none cursor-pointer font-medium"
+                  className="flex items-center space-x-1 text-gray-600 hover:text-gray-900 transition-colors bg-transparent border-none cursor-pointer text-sm font-medium"
                 >
                   <span>Products</span>
                   <ChevronDown className={`w-4 h-4 transition-transform ${isProductsDropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
                 
                 {isProductsDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-md shadow-lg border border-gray-200 z-50">
-                    <div className="py-2">
+                  <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 z-50 py-3">
+                    <div className="space-y-1">
                       <Link
                         to="/servora-development"
-                        className="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors"
+                        className="block px-5 py-4 hover:bg-gray-50 transition-colors"
                       >
-                        <div className="font-semibold text-gray-900">Servora Platform</div>
-                        <div className="text-xs text-gray-600 mt-1">Under Development</div>
+                        <div className="font-medium text-gray-900 text-sm mb-1">Servora Platform</div>
+                        <div className="text-xs text-gray-500">Under Development</div>
                       </Link>
                     </div>
                   </div>
@@ -321,7 +320,7 @@ const Header = () => {
                     navigate('/#contact');
                   }
                 }}
-                className="text-gray-700 hover:text-gray-900 transition-colors bg-transparent border-none cursor-pointer font-medium"
+                className="text-gray-600 hover:text-gray-900 transition-colors bg-transparent border-none cursor-pointer text-sm font-medium"
               >
                 Support
               </button>
@@ -329,49 +328,48 @@ const Header = () => {
           </div>
 
           {/* Right Side - Utility Navigation */}
-          <div className="flex items-center space-x-2 sm:space-x-3 lg:space-x-4 min-w-0 flex-shrink-0">
+          <div className="flex items-center space-x-6 min-w-0 flex-shrink-0">
             {/* All Sheerssoft Dropdown */}
             <div 
-              className="relative hidden sm:block" 
+              className="relative hidden lg:block" 
               ref={allSheerssoftDropdownRef}
               onMouseEnter={handleAllSheerssoftMouseEnter}
               onMouseLeave={handleAllSheerssoftMouseLeave}
             >
-              <button className="flex items-center space-x-1 text-gray-700 hover:text-gray-900 transition-colors bg-transparent border-none cursor-pointer font-medium">
-                <span className="hidden md:inline">All Sheerssoft</span>
-                <span className="md:hidden">All</span>
+              <button className="flex items-center space-x-1 text-gray-600 hover:text-gray-900 transition-colors bg-transparent border-none cursor-pointer text-sm font-medium">
+                <span>All Sheerssoft</span>
                 <ChevronDown className={`w-4 h-4 transition-transform ${isAllSheerssoftDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
               
               {isAllSheerssoftDropdownOpen && (
-                <div className="absolute top-full right-0 mt-1 w-72 sm:w-80 bg-white rounded-md shadow-lg border border-gray-200 z-50">
-                  <div className="py-2">
-                    <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wide border-b border-gray-100">
+                <div className="absolute top-full right-0 mt-2 w-96 bg-white rounded-xl shadow-xl border border-gray-100 z-50 py-4">
+                  <div className="space-y-1">
+                    <div className="px-5 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">
                       For Restaurants & Cafes
                     </div>
-                    <Link to="/inventory-integration" className="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors border-b border-gray-100">
-                      <div className="font-semibold text-gray-900">Inventory Management</div>
-                      <div className="text-xs text-gray-600 mt-1">Eliminate stockouts & overstocking</div>
+                    <Link to="/inventory-integration" className="block px-5 py-3 hover:bg-gray-50 transition-colors">
+                      <div className="font-medium text-gray-900 text-sm mb-1">Inventory Management</div>
+                      <div className="text-xs text-gray-500">Eliminate stockouts & overstocking</div>
                     </Link>
-                    <Link to="/waste-logging-automation" className="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors border-b border-gray-100">
-                      <div className="font-semibold text-gray-900">Waste Reduction</div>
-                      <div className="text-xs text-gray-600 mt-1">End food waste & boost profit margins</div>
+                    <Link to="/waste-logging-automation" className="block px-5 py-3 hover:bg-gray-50 transition-colors">
+                      <div className="font-medium text-gray-900 text-sm mb-1">Waste Reduction</div>
+                      <div className="text-xs text-gray-500">End food waste & boost profit margins</div>
                     </Link>
                     
-                    <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wide border-b border-gray-100 mt-2">
+                    <div className="px-5 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider mt-3">
                       For Food Chains & Enterprises
                     </div>
-                    <Link to="/supplier-integration" className="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors border-b border-gray-100">
-                      <div className="font-semibold text-gray-900">Procurement Optimization</div>
-                      <div className="text-xs text-gray-600 mt-1">Optimize procurement & reduce costs</div>
+                    <Link to="/supplier-integration" className="block px-5 py-3 hover:bg-gray-50 transition-colors">
+                      <div className="font-medium text-gray-900 text-sm mb-1">Procurement Optimization</div>
+                      <div className="text-xs text-gray-500">Optimize procurement & reduce costs</div>
                     </Link>
-                    <Link to="/ai-forecasting" className="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors border-b border-gray-100">
-                      <div className="font-semibold text-gray-900">AI Demand Forecasting</div>
-                      <div className="text-xs text-gray-600 mt-1">Predict demand & maximize sales</div>
+                    <Link to="/ai-forecasting" className="block px-5 py-3 hover:bg-gray-50 transition-colors">
+                      <div className="font-medium text-gray-900 text-sm mb-1">AI Demand Forecasting</div>
+                      <div className="text-xs text-gray-500">Predict demand & maximize sales</div>
                     </Link>
-                    <Link to="/compliance-automation" className="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors">
-                      <div className="font-semibold text-gray-900">Compliance Automation</div>
-                      <div className="text-xs text-gray-600 mt-1">Automate compliance & reduce risk</div>
+                    <Link to="/compliance-automation" className="block px-5 py-3 hover:bg-gray-50 transition-colors">
+                      <div className="font-medium text-gray-900 text-sm mb-1">Compliance Automation</div>
+                      <div className="text-xs text-gray-500">Automate compliance & reduce risk</div>
                     </Link>
                   </div>
                 </div>
@@ -379,33 +377,32 @@ const Header = () => {
             </div>
             
             {/* Search Functionality */}
-            <div className="relative" ref={searchRef}>
+            <div className="relative hidden lg:block" ref={searchRef}>
               {!isSearchOpen ? (
                 <button 
                   onClick={handleSearchToggle}
-                  className="flex items-center space-x-1 text-gray-700 hover:text-gray-900 transition-colors bg-transparent border-none cursor-pointer font-medium"
+                  className="text-gray-600 hover:text-gray-900 transition-colors bg-transparent border-none cursor-pointer text-sm font-medium"
                 >
-                  <Search className="w-4 h-4" />
-                  <span className="hidden sm:inline">Search</span>
+                  <Search className="w-5 h-5" />
                 </button>
               ) : (
-                <div className="absolute top-full right-0 mt-1 w-80 sm:w-96 bg-white rounded-md shadow-lg border border-gray-200 z-50">
-                  <div className="p-4">
-                    <div className="flex items-center space-x-2 mb-4">
+                <div className="absolute top-full right-0 mt-2 w-96 bg-white rounded-xl shadow-xl border border-gray-100 z-50">
+                  <div className="p-5">
+                    <div className="flex items-center space-x-3 mb-4">
                       <div className="flex-1 relative">
                         <input
                           type="text"
-                          placeholder="Search Sheerssoft.com"
+                          placeholder="Search..."
                           value={searchQuery}
                           onChange={handleSearchChange}
-                          className="w-full px-3 py-2 border border-blue-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
                           autoFocus
                         />
-                        <Search className="absolute right-3 top-2.5 w-4 h-4 text-gray-400" />
+                        <Search className="absolute right-3 top-3 w-4 h-4 text-gray-400" />
                       </div>
                       <button 
                         onClick={handleSearchCancel}
-                        className="text-gray-700 hover:text-gray-900 transition-colors font-medium"
+                        className="text-gray-500 hover:text-gray-900 transition-colors text-sm font-medium"
                       >
                         Cancel
                       </button>
@@ -413,16 +410,16 @@ const Header = () => {
                     
                     {searchQuery === '' && (
                       <div className="space-y-2">
-                        <div className="text-sm font-semibold text-gray-900 mb-2">Quick Win Solutions</div>
-                        {quickWinSolutions.map((solution, index) => (
+                        <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 px-1">Quick Solutions</div>
+                        {quickWinSolutions.slice(0, 3).map((solution, index) => (
                           <Link
                             key={index}
                             to={solution.link}
-                            className="block p-3 hover:bg-gray-50 transition-colors border border-gray-100 rounded-md"
+                            className="block p-3 hover:bg-gray-50 transition-colors rounded-lg"
                             onClick={handleSearchCancel}
                           >
-                            <div className="font-medium text-gray-900">{solution.title}</div>
-                            <div className="text-xs text-gray-600 mt-1">{solution.description}</div>
+                            <div className="font-medium text-gray-900 text-sm mb-1">{solution.title}</div>
+                            <div className="text-xs text-gray-500">{solution.description}</div>
                           </Link>
                         ))}
                       </div>
@@ -432,13 +429,13 @@ const Header = () => {
               )}
             </div>
             
-            <button className="text-gray-700 hover:text-gray-900 transition-colors bg-transparent border-none cursor-pointer font-medium hidden sm:block">
+            <button className="text-gray-600 hover:text-gray-900 transition-colors bg-transparent border-none cursor-pointer hidden lg:block">
               <ShoppingCart className="w-5 h-5" />
             </button>
             
-            <button className="flex items-center space-x-1 text-gray-700 hover:text-gray-900 transition-colors bg-transparent border-none cursor-pointer font-medium">
+            <button className="hidden lg:flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium">
               <User className="w-4 h-4" />
-              <span className="hidden sm:inline">Sign in</span>
+              <span>Sign in</span>
             </button>
           </div>
 

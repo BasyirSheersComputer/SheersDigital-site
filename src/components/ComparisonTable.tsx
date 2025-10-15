@@ -47,127 +47,104 @@ const ComparisonTable = () => {
   ];
 
   return (
-    <section id="comparison" className="py-20 bg-white">
-      <div className="container mx-auto px-6">
-        <CollapsibleSection
-          id="comparison-section"
-          title="Why Servora Solves Problems Others Can't"
-          defaultExpanded={true}
-          className="mb-8"
-          maxContentHeight="80vh"
-          enableVerticalScroll={true}
-        >
-          <div className="text-center mb-8">
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+    <section id="comparison" className="py-16 sm:py-20 lg:py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center tracking-tight">
+            Why Servora Solves Problems Others Can't
+          </h2>
+          <div className="text-center mb-16">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               See how our comprehensive platform addresses the critical pain points that traditional solutions miss
             </p>
           </div>
 
-          {/* Horizontal Scroll Container */}
-          <div className="relative">
-            {/* Scrollable Content */}
-            <div 
-              className="overflow-x-auto horizontal-scroll-container scrollbar-hide scroll-smooth"
-              style={{
-                scrollbarWidth: 'none',
-                msOverflowStyle: 'none',
-                WebkitOverflowScrolling: 'touch'
-              }}
-            >
-              <div className="min-w-max pb-4">
-                {/* Standard Comparison Table */}
-                <div className="overflow-x-auto">
-                  <table className="w-full border-collapse bg-white rounded-lg shadow-sm border border-slate-200">
-                    {/* Table Header */}
-                    <thead>
-                      <tr className="bg-slate-50 border-b border-slate-200">
-                        <th className="text-left p-4 font-semibold text-slate-800 min-w-[300px]">
-                          Pain Points
-                        </th>
-                        {competitors.map((competitor, index) => (
-                          <th key={index} className="text-center p-4 font-semibold text-slate-800 min-w-[120px]">
-                            <div className={`inline-block px-3 py-1 rounded-lg text-sm ${competitor.color}`}>
-                              {competitor.name}
-                            </div>
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
+          {/* Comparison Table */}
+          <div className="overflow-x-auto mb-16">
+            <table className="w-full border-collapse bg-white rounded-2xl shadow-sm border border-gray-200">
+              {/* Table Header */}
+              <thead>
+                <tr className="bg-gray-50 border-b border-gray-200">
+                  <th className="text-left p-6 font-semibold text-gray-900 min-w-[300px]">
+                    Pain Points
+                  </th>
+                  {competitors.map((competitor, index) => (
+                    <th key={index} className="text-center p-6 font-semibold text-gray-900 min-w-[150px]">
+                      <div className={`inline-block px-4 py-2 rounded-lg text-sm font-medium ${competitor.color}`}>
+                        {competitor.name}
+                      </div>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              
+              {/* Table Body */}
+              <tbody>
+                {painPoints.map((pain, painIndex) => (
+                  <tr key={painIndex} className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                    {/* Pain Point Column */}
+                    <td className="p-6">
+                      <div className="flex items-start space-x-4">
+                        <div className="text-red-600 flex-shrink-0 mt-1">
+                          {pain.icon}
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-gray-900 mb-2">{pain.title}</h4>
+                          <p className="text-sm text-gray-600 leading-relaxed">{pain.description}</p>
+                        </div>
+                      </div>
+                    </td>
                     
-                    {/* Table Body */}
-                    <tbody>
-                      {painPoints.map((pain, painIndex) => (
-                        <AnimatedSection key={painIndex} animation="slideUp" delay={0.1 * (painIndex + 1)}>
-                          <tr className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
-                            {/* Pain Point Column */}
-                            <td className="p-4">
-                              <div className="flex items-start space-x-3">
-                                <div className="text-red-600 flex-shrink-0 mt-1">
-                                  {pain.icon}
-                                </div>
-                                <div>
-                                  <h4 className="font-semibold text-slate-800 mb-1">{pain.title}</h4>
-                                  <p className="text-sm text-slate-600 leading-relaxed">{pain.description}</p>
-                                </div>
-                              </div>
-                            </td>
-                            
-                            {/* Competitor Solution Columns */}
-                            {competitors.map((competitor, compIndex) => (
-                              <td key={compIndex} className="text-center p-4">
-                                <div className={`w-8 h-8 rounded-full flex items-center justify-center mx-auto ${
-                                  competitor.solves 
-                                    ? 'bg-green-100 text-green-600' 
-                                    : 'bg-red-100 text-red-600'
-                                }`}>
-                                  {competitor.solves ? (
-                                    <Check className="w-5 h-5" />
-                                  ) : (
-                                    <X className="w-5 h-5" />
-                                  )}
-                                </div>
-                              </td>
-                            ))}
-                          </tr>
-                        </AnimatedSection>
-                      ))}
-                    </tbody>
-                  </table>
+                    {/* Competitor Solution Columns */}
+                    {competitors.map((competitor, compIndex) => (
+                      <td key={compIndex} className="text-center p-6">
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center mx-auto ${
+                          competitor.solves 
+                            ? 'bg-green-100 text-green-600' 
+                            : 'bg-red-100 text-red-600'
+                        }`}>
+                          {competitor.solves ? (
+                            <Check className="w-5 h-5" />
+                          ) : (
+                            <X className="w-5 h-5" />
+                          )}
+                        </div>
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Summary */}
+          <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-3xl p-12 border border-green-100">
+            <div className="text-center">
+              <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+                The Complete Solution for F&B Excellence
+              </h3>
+              <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+                While other solutions address individual problems, Servora provides comprehensive operational transformation 
+                that eliminates all major pain points simultaneously.
+              </p>
+              
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="bg-white rounded-2xl p-8 shadow-sm">
+                  <div className="text-5xl font-bold text-red-600 mb-3">0%</div>
+                  <div className="text-sm text-gray-600">Pain points solved by Traditional solutions</div>
+                </div>
+                <div className="bg-white rounded-2xl p-8 shadow-sm">
+                  <div className="text-5xl font-bold text-orange-600 mb-3">0%</div>
+                  <div className="text-sm text-gray-600">Pain points solved by Basic software</div>
+                </div>
+                <div className="bg-white rounded-2xl p-8 shadow-sm">
+                  <div className="text-5xl font-bold text-green-600 mb-3">100%</div>
+                  <div className="text-sm text-gray-600">Pain points solved by Servora</div>
                 </div>
               </div>
             </div>
           </div>
-
-          {/* Summary */}
-          <AnimatedSection animation="slideUp" delay={0.8}>
-            <div className="mt-12 bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 border border-green-200">
-              <div className="text-center">
-                <h3 className="text-2xl font-bold text-slate-800 mb-4">
-                  The Complete Solution for F&B Excellence
-                </h3>
-                <p className="text-lg text-slate-600 mb-6">
-                  While other solutions address individual problems, Servora provides comprehensive operational transformation 
-                  that eliminates all major pain points simultaneously.
-                </p>
-                
-                      <div className="grid md:grid-cols-3 gap-6 mt-8">
-                        <div className="bg-white rounded-lg p-6 shadow-sm">
-                          <div className="text-3xl font-bold text-red-600 mb-2">0%</div>
-                          <div className="text-sm text-slate-600">Pain points solved by Traditional solutions</div>
-                        </div>
-                        <div className="bg-white rounded-lg p-6 shadow-sm">
-                          <div className="text-3xl font-bold text-orange-600 mb-2">0%</div>
-                          <div className="text-sm text-slate-600">Pain points solved by Basic software</div>
-                        </div>
-                        <div className="bg-white rounded-lg p-6 shadow-sm">
-                          <div className="text-3xl font-bold text-green-600 mb-2">100%</div>
-                          <div className="text-sm text-slate-600">Pain points solved by Servora</div>
-                        </div>
-                      </div>
-              </div>
-            </div>
-          </AnimatedSection>
-        </CollapsibleSection>
+        </div>
       </div>
     </section>
   );

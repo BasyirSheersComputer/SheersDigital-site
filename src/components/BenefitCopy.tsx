@@ -63,97 +63,91 @@ const BenefitCopy = () => {
   ];
 
   return (
-    <section id="benefits" className="py-20 bg-slate-50">
-      <div className="container mx-auto px-6">
-        <AnimatedSection animation="slideUp" delay={0.2}>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">
-              Transform Your F&B Operations with Proven Benefits
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Discover how Servora's comprehensive platform delivers measurable results across every aspect of your business
-            </p>
-          </div>
-        </AnimatedSection>
+    <section id="benefits" className="py-16 sm:py-20 lg:py-32 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+            Transform Your F&B Operations with Proven Benefits
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Discover how Servora's comprehensive platform delivers measurable results across every aspect of your business
+          </p>
+        </div>
 
         {/* Benefits Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-16 lg:mb-20">
           {benefits.map((benefit, index) => (
-            <AnimatedSection key={index} animation="slideUp" delay={0.1 * (index + 1)}>
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300 group">
-                <div className="text-blue-600 mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {benefit.icon}
-                </div>
-                
-                <h3 className="text-xl font-bold text-slate-800 mb-4">
-                  {benefit.title}
-                </h3>
-                
-                <p className="text-slate-600 mb-6 leading-relaxed">
-                  {benefit.description}
-                </p>
+            <div key={index} className="bg-white rounded-2xl p-8 border border-gray-200">
+              <div className="text-blue-600 mb-6">
+                {benefit.icon}
+              </div>
+              
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                {benefit.title}
+              </h3>
+              
+              <p className="text-gray-600 mb-6 leading-relaxed text-sm">
+                {benefit.description}
+              </p>
 
-                <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-                  <div className="text-2xl font-bold text-blue-600 mb-1">
-                    {benefit.stat}
-                  </div>
-                  <div className="text-sm text-blue-700">
-                    {benefit.statLabel}
-                  </div>
+              <div className="bg-blue-50 rounded-xl p-4">
+                <div className="text-2xl font-bold text-blue-600 mb-1">
+                  {benefit.stat}
+                </div>
+                <div className="text-xs text-blue-700 font-medium">
+                  {benefit.statLabel}
                 </div>
               </div>
-            </AnimatedSection>
+            </div>
           ))}
         </div>
 
         {/* ROI Calculator Section */}
-        <AnimatedSection animation="slideUp" delay={0.8}>
-          <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 md:p-12 text-white text-center">
-            <h3 className="text-3xl font-bold mb-4">
-              Calculate Your Potential Savings
-            </h3>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Based on average Malaysian F&B performance, here's what you could save with Servora:
-            </p>
-            
-            <div className="grid md:grid-cols-3 gap-8 mb-8">
-              <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-                <div className="text-3xl font-bold mb-2">RM 20,000+</div>
-                <div className="text-blue-100">Monthly waste reduction</div>
+        <div className="bg-blue-600 rounded-3xl p-12 lg:p-16 text-white text-center">
+          <h3 className="text-3xl lg:text-4xl font-bold mb-6">
+            Calculate Your Potential Savings
+          </h3>
+          <p className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto">
+            Based on average Malaysian F&B performance, here's what you could save with Servora:
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="bg-white/10 rounded-2xl p-8">
+              <div className="text-4xl font-bold mb-3">RM 20,000+</div>
+              <div className="text-blue-100 text-sm">Monthly waste reduction</div>
+            </div>
+            <div className="bg-white/10 rounded-2xl p-8">
+              <div className="text-4xl font-bold mb-3">15%</div>
+              <div className="text-blue-100 text-sm">Profit margin improvement</div>
+            </div>
+            <div className="bg-white/10 rounded-2xl p-8">
+              <div className="text-4xl font-bold mb-3">32 hours</div>
+              <div className="text-blue-100 text-sm">Staff time saved monthly</div>
+            </div>
+          </div>
+
+          <div className="bg-white/20 rounded-2xl p-8 max-w-2xl mx-auto">
+            <h4 className="text-2xl font-semibold mb-8">Your Investment vs. Returns</h4>
+            <div className="grid grid-cols-2 gap-8 text-left">
+              <div>
+                <div className="text-sm text-blue-200 mb-2">Initial Investment</div>
+                <div className="text-3xl font-bold mb-1">RM 6,500 - 18,500</div>
+                <div className="text-sm text-blue-200">One-time setup</div>
               </div>
-              <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-                <div className="text-3xl font-bold mb-2">15%</div>
-                <div className="text-blue-100">Profit margin improvement</div>
-              </div>
-              <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-                <div className="text-3xl font-bold mb-2">32 hours</div>
-                <div className="text-blue-100">Staff time saved monthly</div>
+              <div>
+                <div className="text-sm text-blue-200 mb-2">Monthly Returns</div>
+                <div className="text-3xl font-bold mb-1">RM 20,000+ - 45,000</div>
+                <div className="text-sm text-blue-200">Ongoing savings</div>
               </div>
             </div>
-
-            <div className="bg-white/20 rounded-xl p-6 backdrop-blur-sm max-w-2xl mx-auto">
-              <h4 className="text-xl font-semibold mb-4">Your Investment vs. Returns</h4>
-              <div className="grid grid-cols-2 gap-6 text-left">
-                <div>
-                  <div className="text-sm text-blue-200 mb-2">Initial Investment</div>
-                  <div className="text-2xl font-bold">RM 6,500 - 18,500</div>
-                  <div className="text-sm text-blue-200">One-time setup</div>
-                </div>
-                <div>
-                  <div className="text-sm text-blue-200 mb-2">Monthly Returns</div>
-                  <div className="text-2xl font-bold">RM 20,000+ - 45,000</div>
-                  <div className="text-sm text-blue-200">Ongoing savings</div>
-                </div>
-              </div>
-              <div className="mt-4 pt-4 border-t border-white/20">
-                <div className="text-center">
-                  <div className="text-sm text-blue-200 mb-1">ROI Timeline</div>
-                  <div className="text-3xl font-bold text-green-300">2-3 months</div>
-                </div>
+            <div className="mt-8 pt-8 border-t border-white/20">
+              <div className="text-center">
+                <div className="text-sm text-blue-200 mb-2">ROI Timeline</div>
+                <div className="text-4xl font-bold text-green-300">2-3 months</div>
               </div>
             </div>
           </div>
-        </AnimatedSection>
+        </div>
       </div>
     </section>
   );

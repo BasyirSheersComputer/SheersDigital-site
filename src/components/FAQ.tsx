@@ -58,18 +58,14 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="py-20 bg-white">
-      <div className="container mx-auto px-6">
-        <CollapsibleSection
-          id="faq-section"
-          title="Frequently Asked Questions"
-          icon={HelpCircle}
-          defaultExpanded={false}
-          className="mb-8"
-          enableVerticalScroll={false}
-        >
-          <div className="text-center mb-8">
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+    <section id="faq" className="py-16 sm:py-20 lg:py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center tracking-tight">
+            Frequently Asked Questions
+          </h2>
+          <div className="text-center mb-16">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Get answers to the most common questions about Servora and how it can transform your F&B operations
             </p>
           </div>
@@ -77,38 +73,36 @@ const FAQ = () => {
         <div className="max-w-4xl mx-auto">
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <AnimatedSection key={index} animation="slideUp" delay={0.1 * (index + 1)}>
-                <div className="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden">
-                  <button
-                    onClick={() => toggleItem(index)}
-                    className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-slate-100 transition-colors"
-                  >
-                    <h3 className="text-lg font-semibold text-slate-800 pr-4">
-                      {faq.question}
-                    </h3>
-                    {openItems.includes(index) ? (
-                      <ChevronUp className="w-6 h-6 text-slate-600 flex-shrink-0" />
-                    ) : (
-                      <ChevronDown className="w-6 h-6 text-slate-600 flex-shrink-0" />
-                    )}
-                  </button>
-                  
-                  {openItems.includes(index) && (
-                    <div className="px-8 pb-6">
-                      <div className="border-t border-slate-200 pt-4">
-                        <p className="text-slate-700 leading-relaxed">
-                          {faq.answer}
-                        </p>
-                      </div>
-                    </div>
+              <div key={index} className="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
+                <button
+                  onClick={() => toggleItem(index)}
+                  className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-100 transition-colors"
+                >
+                  <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                    {faq.question}
+                  </h3>
+                  {openItems.includes(index) ? (
+                    <ChevronUp className="w-6 h-6 text-gray-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="w-6 h-6 text-gray-600 flex-shrink-0" />
                   )}
-                </div>
-              </AnimatedSection>
+                </button>
+                
+                {openItems.includes(index) && (
+                  <div className="px-8 pb-6">
+                    <div className="border-t border-gray-200 pt-6">
+                      <p className="text-gray-700 leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
             ))}
           </div>
 
           {/* Contact CTA */}
-          <AnimatedSection animation="slideUp" delay={0.8}>
+          <div className="mt-12">
             <div className="mt-16 bg-blue-50 border border-blue-200 rounded-2xl p-8 text-center">
               <h3 className="text-2xl font-bold text-slate-800 mb-4">
                 Still Have Questions?
@@ -126,9 +120,9 @@ const FAQ = () => {
                 </button>
               </div>
             </div>
-          </AnimatedSection>
+          </div>
         </div>
-        </CollapsibleSection>
+        </div>
       </div>
     </section>
   );
