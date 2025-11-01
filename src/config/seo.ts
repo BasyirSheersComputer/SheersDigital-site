@@ -14,9 +14,9 @@ export interface SEOConfig {
 }
 
 export const defaultSEO: SEOConfig = {
-  title: "Save RM 32,000+ Monthly | F&B Operations Transformation | Servora",
-  description: "Transform your F&B operations and save RM 32,000+ monthly. Reduce food waste by 42%, save 18 hours weekly, and achieve ROI in 2.3 months. Professional services from RM 5K/month per 10 outlets.",
-  keywords: "F&B software Malaysia, restaurant management system, template platform, professional services, Malaysian restaurant technology, F&B automation, restaurant POS integration, supply chain optimization, enterprise F&B solutions",
+  title: "Reduce Food Waste 30-40% in 60 Days | Save RM 15-25K Monthly | WasteWise Malaysia",
+  description: "Stop losing RM 15,000-25,000 monthly to preventable waste. WasteWise helps Malaysian F&B businesses reduce food waste by 30-40% and increase profit margins by 10-15%. 30-day money-back guarantee. Start in 5 days.",
+  keywords: "food waste reduction Malaysia, restaurant waste management, F&B waste tracking, reduce food waste, waste management system Malaysia, restaurant profit optimization, F&B cost savings, waste reduction software, Malaysian restaurant technology, food waste prevention",
   canonicalUrl: "https://sheerssoft.com",
   ogImage: "https://sheerssoft.com/og-image.jpg",
   ogType: "website"
@@ -24,20 +24,20 @@ export const defaultSEO: SEOConfig = {
 
 export const pageSEO: Record<string, SEOConfig> = {
   home: {
-    title: "Save RM 32,000+ Monthly | Eliminate Food Waste & Boost Profits | F&B Management System Malaysia | Servora",
-    description: "Transform your F&B operations and save RM 32,000+ monthly with Malaysia's leading restaurant management system. Reduce food waste by 42%, save 18 hours weekly, and achieve ROI in just 2.3 months. Professional services from RM 5K/month per 10 outlets.",
-    keywords: "restaurant software Malaysia, F&B management system Malaysia, template platform, professional services, restaurant automation Malaysia, food service software Malaysia, restaurant technology Malaysia, F&B software Malaysia, restaurant management system, Malaysian restaurant technology, F&B automation, restaurant POS integration, supply chain optimization, enterprise F&B solutions",
+    title: "Reduce Food Waste 30-40% in 60 Days | Save RM 15-25K Monthly | WasteWise Malaysia",
+    description: "Stop losing RM 15,000-25,000 monthly to preventable waste. WasteWise helps Malaysian F&B businesses reduce food waste by 30-40% and increase profit margins by 10-15%. 30-day money-back guarantee. Results in 60 days.",
+    keywords: "food waste reduction Malaysia, restaurant waste management, F&B waste tracking, reduce food waste, waste management system Malaysia, restaurant profit optimization, F&B cost savings, waste reduction software, Malaysian restaurant technology, food waste prevention",
     canonicalUrl: "https://sheerssoft.com",
     ogImage: "https://sheerssoft.com/og-image.jpg",
     ogType: "website",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Servora",
+      "name": "WasteWise",
       "legalName": "Sheers Software Sdn. Bhd.",
       "url": "https://sheerssoft.com",
       "logo": "https://sheerssoft.com/logo.png",
-      "description": "Save RM 32,000+ monthly with Malaysia's leading F&B management system. Reduce food waste by 42%, save 18 hours weekly, and achieve ROI in 2.3 months. Transform operational chaos into competitive advantage.",
+      "description": "Reduce food waste by 30-40% in 60 days. WasteWise helps Malaysian F&B businesses save RM 15,000-25,000 monthly through smart waste management and inventory optimization. Professional, data-driven, results-guaranteed.",
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "MY",
@@ -97,8 +97,8 @@ export const pageSEO: Record<string, SEOConfig> = {
   },
 
   wasteLoggingAutomation: {
-    title: "Food Waste Management Software Malaysia - Restaurant Waste Tracking System",
-    description: "End food waste and boost profit margins with Malaysia's top food waste management software. Restaurant waste tracking system with F&B waste reduction automation. Save RM 18,000+ monthly. From RM 6,500 • 5 days setup.",
+    title: "Reduce Food Waste 25-40% | Automated Waste Tracking | WasteWise Malaysia",
+    description: "Track every item, reduce waste by 25-40%, save RM 15,000-25,000 monthly. Automated waste logging with AI insights. 30-day money-back guarantee. From RM 2,997/month.",
     keywords: "food waste management software Malaysia, restaurant waste tracking system, F&B waste reduction automation, food cost control software restaurant, waste logging app Malaysia, restaurant waste management, food waste tracking software, F&B waste analytics",
     canonicalUrl: "https://sheerssoft.com/waste-logging-automation",
     ogImage: "https://sheerssoft.com/og-image.jpg",
@@ -106,19 +106,19 @@ export const pageSEO: Record<string, SEOConfig> = {
     structuredData: {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "Waste Logging Automation System",
+      "name": "WasteWise Waste Logging",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web Browser",
-      "description": "Automated food waste tracking and reduction system for F&B businesses. Reduce waste by up to 40% and boost profit margins.",
+      "description": "Automated food waste tracking and reduction system for F&B businesses. Reduce waste by 25-40% in 60 days.",
       "offers": {
         "@type": "Offer",
-        "price": "6500",
+        "price": "2997",
         "priceCurrency": "MYR",
         "availability": "https://schema.org/InStock"
       },
       "provider": {
         "@type": "Organization",
-        "name": "Servora",
+        "name": "WasteWise",
         "legalName": "Sheers Software Sdn. Bhd."
       }
     }
@@ -209,40 +209,40 @@ export const pageSEO: Record<string, SEOConfig> = {
   },
 
   wasteWisePlatform: {
-    title: "Template Platform + Professional Services | Complete F&B Management System Malaysia",
-    description: "Transform your F&B operations with our template platform (Professional: RM 5K/month per 10 outlets, Enterprise: RM 10K/month per 10 outlets) + professional services for custom implementations. Complete integrated F&B management platform with all-in-one restaurant software.",
-    keywords: "template platform, professional services, complete restaurant management system Malaysia, integrated F&B management platform, all-in-one restaurant software Malaysia, comprehensive F&B automation solution, enterprise restaurant management platform, restaurant management system Malaysia, F&B management software Malaysia, integrated restaurant solution",
+    title: "Complete Waste Management Platform | 40-50% Reduction | WasteWise Malaysia",
+    description: "Full digital transformation for F&B chains. Reduce waste by 40-50%, save RM 35,000-50,000 monthly, increase profit margins by 10-15%. All features included. From RM 5,997/month. 60-day savings guarantee.",
+    keywords: "complete waste management platform, F&B digital transformation, restaurant management system Malaysia, integrated waste reduction, all-in-one F&B software Malaysia, comprehensive restaurant automation, enterprise waste management platform",
     canonicalUrl: "https://sheerssoft.com/wastewise-platform",
     ogImage: "https://sheerssoft.com/og-image.jpg",
     ogType: "website",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "Servora Template Platform",
+      "name": "WasteWise Platform",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web Browser",
-      "description": "Complete F&B management platform with template solutions and professional services for custom implementations.",
+      "description": "Complete F&B waste management and inventory optimization platform. 40-50% waste reduction, 10-15% profit margin increase.",
       "offers": [
         {
           "@type": "Offer",
-          "name": "Professional Plan",
-          "price": "5000",
+          "name": "Growth System",
+          "price": "5997",
           "priceCurrency": "MYR",
           "availability": "https://schema.org/InStock",
-          "description": "Per 10 outlets per month"
+          "description": "Per month with 60-day savings guarantee"
         },
         {
           "@type": "Offer",
-          "name": "Enterprise Plan",
-          "price": "10000",
+          "name": "Enterprise",
+          "price": "Custom",
           "priceCurrency": "MYR",
           "availability": "https://schema.org/InStock",
-          "description": "Per 10 outlets per month"
+          "description": "Custom pricing for large chains"
         }
       ],
       "provider": {
         "@type": "Organization",
-        "name": "Servora",
+        "name": "WasteWise",
         "legalName": "Sheers Software Sdn. Bhd."
       }
     }
