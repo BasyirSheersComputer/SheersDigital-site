@@ -7,18 +7,21 @@
 import React from 'react';
 import { TrendingUp, Building2, CheckCircle, ExternalLink } from 'lucide-react';
 import { industryCaseStudies, malaysiaFBData } from '../data/realCaseStudies';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const ProofSection = () => {
+  const { t } = useLanguage();
+  
   return (
     <section id="proof" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-neutral-900 mb-4">
-            Proven Results from Real Implementations
+            {t('proof.title')}
           </h2>
           <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-            These aren't made-up testimonials. This is real data from publicly available sources showing how similar systems delivered measurable results.
+            {t('proof.subtitle')}
           </p>
         </div>
 
@@ -26,7 +29,7 @@ const ProofSection = () => {
         <div className="bg-teal-50 rounded-2xl p-8 mb-12">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <div className="text-sm font-semibold text-teal-700 mb-2">Malaysian F&B Market Size</div>
+              <div className="text-sm font-semibold text-teal-700 mb-2">{t('proof.malaysiaData.marketSize')}</div>
               <div className="text-3xl font-bold text-neutral-900 mb-1">{malaysiaFBData.marketSize.value}</div>
               <div className="text-sm text-neutral-600">
                 ({malaysiaFBData.marketSize.year}) - {malaysiaFBData.marketSize.source}
@@ -34,18 +37,18 @@ const ProofSection = () => {
             </div>
             
             <div>
-              <div className="text-sm font-semibold text-teal-700 mb-2">Average Waste Impact</div>
+              <div className="text-sm font-semibold text-teal-700 mb-2">{t('proof.malaysiaData.wasteImpact')}</div>
               <div className="text-3xl font-bold text-neutral-900 mb-1">{malaysiaFBData.wasteStatistics.averageWastePercentage}</div>
               <div className="text-sm text-neutral-600">
-                {malaysiaFBData.wasteStatistics.costImpact} per outlet monthly
+                {malaysiaFBData.wasteStatistics.costImpact}
               </div>
             </div>
             
             <div>
-              <div className="text-sm font-semibold text-teal-700 mb-2">Industry Growth</div>
+              <div className="text-sm font-semibold text-teal-700 mb-2">{t('proof.malaysiaData.growth')}</div>
               <div className="text-3xl font-bold text-neutral-900 mb-1">{malaysiaFBData.growthPotential.industryGrowth}</div>
               <div className="text-sm text-neutral-600">
-                {malaysiaFBData.growthPotential.digitalizationAdoption} adopting digital solutions
+                {malaysiaFBData.growthPotential.digitalizationAdoption}
               </div>
             </div>
           </div>
@@ -76,11 +79,11 @@ const ProofSection = () => {
               <div className="bg-white rounded-lg p-6 mb-6 border border-neutral-200">
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="text-sm text-neutral-600 mb-1">Improvement Achieved</div>
+                    <div className="text-sm text-neutral-600 mb-1">{t('proof.caseStudy.improvement')}</div>
                     <div className="text-4xl font-bold text-teal-600">{study.improvement}</div>
                   </div>
                   <div className="text-right">
-                    <div className="text-sm text-neutral-600 mb-1">Timeframe</div>
+                    <div className="text-sm text-neutral-600 mb-1">{t('proof.caseStudy.timeframe')}</div>
                     <div className="text-lg font-semibold text-neutral-900">{study.timeframe}</div>
                   </div>
                 </div>
@@ -94,7 +97,7 @@ const ProofSection = () => {
               {/* Source */}
               <div className="flex items-center justify-between pt-4 border-t border-neutral-200">
                 <div className="text-sm text-neutral-600">
-                  <span className="font-semibold">Source:</span> {study.source}
+                  <span className="font-semibold">{t('proof.caseStudy.source')}:</span> {study.source}
                 </div>
                 <a 
                   href={study.link}
@@ -102,7 +105,7 @@ const ProofSection = () => {
                   rel="noopener noreferrer"
                   className="text-teal-600 hover:text-teal-700 text-sm font-semibold inline-flex items-center"
                 >
-                  Verify
+                  {t('proof.caseStudy.verify')}
                   <ExternalLink className="w-4 h-4 ml-1" />
                 </a>
               </div>
@@ -112,14 +115,14 @@ const ProofSection = () => {
 
         {/* Key Takeaways */}
         <div className="mt-12 bg-neutral-900 rounded-2xl p-8 text-white">
-          <h3 className="text-2xl font-bold mb-6">What This Means for You</h3>
+          <h3 className="text-2xl font-bold mb-6">{t('proof.takeaways.title')}</h3>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="flex space-x-3">
               <CheckCircle className="w-6 h-6 text-teal-400 flex-shrink-0 mt-1" />
               <div>
-                <div className="font-semibold mb-1">Proven Technology</div>
+                <div className="font-semibold mb-1">{t('proof.takeaways.proven.title')}</div>
                 <div className="text-neutral-300 text-sm">
-                  These results come from systems similar to ours, proven across hundreds of implementations
+                  {t('proof.takeaways.proven.description')}
                 </div>
               </div>
             </div>
@@ -127,9 +130,9 @@ const ProofSection = () => {
             <div className="flex space-x-3">
               <CheckCircle className="w-6 h-6 text-teal-400 flex-shrink-0 mt-1" />
               <div>
-                <div className="font-semibold mb-1">Realistic Expectations</div>
+                <div className="font-semibold mb-1">{t('proof.takeaways.realistic.title')}</div>
                 <div className="text-neutral-300 text-sm">
-                  We show you real ranges, not cherry-picked best cases. Your results will vary based on current waste levels
+                  {t('proof.takeaways.realistic.description')}
                 </div>
               </div>
             </div>
@@ -137,9 +140,9 @@ const ProofSection = () => {
             <div className="flex space-x-3">
               <CheckCircle className="w-6 h-6 text-teal-400 flex-shrink-0 mt-1" />
               <div>
-                <div className="font-semibold mb-1">Verifiable Data</div>
+                <div className="font-semibold mb-1">{t('proof.takeaways.verifiable.title')}</div>
                 <div className="text-neutral-300 text-sm">
-                  Every claim is backed by reputable sources. Click "Verify" on any case study to see the original data
+                  {t('proof.takeaways.verifiable.description')}
                 </div>
               </div>
             </div>
@@ -149,7 +152,7 @@ const ProofSection = () => {
         {/* Disclaimer */}
         <div className="mt-8 text-center">
           <p className="text-sm text-neutral-500 italic">
-            All data presented is from publicly available sources. Individual results may vary based on business size, current waste levels, and implementation quality. We cannot guarantee specific outcomes, but we guarantee our best effort to help you achieve similar results.
+            {t('proof.disclaimer')}
           </p>
         </div>
       </div>

@@ -2,14 +2,17 @@
  * Hero Section - AG1 Inspired
  * Clean, professional, outcome-focused
  * No AI-generated fluff, just real value
+ * Bilingual support (EN/BM)
  */
 
 import React, { useState } from 'react';
 import { ArrowRight, TrendingDown, Clock, Shield } from 'lucide-react';
 import MinimalContactForm from './MinimalContactForm';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Hero = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <>
@@ -22,32 +25,32 @@ const Hero = () => {
             <div className="space-y-8">
               {/* Eyebrow */}
               <div className="inline-flex items-center space-x-2 bg-teal-50 px-4 py-2 rounded-full">
-                <span className="text-teal-700 font-semibold text-sm">For Malaysian F&B Operators</span>
+                <span className="text-teal-700 font-semibold text-sm">{t('hero.eyebrow')}</span>
               </div>
 
               {/* Headline - Outcome Focused */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 leading-tight">
-                Reduce Food Waste by <span className="text-teal-600">30-40%</span> in 60 Days
+                {t('hero.headline')} <span className="text-teal-600">{t('hero.headlineHighlight')}</span> {t('hero.headlineSuffix')}
               </h1>
 
               {/* Subheadline - Problem + Solution */}
               <p className="text-xl sm:text-2xl text-neutral-600 leading-relaxed">
-                Stop losing RM 15,000-25,000 monthly to preventable waste. Our proven system helps F&B businesses increase profit margins by 10-15% through smart inventory management and waste reduction.
+                {t('hero.subheadline')}
               </p>
 
               {/* Key Metrics - Social Proof */}
               <div className="grid grid-cols-3 gap-4 py-6 border-t border-b border-neutral-200">
                 <div>
                   <div className="text-3xl font-bold text-teal-600">30-40%</div>
-                  <div className="text-sm text-neutral-600">Waste Reduced</div>
+                  <div className="text-sm text-neutral-600">{t('hero.metrics.wasteReduced')}</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-teal-600">60 Days</div>
-                  <div className="text-sm text-neutral-600">To Results</div>
+                  <div className="text-3xl font-bold text-teal-600">60 {t('hero.metrics.timeToResults')}</div>
+                  <div className="text-sm text-neutral-600">{t('hero.metrics.timeToResults')}</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-teal-600">50+</div>
-                  <div className="text-sm text-neutral-600">Active Clients</div>
+                  <div className="text-sm text-neutral-600">{t('hero.metrics.activeClients')}</div>
                 </div>
               </div>
 
@@ -57,7 +60,7 @@ const Hero = () => {
                   onClick={() => setIsFormOpen(true)}
                   className="inline-flex items-center justify-center px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl group"
                 >
-                  Get Your Free Waste Audit
+                  {t('hero.cta.primary')}
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 
@@ -65,13 +68,13 @@ const Hero = () => {
                   href="#pricing"
                   className="inline-flex items-center justify-center px-8 py-4 bg-neutral-100 hover:bg-neutral-200 text-neutral-900 rounded-lg font-semibold text-lg transition-all"
                 >
-                  See Pricing
+                  {t('hero.cta.secondary')}
                 </a>
               </div>
 
               {/* Trust Indicators */}
               <p className="text-sm text-neutral-500">
-                ✓ No credit card required  •  ✓ 30-day money-back guarantee  •  ✓ Setup in 5 days
+                ✓ {t('hero.trustIndicators.noCard')}  •  ✓ {t('hero.trustIndicators.guarantee')}  •  ✓ {t('hero.trustIndicators.setup')}
               </p>
             </div>
 
@@ -125,9 +128,9 @@ const Hero = () => {
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-neutral-900 mb-2">Unpredictable Waste</h3>
+                  <h3 className="font-semibold text-neutral-900 mb-2">{t('hero.painPoints.waste.title')}</h3>
                   <p className="text-sm text-neutral-600">
-                    Losing RM 15,000-25,000 monthly per outlet to food waste you can't track or predict
+                    {t('hero.painPoints.waste.description')}
                   </p>
                 </div>
               </div>
@@ -140,9 +143,9 @@ const Hero = () => {
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-neutral-900 mb-2">Manual Everything</h3>
+                  <h3 className="font-semibold text-neutral-900 mb-2">{t('hero.painPoints.manual.title')}</h3>
                   <p className="text-sm text-neutral-600">
-                    Wasting 20-30 hours weekly on manual tracking, paperwork, and compliance documentation
+                    {t('hero.painPoints.manual.description')}
                   </p>
                 </div>
               </div>
@@ -155,9 +158,9 @@ const Hero = () => {
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-neutral-900 mb-2">Compliance Stress</h3>
+                  <h3 className="font-semibold text-neutral-900 mb-2">{t('hero.painPoints.compliance.title')}</h3>
                   <p className="text-sm text-neutral-600">
-                    Living in fear of RM 50,000-250,000 fines from missing one compliance requirement
+                    {t('hero.painPoints.compliance.description')}
                   </p>
                 </div>
               </div>
@@ -166,7 +169,7 @@ const Hero = () => {
             {/* Urgency Statement */}
             <div className="mt-8 text-center">
               <p className="text-neutral-700 font-medium">
-                <span className="text-red-600 font-bold">Every month you wait</span> costs you RM 15,000-25,000 in preventable waste.
+                {t('hero.urgency')}
               </p>
             </div>
           </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ChevronDown, Search, ShoppingCart, User, X as XIcon } from 'lucide-react';
 import { useScrollToSection } from '../hooks/useScrollToSection';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -437,6 +438,16 @@ const Header = () => {
               <User className="w-4 h-4" />
               <span>Sign in</span>
             </button>
+            
+            {/* Language Switcher - Desktop */}
+            <div className="hidden lg:block">
+              <LanguageSwitcher />
+            </div>
+          </div>
+
+          {/* Language Switcher - Mobile */}
+          <div className="lg:hidden">
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile Menu Button */}
