@@ -1,190 +1,185 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowRight, ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
+/**
+ * Hero Section - AG1 Inspired
+ * Clean, professional, outcome-focused
+ * No AI-generated fluff, just real value
+ */
+
+import React, { useState } from 'react';
+import { ArrowRight, TrendingDown, Clock, Shield } from 'lucide-react';
+import MinimalContactForm from './MinimalContactForm';
 
 const Hero = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const [imageErrors, setImageErrors] = useState<{ [key: number]: boolean }>({});
-
-   // Slides data
-   const slides = [
-     {
-       id: 1,
-       title: "Save RM 32,000+ Monthly",
-       description: "Transform your F&B operations with AI-powered automation. Our clients save an average of RM 32,000 monthly through waste reduction, inventory optimization, and operational efficiency.",
-       buttonText: "Start Saving Today",
-       buttonLink: "/get-started",
-       background: "bg-transparent",
-       image: "/img/slide1.jpg"
-     },
-     {
-       id: 2,
-       title: "Eliminate 42% Food Waste",
-       description: "Reduce food waste by 42% and boost profit margins by 15% with our AI-driven waste prediction and inventory management system. Start seeing results in just 5 days.",
-       buttonText: "Reduce Waste Now",
-       buttonLink: "/waste-logging-automation",
-       background: "bg-transparent",
-       image: "/img/slide2.jpg"
-     },
-     {
-       id: 3,
-       title: "Save 18 Hours Weekly",
-       description: "Automate manual processes and save 18 hours weekly on inventory management, supplier coordination, and compliance tracking. Focus on growing your business, not paperwork.",
-       buttonText: "Automate Operations",
-       buttonLink: "/inventory-integration",
-       background: "bg-transparent",
-       image: "/img/slide3.jpg"
-     }
-   ];
-
-  // Preload images
-  useEffect(() => {
-    slides.forEach(slide => {
-      const img = new Image();
-      img.src = slide.image;
-    });
-  }, [slides]);
-
-  // Auto-advance slides
-  useEffect(() => {
-    if (!isPaused) {
-      const interval = setInterval(() => {
-        setCurrentSlide((prev) => (prev + 1) % slides.length);
-      }, 5000);
-      return () => clearInterval(interval);
-    }
-  }, [isPaused, slides.length]);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
-  const togglePause = () => {
-    setIsPaused(!isPaused);
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-  };
-
-  const handleImageError = (slideId: number) => {
-    setImageErrors(prev => ({ ...prev, [slideId]: true }));
-  };
-
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   return (
     <>
-      {/* Hero Slideshow with Sliding Transitions */}
-      <section id="home" className="relative overflow-hidden w-full bg-gradient-to-b from-gray-50 to-white mobile-hero">
-        {/* Slides Container */}
-        <div 
-          className="flex h-full transition-transform duration-700 ease-out"
-          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-        >
-          {slides.map((slide) => (
-            <div
-              key={slide.id}
-              className="text-gray-900 w-full h-full flex-shrink-0 relative"
-            >
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-16 lg:py-32">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
-                  {/* Left Panel - Text Content */}
-                  <div className="order-2 lg:order-1 space-y-6 sm:space-y-8">
-                    <div className="space-y-4 sm:space-y-6">
-                      <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-gray-900 tracking-tight">
-                        {slide.title}
-                      </h1>
-                      <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-2xl">
-                        {slide.description}
-                      </p>
-                    </div>
-                    <div className="flex justify-start">
-                      <a
-                        href={slide.buttonLink}
-                        target={slide.buttonLink.startsWith('http') ? '_blank' : '_self'}
-                        rel={slide.buttonLink.startsWith('http') ? 'noopener noreferrer' : ''}
-                        className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white rounded-lg font-medium text-base sm:text-lg transition-all duration-200 group mobile-button w-full sm:w-auto justify-center"
-                      >
-                        {slide.buttonText}
-                        <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                      </a>
-                    </div>
-                  </div>
+      <section id="home" className="relative bg-white overflow-hidden">
+        {/* Main Hero Content */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-12 pb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            
+            {/* Left - Value Proposition */}
+            <div className="space-y-8">
+              {/* Eyebrow */}
+              <div className="inline-flex items-center space-x-2 bg-teal-50 px-4 py-2 rounded-full">
+                <span className="text-teal-700 font-semibold text-sm">For Malaysian F&B Operators</span>
+              </div>
 
-                  {/* Right Panel - High-Resolution Image */}
-                  <div className="relative order-1 lg:order-2">
-                    <div className="relative">
-                      {!imageErrors[slide.id] ? (
-                        <img
-                          src={slide.image}
-                          alt={slide.title}
-                          className="w-full rounded-xl sm:rounded-2xl object-cover h-56 sm:h-72 lg:h-[480px] shadow-xl sm:shadow-2xl"
-                          loading="lazy"
-                          onError={() => handleImageError(slide.id)}
-                        />
-                      ) : (
-                        <div className="w-full bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl sm:rounded-2xl flex items-center justify-center h-56 sm:h-72 lg:h-[480px] shadow-xl sm:shadow-2xl">
-                          <div className="text-center text-white">
-                            <div className="text-5xl sm:text-6xl mb-2 sm:mb-3">🤖</div>
-                            <h3 className="text-xl sm:text-2xl font-bold mb-1 sm:mb-2">Servora AI</h3>
-                            <p className="text-xs sm:text-sm opacity-90">AI-Powered Restaurant Management</p>
-                          </div>
-                        </div>
-                      )}
+              {/* Headline - Outcome Focused */}
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 leading-tight">
+                Reduce Food Waste by <span className="text-teal-600">30-40%</span> in 60 Days
+              </h1>
+
+              {/* Subheadline - Problem + Solution */}
+              <p className="text-xl sm:text-2xl text-neutral-600 leading-relaxed">
+                Stop losing RM 15,000-25,000 monthly to preventable waste. Our proven system helps F&B businesses increase profit margins by 10-15% through smart inventory management and waste reduction.
+              </p>
+
+              {/* Key Metrics - Social Proof */}
+              <div className="grid grid-cols-3 gap-4 py-6 border-t border-b border-neutral-200">
+                <div>
+                  <div className="text-3xl font-bold text-teal-600">30-40%</div>
+                  <div className="text-sm text-neutral-600">Waste Reduced</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-teal-600">60 Days</div>
+                  <div className="text-sm text-neutral-600">To Results</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-teal-600">50+</div>
+                  <div className="text-sm text-neutral-600">Active Clients</div>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button
+                  onClick={() => setIsFormOpen(true)}
+                  className="inline-flex items-center justify-center px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-xl group"
+                >
+                  Get Your Free Waste Audit
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+                
+                <a
+                  href="#pricing"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-neutral-100 hover:bg-neutral-200 text-neutral-900 rounded-lg font-semibold text-lg transition-all"
+                >
+                  See Pricing
+                </a>
+              </div>
+
+              {/* Trust Indicators */}
+              <p className="text-sm text-neutral-500">
+                ✓ No credit card required  •  ✓ 30-day money-back guarantee  •  ✓ Setup in 5 days
+              </p>
+            </div>
+
+            {/* Right - Visual */}
+            <div className="relative">
+              {/* Main Image Placeholder */}
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-teal-50 to-neutral-100 aspect-[4/3]">
+                <img
+                  src="/img/slide1.jpg"
+                  alt="F&B waste management dashboard"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    // Fallback to gradient if image fails
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
+                
+                {/* Overlay Stats Card */}
+                <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-xl p-6 shadow-xl">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <div className="flex items-center space-x-2 text-red-600 mb-1">
+                        <TrendingDown className="w-5 h-5" />
+                        <span className="font-semibold">Waste Down</span>
+                      </div>
+                      <div className="text-2xl font-bold text-neutral-900">38%</div>
+                    </div>
+                    <div>
+                      <div className="flex items-center space-x-2 text-green-600 mb-1">
+                        <TrendingDown className="w-5 h-5 transform rotate-180" />
+                        <span className="font-semibold">Profit Up</span>
+                      </div>
+                      <div className="text-2xl font-bold text-neutral-900">12%</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-
-      </section>
-      
-      {/* Navigation Controls - Below Hero Section */}
-      <div className="bg-white border-t border-gray-100 py-4 sm:py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="flex justify-center items-center space-x-4 sm:space-x-8">
-            {/* Previous Button */}
-            <button
-              onClick={prevSlide}
-              className="text-gray-400 hover:text-gray-900 active:text-gray-600 transition-colors p-2 mobile-button"
-              aria-label="Previous slide"
-            >
-              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
-            </button>
-
-            {/* Slide Indicators */}
-            <div className="flex items-center space-x-2 sm:space-x-3">
-              {slides.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`transition-all duration-300 rounded-full mobile-button ${
-                    index === currentSlide 
-                      ? 'w-6 sm:w-8 h-2 bg-blue-600' 
-                      : 'w-2 h-2 bg-gray-300 hover:bg-gray-400 active:bg-gray-500'
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
-
-            {/* Next Button */}
-            <button
-              onClick={nextSlide}
-              className="text-gray-400 hover:text-gray-900 active:text-gray-600 transition-colors p-2 mobile-button"
-              aria-label="Next slide"
-            >
-              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
-            </button>
           </div>
         </div>
-      </div>
+
+        {/* Problem Agitation - Below Hero */}
+        <div className="bg-neutral-50 border-t border-neutral-200">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Pain Point 1 */}
+              <div className="flex space-x-4">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                    <span className="text-2xl">💸</span>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-neutral-900 mb-2">Unpredictable Waste</h3>
+                  <p className="text-sm text-neutral-600">
+                    Losing RM 15,000-25,000 monthly per outlet to food waste you can't track or predict
+                  </p>
+                </div>
+              </div>
+
+              {/* Pain Point 2 */}
+              <div className="flex space-x-4">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center">
+                    <Clock className="w-6 h-6 text-amber-600" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-neutral-900 mb-2">Manual Everything</h3>
+                  <p className="text-sm text-neutral-600">
+                    Wasting 20-30 hours weekly on manual tracking, paperwork, and compliance documentation
+                  </p>
+                </div>
+              </div>
+
+              {/* Pain Point 3 */}
+              <div className="flex space-x-4">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                    <Shield className="w-6 h-6 text-orange-600" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-neutral-900 mb-2">Compliance Stress</h3>
+                  <p className="text-sm text-neutral-600">
+                    Living in fear of RM 50,000-250,000 fines from missing one compliance requirement
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Urgency Statement */}
+            <div className="mt-8 text-center">
+              <p className="text-neutral-700 font-medium">
+                <span className="text-red-600 font-bold">Every month you wait</span> costs you RM 15,000-25,000 in preventable waste.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Minimal Contact Form Modal */}
+      <MinimalContactForm
+        isOpen={isFormOpen}
+        onClose={() => setIsFormOpen(false)}
+        source="hero-cta"
+        cta="Get My Free Waste Audit"
+      />
     </>
   );
 };

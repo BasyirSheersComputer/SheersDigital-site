@@ -1,18 +1,17 @@
+/**
+ * Main App - AG1-Inspired Professional Design
+ * Clean, outcome-focused, data-driven
+ */
+
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import InfluencerTestimonial from './components/InfluencerTestimonial';
-import ComparisonTable from './components/ComparisonTable';
-import GetStartedCTA from './components/GetStartedCTA';
-import CustomerReviews from './components/CustomerReviews';
-import ResearchEvidence from './components/ResearchEvidence';
-import BenefitCopy from './components/BenefitCopy';
+import ProofSection from './components/ProofSection';
+import PricingSection from './components/PricingSection';
 import FAQ from './components/FAQ';
-import CommunityMovement from './components/CommunityMovement';
 import SEOHead from './components/SEOHead';
 import Footer from './components/Footer';
-import FloatingNavigation from './components/FloatingNavigation';
 import { getSEOConfig } from './config/seo';
 
 // Import page components
@@ -34,7 +33,7 @@ function App() {
   
   return (
     <Routes>
-      {/* Home Page */}
+      {/* Home Page - Professional, Streamlined */}
       <Route path="/" element={
         <div className="min-h-screen bg-white">
           <SEOHead
@@ -46,46 +45,31 @@ function App() {
           />
           <Header />
           <main>
-            <section id="hero">
-              <Hero />
-            </section>
-            <section id="testimonials">
-              <InfluencerTestimonial />
-            </section>
-            <section id="comparison">
-              <ComparisonTable />
-            </section>
-            <section id="pricing">
-              <GetStartedCTA />
-            </section>
-            <section id="reviews">
-              <CustomerReviews />
-            </section>
-            <section id="research">
-              <ResearchEvidence />
-            </section>
-            <section id="benefits">
-              <BenefitCopy />
-            </section>
-            <section id="faq">
-              <FAQ />
-            </section>
-            <section id="community">
-              <CommunityMovement />
-            </section>
+            {/* Hero - Outcome-focused value proposition */}
+            <Hero />
+            
+            {/* Proof - Real data, no fake testimonials */}
+            <ProofSection />
+            
+            {/* Pricing - Hormozi value stack with guarantees */}
+            <PricingSection />
+            
+            {/* FAQ - Common questions */}
+            <FAQ />
           </main>
           <Footer />
-          <FloatingNavigation />
         </div>
       } />
 
-      {/* Individual Pages */}
+      {/* Individual Solution Pages */}
       <Route path="/inventory-integration" element={<InventoryIntegration />} />
       <Route path="/waste-logging-automation" element={<WasteLoggingAutomation />} />
       <Route path="/supplier-integration" element={<SupplierIntegration />} />
       <Route path="/ai-forecasting" element={<AIForecasting />} />
       <Route path="/compliance-automation" element={<ComplianceAutomation />} />
       <Route path="/wastewise-platform" element={<WasteWisePlatformPage />} />
+      
+      {/* Utility Pages */}
       <Route path="/roi-calculator" element={<ROICalculator />} />
       <Route path="/industry-reports" element={<IndustryReports />} />
       <Route path="/implementation-guide" element={<ImplementationGuide />} />

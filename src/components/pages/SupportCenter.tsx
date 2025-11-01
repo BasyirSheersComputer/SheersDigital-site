@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { ArrowRight, Search, MessageCircle, Phone, Mail, FileText, Users, HelpCircle, BookOpen } from 'lucide-react';
+import { ArrowRight, Search, MessageCircle, Phone, Mail, FileText, Users, HelpCircle, BookOpen, CheckCircle, AlertCircle } from 'lucide-react';
 import Header from '../Header';
 import Footer from '../Footer';
 import { FormService, SupportFormData } from '../../services/formService';
 
 const SupportCenter = () => {
   const [formData, setFormData] = useState({
-    first_name: '',
-    last_name: '',
+    firstName: '',
+    lastName: '',
     email: '',
     subject: '',
     priority: 'Low - General question',
@@ -15,46 +15,54 @@ const SupportCenter = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
+    // Clear errors when typing
+    if (submitError) setSubmitError('');
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError('');
     
     try {
-      const supportTicketData: SupportTicket = {
-        first_name: formData.first_name,
-        last_name: formData.last_name,
+      const supportTicketData: SupportFormData = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
         email: formData.email,
         subject: formData.subject,
-        priority: formData.priority as any,
+        priority: formData.priority,
         message: formData.message
       };
       
-      const result = await FormService.submitSupportForm(supportFormData);
-      console.log('Support ticket saved to database:', result);
+      const result = await FormService.submitSupportForm(supportTicketData);
       
-      setSubmitSuccess(true);
-      setFormData({
-        first_name: '',
-        last_name: '',
-        email: '',
-        subject: '',
-        priority: 'Low - General question',
-        message: ''
-      });
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => setSubmitSuccess(false), 5000);
+      if (result.success) {
+        console.log('Support ticket saved successfully:', result);
+        setSubmitSuccess(true);
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          subject: '',
+          priority: 'Low - General question',
+          message: ''
+        });
+        
+        // Reset success message after 5 seconds
+        setTimeout(() => setSubmitSuccess(false), 5000);
+      } else {
+        setSubmitError(result.error || 'Failed to submit ticket. Please try again.');
+      }
     } catch (error) {
       console.error('Error saving support ticket:', error);
-      alert('There was an error submitting your ticket. Please try again.');
+      setSubmitError('An unexpected error occurred. Please try again or contact us directly.');
     } finally {
       setIsSubmitting(false);
     }
@@ -291,37 +299,45 @@ const SupportCenter = () => {
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {submitSuccess && (
-                    <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-green-800">
-                      ✅ Your support ticket has been submitted successfully! We'll get back to you soon.
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-green-800 flex items-center animate-slide-up">
+                      <CheckCircle className="w-5 h-5 mr-3 flex-shrink-0" />
+                      <span>✅ Your support ticket has been submitted successfully! We'll get back to you soon.</span>
+                    </div>
+                  )}
+                  
+                  {submitError && (
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-800 flex items-center animate-slide-up">
+                      <AlertCircle className="w-5 h-5 mr-3 flex-shrink-0" />
+                      <span>{submitError}</span>
                     </div>
                   )}
                   
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium text-slate-700 mb-2">
-                        First Name
+                        First Name <span className="text-red-500">*</span>
                       </label>
                       <input 
                         type="text" 
-                        name="first_name"
-                        value={formData.first_name}
+                        name="firstName"
+                        value={formData.firstName}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all hover:border-slate-400"
                         placeholder="Your first name"
                       />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-slate-700 mb-2">
-                        Last Name
+                        Last Name <span className="text-red-500">*</span>
                       </label>
                       <input 
                         type="text" 
-                        name="last_name"
-                        value={formData.last_name}
+                        name="lastName"
+                        value={formData.lastName}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all hover:border-slate-400"
                         placeholder="Your last name"
                       />
                     </div>
@@ -329,7 +345,7 @@ const SupportCenter = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
-                      Email Address
+                      Email Address <span className="text-red-500">*</span>
                     </label>
                     <input 
                       type="email" 
@@ -337,14 +353,14 @@ const SupportCenter = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all hover:border-slate-400"
                       placeholder="your.email@company.com"
                     />
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
-                      Subject
+                      Subject <span className="text-red-500">*</span>
                     </label>
                     <input 
                       type="text" 
@@ -352,7 +368,7 @@ const SupportCenter = () => {
                       value={formData.subject}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all hover:border-slate-400"
                       placeholder="Brief description of your issue"
                     />
                   </div>
@@ -365,7 +381,7 @@ const SupportCenter = () => {
                       name="priority"
                       value={formData.priority}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all hover:border-slate-400"
                     >
                       <option value="Low - General question">Low - General question</option>
                       <option value="Medium - Feature request">Medium - Feature request</option>
@@ -376,7 +392,7 @@ const SupportCenter = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">
-                      Message
+                      Message <span className="text-red-500">*</span>
                     </label>
                     <textarea 
                       name="message"
@@ -384,7 +400,7 @@ const SupportCenter = () => {
                       onChange={handleInputChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all hover:border-slate-400 resize-none"
                       placeholder="Please describe your issue in detail..."
                     ></textarea>
                   </div>
@@ -392,7 +408,7 @@ const SupportCenter = () => {
                   <button 
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white py-3 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group"
+                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 disabled:from-blue-400 disabled:to-blue-500 text-white py-4 rounded-lg font-semibold transition-all text-lg flex items-center justify-center group shadow-lg hover:shadow-xl transform hover:scale-[1.02] disabled:transform-none disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? 'Submitting...' : 'Submit Ticket'}
                     {!isSubmitting && <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />}

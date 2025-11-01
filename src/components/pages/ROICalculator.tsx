@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, CheckCircle, Clock, DollarSign, TrendingUp } from 'lucide-react';
+import { ArrowRight, CheckCircle, Clock, DollarSign, TrendingUp, Loader2 } from 'lucide-react';
 import Header from '../Header';
 import Footer from '../Footer';
 import { useSolutionForm } from '../../hooks/useSolutionForm';
@@ -19,6 +19,7 @@ const ROICalculator = () => {
   });
 
   const [results, setResults] = useState<any>(null);
+  const [isCalculating, setIsCalculating] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -30,10 +31,15 @@ const ROICalculator = () => {
   const calculateROI = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    setIsCalculating(true);
+    
+    // Add a small delay for better UX
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
     const revenue = parseFloat(formData.monthlyRevenue) || 0;
     const waste = parseFloat(formData.currentWaste) || 0;
     const locations = parseInt(formData.locations.split(' ')[0]) || 1;
-    const employees = parseInt(formData.companySize.split(' ')[0]) || 10;
+    const employees = parseInt(formData.companySize.split('-')[0]) || 10;
 
     // Calculate savings based on industry averages
     const wasteReduction = waste * 0.4; // 40% waste reduction
@@ -51,26 +57,27 @@ const ROICalculator = () => {
     // Save to database if we have user info
     if (formData.name && formData.email && formData.company) {
       try {
-        const roiCalculationData: ROICalculation = {
+        const roiCalculationData: ROICalculatorData = {
           name: formData.name,
           email: formData.email,
           company: formData.company,
-          company_size: formData.companySize as any,
-          locations: formData.locations as any,
-          monthly_revenue: revenue,
-          current_waste: waste,
-          calculated_savings: totalSavings,
-          roi_percentage: Math.round(roi),
-          payback_period_months: (locations * 5000) / totalSavings
+          employees: formData.companySize,
+          locations: formData.locations,
+          monthlyRevenue: formData.monthlyRevenue,
+          currentWaste: formData.currentWaste,
+          calculatedSavings: totalSavings,
+          calculatedROI: Math.round(roi)
         };
         
-        const result = await FormService.submitROICalculation(roiCalculationData);
+        const result = await FormService.submitROICalculator(roiCalculationData);
         console.log('ROI calculation saved to database:', result);
       } catch (error) {
         console.error('Error saving ROI calculation:', error);
         // Don't show error to user as calculation still works
       }
     }
+    
+    setIsCalculating(false);
   };
 
   return (
@@ -228,8 +235,19 @@ const ROICalculator = () => {
                         />
                       </div>
 
-                      <button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold transition-colors">
-                        Calculate ROI
+                      <button 
+                        type="submit" 
+                        disabled={isCalculating}
+                        className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 disabled:from-green-400 disabled:to-green-500 text-white py-4 rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:scale-[1.02] disabled:transform-none disabled:cursor-not-allowed flex items-center justify-center"
+                      >
+                        {isCalculating ? (
+                          <>
+                            <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                            Calculating...
+                          </>
+                        ) : (
+                          'Calculate ROI'
+                        )}
                       </button>
                     </form>
                   </div>

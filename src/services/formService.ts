@@ -1,4 +1,5 @@
 import { supabase } from '../lib/supabase';
+import { EmailService } from './emailService';
 
 export interface ContactFormData {
   name: string;
@@ -58,6 +59,7 @@ export class FormService {
   // Submit contact form data
   static async submitContactForm(data: ContactFormData): Promise<{ success: boolean; error?: string }> {
     try {
+      // Save to database
       const { error } = await supabase
         .from('contact_messages')
         .insert([
@@ -77,6 +79,9 @@ export class FormService {
         return { success: false, error: error.message };
       }
 
+      // Send email notification
+      await EmailService.sendContactMessage(data);
+
       return { success: true };
     } catch (error) {
       console.error('Contact form submission error:', error);
@@ -87,6 +92,7 @@ export class FormService {
   // Submit solution form data
   static async submitSolutionForm(data: SolutionFormData): Promise<{ success: boolean; error?: string }> {
     try {
+      // Save to database
       const { error } = await supabase
         .from('solution_inquiries')
         .insert([
@@ -111,6 +117,9 @@ export class FormService {
         return { success: false, error: error.message };
       }
 
+      // Send email notification
+      await EmailService.sendSolutionInquiry(data);
+
       return { success: true };
     } catch (error) {
       console.error('Solution form submission error:', error);
@@ -121,6 +130,7 @@ export class FormService {
   // Submit support form data
   static async submitSupportForm(data: SupportFormData): Promise<{ success: boolean; error?: string }> {
     try {
+      // Save to database
       const { error } = await supabase
         .from('support_tickets')
         .insert([
@@ -141,6 +151,9 @@ export class FormService {
         return { success: false, error: error.message };
       }
 
+      // Send email notification
+      await EmailService.sendSupportTicket(data);
+
       return { success: true };
     } catch (error) {
       console.error('Support form submission error:', error);
@@ -151,6 +164,7 @@ export class FormService {
   // Submit ROI calculator data
   static async submitROICalculator(data: ROICalculatorData): Promise<{ success: boolean; error?: string }> {
     try {
+      // Save to database
       const { error } = await supabase
         .from('roi_calculations')
         .insert([
@@ -173,6 +187,9 @@ export class FormService {
         console.error('ROI calculator submission error:', error);
         return { success: false, error: error.message };
       }
+
+      // Send email notification
+      await EmailService.sendROICalculation(data);
 
       return { success: true };
     } catch (error) {
