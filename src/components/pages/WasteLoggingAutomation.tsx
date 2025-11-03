@@ -6,6 +6,7 @@ import SEOHead from '../SEOHead';
 import { useSolutionForm } from '../../hooks/useSolutionForm';
 import SolutionForms from '../SolutionForms';
 import { getSEOConfig } from '../../config/seo';
+import SuccessCases from '../SuccessCases';
 
 const WasteLoggingAutomation = () => {
   const { isFormOpen, currentSolution, openForm, closeForm } = useSolutionForm();
@@ -26,26 +27,48 @@ const WasteLoggingAutomation = () => {
         <section className="bg-gradient-to-br from-red-50 via-white to-green-50 py-16 md:py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-                Food Waste Management Software Malaysia: 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-green-600"> Restaurant Waste Tracking System</span>
+              <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">
+                Reduce Food Waste by 25-40% Within 60 Days
               </h1>
-              <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-                Premium F&B chains hemorrhage money through preventable food waste. Our <strong>food waste management software Malaysia</strong> 
-                with <strong>restaurant waste tracking system</strong> and <strong>F&B waste reduction automation</strong> eliminates waste tracking errors and helps you recover 15-20% of your profit margins within 30 days of implementation.
+              <p className="text-xl text-neutral-600 mb-6 leading-relaxed">
+                Stop losing RM 15,000-25,000 monthly per outlet to preventable waste. Our automated waste tracking 
+                system helps you identify waste sources, reduce waste by 25-40%, and save RM 15,000-25,000 monthly within 60 days. 
+                Industry data shows restaurants achieve 25-40% reduction (World Resources Institute, 2023).
               </p>
+              
+              {/* Key Metrics */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 bg-white rounded-xl p-6 shadow-sm border border-neutral-200">
+                <div>
+                  <div className="text-2xl font-bold text-teal-600">25-40%</div>
+                  <div className="text-sm text-neutral-600">Waste Reduced</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-teal-600">RM 15-25k</div>
+                  <div className="text-sm text-neutral-600">Monthly Savings</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-teal-600">100%</div>
+                  <div className="text-sm text-neutral-600">Waste Tracked</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-teal-600">60 days</div>
+                  <div className="text-sm text-neutral-600">To Results</div>
+                </div>
+              </div>
+              
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
                   onClick={() => openForm('waste-logging-automation')}
-                  className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group"
+                  className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group"
                 >
                   Get Your Free Waste Audit
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button className="border-2 border-slate-300 hover:border-slate-400 text-slate-700 px-8 py-4 rounded-lg font-semibold transition-colors text-lg">
-                  Calculate Your Savings
-                </button>
               </div>
+              
+              <p className="text-neutral-500 text-sm mt-4">
+                30-day money-back guarantee • Immediate visibility • Savings in 60 days
+              </p>
             </div>
           </div>
         </section>
@@ -54,55 +77,58 @@ const WasteLoggingAutomation = () => {
         <section className="py-16 md:py-20 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-                The Hidden Cost of Poor Waste Management
+              <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+                The Cost of Doing Nothing
               </h2>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                Every RM 1,000 in food waste costs you RM 3,000 in lost revenue.
+              <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
+                Average Malaysian F&B outlets waste 15-20% of food cost monthly (Ministry of Environment).
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <div className="bg-red-50 border border-red-200 rounded-xl p-8 text-center">
+              <div className="bg-red-50 border border-red-200 rounded-xl p-8">
                 <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <DollarSign className="w-8 h-8 text-red-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">Direct Food Loss</h3>
-                <p className="text-slate-600 mb-4">
-                  Average F&B outlet loses RM 20,000+ monthly to preventable food waste
+                <h3 className="text-xl font-bold text-neutral-900 mb-3">Monthly Waste Loss</h3>
+                <p className="text-neutral-600 mb-4">
+                  Average F&B outlet loses RM 15,000-25,000 monthly to preventable food waste
                 </p>
-                <div className="text-2xl font-bold text-red-600">RM 20K+/month</div>
+                <div className="text-3xl font-bold text-red-600 mb-2">RM 15-25k</div>
+                <div className="text-sm text-neutral-500">Per outlet monthly</div>
               </div>
 
-              <div className="bg-orange-50 border border-orange-200 rounded-xl p-8 text-center">
+              <div className="bg-orange-50 border border-orange-200 rounded-xl p-8">
                 <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <TrendingUp className="w-8 h-8 text-orange-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">Profit Margin Erosion</h3>
-                <p className="text-slate-600 mb-4">
-                  Food waste directly reduces your profit margins by 15-20%
+                <h3 className="text-xl font-bold text-neutral-900 mb-3">Profit Impact</h3>
+                <p className="text-neutral-600 mb-4">
+                  Food waste represents 15-20% of food cost, directly impacting profit margins
                 </p>
-                <div className="text-2xl font-bold text-orange-600">15-20% margin loss</div>
+                <div className="text-3xl font-bold text-orange-600 mb-2">15-20%</div>
+                <div className="text-sm text-neutral-500">Of food cost wasted</div>
               </div>
 
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-8 text-center">
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-8">
                 <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Target className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">Management Time Waste</h3>
-                <p className="text-slate-600 mb-4">
-                  Your team wastes 8+ hours weekly on manual tracking
+                <h3 className="text-xl font-bold text-neutral-900 mb-3">Time Wasted</h3>
+                <p className="text-neutral-600 mb-4">
+                  Manual tracking wastes 10-15 hours weekly without accurate data
                 </p>
-                <div className="text-2xl font-bold text-blue-600">8+ hours/week</div>
+                <div className="text-3xl font-bold text-blue-600 mb-2">10-15 hrs</div>
+                <div className="text-sm text-neutral-500">Weekly time wasted</div>
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-2xl p-8 text-white text-center">
+            <div className="bg-gradient-to-r from-red-600 to-orange-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
-                Total Monthly Loss: RM 20,000+
+                Annual Cost: RM 180,000-300,000 Per Outlet
               </h3>
               <p className="text-red-100 text-lg">
-                This is money that could be reinvested in marketing, staff training, or new menu development
+                Money that could go directly to profit, staff bonuses, or business expansion. Every month you wait costs you RM 15,000-25,000 you'll never recover.
               </p>
             </div>
           </div>
@@ -165,24 +191,38 @@ const WasteLoggingAutomation = () => {
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h3 className="text-2xl font-bold text-slate-800 mb-6">Your Profit Recovery Journey</h3>
+              <div className="bg-neutral-50 rounded-2xl p-8 border border-neutral-200">
+                <h3 className="text-2xl font-bold text-neutral-900 mb-6">Expected Outcomes</h3>
                 <div className="space-y-6">
-                  <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                    <h4 className="font-bold text-red-800 mb-2">Current State (Losing Money)</h4>
-                    <ul className="text-red-700 text-sm space-y-1">
-                      <li>• RM 20,000+ monthly food waste losses</li>
-                      <li>• 15-20% profit margin erosion</li>
-                      <li>• 8+ hours weekly on manual tracking</li>
-                    </ul>
-                  </div>
-                  <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                    <h4 className="font-bold text-green-800 mb-2">With Servora (Profit Recovery)</h4>
-                    <ul className="text-green-700 text-sm space-y-1">
-                      <li>• RM 20,000+ monthly savings from waste reduction</li>
-                      <li>• 15-20% profit margin recovery</li>
-                      <li>• 2 minutes daily for waste logging</li>
-                    </ul>
+                  <div className="bg-white rounded-xl p-6 border border-neutral-200">
+                    <h4 className="text-lg font-bold text-neutral-900 mb-4">What You Get</h4>
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center">
+                        <span className="text-neutral-600">Waste Reduction</span>
+                        <span className="font-bold text-teal-600">25-40%</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-neutral-600">Monthly Savings</span>
+                        <span className="font-bold text-teal-600">RM 15,000-25,000</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-neutral-600">Waste Tracking</span>
+                        <span className="font-bold text-teal-600">100% Automated</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-neutral-600">Time to Results</span>
+                        <span className="font-bold text-teal-600">60 days</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-neutral-600">ROI</span>
+                        <span className="font-bold text-green-600">500-800%</span>
+                      </div>
+                    </div>
+                    <div className="mt-6 p-4 bg-neutral-100 rounded-lg border border-neutral-200">
+                      <p className="text-neutral-700 text-sm">
+                        <strong>Industry Data:</strong> 25-40% waste reduction based on World Resources Institute 2023 research. Results vary by current waste levels and implementation quality.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -194,75 +234,104 @@ const WasteLoggingAutomation = () => {
         <section className="py-16 md:py-20 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-                Proven Results: From Loss to Profit
+              <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+                What You'll Achieve
               </h2>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                See how Malaysian F&B businesses have transformed waste into profit with our system.
+              <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
+                Specific, measurable outcomes based on industry data from reputable sources.
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-slate-50 rounded-2xl p-8 text-center">
+              <div className="bg-white rounded-2xl p-8 border border-neutral-200">
                 <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <DollarSign className="w-8 h-8 text-green-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">Average Monthly Savings</h3>
-                <p className="text-slate-600 mb-4">
-                  Our clients see an average monthly savings of RM 20,000+ by eliminating preventable food waste
+                <h3 className="text-xl font-bold text-neutral-900 mb-3">Save RM 15-25k Monthly</h3>
+                <p className="text-neutral-600 mb-4">
+                  Track 100% of waste automatically and identify reduction opportunities saving RM 15,000-25,000 per outlet monthly
                 </p>
-                <div className="text-2xl font-bold text-green-600">RM 20K+/month</div>
+                <div className="text-3xl font-bold text-green-600 mb-2">RM 15-25k</div>
+                <div className="text-sm text-neutral-500">Monthly savings per outlet</div>
               </div>
 
-              <div className="bg-slate-50 rounded-2xl p-8 text-center">
+              <div className="bg-white rounded-2xl p-8 border border-neutral-200">
+                <div className="bg-teal-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <TrendingUp className="w-8 h-8 text-teal-600" />
+                </div>
+                <h3 className="text-xl font-bold text-neutral-900 mb-3">Reduce Waste 25-40%</h3>
+                <p className="text-neutral-600 mb-4">
+                  Industry standard: restaurants achieve 25-40% waste reduction within the first year
+                </p>
+                <div className="text-3xl font-bold text-teal-600 mb-2">25-40%</div>
+                <div className="text-sm text-neutral-500">Waste reduction (WRI, 2023)</div>
+              </div>
+
+              <div className="bg-white rounded-2xl p-8 border border-neutral-200">
                 <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <TrendingUp className="w-8 h-8 text-blue-600" />
+                  <Target className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">Profit Margin Recovery</h3>
-                <p className="text-slate-600 mb-4">
-                  Recover 15-20% of your profit margins within 30 days of implementation
+                <h3 className="text-xl font-bold text-neutral-900 mb-3">See Results in 60 Days</h3>
+                <p className="text-neutral-600 mb-4">
+                  Immediate visibility, measurable savings within 60 days of implementation
                 </p>
-                <div className="text-2xl font-bold text-blue-600">15-20% recovery</div>
-              </div>
-
-              <div className="bg-slate-50 rounded-2xl p-8 text-center">
-                <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Target className="w-8 h-8 text-purple-600" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">Implementation Speed</h3>
-                <p className="text-slate-600 mb-4">
-                  We help you start seeing results in just 5 days. Full system optimization within 30 days
-                </p>
-                <div className="text-2xl font-bold text-purple-600">5 days to results</div>
+                <div className="text-3xl font-bold text-blue-600 mb-2">60 days</div>
+                <div className="text-sm text-neutral-500">To measurable savings</div>
               </div>
             </div>
           </div>
         </section>
 
+        {/* Success Cases - Conversion optimized positioning */}
+        <SuccessCases 
+          category="waste-logging"
+          title="Waste Reduction: Real Industry Results"
+          subtitle="Data from World Resources Institute and industry leaders showing the impact of automated waste tracking systems."
+          limit={1}
+          showCTA={true}
+          onCTAClick={() => openForm('waste-logging-automation')}
+        />
+
         {/* CTA Section */}
-        <section className="py-16 md:py-20 bg-gradient-to-r from-red-600 to-green-600">
+        <section className="py-16 md:py-20 bg-gradient-to-r from-teal-600 to-teal-700">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Stop Losing RM 20,000+ Monthly?
+              Save RM 15,000-25,000 Monthly Per Outlet
             </h2>
-            <p className="text-xl text-red-100 mb-8 max-w-3xl mx-auto">
-              Transform your waste management from a profit killer to a profit generator. 
-              Get your free waste audit and see exactly how much you're losing.
+            <p className="text-xl text-teal-100 mb-8 max-w-3xl mx-auto">
+              Get your free waste audit to see exactly where you're losing money. 30-day money-back guarantee. 
+              If you don't see measurable improvement, full refund - no questions asked.
             </p>
+            
+            {/* Value Equation */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-8 max-w-2xl mx-auto">
+              <div className="grid grid-cols-3 gap-4 text-white">
+                <div>
+                  <div className="text-sm opacity-90 mb-1">You're Losing</div>
+                  <div className="text-2xl font-bold">RM 15-25k</div>
+                </div>
+                <div>
+                  <div className="text-sm opacity-90 mb-1">Our Cost</div>
+                  <div className="text-2xl font-bold">From RM 6,500</div>
+                </div>
+                <div>
+                  <div className="text-sm opacity-90 mb-1">Your ROI</div>
+                  <div className="text-2xl font-bold">5-8x</div>
+                </div>
+              </div>
+            </div>
+            
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 onClick={() => openForm('waste-logging-automation')}
-                className="bg-white text-red-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group"
+                className="bg-white text-teal-600 hover:bg-neutral-100 px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group"
               >
-                Get Free Waste Audit
+                Get Your Free Waste Audit
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 rounded-lg font-semibold transition-colors text-lg">
-                Calculate Your Savings
-              </button>
             </div>
-            <p className="text-red-200 text-sm mt-4">
-              Free consultation • No setup fees • 30-day money-back guarantee
+            <p className="text-teal-100 text-sm mt-4">
+              30-day money-back guarantee • Immediate visibility • Savings in 60 days
             </p>
           </div>
         </section>

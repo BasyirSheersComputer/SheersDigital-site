@@ -18,7 +18,7 @@ const FloatingNavigation = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Define navigation items based on the screenshots
+  // Define navigation items
   const navigationItems: NavigationItem[] = [
     {
       id: 'hero',
@@ -28,32 +28,18 @@ const FloatingNavigation = () => {
       color: 'bg-blue-500'
     },
     {
-      id: 'testimonials',
-      label: 'Reviews',
-      icon: Users,
-      section: 'testimonials',
-      color: 'bg-green-500'
-    },
-    {
-      id: 'comparison',
-      label: 'Comparison',
+      id: 'proof',
+      label: 'Results',
       icon: BarChart3,
-      section: 'comparison',
-      color: 'bg-purple-500'
-    },
-    {
-      id: 'benefits',
-      label: 'Benefits',
-      icon: TrendingUp,
-      section: 'benefits',
-      color: 'bg-orange-500'
+      section: 'proof',
+      color: 'bg-teal-500'
     },
     {
       id: 'pricing',
       label: 'Pricing',
       icon: Target,
       section: 'pricing',
-      color: 'bg-red-500'
+      color: 'bg-orange-500'
     },
     {
       id: 'faq',
@@ -67,7 +53,7 @@ const FloatingNavigation = () => {
       label: 'Contact',
       icon: MessageCircle,
       section: 'contact',
-      color: 'bg-teal-500'
+      color: 'bg-green-500'
     }
   ];
 
@@ -83,9 +69,7 @@ const FloatingNavigation = () => {
       // Determine active section based on scroll position
       const sections = [
         { id: 'hero', element: document.getElementById('hero') },
-        { id: 'testimonials', element: document.getElementById('testimonials') },
-        { id: 'comparison', element: document.getElementById('comparison') },
-        { id: 'benefits', element: document.getElementById('benefits') },
+        { id: 'proof', element: document.getElementById('proof') },
         { id: 'pricing', element: document.getElementById('pricing') },
         { id: 'faq', element: document.getElementById('faq') },
         { id: 'contact', element: document.getElementById('contact') }

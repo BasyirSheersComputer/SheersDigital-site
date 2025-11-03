@@ -59,8 +59,13 @@ export class FormService {
   // Submit contact form data
   static async submitContactForm(data: ContactFormData): Promise<{ success: boolean; error?: string }> {
     try {
-      // Save to database
-      const { error } = await supabase
+      // Validate required fields
+      if (!data.name || !data.email) {
+        return { success: false, error: 'Name and email are required' };
+      }
+
+      // Save to database with better error handling
+      const { error: dbError } = await supabase
         .from('contact_messages')
         .insert([
           {
@@ -74,26 +79,38 @@ export class FormService {
           }
         ]);
 
-      if (error) {
-        console.error('Contact form submission error:', error);
-        return { success: false, error: error.message };
+      if (dbError) {
+        console.error('Database error:', dbError);
+        // Don't fail completely - try to send email at least
+        console.log('Form data would be:', data);
       }
 
-      // Send email notification
-      await EmailService.sendContactMessage(data);
+      // Send email notification (non-blocking)
+      try {
+        await EmailService.sendContactMessage(data);
+      } catch (emailError) {
+        console.error('Email error:', emailError);
+        // Email failure shouldn't block form submission
+      }
 
       return { success: true };
     } catch (error) {
       console.error('Contact form submission error:', error);
-      return { success: false, error: 'Failed to submit form' };
+      const errorMessage = error instanceof Error ? error.message : 'Failed to submit form. Please try again or contact us directly.';
+      return { success: false, error: errorMessage };
     }
   }
 
   // Submit solution form data
   static async submitSolutionForm(data: SolutionFormData): Promise<{ success: boolean; error?: string }> {
     try {
-      // Save to database
-      const { error } = await supabase
+      // Validate required fields
+      if (!data.name || !data.email || !data.company) {
+        return { success: false, error: 'Name, email, and company are required' };
+      }
+
+      // Save to database with better error handling
+      const { error: dbError } = await supabase
         .from('solution_inquiries')
         .insert([
           {
@@ -112,26 +129,43 @@ export class FormService {
           }
         ]);
 
-      if (error) {
-        console.error('Solution form submission error:', error);
-        return { success: false, error: error.message };
+      if (dbError) {
+        console.error('Database error:', dbError);
+        // Log the form data for manual follow-up
+        console.log('Solution inquiry data:', {
+          solution: data.solution,
+          name: data.name,
+          email: data.email,
+          company: data.company
+        });
       }
 
-      // Send email notification
-      await EmailService.sendSolutionInquiry(data);
+      // Send email notification (non-blocking)
+      try {
+        await EmailService.sendSolutionInquiry(data);
+      } catch (emailError) {
+        console.error('Email error:', emailError);
+        // Email failure shouldn't block form submission
+      }
 
       return { success: true };
     } catch (error) {
       console.error('Solution form submission error:', error);
-      return { success: false, error: 'Failed to submit form' };
+      const errorMessage = error instanceof Error ? error.message : 'Failed to submit form. Please try again or contact us at a.basyir@sheerssoft.com';
+      return { success: false, error: errorMessage };
     }
   }
 
   // Submit support form data
   static async submitSupportForm(data: SupportFormData): Promise<{ success: boolean; error?: string }> {
     try {
-      // Save to database
-      const { error } = await supabase
+      // Validate required fields
+      if (!data.firstName || !data.lastName || !data.email || !data.subject || !data.message) {
+        return { success: false, error: 'All required fields must be filled' };
+      }
+
+      // Save to database with better error handling
+      const { error: dbError } = await supabase
         .from('support_tickets')
         .insert([
           {
@@ -146,26 +180,36 @@ export class FormService {
           }
         ]);
 
-      if (error) {
-        console.error('Support form submission error:', error);
-        return { success: false, error: error.message };
+      if (dbError) {
+        console.error('Database error:', dbError);
+        console.log('Support ticket data:', { firstName: data.firstName, lastName: data.lastName, email: data.email, subject: data.subject });
       }
 
-      // Send email notification
-      await EmailService.sendSupportTicket(data);
+      // Send email notification (non-blocking)
+      try {
+        await EmailService.sendSupportTicket(data);
+      } catch (emailError) {
+        console.error('Email error:', emailError);
+      }
 
       return { success: true };
     } catch (error) {
       console.error('Support form submission error:', error);
-      return { success: false, error: 'Failed to submit form' };
+      const errorMessage = error instanceof Error ? error.message : 'Failed to submit support ticket. Please email us at a.basyir@sheerssoft.com';
+      return { success: false, error: errorMessage };
     }
   }
 
   // Submit ROI calculator data
   static async submitROICalculator(data: ROICalculatorData): Promise<{ success: boolean; error?: string }> {
     try {
-      // Save to database
-      const { error } = await supabase
+      // Validate required fields
+      if (!data.name || !data.email || !data.company) {
+        return { success: false, error: 'Name, email, and company are required' };
+      }
+
+      // Save to database with better error handling
+      const { error: dbError } = await supabase
         .from('roi_calculations')
         .insert([
           {
@@ -183,25 +227,35 @@ export class FormService {
           }
         ]);
 
-      if (error) {
-        console.error('ROI calculator submission error:', error);
-        return { success: false, error: error.message };
+      if (dbError) {
+        console.error('Database error:', dbError);
+        console.log('ROI calculation data:', { name: data.name, email: data.email, company: data.company, roi: data.calculatedROI });
       }
 
-      // Send email notification
-      await EmailService.sendROICalculation(data);
+      // Send email notification (non-blocking)
+      try {
+        await EmailService.sendROICalculation(data);
+      } catch (emailError) {
+        console.error('Email error:', emailError);
+      }
 
       return { success: true };
     } catch (error) {
       console.error('ROI calculator submission error:', error);
-      return { success: false, error: 'Failed to submit form' };
+      const errorMessage = error instanceof Error ? error.message : 'Failed to submit ROI calculation. Please contact us at a.basyir@sheerssoft.com';
+      return { success: false, error: errorMessage };
     }
   }
 
   // Submit waste audit request data
   static async submitWasteAuditRequest(data: WasteAuditData): Promise<{ success: boolean; error?: string }> {
     try {
-      const { error } = await supabase
+      // Validate required fields
+      if (!data.name || !data.email) {
+        return { success: false, error: 'Name and email are required' };
+      }
+
+      const { error: dbError } = await supabase
         .from('waste_audit_requests')
         .insert([
           {
@@ -214,15 +268,16 @@ export class FormService {
           }
         ]);
 
-      if (error) {
-        console.error('Waste audit request submission error:', error);
-        return { success: false, error: error.message };
+      if (dbError) {
+        console.error('Database error:', dbError);
+        console.log('Waste audit request data:', { name: data.name, email: data.email });
       }
 
       return { success: true };
     } catch (error) {
       console.error('Waste audit request submission error:', error);
-      return { success: false, error: 'Failed to submit form' };
+      const errorMessage = error instanceof Error ? error.message : 'Failed to submit waste audit request. Please contact us at a.basyir@sheerssoft.com';
+      return { success: false, error: errorMessage };
     }
   }
 

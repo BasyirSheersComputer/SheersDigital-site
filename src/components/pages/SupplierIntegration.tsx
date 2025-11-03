@@ -4,6 +4,7 @@ import Header from '../Header';
 import Footer from '../Footer';
 import { useSolutionForm } from '../../hooks/useSolutionForm';
 import SolutionForms from '../SolutionForms';
+import SuccessCases from '../SuccessCases';
 
 const SupplierIntegration = () => {
   const { isFormOpen, currentSolution, openForm, closeForm } = useSolutionForm();
@@ -13,29 +14,50 @@ const SupplierIntegration = () => {
       <Header />
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-purple-50 via-white to-blue-50 py-16 md:py-20">
+        <section className="bg-gradient-to-br from-teal-50 via-white to-green-50 py-16 md:py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-                Streamline Operations: 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600"> Connect with Your Suppliers</span>
+              <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">
+                Save 15-20 Hours Weekly and Prevent RM 5,000-10,000 in Stockout Losses
               </h1>
-              <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-                Eliminate manual ordering, reduce lead times by 60%, and never run out of ingredients again. 
-                Our supplier integration creates a seamless supply chain that saves you time and money.
+              <p className="text-xl text-neutral-600 mb-6 leading-relaxed">
+                Automated ordering prevents stockouts costing RM 5,000-10,000 in lost sales. Save 15-20 hours weekly on supplier coordination 
+                through automated ordering and zero stockouts. Immediate time savings from day one.
               </p>
+              
+              {/* Key Metrics */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 bg-white rounded-xl p-6 shadow-sm border border-neutral-200">
+                <div>
+                  <div className="text-2xl font-bold text-teal-600">15-20 hrs</div>
+                  <div className="text-sm text-neutral-600">Weekly Saved</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-teal-600">Zero</div>
+                  <div className="text-sm text-neutral-600">Stockouts</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-teal-600">RM 5-10k</div>
+                  <div className="text-sm text-neutral-600">Losses Prevented</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-teal-600">Immediate</div>
+                  <div className="text-sm text-neutral-600">Results</div>
+                </div>
+              </div>
+              
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
                   onClick={() => openForm('supplier-integration')}
-                  className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group"
+                  className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group"
                 >
-                  Get Free Consultation
+                  Get Your Free Consultation
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button className="border-2 border-slate-300 hover:border-slate-400 text-slate-700 px-8 py-4 rounded-lg font-semibold transition-colors text-lg">
-                  See a Demo
-                </button>
               </div>
+              
+              <p className="text-neutral-500 text-sm mt-4">
+                30-day money-back guarantee • Immediate time savings • Zero stockouts
+              </p>
             </div>
           </div>
         </section>

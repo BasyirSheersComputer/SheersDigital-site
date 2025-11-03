@@ -4,6 +4,7 @@ import Header from '../Header';
 import Footer from '../Footer';
 import { useSolutionForm } from '../../hooks/useSolutionForm';
 import SolutionForms from '../SolutionForms';
+import SuccessCases from '../SuccessCases';
 
 const ComplianceAutomation = () => {
   const { isFormOpen, currentSolution, openForm, closeForm } = useSolutionForm();
@@ -13,29 +14,51 @@ const ComplianceAutomation = () => {
       <Header />
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-red-50 via-white to-orange-50 py-16 md:py-20">
+        <section className="bg-gradient-to-br from-teal-50 via-white to-blue-50 py-16 md:py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-                Effortless Compliance: 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-600"> Stay Ahead of Regulations</span>
+              <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">
+                Achieve 95-100% Compliance and Avoid RM 50,000-250,000 in Fines
               </h1>
-              <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-                Stop worrying about regulatory violations and fines. Our automated compliance system 
-                ensures you're always compliant while saving 8+ hours weekly on manual reporting.
+              <p className="text-xl text-neutral-600 mb-6 leading-relaxed">
+                Stop worrying about regulatory violations. Our automated compliance system achieves 95-100% regulatory compliance, 
+                saves 20-30 hours weekly on paperwork (60-75% time reduction), and helps you avoid costly RM 50,000-250,000 fines. 
+                Industry data shows 60-75% reduction in compliance time (Food Safety Magazine, 2023).
               </p>
+              
+              {/* Key Metrics */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 bg-white rounded-xl p-6 shadow-sm border border-neutral-200">
+                <div>
+                  <div className="text-2xl font-bold text-teal-600">95-100%</div>
+                  <div className="text-sm text-neutral-600">Compliance Rate</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-teal-600">60-75%</div>
+                  <div className="text-sm text-neutral-600">Time Saved</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-teal-600">20-30 hrs</div>
+                  <div className="text-sm text-neutral-600">Weekly Savings</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-teal-600">Immediate</div>
+                  <div className="text-sm text-neutral-600">Results</div>
+                </div>
+              </div>
+              
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
                   onClick={() => openForm('compliance-automation')}
-                  className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group"
+                  className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group"
                 >
-                  Get Free Compliance Assessment
+                  Get Your Free Compliance Assessment
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button className="border-2 border-slate-300 hover:border-slate-400 text-slate-700 px-8 py-4 rounded-lg font-semibold transition-colors text-lg">
-                  Request Demo
-                </button>
               </div>
+              
+              <p className="text-neutral-500 text-sm mt-4">
+                30-day money-back guarantee • Immediate compliance • Zero violations
+              </p>
             </div>
           </div>
         </section>
@@ -177,69 +200,95 @@ const ComplianceAutomation = () => {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white rounded-2xl p-8 text-center">
-                <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Clock className="w-8 h-8 text-red-600" />
+              <div className="bg-white rounded-2xl p-8 border border-neutral-200">
+                <div className="bg-teal-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Clock className="w-8 h-8 text-teal-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">Massive Time Savings</h3>
-                <p className="text-slate-600 mb-4">
-                  Reduce compliance reporting time from 8 hours to just 30 minutes weekly. 
-                  That's 30+ hours saved monthly for your team.
+                <h3 className="text-xl font-bold text-neutral-900 mb-3">Save 20-30 Hours Weekly</h3>
+                <p className="text-neutral-600 mb-4">
+                  Reduce compliance paperwork time by 60-75%, saving 20-30 hours weekly on manual reporting
                 </p>
-                <div className="text-2xl font-bold text-red-600">30+ hours/month</div>
+                <div className="text-3xl font-bold text-teal-600 mb-2">20-30 hrs</div>
+                <div className="text-sm text-neutral-500">Weekly time saved</div>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 text-center">
-                <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Shield className="w-8 h-8 text-orange-600" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">100% Compliance</h3>
-                <p className="text-slate-600 mb-4">
-                  Never miss a deadline or requirement again. Our system ensures 
-                  you're always compliant with current regulations.
-                </p>
-                <div className="text-2xl font-bold text-orange-600">100% compliance</div>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 text-center">
+              <div className="bg-white rounded-2xl p-8 border border-neutral-200">
                 <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <DollarSign className="w-8 h-8 text-green-600" />
+                  <Shield className="w-8 h-8 text-green-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">Avoid Fines</h3>
-                <p className="text-slate-600 mb-4">
-                  Prevent costly regulatory fines and penalties. Our system keeps you 
-                  ahead of compliance requirements.
+                <h3 className="text-xl font-bold text-neutral-900 mb-3">95-100% Compliance</h3>
+                <p className="text-neutral-600 mb-4">
+                  Virtually eliminate regulatory violations through automated tracking and alerts
                 </p>
-                <div className="text-2xl font-bold text-green-600">Zero fines</div>
+                <div className="text-3xl font-bold text-green-600 mb-2">95-100%</div>
+                <div className="text-sm text-neutral-500">Compliance rate</div>
+              </div>
+
+              <div className="bg-white rounded-2xl p-8 border border-neutral-200">
+                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <DollarSign className="w-8 h-8 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-bold text-neutral-900 mb-3">Avoid RM 50-250k in Fines</h3>
+                <p className="text-neutral-600 mb-4">
+                  Never miss a regulatory requirement - prevent costly violations and fines
+                </p>
+                <div className="text-3xl font-bold text-blue-600 mb-2">RM 50-250k</div>
+                <div className="text-sm text-neutral-500">Potential fines avoided</div>
               </div>
             </div>
           </div>
         </section>
 
+        {/* Success Cases */}
+        <SuccessCases 
+          category="compliance-automation"
+          title="Compliance Automation: Industry Results"
+          subtitle="Real data from Food Safety Magazine showing the impact of automated compliance tracking on F&B operations."
+          limit={1}
+          showCTA={true}
+          onCTAClick={() => openForm('compliance-automation')}
+        />
+
         {/* CTA Section */}
-        <section className="py-16 md:py-20 bg-gradient-to-r from-red-600 to-orange-600">
+        <section className="py-16 md:py-20 bg-gradient-to-r from-teal-600 to-teal-700">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Automate Your Compliance?
+              Achieve 95-100% Compliance Immediately
             </h2>
-            <p className="text-xl text-red-100 mb-8 max-w-3xl mx-auto">
-              Stop worrying about regulatory violations. Join hundreds of F&B businesses that have 
-              transformed their compliance processes with our automated solution.
+            <p className="text-xl text-teal-100 mb-8 max-w-3xl mx-auto">
+              Get your free compliance assessment. Save 20-30 hours weekly and avoid RM 50,000-250,000 in fines. 
+              30-day money-back guarantee.
             </p>
+            
+            {/* Value Equation */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-8 max-w-2xl mx-auto">
+              <div className="grid grid-cols-3 gap-4 text-white">
+                <div>
+                  <div className="text-sm opacity-90 mb-1">Time Wasted</div>
+                  <div className="text-2xl font-bold">20-30 hrs</div>
+                </div>
+                <div>
+                  <div className="text-sm opacity-90 mb-1">Fine Risk</div>
+                  <div className="text-2xl font-bold">RM 50-250k</div>
+                </div>
+                <div>
+                  <div className="text-sm opacity-90 mb-1">Time Saved</div>
+                  <div className="text-2xl font-bold">60-75%</div>
+                </div>
+              </div>
+            </div>
+            
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 onClick={() => openForm('compliance-automation')}
-                className="bg-white text-red-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group"
+                className="bg-white text-teal-600 hover:bg-neutral-100 px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group"
               >
-                Get Free Compliance Assessment
+                Get Your Free Compliance Assessment
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 rounded-lg font-semibold transition-colors text-lg">
-                Request Demo
-              </button>
             </div>
-            <p className="text-red-200 text-sm mt-4">
-              Free consultation • 30-day trial • 100% compliance guarantee
+            <p className="text-teal-100 text-sm mt-4">
+              30-day money-back guarantee • Immediate compliance • Zero risk
             </p>
           </div>
         </section>

@@ -149,14 +149,6 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
-  const handleTestimonialsClick = () => {
-    if (location.pathname === '/') {
-      scrollToSection('testimonials');
-    } else {
-      navigate('/#testimonials');
-    }
-    setIsMenuOpen(false);
-  };
 
   const handleContactClick = () => {
     if (location.pathname === '/') {

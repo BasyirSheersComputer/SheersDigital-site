@@ -5,6 +5,7 @@ import Footer from '../Footer';
 import SEOHead from '../SEOHead';
 import { useSolutionForm } from '../../hooks/useSolutionForm';
 import SolutionForms from '../SolutionForms';
+import SuccessCases from '../SuccessCases';
 
 const InventoryIntegration = () => {
   const { isFormOpen, currentSolution, openForm, closeForm } = useSolutionForm();
@@ -219,78 +220,56 @@ const InventoryIntegration = () => {
           </div>
         </section>
 
-        {/* Testimonials */}
-        <section className="py-16 md:py-20 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-                Real Results from Malaysian Restaurants
-              </h2>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <div className="bg-slate-50 rounded-2xl p-8">
-                <div className="flex items-center mb-4">
-                  <div className="text-2xl mr-3">👨‍🍳</div>
-                  <div>
-                    <h4 className="font-bold text-slate-800">Ahmad Rahman</h4>
-                    <p className="text-slate-600 text-sm">Owner, Nasi Lemak Corner</p>
-                  </div>
-                </div>
-                <p className="text-slate-700 italic mb-4">
-                  "The inventory integration saved us RM 8,000 monthly. We now know exactly what we have, 
-                  what we need, and when to order. No more guesswork!"
-                </p>
-                <div className="flex items-center text-sm text-slate-600">
-                  <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
-                  <span>45% reduction in waste</span>
-                </div>
-              </div>
-
-              <div className="bg-slate-50 rounded-2xl p-8">
-                <div className="flex items-center mb-4">
-                  <div className="text-2xl mr-3">👩‍💼</div>
-                  <div>
-                    <h4 className="font-bold text-slate-800">Sarah Lim</h4>
-                    <p className="text-slate-600 text-sm">Manager, Café Delight</p>
-                  </div>
-                </div>
-                <p className="text-slate-700 italic mb-4">
-                  "Automated supplier ordering means we never run out of ingredients. 
-                  Our customers always get their favorite dishes, and we save 6 hours weekly on ordering."
-                </p>
-                <div className="flex items-center text-sm text-slate-600">
-                  <CheckCircle className="w-4 h-4 text-green-600 mr-2" />
-                  <span>99% order fulfillment rate</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Success Cases - Conversion optimized */}
+        <SuccessCases 
+          category="inventory-integration"
+          title="Inventory Management: Industry Success Data"
+          subtitle="Real results from National Restaurant Association showing the impact of automated inventory systems on F&B operations."
+          limit={1}
+          showCTA={true}
+          onCTAClick={() => openForm('inventory-integration')}
+        />
 
         {/* CTA Section */}
-        <section className="py-16 md:py-20 bg-gradient-to-r from-blue-600 to-green-600">
+        <section className="py-16 md:py-20 bg-gradient-to-r from-teal-600 to-teal-700">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Transform Your F&B Operations?
+              Save RM 8,000-12,000 Monthly Per Outlet
             </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              Join 250+ premium Malaysian F&B chains with our template platform and professional services approach.
+            <p className="text-xl text-teal-100 mb-8 max-w-3xl mx-auto">
+              Get your free demo to see how real-time inventory tracking can reduce spoilage by 10-15% and eliminate stockouts. 
+              30-day money-back guarantee.
             </p>
+            
+            {/* Value Equation */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-8 max-w-2xl mx-auto">
+              <div className="grid grid-cols-3 gap-4 text-white">
+                <div>
+                  <div className="text-sm opacity-90 mb-1">You're Losing</div>
+                  <div className="text-2xl font-bold">RM 8-12k</div>
+                </div>
+                <div>
+                  <div className="text-sm opacity-90 mb-1">Our Cost</div>
+                  <div className="text-2xl font-bold">From RM 8,500</div>
+                </div>
+                <div>
+                  <div className="text-sm opacity-90 mb-1">Your ROI</div>
+                  <div className="text-2xl font-bold">5-8x</div>
+                </div>
+              </div>
+            </div>
+            
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 onClick={() => openForm('inventory-integration')}
-                className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group"
+                className="bg-white text-teal-600 hover:bg-neutral-100 px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group"
               >
-                View Template Plans
+                Get Your Free Demo
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-lg font-semibold transition-colors text-lg">
-                Professional Services
-              </button>
             </div>
-            <p className="text-blue-200 text-sm mt-4">
-              Professional: RM 5K/month per 10 outlets • Enterprise: RM 10K/month per 10 outlets
+            <p className="text-teal-100 text-sm mt-4">
+              30-day money-back guarantee • See results in 30-45 days • Cancel after 90 days
             </p>
           </div>
         </section>

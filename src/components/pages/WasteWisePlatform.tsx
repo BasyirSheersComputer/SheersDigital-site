@@ -69,26 +69,47 @@ const WasteWisePlatform = () => {
       <Header />
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-slate-50 via-white to-blue-50 py-16 md:py-20">
+        <section className="bg-gradient-to-br from-teal-50 via-white to-green-50 py-16 md:py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-                The Ultimate Platform for 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600"> Waste Intelligence</span>
+              <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">
+                Reduce Waste 40-50% and Increase Profit Margins 10-15%
               </h1>
-              <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-                A comprehensive solution that transforms how Malaysian F&B businesses manage waste, 
-                inventory, and compliance. One platform, complete control.
+              <p className="text-xl text-neutral-600 mb-6 leading-relaxed">
+                The complete WasteWise platform delivers 40-50% waste reduction, RM 35,000-50,000 monthly savings, 
+                and 10-15% profit margin increase within 60-90 days. Full operational transformation for multi-location F&B businesses.
               </p>
+              
+              {/* Key Metrics */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 bg-white rounded-xl p-6 shadow-sm border border-neutral-200">
+                <div>
+                  <div className="text-2xl font-bold text-teal-600">40-50%</div>
+                  <div className="text-sm text-neutral-600">Waste Reduced</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-teal-600">RM 35-50k</div>
+                  <div className="text-sm text-neutral-600">Monthly Savings</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-teal-600">10-15%</div>
+                  <div className="text-sm text-neutral-600">Margin Increase</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-teal-600">60-90 days</div>
+                  <div className="text-sm text-neutral-600">Full Optimization</div>
+                </div>
+              </div>
+              
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group">
-                  Explore the Platform
+                <button className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group">
+                  Get Your Free Platform Demo
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button className="border-2 border-slate-300 hover:border-slate-400 text-slate-700 px-8 py-4 rounded-lg font-semibold transition-colors text-lg">
-                  Get Pricing
-                </button>
               </div>
+              
+              <p className="text-neutral-500 text-sm mt-4">
+                60-day RM 30k savings guarantee • Full optimization in 60-90 days
+              </p>
             </div>
           </div>
         </section>

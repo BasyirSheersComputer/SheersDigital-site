@@ -4,6 +4,7 @@ import Header from '../Header';
 import Footer from '../Footer';
 import { useSolutionForm } from '../../hooks/useSolutionForm';
 import SolutionForms from '../SolutionForms';
+import SuccessCases from '../SuccessCases';
 
 const AIForecasting = () => {
   const { isFormOpen, currentSolution, openForm, closeForm } = useSolutionForm();
@@ -13,29 +14,51 @@ const AIForecasting = () => {
       <Header />
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-indigo-50 via-white to-purple-50 py-16 md:py-20">
+        <section className="bg-gradient-to-br from-teal-50 via-white to-blue-50 py-16 md:py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-                Predict with Precision: 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600"> AI-Powered Forecasting</span>
+              <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">
+                Reduce Overproduction by 30-40% with 85-95% Accurate AI Forecasting
               </h1>
-              <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-                Stop guessing what you'll need tomorrow. Our AI analyzes your historical data to predict 
-                demand with 95% accuracy, reducing waste by 40% and boosting profits.
+              <p className="text-xl text-neutral-600 mb-6 leading-relaxed">
+                Stop losing RM 10,000-20,000 monthly to overproduction. Our AI analyzes your sales data, 
+                seasonal trends, and market patterns to predict demand with 85-95% accuracy (McKinsey & Company, 2024), 
+                helping you save money and reduce waste within 30 days.
               </p>
+              
+              {/* Key Metrics */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 bg-white rounded-xl p-6 shadow-sm">
+                <div>
+                  <div className="text-2xl font-bold text-teal-600">85-95%</div>
+                  <div className="text-sm text-neutral-600">Accuracy</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-teal-600">30-40%</div>
+                  <div className="text-sm text-neutral-600">Waste Reduced</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-teal-600">RM 10-20k</div>
+                  <div className="text-sm text-neutral-600">Monthly Savings</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-teal-600">30 days</div>
+                  <div className="text-sm text-neutral-600">To Results</div>
+                </div>
+              </div>
+              
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
                   onClick={() => openForm('ai-forecasting')}
-                  className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group"
+                  className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group"
                 >
-                  Get Free AI Assessment
+                  Get Your Free AI Assessment
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button className="border-2 border-slate-300 hover:border-slate-400 text-slate-700 px-8 py-4 rounded-lg font-semibold transition-colors text-lg">
-                  Try Demo Forecast
-                </button>
               </div>
+              
+              <p className="text-neutral-500 text-sm mt-4">
+                30-day money-back guarantee • See improvements within 30 days
+              </p>
             </div>
           </div>
         </section>
@@ -110,41 +133,45 @@ const AIForecasting = () => {
                 </div>
               </div>
 
-              <div className="bg-slate-50 rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-slate-800 mb-6">See AI Forecasting in Action</h3>
+              <div className="bg-neutral-50 rounded-2xl p-8 border border-neutral-200">
+                <h3 className="text-2xl font-bold text-neutral-900 mb-6">Expected Outcomes</h3>
                 <div className="space-y-6">
-                  <div className="bg-white rounded-xl p-6">
-                    <h4 className="text-lg font-bold text-slate-800 mb-4">Sample Forecast Results</h4>
+                  <div className="bg-white rounded-xl p-6 border border-neutral-200">
+                    <h4 className="text-lg font-bold text-neutral-900 mb-4">What You Get</h4>
                     <div className="space-y-4">
                       <div className="flex justify-between items-center">
-                        <span className="text-slate-600">Predicted Demand Increase</span>
-                        <span className="font-bold text-green-600">+25%</span>
+                        <span className="text-neutral-600">Forecast Accuracy</span>
+                        <span className="font-bold text-teal-600">85-95%</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-slate-600">Waste Reduction Potential</span>
-                        <span className="font-bold text-blue-600">-40%</span>
+                        <span className="text-neutral-600">Overproduction Reduced</span>
+                        <span className="font-bold text-teal-600">30-40%</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-slate-600">Monthly Cost Savings</span>
-                        <span className="font-bold text-purple-600">RM 35,000</span>
+                        <span className="text-neutral-600">Monthly Savings</span>
+                        <span className="font-bold text-teal-600">RM 10,000-20,000</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-slate-600">Forecast Accuracy</span>
-                        <span className="font-bold text-indigo-600">95%</span>
+                        <span className="text-neutral-600">Time to Results</span>
+                        <span className="font-bold text-teal-600">30 days</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-neutral-600">ROI</span>
+                        <span className="font-bold text-green-600">500-800%</span>
                       </div>
                     </div>
-                    <div className="mt-6 p-4 bg-green-50 rounded-lg">
-                      <p className="text-green-800 text-sm">
-                        <strong>Note:</strong> This is a sample forecast. Get your personalized AI assessment to see your actual results.
+                    <div className="mt-6 p-4 bg-neutral-100 rounded-lg border border-neutral-200">
+                      <p className="text-neutral-700 text-sm">
+                        <strong>Industry Data:</strong> AI forecasting accuracy based on McKinsey & Company 2024 research. Savings potential varies by outlet size and current waste levels.
                       </p>
                     </div>
                   </div>
                   
                   <button 
                     onClick={() => openForm('ai-forecasting')}
-                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-semibold transition-colors flex items-center justify-center group"
+                    className="w-full bg-teal-600 hover:bg-teal-700 text-white py-3 rounded-lg font-semibold transition-colors flex items-center justify-center group"
                   >
-                    Get Your Personalized AI Assessment
+                    Get Your Personalized Assessment
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
@@ -153,80 +180,108 @@ const AIForecasting = () => {
           </div>
         </section>
 
-        {/* Benefits */}
-        <section className="py-16 md:py-20 bg-slate-50">
+        {/* Outcomes */}
+        <section className="py-16 md:py-20 bg-neutral-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-                Transform Your Business with AI
+              <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+                What You'll Achieve
               </h2>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                Join hundreds of Malaysian F&B businesses that have revolutionized their operations 
-                with AI-powered forecasting.
+              <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
+                Specific, measurable outcomes based on industry data from McKinsey & Company and World Resources Institute.
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white rounded-2xl p-8 text-center">
-                <div className="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <TrendingUp className="w-8 h-8 text-indigo-600" />
+              <div className="bg-white rounded-2xl p-8 border border-neutral-200">
+                <div className="bg-teal-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <TrendingUp className="w-8 h-8 text-teal-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">Increased Profits</h3>
-                <p className="text-slate-600 mb-4">
-                  Reduce waste by 40% and increase profits by 25% with accurate demand forecasting
+                <h3 className="text-xl font-bold text-neutral-900 mb-3">Reduce Overproduction</h3>
+                <p className="text-neutral-600 mb-4">
+                  Cut overproduction by 30-40% by predicting exactly what you need, when you need it
                 </p>
-                <div className="text-2xl font-bold text-indigo-600">+25% profits</div>
+                <div className="text-3xl font-bold text-teal-600 mb-2">30-40%</div>
+                <div className="text-sm text-neutral-500">Less waste from overproduction</div>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 text-center">
-                <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Brain className="w-8 h-8 text-purple-600" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">95% Accuracy</h3>
-                <p className="text-slate-600 mb-4">
-                  Our AI achieves 95% forecast accuracy, far surpassing traditional methods
-                </p>
-                <div className="text-2xl font-bold text-purple-600">95% accuracy</div>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 text-center">
+              <div className="bg-white rounded-2xl p-8 border border-neutral-200">
                 <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Calendar className="w-8 h-8 text-green-600" />
+                  <Brain className="w-8 h-8 text-green-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-3">Real-Time Updates</h3>
-                <p className="text-slate-600 mb-4">
-                  Get instant updates and alerts as market conditions change
+                <h3 className="text-xl font-bold text-neutral-900 mb-3">Save RM 10-20k Monthly</h3>
+                <p className="text-neutral-600 mb-4">
+                  Average savings of RM 10,000-20,000 per month per outlet through reduced waste
                 </p>
-                <div className="text-2xl font-bold text-green-600">Real-time</div>
+                <div className="text-3xl font-bold text-green-600 mb-2">RM 10-20k</div>
+                <div className="text-sm text-neutral-500">Monthly savings per outlet</div>
+              </div>
+
+              <div className="bg-white rounded-2xl p-8 border border-neutral-200">
+                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Calendar className="w-8 h-8 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-bold text-neutral-900 mb-3">See Results in 30 Days</h3>
+                <p className="text-neutral-600 mb-4">
+                  Start seeing improvements in forecasting accuracy and waste reduction within the first month
+                </p>
+                <div className="text-3xl font-bold text-blue-600 mb-2">30 days</div>
+                <div className="text-sm text-neutral-500">To measurable results</div>
               </div>
             </div>
           </div>
         </section>
 
+        {/* Success Cases - Strategically positioned before CTA for conversion */}
+        <SuccessCases 
+          category="ai-forecasting"
+          title="AI Forecasting: Proven Industry Results"
+          subtitle="Real data from McKinsey & Company and other reputable sources showing the impact of AI-powered demand forecasting."
+          limit={1}
+          showCTA={true}
+          onCTAClick={() => openForm('ai-forecasting')}
+        />
+
         {/* CTA Section */}
-        <section className="py-16 md:py-20 bg-gradient-to-r from-indigo-600 to-purple-600">
+        <section className="py-16 md:py-20 bg-gradient-to-r from-teal-600 to-teal-700">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Predict Your Success?
+              Start Saving RM 10,000-20,000 Monthly
             </h2>
-            <p className="text-xl text-indigo-100 mb-8 max-w-3xl mx-auto">
-              Stop guessing and start predicting. Join hundreds of F&B businesses that have 
-              transformed their operations with AI-powered forecasting.
+            <p className="text-xl text-teal-100 mb-8 max-w-3xl mx-auto">
+              Get your free AI assessment to see exactly how much you can save. 30-day money-back guarantee. 
+              If you don't see measurable improvements, full refund - no questions asked.
             </p>
+            
+            {/* Value Equation */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-8 max-w-2xl mx-auto">
+              <div className="grid grid-cols-3 gap-4 text-white">
+                <div>
+                  <div className="text-sm opacity-90 mb-1">You're Losing</div>
+                  <div className="text-2xl font-bold">RM 10-20k</div>
+                </div>
+                <div>
+                  <div className="text-sm opacity-90 mb-1">Our Cost</div>
+                  <div className="text-2xl font-bold">From RM 18,500</div>
+                </div>
+                <div>
+                  <div className="text-sm opacity-90 mb-1">Your ROI</div>
+                  <div className="text-2xl font-bold">5-8x</div>
+                </div>
+              </div>
+            </div>
+            
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 onClick={() => openForm('ai-forecasting')}
-                className="bg-white text-indigo-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group min-h-[44px] touch-manipulation mobile-button"
+                className="bg-white text-teal-600 hover:bg-neutral-100 px-8 py-4 rounded-lg font-semibold transition-colors text-lg flex items-center justify-center group min-h-[44px] touch-manipulation mobile-button"
               >
-                Get Free AI Assessment
+                Get Your Free AI Assessment
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-indigo-600 px-8 py-4 rounded-lg font-semibold transition-colors text-lg min-h-[44px] touch-manipulation mobile-button">
-                Try Demo Forecast
-              </button>
             </div>
-            <p className="text-indigo-200 text-sm mt-4">
-              Free consultation • 14-day trial • 95% accuracy guarantee
+            <p className="text-teal-100 text-sm mt-4">
+              30-day money-back guarantee • See improvements within 30 days • Cancel after 90 days
             </p>
           </div>
         </section>
