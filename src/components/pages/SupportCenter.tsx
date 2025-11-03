@@ -235,17 +235,25 @@ const SupportCenter = () => {
 
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="text-center">
-                  <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Phone className="w-8 h-8 text-blue-600" />
+                  <div className="bg-[#25D366]/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <MessageCircle className="w-8 h-8 text-[#25D366]" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-3">Phone Support</h3>
+                  <h3 className="text-xl font-bold text-slate-800 mb-3">WhatsApp Support</h3>
                   <p className="text-slate-600 mb-4">
-                    Speak directly with our support team
+                    Get instant help via WhatsApp
                   </p>
-                  <div className="space-y-2">
-                    <div className="text-lg font-semibold text-blue-600">+60 3-1234 5678</div>
+                  <div className="space-y-3">
+                    <a 
+                      href="https://wa.me/60116263808?text=Hi,%20I%20need%20support%20with%20WasteWise"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white px-6 py-2 rounded-lg font-semibold transition-colors"
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                      Chat Now
+                    </a>
                     <div className="text-sm text-slate-600">Mon-Fri: 9AM-6PM (MYT)</div>
-                    <div className="text-sm text-slate-600">24/7 for urgent issues</div>
+                    <div className="text-sm text-slate-600">+60 11-6326 3808</div>
                   </div>
                 </div>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Clock, Zap, Users, BarChart3, Shield, Mail, Phone } from 'lucide-react';
+import { ArrowLeft, Clock, Zap, Users, BarChart3, Shield, Mail, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../SEOHead';
 
@@ -178,11 +178,13 @@ const ServoraDevelopment = () => {
               <span className="text-white">info@sheerssoft.com</span>
             </a>
             <a 
-              href="tel:+60123456789"
-              className="flex items-center px-6 py-3 bg-slate-800 border border-slate-600 rounded-lg hover:border-blue-400 hover:bg-slate-700 transition-all duration-300 group"
+              href="https://wa.me/60116263808?text=Hi,%20I'm%20interested%20in%20Servora%20AI%20early%20access"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center px-6 py-3 bg-[#25D366] border border-[#25D366] rounded-lg hover:bg-[#20BA5A] hover:border-[#20BA5A] transition-all duration-300 group"
             >
-              <Phone className="w-5 h-5 mr-3 text-green-400 group-hover:scale-110 transition-transform" />
-              <span className="text-white">+60 12-345 6789</span>
+              <MessageCircle className="w-5 h-5 mr-3 text-white group-hover:scale-110 transition-transform" />
+              <span className="text-white">WhatsApp Us</span>
             </a>
           </div>
         </div>

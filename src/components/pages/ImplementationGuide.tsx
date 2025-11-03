@@ -267,12 +267,12 @@ const ImplementationGuide = () => {
 
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="text-center">
-                  <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Phone className="w-8 h-8 text-blue-600" />
+                  <div className="bg-[#25D366]/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <MessageCircle className="w-8 h-8 text-[#25D366]" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-3">24/7 Support</h3>
+                  <h3 className="text-xl font-bold text-slate-800 mb-3">WhatsApp Support</h3>
                   <p className="text-slate-600">
-                    Round-the-clock technical support during implementation and beyond.
+                    Instant support via WhatsApp during implementation and beyond.
                   </p>
                 </div>
 

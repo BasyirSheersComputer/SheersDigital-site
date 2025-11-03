@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Mail, MessageCircle } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -37,10 +37,15 @@ const Footer = () => {
                 <MapPin className="w-4 h-4 mr-2" />
                 <span>Suite 11.9, Megan Avenue 1, 50450 Kuala Lumpur, Malaysia</span>
               </div>
-              <div className="flex items-center">
-                <Phone className="w-4 h-4 mr-2" />
-                <span>+60 11-6326 3808</span>
-              </div>
+              <a 
+                href="https://wa.me/60116263808?text=Hi,%20I'm%20interested%20in%20WasteWise%20solutions"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center hover:text-[#25D366] transition-colors group"
+              >
+                <MessageCircle className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                <span>WhatsApp: +60 11-6326 3808</span>
+              </a>
               <div className="flex items-center">
                 <Mail className="w-4 h-4 mr-2" />
                 <span>a.basyir@sheerssoft.com</span>
