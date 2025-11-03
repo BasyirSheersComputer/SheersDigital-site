@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, ChevronDown, Search, ShoppingCart, User, X as XIcon } from 'lucide-react';
+import { Menu, X, ChevronDown, Search, X as XIcon } from 'lucide-react';
 import { useScrollToSection } from '../hooks/useScrollToSection';
 import LanguageSwitcher from './LanguageSwitcher';
 
@@ -176,14 +176,60 @@ const Header = () => {
     setSearchQuery(e.target.value);
   };
 
-  // Quick win solutions for search recommendations
+  // Quick win solutions for search recommendations with keywords
   const quickWinSolutions = [
-    { title: "Eliminate Stockouts & Overstocking", description: "From RM 8,500 • 7 days setup", link: "/inventory-integration" },
-    { title: "End Food Waste & Boost Profit Margins", description: "From RM 6,500 • 5 days setup", link: "/waste-logging-automation" },
-    { title: "Optimize Procurement & Reduce Costs", description: "From RM 12,500 • 10 days setup", link: "/supplier-integration" },
-    { title: "Predict Demand & Maximize Sales", description: "From RM 18,500 • 14 days setup", link: "/ai-forecasting" },
-    { title: "Automate Compliance & Reduce Risk", description: "From RM 7,500 • 7 days setup", link: "/compliance-automation" }
+    { 
+      title: "AI Demand Forecasting", 
+      description: "85-95% accuracy • RM 10-20k savings", 
+      link: "/ai-forecasting",
+      keywords: ["ai", "forecast", "predict", "demand", "accuracy", "sales", "planning"]
+    },
+    { 
+      title: "Waste Logging & Tracking", 
+      description: "25-40% reduction • RM 15-25k savings", 
+      link: "/waste-logging-automation",
+      keywords: ["waste", "logging", "track", "reduce", "food waste", "reduction", "audit"]
+    },
+    { 
+      title: "Inventory Integration", 
+      description: "10-15% spoilage reduction • RM 8-12k savings", 
+      link: "/inventory-integration",
+      keywords: ["inventory", "stock", "spoilage", "overstocking", "stockout", "management"]
+    },
+    { 
+      title: "Supplier Integration", 
+      description: "15-20 hrs saved weekly • RM 5-10k", 
+      link: "/supplier-integration",
+      keywords: ["supplier", "procurement", "ordering", "vendor", "purchase", "coordination"]
+    },
+    { 
+      title: "Compliance Automation", 
+      description: "95-100% compliance • Save 20-30 hrs/week", 
+      link: "/compliance-automation",
+      keywords: ["compliance", "regulation", "audit", "regulatory", "legal", "safety", "fines"]
+    },
+    { 
+      title: "Full WasteWise Platform", 
+      description: "40-50% reduction • RM 35-50k savings", 
+      link: "/wastewise-platform",
+      keywords: ["platform", "complete", "full", "enterprise", "all", "comprehensive"]
+    }
   ];
+
+  // Filter solutions based on search query
+  const filteredSolutions = searchQuery.trim() === '' 
+    ? quickWinSolutions.slice(0, 3)
+    : quickWinSolutions.filter(solution => {
+        const query = searchQuery.toLowerCase();
+        return solution.title.toLowerCase().includes(query) ||
+               solution.description.toLowerCase().includes(query) ||
+               solution.keywords.some(keyword => keyword.includes(query));
+      }).slice(0, 5);
+
+  const handleSearchSelect = (link: string) => {
+    navigate(link);
+    handleSearchCancel();
+  };
 
   return (
     <header className="bg-white text-gray-900 shadow-sm sticky top-0 z-50 border-b border-gray-100 w-full">
@@ -205,10 +251,7 @@ const Header = () => {
                   }}
                 />
               </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-bold text-neutral-900 whitespace-nowrap tracking-tight leading-none">Sheerssoft</span>
-                <span className="text-xs text-teal-600 font-medium">by Sheers Software</span>
-              </div>
+              <span className="text-xl font-bold text-neutral-900 whitespace-nowrap tracking-tight">Sheerssoft</span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -404,35 +447,31 @@ const Header = () => {
                       </button>
                     </div>
                     
-                    {searchQuery === '' && (
-                      <div className="space-y-2">
-                        <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 px-1">Quick Solutions</div>
-                        {quickWinSolutions.slice(0, 3).map((solution, index) => (
-                          <Link
+                    <div className="space-y-2">
+                      <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 px-1">
+                        {searchQuery === '' ? 'Quick Solutions' : `Results for "${searchQuery}"`}
+                      </div>
+                      {filteredSolutions.length > 0 ? (
+                        filteredSolutions.map((solution, index) => (
+                          <button
                             key={index}
-                            to={solution.link}
-                            className="block p-3 hover:bg-gray-50 transition-colors rounded-lg"
-                            onClick={handleSearchCancel}
+                            onClick={() => handleSearchSelect(solution.link)}
+                            className="w-full text-left block p-3 hover:bg-teal-50 transition-colors rounded-lg border border-transparent hover:border-teal-200"
                           >
                             <div className="font-medium text-gray-900 text-sm mb-1">{solution.title}</div>
                             <div className="text-xs text-gray-500">{solution.description}</div>
-                          </Link>
-                        ))}
-                      </div>
-                    )}
+                          </button>
+                        ))
+                      ) : (
+                        <div className="p-4 text-center text-gray-500 text-sm">
+                          No results found. Try "waste", "inventory", "ai", or "compliance"
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               )}
             </div>
-            
-            <button className="text-gray-600 hover:text-gray-900 transition-colors bg-transparent border-none cursor-pointer hidden lg:block">
-              <ShoppingCart className="w-5 h-5" />
-            </button>
-            
-            <button className="hidden lg:flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium">
-              <User className="w-4 h-4" />
-              <span>Sign in</span>
-            </button>
             
             {/* Language Switcher - Desktop */}
             <div className="hidden lg:block">
