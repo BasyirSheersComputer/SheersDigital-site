@@ -4,6 +4,18 @@ FROM node:18-alpine AS builder
 # Set working directory
 WORKDIR /app
 
+# Accept build arguments for Vite environment variables
+ARG VITE_SUPABASE_URL
+ARG VITE_SUPABASE_ANON_KEY
+ARG VITE_APP_NAME="WasteWise"
+ARG VITE_DOMAIN="sheerssoft.com"
+
+# Set them as environment variables for the build
+ENV VITE_SUPABASE_URL=$VITE_SUPABASE_URL
+ENV VITE_SUPABASE_ANON_KEY=$VITE_SUPABASE_ANON_KEY
+ENV VITE_APP_NAME=$VITE_APP_NAME
+ENV VITE_DOMAIN=$VITE_DOMAIN
+
 # Copy package files for better caching
 COPY package*.json ./
 
@@ -13,7 +25,7 @@ RUN npm ci && npm cache clean --force
 # Copy source code
 COPY . .
 
-# Build the application
+# Build the application (Vite will embed the env vars)
 RUN npm run build
 
 # Production stage
