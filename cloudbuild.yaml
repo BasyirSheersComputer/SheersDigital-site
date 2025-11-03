@@ -8,7 +8,7 @@ steps:
       - '--build-arg'
       - 'VITE_SUPABASE_URL=https://nbupfkhtkoggqnyvpdfl.supabase.co'
       - '--build-arg'
-      - 'VITE_SUPABASE_ANON_KEY=$$VITE_SUPABASE_ANON_KEY'
+      - 'VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5idXBma2h0a29nZ3FueXZwZGZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQxODA4NDksImV4cCI6MjA1OTc1Njg0OX0.4k29V3KVHIt-JAu8RNxL6udtpHqvq3j3ek6FySC_HoI'
       - '--build-arg'
       - 'VITE_APP_NAME=WasteWise'
       - '--build-arg'
