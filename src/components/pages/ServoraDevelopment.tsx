@@ -178,7 +178,7 @@ const ServoraDevelopment = () => {
               <span className="text-white">info@sheerssoft.com</span>
             </a>
             <a 
-              href="https://wa.me/60116263808?text=Hi,%20I'm%20interested%20in%20Servora%20AI%20early%20access"
+              href="https://wa.me/601163263808?text=Hi,%20I'm%20interested%20in%20Servora%20AI%20early%20access"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center px-6 py-3 bg-[#25D366] border border-[#25D366] rounded-lg hover:bg-[#20BA5A] hover:border-[#20BA5A] transition-all duration-300 group"

@@ -244,7 +244,7 @@ const SupportCenter = () => {
                   </p>
                   <div className="space-y-3">
                     <a 
-                      href="https://wa.me/60116263808?text=Hi,%20I%20need%20support%20with%20WasteWise"
+                      href="https://wa.me/601163263808?text=Hi,%20I%20need%20support%20with%20WasteWise"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white px-6 py-2 rounded-lg font-semibold transition-colors"

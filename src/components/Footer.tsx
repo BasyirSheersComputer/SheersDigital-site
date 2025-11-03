@@ -38,7 +38,7 @@ const Footer = () => {
                 <span>Suite 11.9, Megan Avenue 1, 50450 Kuala Lumpur, Malaysia</span>
               </div>
               <a 
-                href="https://wa.me/60116263808?text=Hi,%20I'm%20interested%20in%20WasteWise%20solutions"
+                href="https://wa.me/601163263808?text=Hi,%20I'm%20interested%20in%20WasteWise%20solutions"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center hover:text-[#25D366] transition-colors group"
