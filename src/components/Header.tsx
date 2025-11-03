@@ -191,9 +191,9 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
           {/* Left Side - Branding and Primary Navigation */}
           <div className="flex items-center space-x-12 min-w-0 flex-shrink-0">
-            <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-              {/* Corporate Logo */}
-              <div className="relative w-10 h-10 flex-shrink-0 logo-transparent">
+            <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity group">
+              {/* Sheerssoft Corporate Logo */}
+              <div className="relative w-11 h-11 flex-shrink-0 logo-transparent rounded-lg overflow-hidden bg-gradient-to-br from-teal-50 to-white p-1.5 group-hover:from-teal-100 group-hover:to-teal-50 transition-all duration-300">
                 <img 
                   src="/img/logo.png"
                   alt="Sheerssoft Logo"
@@ -205,7 +205,10 @@ const Header = () => {
                   }}
                 />
               </div>
-              <span className="text-xl font-semibold text-gray-900 whitespace-nowrap tracking-tight">Sheerssoft</span>
+              <div className="flex flex-col">
+                <span className="text-xl font-bold text-neutral-900 whitespace-nowrap tracking-tight leading-none">Sheerssoft</span>
+                <span className="text-xs text-teal-600 font-medium">by Sheers Software</span>
+              </div>
             </Link>
 
             {/* Desktop Navigation */}
