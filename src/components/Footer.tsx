@@ -69,6 +69,7 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Resources</h4>
             <ul className="space-y-2 text-sm text-slate-400">
+              <li><a href="/about-us" className="hover:text-white transition-colors">About Us</a></li>
               <li><a href="/wastewise-platform" className="hover:text-white transition-colors">Sheerssoft Platform</a></li>
               <li><a href="/roi-calculator" className="hover:text-white transition-colors">Free ROI Calculator</a></li>
               <li><a href="/industry-reports" className="hover:text-white transition-colors">Industry Reports</a></li>

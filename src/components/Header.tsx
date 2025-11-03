@@ -213,6 +213,12 @@ const Header = () => {
       description: "40-50% reduction • RM 35-50k savings", 
       link: "/wastewise-platform",
       keywords: ["platform", "complete", "full", "enterprise", "all", "comprehensive"]
+    },
+    { 
+      title: "About Us & Partnerships", 
+      description: "Learn about our team and collaboration opportunities", 
+      link: "/about-us",
+      keywords: ["about", "team", "company", "partnership", "collaborate", "who", "contact", "basyir"]
     }
   ];
 
@@ -350,6 +356,13 @@ const Header = () => {
                   </div>
                 )}
               </div>
+              
+              <Link
+                to="/about-us"
+                className="text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium"
+              >
+                About Us
+              </Link>
               
               <button 
                 onClick={() => {
@@ -628,6 +641,14 @@ const Header = () => {
                   </div>
                 )}
               </div>
+              
+              <Link
+                to="/about-us"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex items-center px-4 py-4 text-gray-700 hover:text-gray-900 hover:bg-teal-50 transition-all duration-200 border border-gray-100 text-left min-h-[56px] touch-manipulation mobile-button font-medium text-base rounded-lg active:bg-teal-100 active:scale-[0.98]"
+              >
+                <span className="text-lg">About Us</span>
+              </Link>
               
               <button 
                 onClick={handleContactClick}

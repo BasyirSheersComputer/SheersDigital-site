@@ -27,6 +27,7 @@ import ImplementationGuide from './components/pages/ImplementationGuide';
 import SupportCenter from './components/pages/SupportCenter';
 import GetStarted from './components/pages/GetStarted';
 import ServoraDevelopment from './components/pages/ServoraDevelopment';
+import AboutUs from './components/pages/AboutUs';
 
 function App() {
   const homeSEO = getSEOConfig('home');
@@ -76,6 +77,8 @@ function App() {
       <Route path="/support-center" element={<SupportCenter />} />
       <Route path="/get-started" element={<GetStarted />} />
       <Route path="/servora-development" element={<ServoraDevelopment />} />
+      <Route path="/about-us" element={<AboutUs />} />
+      <Route path="/about" element={<AboutUs />} />
     </Routes>
   );
 }
