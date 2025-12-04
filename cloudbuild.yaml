@@ -1,0 +1,35 @@
+steps:
+  # Build the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/sheersdigital-site:$COMMIT_SHA'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/sheersdigital-site:latest'
+      - '.'
+    id: 'build-image'
+
+  # Push the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'gcr.io/$PROJECT_ID/sheersdigital-site:$COMMIT_SHA'
+    id: 'push-image-sha'
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'gcr.io/$PROJECT_ID/sheersdigital-site:latest'
+    id: 'push-image-latest'
+
+images:
+  - 'gcr.io/$PROJECT_ID/sheersdigital-site:$COMMIT_SHA'
+  - 'gcr.io/$PROJECT_ID/sheersdigital-site:latest'
+
+options:
+  machineType: 'E2_HIGHCPU_8'
+  logging: CLOUD_LOGGING_ONLY
+
+timeout: '1200s'
+
