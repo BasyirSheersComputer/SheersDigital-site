@@ -104,6 +104,64 @@
     line-height: 1.7;
 }
 
+/* Services Page */
+.services-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+.service-item {
+    width: 100%;
+}
+
+.service-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-md);
+    padding: var(--space-lg);
+}
+
+.service-icon-large {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+    color: var(--bg-primary);
+}
+
+.service-item-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+}
+
+.service-item-description {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.service-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    padding: 0 var(--space-lg) var(--space-lg);
+}
+
+.feature-tag {
+    padding: 0.5rem 1rem;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid var(--neon-cyan);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    color: var(--neon-cyan);
+}
+
 @media (max-width: 768px) {
     .page-title {
         font-size: var(--font-size-3xl);
@@ -112,5 +170,10 @@
     .mission-vision-grid,
     .values-grid {
         grid-template-columns: 1fr;
+    }
+
+    .service-header {
+        flex-direction: column;
+        text-align: center;
     }
 }
