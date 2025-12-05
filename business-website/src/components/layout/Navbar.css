@@ -170,6 +170,7 @@
     .mobile-menu {
         display: flex;
     }
+<<<<<<< HEAD
 }
 
 @media (max-width: 480px) {
@@ -180,4 +181,6 @@
     .mobile-menu {
         padding: var(--space-sm);
     }
+=======
+>>>>>>> db226f5e3341c0f6784a1425741b4e16ff6feaa9
 }
