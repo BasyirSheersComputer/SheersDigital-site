@@ -1,0 +1,69 @@
+{
+    "meta": {
+        "name": "Sheers Digital - Original Neon Theme",
+        "description": "Cyberpunk/Gamer aesthetic with high-contrast neon accents."
+    },
+    "tokens": {
+        "colors": {
+            "backgrounds": {
+                "primary": "#0A0A0A",
+                "secondary": "rgba(18, 18, 18, 0.8)",
+                "glass": "rgba(255, 255, 255, 0.05)"
+            },
+            "neon": {
+                "cyan": "#00FFFF",
+                "magenta": "#FF00FF",
+                "green": "#7CFC00"
+            },
+            "text": {
+                "primary": "#EAEAEA",
+                "secondary": "#B0B0B0",
+                "dim": "#707070"
+            },
+            "glows": {
+                "cyan": "rgba(0, 255, 255, 0.25)",
+                "magenta": "rgba(255, 0, 255, 0.25)",
+                "green": "rgba(124, 252, 0, 0.25)"
+            },
+            "gradients": {
+                "primary": "linear-gradient(90deg, #00FFFF, #FF00FF)",
+                "secondary": "linear-gradient(135deg, #00FFFF, #7CFC00)"
+            }
+        },
+        "typography": {
+            "fontFamily": "'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+            "sizes": {
+                "xs": "0.75rem",
+                "sm": "0.875rem",
+                "base": "1rem",
+                "lg": "1.125rem",
+                "xl": "1.25rem",
+                "2xl": "1.5rem",
+                "3xl": "2rem",
+                "4xl": "2.5rem",
+                "5xl": "3rem",
+                "6xl": "4rem"
+            }
+        },
+        "spacing": {
+            "xs": "0.5rem",
+            "sm": "1rem",
+            "md": "1.5rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "2xl": "4rem",
+            "3xl": "6rem"
+        },
+        "borderRadius": {
+            "sm": "0.5rem",
+            "md": "1rem",
+            "lg": "1.5rem",
+            "xl": "2rem"
+        },
+        "transitions": {
+            "fast": "150ms ease",
+            "base": "300ms ease",
+            "slow": "500ms ease"
+        }
+    }
+}
