@@ -1,0 +1,169 @@
+import type { Metadata } from "next";
+import "./globals.css";
+import "./layout.css";
+import { NavbarClient } from "@/components/NavbarClient";
+
+export const metadata: Metadata = {
+  title: {
+    default: "Hotel AI Concierge — Capture Every Inquiry 24/7 | Nocturn AI",
+    template: "%s | Nocturn AI",
+  },
+  description:
+    "Stop losing bookings after 6pm. Nocturn AI captures every WhatsApp, web & email inquiry 24/7 and proves revenue recovered. Free 30-day pilot for Malaysian hotels.",
+  metadataBase: new URL("https://nocturn.ai"),
+  openGraph: {
+    type: "website",
+    locale: "en_MY",
+    siteName: "Nocturn AI",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    languages: {
+      "en-MY": "/",
+    },
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en-MY">
+      <body>
+        <a href="#main-content" className="skip-to-content">
+          Skip to content
+        </a>
+        <Navbar />
+        <NavbarClient />
+        <main id="main-content">{children}</main>
+        <Footer />
+        <MobileCTA />
+      </body>
+    </html>
+  );
+}
+
+/* ---- Navbar ---- */
+function Navbar() {
+  return (
+    <nav className="navbar" id="navbar">
+      <div className="container navbar-inner">
+        <a href="/" className="navbar-logo" aria-label="Nocturn AI Home">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <circle cx="16" cy="16" r="14" stroke="#22C55E" strokeWidth="2.5" />
+            <path d="M16 6C10.5 6 8 12 8 16c0 4 2.5 10 8 10 -3-2-4.5-5.5-4.5-10S13 8 16 6z" fill="#22C55E" />
+          </svg>
+          <span className="navbar-brand">Nocturn AI</span>
+        </a>
+
+        <div className="navbar-links hide-mobile">
+          <a href="/features">Features</a>
+          <a href="/how-it-works">How It Works</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/case-studies">Case Studies</a>
+          <a href="/blog">Blog</a>
+        </div>
+
+        <a href="/book-demo" className="btn btn-primary navbar-cta hide-mobile">
+          Book a Demo →
+        </a>
+
+        <button
+          className="navbar-hamburger hide-desktop"
+          aria-label="Open navigation menu"
+          id="nav-toggle"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <div className="navbar-mobile-menu hide-desktop" id="mobile-menu">
+        <a href="/features">Features</a>
+        <a href="/how-it-works">How It Works</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/case-studies">Case Studies</a>
+        <a href="/blog">Blog</a>
+        <a href="/book-demo" className="btn btn-primary" style={{ width: "100%", marginTop: 8 }}>
+          Book a Demo →
+        </a>
+      </div>
+    </nav>
+  );
+}
+
+/* ---- Footer ---- */
+function Footer() {
+  return (
+    <footer className="footer section-dark">
+      <div className="container">
+        <div className="footer-grid">
+          <div className="footer-col">
+            <div className="footer-brand">
+              <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <circle cx="16" cy="16" r="14" stroke="#22C55E" strokeWidth="2.5" />
+                <path d="M16 6C10.5 6 8 12 8 16c0 4 2.5 10 8 10 -3-2-4.5-5.5-4.5-10S13 8 16 6z" fill="#22C55E" />
+              </svg>
+              <span>Nocturn AI</span>
+            </div>
+            <p className="footer-tagline">
+              Capturing bookings while you sleep.
+            </p>
+            <p className="footer-company">
+              A product by Sheers Software Sdn Bhd
+            </p>
+          </div>
+
+          <div className="footer-col">
+            <h4>Product</h4>
+            <a href="/features">Features</a>
+            <a href="/how-it-works">How It Works</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/case-studies">Case Studies</a>
+          </div>
+
+          <div className="footer-col">
+            <h4>Company</h4>
+            <a href="/about">About Us</a>
+            <a href="/blog">Blog</a>
+            <a href="/book-demo">Book a Demo</a>
+          </div>
+
+          <div className="footer-col">
+            <h4>Legal</h4>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+          </div>
+        </div>
+
+        <div className="footer-trust">
+          <span>🔒 PDPA Compliant</span>
+          <span>🔐 Encrypted</span>
+          <span>🇲🇾 Built in Malaysia</span>
+        </div>
+
+        <div className="footer-bottom">
+          <p>© {new Date().getFullYear()} Sheers Software Sdn Bhd. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+/* ---- Mobile CTA ---- */
+function MobileCTA() {
+  return (
+    <div className="mobile-cta hide-desktop">
+      <a href="/book-demo" className="btn btn-primary" style={{ width: "100%", borderRadius: 0 }}>
+        Book a Free Demo →
+      </a>
+    </div>
+  );
+}
