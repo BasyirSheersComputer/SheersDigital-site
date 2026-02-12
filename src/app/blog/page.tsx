@@ -13,6 +13,7 @@ const articles = [
         excerpt: "30% of hotel inquiries arrive after 6pm. Here's how that translates to lost revenue — and what you can do about it.",
         category: "Revenue Recovery",
         readTime: "7 min read",
+        image: "/blog/whatsapp-revenue.svg",
     },
     {
         slug: "ota-commission-calculator",
@@ -20,6 +21,7 @@ const articles = [
         excerpt: "At 15-25% per booking, the numbers add up fast. Use our calculator to see your true cost of OTA dependency.",
         category: "Direct Bookings",
         readTime: "8 min read",
+        image: "/blog/ota-commission.svg",
     },
     {
         slug: "ai-chatbot-vs-whatsapp-ai",
@@ -27,6 +29,7 @@ const articles = [
         excerpt: "Website chatbots handle 10% of inquiries. WhatsApp handles 90%. Here's why most hotels are solving the wrong problem.",
         category: "Technology",
         readTime: "6 min read",
+        image: "/blog/chatbot-vs-whatsapp.svg",
     },
     {
         slug: "after-hours-revenue-leak",
@@ -34,6 +37,7 @@ const articles = [
         excerpt: "85% of unanswered callers never call back. Your after-hours gap is your biggest revenue leak.",
         category: "Revenue Recovery",
         readTime: "6 min read",
+        image: "/blog/after-hours-leak.svg",
     },
     {
         slug: "increase-direct-bookings",
@@ -41,6 +45,7 @@ const articles = [
         excerpt: "The bookings are already coming to you. You're just not catching them. Here's a framework for direct booking growth.",
         category: "Direct Bookings",
         readTime: "7 min read",
+        image: "/blog/direct-bookings.svg",
     },
     {
         slug: "visit-malaysia-2026-hotels",
@@ -48,6 +53,7 @@ const articles = [
         excerpt: "47 million visitors expected. RM 329 billion in receipts. Is your hotel ready to capture the surge?",
         category: "Industry",
         readTime: "5 min read",
+        image: "/blog/visit-malaysia.svg",
     },
     {
         slug: "pdpa-compliance-hotel-ai",
@@ -55,6 +61,7 @@ const articles = [
         excerpt: "Using AI to handle guest data? Here's what Malaysian data protection law requires — and how to stay compliant.",
         category: "Compliance",
         readTime: "5 min read",
+        image: "/blog/pdpa-compliance.svg",
     },
     {
         slug: "gm-morning-report",
@@ -62,6 +69,7 @@ const articles = [
         excerpt: "Every morning at 8am: inquiries handled, leads captured, revenue estimate. This is what proof of value looks like.",
         category: "Product",
         readTime: "5 min read",
+        image: "/blog/morning-report.svg",
     },
 ];
 
@@ -95,22 +103,44 @@ export default function BlogPage() {
                                 key={article.slug}
                                 href={`/blog/${article.slug}`}
                                 className="card"
-                                style={{ padding: 0, overflow: "hidden", textDecoration: "none", color: "inherit" }}
+                                style={{ padding: 0, overflow: "hidden", textDecoration: "none", color: "inherit", display: "flex", flexDirection: "column" }}
                             >
                                 <div style={{
                                     height: 180,
-                                    background: `linear-gradient(135deg, var(--color-navy), ${categoryColors[article.category] || "var(--color-green)"})`,
+                                    position: "relative",
                                     display: "flex",
                                     alignItems: "flex-end",
+                                    justifyContent: "flex-end",
                                     padding: 20,
+                                    background: categoryColors[article.category] || "var(--color-navy)",
                                 }}>
-                                    <span className="badge" style={{ background: "rgba(255,255,255,0.2)", color: "white" }}>
+                                    {/* Using standard img tag for SVGs to ensure correct rendering without Next.js config overhead for external domains if any, but these are local. */}
+                                    {/* Using Next.js Image would require width/height or fill. Let's use fill. */}
+                                    <img
+                                        src={article.image}
+                                        alt={article.title}
+                                        style={{
+                                            position: "absolute",
+                                            top: 0,
+                                            left: 0,
+                                            width: "100%",
+                                            height: "100%",
+                                            objectFit: "cover"
+                                        }}
+                                    />
+                                    <span className="badge" style={{
+                                        position: "relative",
+                                        zIndex: 10,
+                                        background: "rgba(0,0,0,0.6)",
+                                        color: "white",
+                                        backdropFilter: "blur(4px)"
+                                    }}>
                                         {article.category}
                                     </span>
                                 </div>
-                                <div style={{ padding: 20 }}>
+                                <div style={{ padding: 20, flex: 1, display: "flex", flexDirection: "column" }}>
                                     <h3 style={{ fontSize: 16, lineHeight: 1.4, marginBottom: 8 }}>{article.title}</h3>
-                                    <p style={{ fontSize: 13, color: "var(--color-gray-500)", lineHeight: 1.5, marginBottom: 12 }}>
+                                    <p style={{ fontSize: 13, color: "var(--color-gray-500)", lineHeight: 1.5, marginBottom: 12, flex: 1 }}>
                                         {article.excerpt}
                                     </p>
                                     <span style={{ fontSize: 12, color: "var(--color-gray-400)" }}>{article.readTime}</span>

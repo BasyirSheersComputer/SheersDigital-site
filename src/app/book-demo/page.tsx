@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { HubSpotMeeting } from "@/components/HubSpotMeeting";
 
 export const metadata: Metadata = {
     title: "Book a Demo — See Revenue Recovery In Action",
@@ -8,9 +9,15 @@ export const metadata: Metadata = {
 
 export default function BookDemoPage() {
     return (
+        <BookDemoContent />
+    );
+}
+
+function BookDemoContent() {
+    return (
         <section style={{ paddingTop: 100, paddingBottom: 80, minHeight: "100vh", background: "var(--color-gray-50)" }}>
             <div className="container">
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "flex-start", maxWidth: 1000, margin: "0 auto" }}>
+                <div className="grid-2-cols stack-on-mobile" style={{ maxWidth: 1000, margin: "0 auto" }}>
                     {/* Left - Value */}
                     <div style={{ paddingTop: 40 }}>
                         <h1>See Your Revenue Recovery in Action</h1>
@@ -45,68 +52,9 @@ export default function BookDemoPage() {
 
                     {/* Right - Form */}
                     <div className="card" style={{ padding: 32 }}>
-                        <h3 style={{ marginBottom: 24 }}>Book Your Free Demo</h3>
-                        <form action="/book-demo/thank-you" method="get" style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-                            <div>
-                                <label htmlFor="name" style={{ display: "block", fontWeight: 600, fontSize: 14, marginBottom: 6 }}>
-                                    Full Name
-                                </label>
-                                <input
-                                    type="text" id="name" name="name" required
-                                    placeholder="Ahmad Razak"
-                                    style={{ width: "100%", padding: "12px 14px", borderRadius: 8, border: "2px solid var(--color-gray-200)", fontSize: 14, transition: "border-color 0.2s" }}
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="email" style={{ display: "block", fontWeight: 600, fontSize: 14, marginBottom: 6 }}>
-                                    Work Email
-                                </label>
-                                <input
-                                    type="email" id="email" name="email" required
-                                    placeholder="ahmad@hotelgrand.com"
-                                    style={{ width: "100%", padding: "12px 14px", borderRadius: 8, border: "2px solid var(--color-gray-200)", fontSize: 14 }}
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="property" style={{ display: "block", fontWeight: 600, fontSize: 14, marginBottom: 6 }}>
-                                    Property Name
-                                </label>
-                                <input
-                                    type="text" id="property" name="property" required
-                                    placeholder="Hotel Grand Kuala Lumpur"
-                                    style={{ width: "100%", padding: "12px 14px", borderRadius: 8, border: "2px solid var(--color-gray-200)", fontSize: 14 }}
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="rooms" style={{ display: "block", fontWeight: 600, fontSize: 14, marginBottom: 6 }}>
-                                    Number of Rooms
-                                </label>
-                                <select
-                                    id="rooms" name="rooms"
-                                    style={{ width: "100%", padding: "12px 14px", borderRadius: 8, border: "2px solid var(--color-gray-200)", fontSize: 14, background: "white" }}
-                                >
-                                    <option value="">Select range</option>
-                                    <option value="<50">&lt; 50 rooms</option>
-                                    <option value="50-100">50 - 100 rooms</option>
-                                    <option value="100-200">100 - 200 rooms</option>
-                                    <option value="200-300">200 - 300 rooms</option>
-                                    <option value="300+">300+ rooms</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label htmlFor="phone" style={{ display: "block", fontWeight: 600, fontSize: 14, marginBottom: 6 }}>
-                                    Phone / WhatsApp
-                                </label>
-                                <input
-                                    type="tel" id="phone" name="phone"
-                                    placeholder="+60 12 345 6789"
-                                    style={{ width: "100%", padding: "12px 14px", borderRadius: 8, border: "2px solid var(--color-gray-200)", fontSize: 14 }}
-                                />
-                            </div>
-                            <button type="submit" className="btn btn-primary btn-lg" style={{ width: "100%", marginTop: 8 }}>
-                                Book My Free Demo →
-                            </button>
-                        </form>
+                        {/* <h3 style={{ marginBottom: 24 }}>Book Your Free Demo</h3> */}
+                        {/* HubSpot Meeting Embed */}
+                        <HubSpotMeeting />
                     </div>
                 </div>
             </div>

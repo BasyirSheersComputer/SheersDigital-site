@@ -27,13 +27,14 @@ export default function AboutPage() {
                             <span className="eyebrow">OUR MISSION</span>
                             <h2 style={{ marginTop: 12 }}>No Hotel Should Lose Bookings Because Nobody Answered</h2>
                             <p style={{ color: "var(--color-gray-600)", marginTop: 16, lineHeight: 1.7 }}>
-                                Malaysian hotels receive 90% of their bookings through manual channels.
-                                Yet reservation desks close at 6pm. Staff are overwhelmed. Guests book elsewhere.
+                                We built this for <strong>Zul</strong>, the Reservation Manager who dreads checking his phone at 9 PM.
+                                For <strong>Bernard</strong>, the GM who watches OTA commissions eat into his bottom line.
+                                And for <strong>Shamsuridah</strong>, whose front desk team is overwhelmed by "Hi, got room?" WhatsApps.
                             </p>
                             <p style={{ color: "var(--color-gray-600)", marginTop: 12, lineHeight: 1.7 }}>
-                                We built Nocturn AI to bridge that gap — an AI concierge that captures every inquiry
-                                across WhatsApp, web, and email, 24 hours a day. Not to replace your team, but to
-                                make sure no booking falls through the cracks while they rest.
+                                Nocturn AI isn't here to replace them. It's here to give them their nights back.
+                                We capture every inquiry across WhatsApp, web, and email, 24/7.
+                                So your team can rest, and your hotel keeps booking.
                             </p>
                         </div>
                         <div style={{ background: "var(--color-gray-50)", borderRadius: 16, padding: 32 }}>

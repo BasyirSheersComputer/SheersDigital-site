@@ -15,12 +15,21 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_MY",
     siteName: "Nocturn AI",
+    images: [
+      {
+        url: "/og-image.png", // Recommended: 1200x630
+        width: 1200,
+        height: 630,
+        alt: "Nocturn AI - Hotel Revenue Recovery",
+      },
+    ],
   },
   robots: {
     index: true,
     follow: true,
   },
   alternates: {
+    canonical: "./",
     languages: {
       "en-MY": "/",
     },
@@ -43,6 +52,28 @@ export default function RootLayout({
         <main id="main-content">{children}</main>
         <Footer />
         <MobileCTA />
+
+        {/* Google Analytics - GA4 */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-XXXXXXXXXX');
+            `,
+          }}
+        />
+
+        {/* HubSpot Tracking Code */}
+        <script
+          type="text/javascript"
+          id="hs-script-loader"
+          async
+          defer
+          src="//js-na2.hs-scripts.com/243983306.js">
+        </script>
       </body>
     </html>
   );
@@ -66,6 +97,7 @@ function Navbar() {
           <a href="/how-it-works">How It Works</a>
           <a href="/pricing">Pricing</a>
           <a href="/case-studies">Case Studies</a>
+          <a href="/about">About</a>
           <a href="/blog">Blog</a>
         </div>
 
@@ -90,6 +122,7 @@ function Navbar() {
         <a href="/how-it-works">How It Works</a>
         <a href="/pricing">Pricing</a>
         <a href="/case-studies">Case Studies</a>
+        <a href="/about">About</a>
         <a href="/blog">Blog</a>
         <a href="/book-demo" className="btn btn-primary" style={{ width: "100%", marginTop: 8 }}>
           Book a Demo →

@@ -125,6 +125,39 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* SECTION 2.5: Who This Is For */}
+      <section className="section section-light" style={{ padding: "60px 0", borderBottom: "1px solid var(--color-gray-200)" }}>
+        <div className="container">
+          <div style={{ textAlign: "center", marginBottom: 40 }}>
+            <span className="eyebrow">WHO THIS IS FOR</span>
+            <h2 style={{ marginTop: 12 }}>Built for the Hotels That Never Sleep</h2>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 }}>
+            <div className="card" style={{ padding: 24, display: "flex", gap: 16 }}>
+              <div style={{ fontSize: 32 }}>👔</div>
+              <div>
+                <strong style={{ display: "block", fontSize: 18, marginBottom: 4 }}>The General Manager</strong>
+                <p style={{ fontSize: 14, color: "var(--color-gray-600)" }}>Who needs to stop revenue leakage and cut OTA commissions without hiring more night staff.</p>
+              </div>
+            </div>
+            <div className="card" style={{ padding: 24, display: "flex", gap: 16 }}>
+              <div style={{ fontSize: 32 }}>📈</div>
+              <div>
+                <strong style={{ display: "block", fontSize: 18, marginBottom: 4 }}>The Revenue Manager</strong>
+                <p style={{ fontSize: 14, color: "var(--color-gray-600)" }}>Who wants to capture direct bookings at higher margins and see exactly how much revenue was saved.</p>
+              </div>
+            </div>
+            <div className="card" style={{ padding: 24, display: "flex", gap: 16 }}>
+              <div style={{ fontSize: 32 }}>🛎️</div>
+              <div>
+                <strong style={{ display: "block", fontSize: 18, marginBottom: 4 }}>The Front Desk Team</strong>
+                <p style={{ fontSize: 14, color: "var(--color-gray-600)" }}>Who are tired of answering "Hi, got room?" 50 times a day and want to focus on guests in the lobby.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 3: Solution Introduction */}
       <section className="section section-light">
         <div className="container">
