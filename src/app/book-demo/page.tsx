@@ -13,29 +13,47 @@ export default function BookDemoPage() {
                 <div className="grid-2-cols stack-on-mobile" style={{ maxWidth: 1000, margin: "0 auto" }}>
                     {/* Left - Value */}
                     <div style={{ paddingTop: 40 }}>
-                        <h1>See Your Revenue Recovery in Action</h1>
-                        <p className="text-large text-gray-600" style={{ marginBottom: 32 }}>
-                            Join forward-thinking hotels using AI to capture every inquiry, 24/7.
+                        <h1 style={{ fontSize: "2.5rem", lineHeight: 1.2, marginBottom: "1rem" }}>
+                            Your Front Desk Closes at 10 PM. <br />
+                            <span style={{ color: "var(--color-green)" }}>The Internet Doesn&apos;t.</span>
+                        </h1>
+                        <p className="text-large text-gray-600" style={{ marginBottom: 32, fontSize: "1.125rem" }}>
+                            Hotels running Nocturn AI see a <strong>15-20% increase in direct bookings</strong> within 30 days. Here is what happens when you plug the leak:
                         </p>
 
                         <ul className="check-list" style={{ marginBottom: 40, listStyle: "none", padding: 0 }}>
-                            <li style={{ display: "flex", gap: 10, alignItems: "flex-start", marginBottom: 16 }}>
-                                <span style={{ color: "var(--color-green)", fontWeight: 700, fontSize: 18 }}>✓</span>
-                                <span>Stop losing leads to slow response times</span>
+                            <li style={{ display: "flex", gap: 12, alignItems: "flex-start", marginBottom: 20 }}>
+                                <span style={{ color: "var(--color-green)", fontWeight: 700, fontSize: 20, marginTop: -2 }}>✓</span>
+                                <div>
+                                    <strong style={{ display: "block", color: "var(--color-navy)" }}>Zero Missed Opportunities</strong>
+                                    <span style={{ color: "var(--color-gray-600)" }}>Every WhatsApp message gets an instant, intelligent reply—even at 3 AM.</span>
+                                </div>
                             </li>
-                            <li style={{ display: "flex", gap: 10, alignItems: "flex-start", marginBottom: 16 }}>
-                                <span style={{ color: "var(--color-green)", fontWeight: 700, fontSize: 18 }}>✓</span>
-                                <span>Automate responses on WhatsApp & Email</span>
+                            <li style={{ display: "flex", gap: 12, alignItems: "flex-start", marginBottom: 20 }}>
+                                <span style={{ color: "var(--color-green)", fontWeight: 700, fontSize: 20, marginTop: -2 }}>✓</span>
+                                <div>
+                                    <strong style={{ display: "block", color: "var(--color-navy)" }}>Higher ADR, Lower Commission</strong>
+                                    <span style={{ color: "var(--color-gray-600)" }}>Capture direct leads before they bounce to an OTA.</span>
+                                </div>
                             </li>
-                            <li style={{ display: "flex", gap: 10, alignItems: "flex-start", marginBottom: 16 }}>
-                                <span style={{ color: "var(--color-green)", fontWeight: 700, fontSize: 18 }}>✓</span>
-                                <span>Track every dollar of recovered revenue</span>
+                            <li style={{ display: "flex", gap: 12, alignItems: "flex-start", marginBottom: 20 }}>
+                                <span style={{ color: "var(--color-green)", fontWeight: 700, fontSize: 20, marginTop: -2 }}>✓</span>
+                                <div>
+                                    <strong style={{ display: "block", color: "var(--color-navy)" }}>Full Visibility for GMs</strong>
+                                    <span style={{ color: "var(--color-gray-600)" }}>Get a daily report of every single dollar of revenue saved.</span>
+                                </div>
                             </li>
                         </ul>
 
-                        <div className="trust-badges">
-                            <p className="text-small text-gray-500" style={{ marginBottom: 16 }}>Trusted by revenue leaders in Malaysia</p>
-                            {/* Add logos/social proof here if available */}
+                        <div className="trust-badges" style={{ borderTop: "1px solid var(--color-gray-200)", paddingTop: 24 }}>
+                            <p className="text-small text-gray-500" style={{ marginBottom: 12, fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase", fontSize: "0.75rem" }}>
+                                Powering Revenue Teams At
+                            </p>
+                            <div style={{ display: "flex", gap: 24, opacity: 0.6, filter: "grayscale(100%)" }}>
+                                {/* Placeholders for logos - concise text for now */}
+                                <span style={{ fontWeight: 700, fontSize: "1.2rem", fontFamily: "serif" }}>CITY HOTELS</span>
+                                <span style={{ fontWeight: 700, fontSize: "1.2rem", fontFamily: "sans-serif" }}>RESORT STAY</span>
+                            </div>
                         </div>
                     </div>
 
