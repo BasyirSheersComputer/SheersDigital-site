@@ -1,19 +1,12 @@
-import type { Metadata } from "next";
-import { HubSpotMeeting } from "@/components/HubSpotMeeting";
+"use client";
 
-export const metadata: Metadata = {
-    title: "Book a Demo — See Revenue Recovery In Action",
-    description:
-        "15-minute personalized demo for your property. See how much revenue you can recover. No commitment, no credit card.",
-};
+import { useState } from "react";
+import { LeadForm } from "@/components/LeadForm";
+import { HubSpotModal } from "@/components/HubSpotModal";
 
 export default function BookDemoPage() {
-    return (
-        <BookDemoContent />
-    );
-}
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-function BookDemoContent() {
     return (
         <section style={{ paddingTop: 100, paddingBottom: 80, minHeight: "100vh", background: "var(--color-gray-50)" }}>
             <div className="container">
@@ -21,43 +14,42 @@ function BookDemoContent() {
                     {/* Left - Value */}
                     <div style={{ paddingTop: 40 }}>
                         <h1>See Your Revenue Recovery in Action</h1>
-                        <ul style={{ marginTop: 24, display: "flex", flexDirection: "column", gap: 16 }}>
-                            <li style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                        <p className="text-large text-gray-600" style={{ marginBottom: 32 }}>
+                            Join forward-thinking hotels using AI to capture every inquiry, 24/7.
+                        </p>
+
+                        <ul className="check-list" style={{ marginBottom: 40, listStyle: "none", padding: 0 }}>
+                            <li style={{ display: "flex", gap: 10, alignItems: "flex-start", marginBottom: 16 }}>
                                 <span style={{ color: "var(--color-green)", fontWeight: 700, fontSize: 18 }}>✓</span>
-                                <span>15-minute personalized demo for your property</span>
+                                <span>Stop losing leads to slow response times</span>
                             </li>
-                            <li style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                            <li style={{ display: "flex", gap: 10, alignItems: "flex-start", marginBottom: 16 }}>
                                 <span style={{ color: "var(--color-green)", fontWeight: 700, fontSize: 18 }}>✓</span>
-                                <span>We&apos;ll estimate your monthly revenue recovery</span>
+                                <span>Automate responses on WhatsApp & Email</span>
                             </li>
-                            <li style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                            <li style={{ display: "flex", gap: 10, alignItems: "flex-start", marginBottom: 16 }}>
                                 <span style={{ color: "var(--color-green)", fontWeight: 700, fontSize: 18 }}>✓</span>
-                                <span>Learn how you can be live in 48 hours</span>
-                            </li>
-                            <li style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
-                                <span style={{ color: "var(--color-green)", fontWeight: 700, fontSize: 18 }}>✓</span>
-                                <span>No commitment. No credit card.</span>
+                                <span>Track every dollar of recovered revenue</span>
                             </li>
                         </ul>
-                        <div style={{ marginTop: 40, padding: "16px 20px", background: "var(--color-navy)", borderRadius: 12, color: "white" }}>
-                            <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
-                                <span>🔒 PDPA Compliant</span>
-                                <span style={{ opacity: 0.3 }}>·</span>
-                                <span>🔐 Encrypted</span>
-                                <span style={{ opacity: 0.3 }}>·</span>
-                                <span>🇲🇾 Malaysian-Founded</span>
-                            </div>
+
+                        <div className="trust-badges">
+                            <p className="text-small text-gray-500" style={{ marginBottom: 16 }}>Trusted by revenue leaders in Malaysia</p>
+                            {/* Add logos/social proof here if available */}
                         </div>
                     </div>
 
                     {/* Right - Form */}
-                    <div className="card" style={{ padding: 32 }}>
-                        {/* <h3 style={{ marginBottom: 24 }}>Book Your Free Demo</h3> */}
-                        {/* HubSpot Meeting Embed */}
-                        <HubSpotMeeting />
+                    <div>
+                        <LeadForm onSuccess={() => setIsModalOpen(true)} />
                     </div>
                 </div>
             </div>
+
+            <HubSpotModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+            />
         </section>
     );
 }
