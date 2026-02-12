@@ -11,6 +11,9 @@
     z-index: 1000;
     padding: 16px 0;
     transition: background var(--transition-base), box-shadow var(--transition-base), padding var(--transition-base);
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .navbar.scrolled {
