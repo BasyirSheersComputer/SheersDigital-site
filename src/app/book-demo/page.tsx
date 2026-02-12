@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { LeadForm } from "@/components/LeadForm";
+import { HubSpotLeadForm } from "@/components/HubSpotLeadForm";
 import { HubSpotModal } from "@/components/HubSpotModal";
 
 export default function BookDemoPage() {
@@ -41,7 +41,7 @@ export default function BookDemoPage() {
 
                     {/* Right - Form */}
                     <div>
-                        <LeadForm onSuccess={() => setIsModalOpen(true)} />
+                        <HubSpotLeadForm onFormSubmit={() => setIsModalOpen(true)} />
                     </div>
                 </div>
             </div>
