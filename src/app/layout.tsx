@@ -102,7 +102,7 @@ function Navbar() {
         </div>
 
         <a href="/book-demo" className="btn btn-primary navbar-cta hide-mobile">
-          Book a Demo →
+          Start Free Pilot →
         </a>
 
         <button

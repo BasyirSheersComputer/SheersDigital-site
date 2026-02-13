@@ -49,7 +49,7 @@ export default function FeaturesPage() {
                                 </li>
                                 <li style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
                                     <span style={{ color: "var(--color-green)", fontWeight: 700 }}>✓</span>
-                                    <span>Bilingual: English and Bahasa Malaysia</span>
+                                    <span>Optimized for English with basic Malay comprehension</span>
                                 </li>
                             </ul>
                         </div>
@@ -163,6 +163,39 @@ export default function FeaturesPage() {
                 </div>
             </section>
 
+            {/* Lead Management Lifecycle */}
+            <section className="section section-white">
+                <div className="container" style={{ textAlign: "center" }}>
+                    <span className="eyebrow">CLOSE THE LOOP</span>
+                    <h2 style={{ marginTop: 12 }}>From Inquiry to Booking</h2>
+                    <p style={{ color: "var(--color-gray-600)", maxWidth: 640, margin: "16px auto 32px", lineHeight: 1.7 }}>
+                        Every lead is tracked from first message to confirmed booking. Your sales team can export leads,
+                        follow up during office hours, and mark outcomes — so you always know what converted.
+                    </p>
+                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 16, flexWrap: "wrap", maxWidth: 800, margin: "0 auto" }}>
+                        <div className="card" style={{ padding: "16px 24px", textAlign: "center", flex: 1, minWidth: 140 }}>
+                            <div style={{ fontSize: 24, marginBottom: 8 }}>📩</div>
+                            <div style={{ fontWeight: 600 }}>Inquiry</div>
+                        </div>
+                        <div style={{ color: "var(--color-gray-400)", fontSize: 20 }}>→</div>
+                        <div className="card" style={{ padding: "16px 24px", textAlign: "center", flex: 1, minWidth: 140, borderColor: "var(--color-green)", background: "rgba(34, 197, 94, 0.05)" }}>
+                            <div style={{ fontSize: 24, marginBottom: 8 }}>✅</div>
+                            <div style={{ fontWeight: 600, color: "var(--color-green)" }}>Lead Captured</div>
+                        </div>
+                        <div style={{ color: "var(--color-gray-400)", fontSize: 20 }}>→</div>
+                        <div className="card" style={{ padding: "16px 24px", textAlign: "center", flex: 1, minWidth: 140 }}>
+                            <div style={{ fontSize: 24, marginBottom: 8 }}>📞</div>
+                            <div style={{ fontWeight: 600 }}>Follow-Up</div>
+                        </div>
+                        <div style={{ color: "var(--color-gray-400)", fontSize: 20 }}>→</div>
+                        <div className="card" style={{ padding: "16px 24px", textAlign: "center", flex: 1, minWidth: 140 }}>
+                            <div style={{ fontSize: 24, marginBottom: 8 }}>🎉</div>
+                            <div style={{ fontWeight: 600 }}>Converted</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* After-Hours Recovery */}
             <section className="section section-white">
                 <div className="container" style={{ textAlign: "center" }}>
@@ -210,8 +243,8 @@ export default function FeaturesPage() {
                         <div style={{ display: "flex", alignItems: "center", fontSize: 24 }}>→</div>
                         <div className="card" style={{ flex: 1, minWidth: 180, textAlign: "center", borderColor: "var(--color-amber)" }}>
                             <div style={{ fontSize: 32 }}>🔄</div>
-                            <div style={{ fontWeight: 700, marginTop: 8 }}>Detects Complexity</div>
-                            <p style={{ fontSize: 13, color: "var(--color-gray-500)", marginTop: 4 }}>Group bookings, complaints, special requests, negotiations</p>
+                            <div style={{ fontWeight: 700, marginTop: 8 }}>Needs Human Attention</div>
+                            <p style={{ fontSize: 13, color: "var(--color-gray-500)", marginTop: 4 }}>Complex requests that require your team&apos;s personal touch</p>
                         </div>
                         <div style={{ display: "flex", alignItems: "center", fontSize: 24 }}>→</div>
                         <div className="card" style={{ flex: 1, minWidth: 180, textAlign: "center" }}>

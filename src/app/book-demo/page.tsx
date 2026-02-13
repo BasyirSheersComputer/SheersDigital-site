@@ -14,11 +14,11 @@ export default function BookDemoPage() {
                     {/* Left - Value */}
                     <div style={{ paddingTop: 40 }}>
                         <h1 style={{ fontSize: "2.5rem", lineHeight: 1.2, marginBottom: "1rem" }}>
-                            Your Front Desk Closes at 10 PM. <br />
-                            <span style={{ color: "var(--color-green)" }}>The Internet Doesn&apos;t.</span>
+                            Start Your Free <br />
+                            <span style={{ color: "var(--color-green)" }}>30-Day Pilot</span>
                         </h1>
                         <p className="text-large text-gray-600" style={{ marginBottom: 32, fontSize: "1.125rem" }}>
-                            Hotels running Nocturn AI see a <strong>15-20% increase in direct bookings</strong> within 30 days. Here is what happens when you plug the leak:
+                            See the revenue recovery in action. No credit card required. Live in 48 hours.
                         </p>
 
                         <ul className="check-list" style={{ marginBottom: 40, listStyle: "none", padding: 0 }}>

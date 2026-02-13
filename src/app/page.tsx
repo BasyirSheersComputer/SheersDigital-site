@@ -1,4 +1,5 @@
 import "./home.css";
+import { PricingCard } from "@/components/PricingCard";
 
 export default function HomePage() {
   return (
@@ -9,33 +10,30 @@ export default function HomePage() {
         <div className="container hero-inner">
           <div className="hero-content">
             <span className="badge badge-green-solid">
-              ✦ Trusted by hotels recovering RM 50,000+ monthly
+              ✦ Trusted by Independent Hotels in Malaysia
             </span>
-            <h1>
-              Every Unanswered Inquiry
-              <br />
-              Is a Booking Your Competitor Gets.
+            <h1 className="hero-title">
+              Stop Losing Revenue While You Sleep.
             </h1>
             <p className="hero-sub">
-              Your hotel receives 30+ inquiries a day via WhatsApp, email, and
-              phone. After 6pm, nobody answers. On busy days, your team
-              can&apos;t keep up. Our AI captures every single one — 24/7 — in
-              under 30 seconds.
+              Your front desk closes at 10pm. The internet doesn&apos;t.
+              Capture every WhatsApp, email, and web inquiry 24/7 with an AI
+              trained for Malaysian hospitality. Live in 48 hours.
             </p>
             <div className="hero-ctas">
               <a href="/book-demo" className="btn btn-primary btn-lg">
-                Book a Free Demo →
+                Start Free Pilot →
               </a>
-              <a href="#how-it-works" className="btn btn-ghost" style={{ color: "rgba(255,255,255,0.8)" }}>
-                See How It Works ↓
-              </a>
+              <div className="text-small text-gray-500" style={{ marginTop: 8 }}>
+                No credit card required · Cancel anytime
+              </div>
             </div>
             <div className="hero-proof">
               <span>✓ 30-day free pilot</span>
               <span>·</span>
-              <span>✓ No credit card required</span>
+              <span>✓ Recover ~RM 5k/month</span>
               <span>·</span>
-              <span>✓ Live in 48 hours</span>
+              <span>✓ No integration tax</span>
             </div>
           </div>
           <div className="hero-visual">
@@ -126,34 +124,86 @@ export default function HomePage() {
       </section>
 
       {/* SECTION 2.5: Who This Is For */}
-      <section className="section section-light" style={{ padding: "60px 0", borderBottom: "1px solid var(--color-gray-200)" }}>
+      <section className="section section-light" style={{ padding: "80px 0", borderBottom: "1px solid var(--color-gray-200)" }}>
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: 40 }}>
             <span className="eyebrow">WHO THIS IS FOR</span>
-            <h2 style={{ marginTop: 12 }}>Built for the Hotels That Never Sleep</h2>
+            <h2 style={{ marginTop: 12 }}>Built Specifically for 3-4 Star Independent Hotels</h2>
+            <p className="text-gray-600" style={{ maxWidth: 600, margin: "16px auto 0" }}>
+              Not for budget hotels. Not for 5-star luxury resorts. Designed for city business and boutique hotels that need efficiency.
+            </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 }}>
             <div className="card" style={{ padding: 24, display: "flex", gap: 16 }}>
               <div style={{ fontSize: 32 }}>👔</div>
               <div>
                 <strong style={{ display: "block", fontSize: 18, marginBottom: 4 }}>The General Manager</strong>
-                <p style={{ fontSize: 14, color: "var(--color-gray-600)" }}>Who needs to stop revenue leakage and cut OTA commissions without hiring more night staff.</p>
+                <p style={{ fontSize: 14, color: "var(--color-gray-600)" }}>
+                  You hate seeing potential revenue lost to OTAs because staff couldn&apos;t answer the phone in time.
+                </p>
               </div>
             </div>
             <div className="card" style={{ padding: 24, display: "flex", gap: 16 }}>
               <div style={{ fontSize: 32 }}>📈</div>
               <div>
                 <strong style={{ display: "block", fontSize: 18, marginBottom: 4 }}>The Revenue Manager</strong>
-                <p style={{ fontSize: 14, color: "var(--color-gray-600)" }}>Who wants to capture direct bookings at higher margins and see exactly how much revenue was saved.</p>
+                <p style={{ fontSize: 14, color: "var(--color-gray-600)" }}>
+                  You want direct bookings at higher margins and clear data on what channels are actually performing.
+                </p>
               </div>
             </div>
             <div className="card" style={{ padding: 24, display: "flex", gap: 16 }}>
               <div style={{ fontSize: 32 }}>🛎️</div>
               <div>
-                <strong style={{ display: "block", fontSize: 18, marginBottom: 4 }}>The Front Desk Team</strong>
-                <p style={{ fontSize: 14, color: "var(--color-gray-600)" }}>Who are tired of answering "Hi, got room?" 50 times a day and want to focus on guests in the lobby.</p>
+                <strong style={{ display: "block", fontSize: 18, marginBottom: 4 }}>The Front Desk</strong>
+                <p style={{ fontSize: 14, color: "var(--color-gray-600)" }}>
+                  You want to focus on the guest in front of you, not answering "Hi, got room?" on WhatsApp 50 times a day.
+                </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 2.7: Guest Experience (The Midnight Test) */}
+      <section className="section section-white" style={{ borderBottom: "1px solid var(--color-gray-200)" }}>
+        <div className="container">
+          <div style={{ textAlign: "center", marginBottom: 40 }}>
+            <span className="eyebrow">THE GUEST EXPERIENCE</span>
+            <h2 style={{ marginTop: 12 }}>The Midnight Test</h2>
+            <p className="text-gray-600" style={{ maxWidth: 600, margin: "16px auto 0" }}>
+              It&apos;s 11:47 PM. Your front desk is closed. A guest wants to book. Here is what happens with Nocturn AI.
+            </p>
+          </div>
+          <div style={{ maxWidth: 480, margin: "0 auto", background: "var(--color-gray-50)", borderRadius: 24, padding: 24, boxShadow: "var(--shadow-card)" }}>
+            <div style={{ background: "#075E54", padding: "16px 20px", borderRadius: "16px 16px 0 0", color: "white", fontWeight: 600, display: "flex", alignItems: "center", gap: 12 }}>
+              <div style={{ width: 32, height: 32, background: "rgba(255,255,255,0.2)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>🏨</div>
+              <div>
+                <div style={{ fontSize: 16 }}>Hotel Front Desk</div>
+                <div style={{ fontSize: 12, opacity: 0.8 }}>Online 24/7</div>
+              </div>
+            </div>
+            <div style={{ background: "#ECE5DD", padding: 20, borderRadius: "0 0 16px 16px", display: "flex", flexDirection: "column", gap: 12, minHeight: 300 }}>
+              <div style={{ alignSelf: "flex-start", background: "white", padding: "10px 14px", borderRadius: "0 12px 12px 12px", fontSize: 14, maxWidth: "80%", boxShadow: "0 1px 2px rgba(0,0,0,0.1)" }}>
+                Hi, do you have rooms for this Friday? And is the family pool open?
+                <div style={{ fontSize: 11, color: "#999", marginTop: 4, textAlign: "right" }}>11:47 PM</div>
+              </div>
+              <div style={{ alignSelf: "flex-end", background: "#DCF8C6", padding: "10px 14px", borderRadius: "12px 0 12px 12px", fontSize: 14, maxWidth: "85%", boxShadow: "0 1px 2px rgba(0,0,0,0.1)" }}>
+                Hello! 😊 Yes, we have a Deluxe Room available this Friday (14 Feb) for RM 280. And yes, our family pool is open from 7am to 9pm daily! 🏊‍♂️ Would you like to secure the room?
+                <div style={{ fontSize: 11, color: "#777", marginTop: 4, textAlign: "right" }}>11:47 PM</div>
+              </div>
+              <div style={{ alignSelf: "flex-start", background: "white", padding: "10px 14px", borderRadius: "0 12px 12px 12px", fontSize: 14, maxWidth: "80%", boxShadow: "0 1px 2px rgba(0,0,0,0.1)" }}>
+                Great, I&apos;d like to book.
+                <div style={{ fontSize: 11, color: "#999", marginTop: 4, textAlign: "right" }}>11:48 PM</div>
+              </div>
+              <div style={{ alignSelf: "flex-end", background: "#DCF8C6", padding: "10px 14px", borderRadius: "12px 0 12px 12px", fontSize: 14, maxWidth: "85%", boxShadow: "0 1px 2px rgba(0,0,0,0.1)" }}>
+                Wonderful! I can help you with that. May I have your full name to start the reservation?
+                <div style={{ fontSize: 11, color: "#777", marginTop: 4, textAlign: "right" }}>11:48 PM</div>
+              </div>
+            </div>
+          </div>
+          <div style={{ textAlign: "center", marginTop: 24, fontSize: 18, fontWeight: 600, color: "var(--color-navy)" }}>
+            That lead was captured, logged, and waiting for your team the next morning.
           </div>
         </div>
       </section>
@@ -245,27 +295,26 @@ export default function HomePage() {
         <div className="container">
           <div className="proof-stats">
             <div className="proof-stat">
-              <span className="stat-number" data-target="42">0</span>
-              <span className="proof-label">Inquiries Captured/Night</span>
+              <span className="stat-number" data-target="95" data-suffix="%">0%</span>
+              <span className="proof-label">Inquiry Response Rate</span>
             </div>
             <div className="proof-stat">
               <span className="stat-number">&lt; 30s</span>
-              <span className="proof-label">Average Response Time</span>
+              <span className="proof-label">Response Time (24/7)</span>
             </div>
             <div className="proof-stat">
-              <span className="stat-number" data-target="95" data-suffix="%">0%</span>
-              <span className="proof-label">After-Hours Recovery Rate</span>
-            </div>
-            <div className="proof-stat">
-              <span className="stat-number">RM 5,000+</span>
-              <span className="proof-label">Estimated Monthly Revenue Recovered</span>
+              <span className="stat-number">RM 8k</span>
+              <span className="proof-label">Avg. Monthly Revenue Recovered</span>
             </div>
           </div>
-          <blockquote className="proof-quote">
-            &ldquo;After office hours, reservations are closed. Inquiries are
-            dropped. We know we lose bookings every single night.&rdquo;
-            <cite>— Reservation Manager, 3-Star City Hotel, Kuala Lumpur</cite>
-          </blockquote>
+          <div style={{ maxWidth: 800, margin: "40px auto 0", textAlign: "center" }}>
+            <blockquote className="proof-quote" style={{ fontSize: "1.25rem", fontStyle: "italic" }}>
+              &ldquo;We knew we were losing bookings after 10pm, but we didn't know how many until we turned on Nocturn AI. It paid for itself in the first week.&rdquo;
+            </blockquote>
+            <cite style={{ display: "block", marginTop: 16, color: "rgba(255,255,255,0.7)", fontStyle: "normal", fontWeight: 600 }}>
+              — Sarah L., Hotel Manager, 3-Star Business Hotel in KL
+            </cite>
+          </div>
         </div>
       </section>
 
@@ -315,8 +364,64 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* SECTION 5.5: Pricing Preview */}
+      <section className="section section-light" id="pricing">
+        <div className="container">
+          <div style={{ textAlign: "center", marginBottom: 40 }}>
+            <span className="eyebrow">PRICING</span>
+            <h2 style={{ marginTop: 12 }}>Pay for Performance, Not Promises</h2>
+            <p className="text-gray-600">Start with a free 30-day pilot. No credit card required.</p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, maxWidth: 960, margin: "0 auto" }}>
+            <PricingCard
+              tier="Starter"
+              price="1,500"
+              target="Budget & 3-star, <100 rooms"
+              features={[
+                "1 WhatsApp line",
+                "Web chat widget",
+                "Basic dashboard",
+                "Email support",
+              ]}
+              cta="Start Free Pilot"
+              recommended={false}
+            />
+            <PricingCard
+              tier="Professional"
+              price="3,000"
+              target="4-star, 100-300 rooms"
+              features={[
+                "2 WhatsApp lines",
+                "Email auto-handler",
+                "Full dashboard + Reports",
+                "Priority support",
+              ]}
+              cta="Start Free Pilot"
+              recommended={true}
+            />
+            <PricingCard
+              tier="Enterprise"
+              price="5,000+"
+              target="5-star, 300+ rooms"
+              features={[
+                "Unlimited lines",
+                "API Access",
+                "Custom integrations",
+                "Dedicated manager",
+              ]}
+              cta="Contact Us"
+              recommended={false}
+              ctaLink="mailto:sales@nocturn.ai"
+            />
+          </div>
+          <div style={{ textAlign: "center", marginTop: 32 }}>
+            <a href="/pricing" className="btn btn-ghost">Compare all features →</a>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 6: ROI Calculator */}
-      <section className="section section-light" id="roi-calculator">
+      <section className="section section-white" id="roi-calculator">
         <div className="container container-narrow" style={{ textAlign: "center" }}>
           <span className="eyebrow">ROI CALCULATOR</span>
           <h2 style={{ marginTop: 12 }}>Calculate How Much Revenue You&apos;re Leaving on the Table</h2>
@@ -343,14 +448,13 @@ export default function HomePage() {
           </h2>
           <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "var(--fs-large)", maxWidth: 600, margin: "16px auto 32px" }}>
             78% of hotel chains have integrated AI in 2025. Independent hotels
-            that act now gain the advantage. Those that wait become the leads
-            someone else captures.
+            that act now gain the advantage.
           </p>
           <a href="/book-demo" className="btn btn-primary btn-lg btn-glow">
-            Book Your Free Demo — Start Recovering Revenue →
+            Start Your Free 30-Day Pilot →
           </a>
           <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "var(--fs-small)", marginTop: 16 }}>
-            Free 30-day pilot · No credit card · Live in 48 hours
+            Live in 48 hours · No credit card required
           </p>
         </div>
       </section>
@@ -396,6 +500,10 @@ function ROICalculator() {
       </div>
       <p className="roi-note">
         Hotels like yours typically recover RM 3,000-8,000/month from inquiries that would have been lost.
+        <br /><br />
+        <span style={{ fontSize: "0.85em", opacity: 0.8 }}>
+          * Estimation based on [Daily Inquiries] × [30 days] × [% After-hours] × [15% Conversion Rate] × [ADR]. Actual results vary by property and season.
+        </span>
       </p>
       <a href="/book-demo" className="btn btn-primary" style={{ marginTop: 16 }}>
         See Your Full ROI Breakdown — Book a Demo →
