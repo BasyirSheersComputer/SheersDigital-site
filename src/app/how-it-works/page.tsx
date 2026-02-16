@@ -97,7 +97,7 @@ export default function HowItWorksPage() {
                     <p style={{ color: "rgba(255,255,255,0.6)", marginTop: 12, marginBottom: 32 }}>
                         Your team spends 30 minutes. We handle the rest.
                     </p>
-                    <a href="/book-demo" className="btn btn-primary btn-lg btn-glow">Book Your Free Demo →</a>
+                    <a href="/apply" className="btn btn-primary btn-lg btn-glow">Apply for Founding Cohort →</a>
                     <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "var(--fs-small)", marginTop: 16 }}>
                         Free 30-day pilot · No credit card · Live in 48 hours
                     </p>

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./layout.css";
 import { NavbarClient } from "@/components/NavbarClient";
+import { AnnouncementBar } from "@/components/AnnouncementBar";
+import { WhatsAppFloatingButton } from "@/components/WhatsAppFloatingButton";
 
 export const metadata: Metadata = {
   title: {
@@ -47,11 +49,13 @@ export default function RootLayout({
         <a href="#main-content" className="skip-to-content">
           Skip to content
         </a>
+        <AnnouncementBar />
         <Navbar />
         <NavbarClient />
         <main id="main-content">{children}</main>
         <Footer />
         <MobileCTA />
+        <WhatsAppFloatingButton />
 
         {/* Google Analytics - GA4 */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -93,16 +97,14 @@ function Navbar() {
         </a>
 
         <div className="navbar-links hide-mobile">
-          <a href="/features">Features</a>
           <a href="/how-it-works">How It Works</a>
-          <a href="/pricing">Pricing</a>
-          <a href="/case-studies">Case Studies</a>
+          <a href="/pilot">Pilot Program</a>
           <a href="/about">About</a>
           <a href="/blog">Blog</a>
         </div>
 
-        <a href="/book-demo" className="btn btn-primary navbar-cta hide-mobile">
-          Start Free Pilot →
+        <a href="/apply" className="btn btn-primary navbar-cta hide-mobile">
+          Apply for Pilot →
         </a>
 
         <button
@@ -118,14 +120,13 @@ function Navbar() {
 
       {/* Mobile Menu */}
       <div className="navbar-mobile-menu hide-desktop" id="mobile-menu">
-        <a href="/features">Features</a>
         <a href="/how-it-works">How It Works</a>
-        <a href="/pricing">Pricing</a>
-        <a href="/case-studies">Case Studies</a>
+        <a href="/pilot">Pilot Program</a>
         <a href="/about">About</a>
         <a href="/blog">Blog</a>
-        <a href="/book-demo" className="btn btn-primary" style={{ width: "100%", marginTop: 8 }}>
-          Book a Demo →
+        <div style={{ height: 1, background: "var(--color-gray-200)", margin: "8px 0" }}></div>
+        <a href="/apply" className="btn btn-primary" style={{ width: "100%", marginTop: 8 }}>
+          Apply for Founding Cohort →
         </a>
       </div>
     </nav>
@@ -156,17 +157,15 @@ function Footer() {
 
           <div className="footer-col">
             <h4>Product</h4>
-            <a href="/features">Features</a>
             <a href="/how-it-works">How It Works</a>
-            <a href="/pricing">Pricing</a>
-            <a href="/case-studies">Case Studies</a>
+            <a href="/pilot">Pilot Program</a>
+            <a href="/apply">Apply</a>
           </div>
 
           <div className="footer-col">
             <h4>Company</h4>
-            <a href="/about">About Us</a>
+            <a href="/about">About</a>
             <a href="/blog">Blog</a>
-            <a href="/book-demo">Book a Demo</a>
           </div>
 
           <div className="footer-col">
@@ -194,8 +193,8 @@ function Footer() {
 function MobileCTA() {
   return (
     <div className="mobile-cta hide-desktop">
-      <a href="/book-demo" className="btn btn-primary" style={{ width: "100%", borderRadius: 0 }}>
-        Book a Free Demo →
+      <a href="/apply" className="btn btn-primary" style={{ width: "100%", borderRadius: 0 }}>
+        Apply for Founding Cohort →
       </a>
     </div>
   );
