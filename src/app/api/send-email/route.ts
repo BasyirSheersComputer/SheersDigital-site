@@ -6,7 +6,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        const { name, role, propertyName, city, roomCount, inquiryChannels, email, whatsapp, frustration } = body;
+        const { name, role, propertyName, city, roomCount, starRating, inquiryChannels, dailyInquiries, email, whatsapp, frustration } = body;
 
         // Validate required fields
         if (!name || !email || !whatsapp) {
@@ -24,7 +24,9 @@ export async function POST(request: Request) {
         <p><strong>Property:</strong> ${propertyName}</p>
         <p><strong>City:</strong> ${city}</p>
         <p><strong>Rooms:</strong> ${roomCount}</p>
+        <p><strong>Star Rating:</strong> ${starRating}</p>
         <p><strong>Channels:</strong> ${inquiryChannels?.join(', ') || 'None'}</p>
+        <p><strong>Daily Inquiries:</strong> ${dailyInquiries}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>WhatsApp:</strong> ${whatsapp}</p>
         <p><strong>Frustration:</strong> ${frustration || 'N/A'}</p>
@@ -34,6 +36,23 @@ export async function POST(request: Request) {
         if (error) {
             console.error('Resend error:', error);
             return NextResponse.json({ error: error.message }, { status: 500 });
+        }
+
+        // Optional: Trigger WhatsApp notification via webhook (Make/Zapier)
+        if (process.env.WHATSAPP_WEBHOOK_URL) {
+            try {
+                await fetch(process.env.WHATSAPP_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        text: `New Application: ${name} (${role}) from ${propertyName}. ${roomCount} rooms, ${starRating}. Channels: ${inquiryChannels?.join(', ')}. Daily Inquiries: ${dailyInquiries}. Email: ${email}. WhatsApp: ${whatsapp}.`,
+                        data: body
+                    }),
+                });
+            } catch (webhookError) {
+                console.error('Webhook error:', webhookError);
+                // Don't fail the entire request if webhook fails
+            }
         }
 
         return NextResponse.json({ success: true, data });

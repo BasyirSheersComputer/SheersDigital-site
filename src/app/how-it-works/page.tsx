@@ -13,11 +13,12 @@ export default function HowItWorksPage() {
             <section className="section-dark" style={{ padding: "140px 0 80px" }}>
                 <div className="container" style={{ textAlign: "center" }}>
                     <span className="eyebrow">HOW IT WORKS</span>
-                    <h1 style={{ color: "white", marginTop: 12, maxWidth: 600, margin: "12px auto 0" }}>
-                        From Signup to Live in 48 Hours
+                    <h1 style={{ color: "white", marginTop: 12, maxWidth: 800, margin: "12px auto 0" }}>
+                        From First Call to Live in 48 Hours.<br />
+                        From Live to Proving ROI in 7 Days.
                     </h1>
-                    <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "var(--fs-large)", maxWidth: 520, margin: "20px auto 0" }}>
-                        No complex integrations. No IT team required. Just share your property info and we handle the rest.
+                    <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "var(--fs-large)", maxWidth: 640, margin: "20px auto 0" }}>
+                        No complex integrations. No IT team required. No system replacement. Your team spends a total of 45 minutes. We handle everything else.
                     </p>
                 </div>
             </section>
@@ -30,34 +31,62 @@ export default function HowItWorksPage() {
                         <div style={{ position: "absolute", left: 18, top: 0, bottom: 0, width: 2, background: "var(--color-gray-200)" }} aria-hidden="true"></div>
 
                         <TimelineStep day="Day 0" title="Discovery Call" time="15 minutes" color="#22C55E">
-                            We hop on a quick call to understand your property — room types, rates, common guest questions.
-                            You share your FAQ sheet and rate card. That&apos;s all we need from you.
+                            We hop on a quick call to understand your property — room types, rates, common guest questions, and your team's current workflow. You share your rate card and FAQ sheet. That's all we need from you.
                         </TimelineStep>
 
                         <TimelineStep day="Day 1" title="We Build Your Knowledge Base" time="We handle this" color="#3B82F6">
-                            Our team ingests your property information and builds a custom AI knowledge base — rates, room types,
-                            facilities, directions, policies, FAQs. Tested and verified before going live.
+                            Our team ingests your property information and builds a custom AI knowledge base — rates, room types, facilities, policies, FAQs. Tested and verified before going live. The AI will never share information you haven't approved.
                         </TimelineStep>
 
-                        <TimelineStep day="Day 1" title="Connect Your Channels" time="30 minutes" color="#8B5CF6">
-                            Link your WhatsApp Business number. Drop one script tag on your website. Forward your reservation email.
-                            Three connections, and you&apos;re live across every channel.
+                        <TimelineStep day="Day 1-2" title="Connect Your Channels" time="30 minutes from you" color="#8B5CF6">
+                            Link your WhatsApp Business number. Drop one script tag on your website. Forward your reservation email. Three connections. No Opera integration. No PMS changes. No server installations.
                         </TimelineStep>
 
                         <TimelineStep day="Day 2" title="You're Live" time="Zero effort from you" color="#22C55E">
-                            Nocturn AI starts handling real inquiries. Your team can monitor conversations in the dashboard
-                            and take over any time. The AI learns and improves from every interaction.
+                            Nocturn AI starts handling real inquiries. Every inquiry is captured with guest name, contact, channel, intent, timestamp, and full conversation thread. Your staff can take over any conversation at any time.
                         </TimelineStep>
 
-                        <TimelineStep day="Day 7" title="First Weekly Report" time="Delivered to your inbox" color="#F59E0B">
-                            Your GM receives the first weekly report: total inquiries handled, leads captured,
-                            after-hours recovery rate, estimated revenue saved. The value is visible.
+                        <TimelineStep day="Day 3" title="First Morning Report" time="2 minutes to read" color="#F59E0B">
+                            Your GM receives the first daily email report: inquiries received last night, leads captured, average response time, channels breakdown. Proof of value, delivered daily.
+                        </TimelineStep>
+
+                        <TimelineStep day="Day 7" title="First Weekly Review" time="15-minute call with us" color="#3B82F6">
+                            We hop on a quick call to review the first week: what's working well, what needs tuning, and any new guest questions to add to the knowledge base.
                         </TimelineStep>
 
                         <TimelineStep day="Day 30" title="Full ROI Review" time="Your decision" color="#22C55E" isLast>
-                            After 30 days, you have hard data. Inquiries captured, leads recovered, revenue estimated.
-                            If the numbers speak for themselves, you continue. If not, you walk away — no contracts, no obligations.
+                            After 30 days, you have hard data: total inquiries captured, after-hours recovery rate, leads generated, and estimated revenue impact. If the numbers speak for themselves, we discuss continuing. If they don't, you walk away — no contracts, no obligations.
                         </TimelineStep>
+                    </div>
+                </div>
+            </section>
+
+            {/* What Your Team Experiences */}
+            <section className="section section-light">
+                <div className="container" style={{ maxWidth: 900, margin: "0 auto" }}>
+                    <h2 style={{ textAlign: "center", marginBottom: 48 }}>What Your Team Actually Does (And What They Don&apos;t)</h2>
+                    <div className="grid-2-cols" style={{ gap: 40 }}>
+                        <div className="card" style={{ height: "100%" }}>
+                            <h3 style={{ color: "var(--color-green)", fontSize: 20, marginBottom: 24, paddingBottom: 16, borderBottom: "1px solid var(--color-gray-100)" }}>YOUR TEAM DOES:</h3>
+                            <ul style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                                <CheckItem text="Share property info (30 min, one time)" />
+                                <CheckItem text="Review the morning report (2 min/day)" />
+                                <CheckItem text="Take over complex conversations when AI hands off" />
+                                <CheckItem text="Give feedback during weekly reviews" />
+                                <CheckItem text="Close the bookings that Nocturn captures" />
+                            </ul>
+                        </div>
+                        <div className="card" style={{ height: "100%", background: "var(--color-gray-50)" }}>
+                            <h3 style={{ color: "var(--color-red)", fontSize: 20, marginBottom: 24, paddingBottom: 16, borderBottom: "1px solid var(--color-gray-200)" }}>YOUR TEAM DOESN&apos;T:</h3>
+                            <ul style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                                <CrossItem text="Install any software" />
+                                <CrossItem text="Learn a new system" />
+                                <CrossItem text="Change their existing workflow" />
+                                <CrossItem text="Integrate with Opera or PMS" />
+                                <CrossItem text="Manage any technical setup" />
+                                <CrossItem text="Stay late answering after-hours inquiries" />
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -85,7 +114,7 @@ export default function HowItWorksPage() {
                         ▶
                     </div>
                     <p style={{ color: "var(--color-gray-400)", fontSize: "var(--fs-small)", marginTop: 12 }}>
-                        Demo video coming soon
+                        We&apos;ll walk you through a live demo during your application call.
                     </p>
                 </div>
             </section>
@@ -135,5 +164,23 @@ function TimelineStep({ day, title, time, color, children, isLast = false }: {
                 {children}
             </p>
         </div>
+    );
+}
+
+function CheckItem({ text }: { text: string }) {
+    return (
+        <li style={{ display: "flex", gap: 12, fontSize: 15, color: "var(--color-gray-700)" }}>
+            <span style={{ color: "var(--color-green)", fontWeight: 700 }}>✓</span>
+            <span>{text}</span>
+        </li>
+    );
+}
+
+function CrossItem({ text }: { text: string }) {
+    return (
+        <li style={{ display: "flex", gap: 12, fontSize: 15, color: "var(--color-gray-500)" }}>
+            <span style={{ color: "var(--color-red)", fontWeight: 700 }}>✗</span>
+            <span>{text}</span>
+        </li>
     );
 }

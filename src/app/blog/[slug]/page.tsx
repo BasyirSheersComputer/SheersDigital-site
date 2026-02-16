@@ -9,14 +9,14 @@ export default function BlogArticlePage({ params }: { params: Promise<{ slug: st
                 <h1>Article Coming Soon</h1>
                 <p style={{ color: "var(--color-gray-600)", marginTop: 16, lineHeight: 1.7 }}>
                     This article is currently being written by our hospitality technology team.
-                    Subscribe to our updates by booking a demo and we&apos;ll notify you when new content is published.
+                    Apply for our Founding Cohort and we&apos;ll notify you when new content is published.
                 </p>
                 <div style={{ marginTop: 32, padding: 24, background: "var(--color-gray-50)", borderRadius: 12 }}>
                     <h3>While you wait...</h3>
                     <p style={{ fontSize: 14, color: "var(--color-gray-600)", marginTop: 8 }}>
                         Want to see how Nocturn AI can help your hotel capture more revenue?
                     </p>
-                    <a href="/book-demo" className="btn btn-primary" style={{ marginTop: 16 }}>Book a Free Demo →</a>
+                    <a href="/apply" className="btn btn-primary" style={{ marginTop: 16 }}>Apply for Founding Cohort →</a>
                 </div>
             </div>
         </section>

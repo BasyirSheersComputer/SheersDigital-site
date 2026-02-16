@@ -504,3 +504,25 @@ textarea:focus-visible {
     gap: var(--gap-lg) !important;
   }
 }
+
+/* Apply Page Grid */
+.apply-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+
+@media (max-width: 768px) {
+  .apply-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* Hide Next.js Dev Overlay */
+body>[data-nextjs-dialog-overlay],
+#nextjs-dev-tools-overlay,
+.nextjs-toast-errors-parent,
+nextjs-portal {
+  display: none !important;
+}

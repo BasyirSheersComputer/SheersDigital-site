@@ -12,6 +12,7 @@ Nocturn AI is an automated lead capture and engagement system designed specifica
 - **Revenue Recovery**: Tracks and proves revenue recovered from after-hours inquiries.
 - **Seamless Handoff**: Intelligently transfers complex queries to human staff with full context.
 - **PDPA Compliant**: Secure, encrypted, and built with privacy in mind.
+- **Founding Cohort Program**: A limited-availability pilot program for 5 Malaysian hotels to shape the product with direct founder access and preferential pricing.
 
 ## Tech Stack
 

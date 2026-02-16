@@ -394,10 +394,11 @@ export default function HomePage() {
             <div className="step-card">
               <div className="step-number">1</div>
               <div className="step-icon">📄</div>
-              <h3>Deep-Dive Knowledge Transfer (Day 1)</h3>
+              <h3>We Learn Your Property</h3>
               <p>
-                We sit with your team for 60 minutes to extract your SOPs, rate cards, and tone of voice. We build your AI knowledge base immediately.
+                Share your rates, room types, facilities, and FAQs. We build your property-specific AI knowledge base — not a generic chatbot. Your property info, your tone, your language.
               </p>
+              <div style={{ marginTop: 16, color: "var(--color-green)", fontWeight: 600, fontSize: 14 }}>Your time: 30 minutes.</div>
             </div>
             <div className="step-connector hide-mobile" aria-hidden="true">
               <svg width="60" height="2" viewBox="0 0 60 2"><line x1="0" y1="1" x2="60" y2="1" stroke="#CBD5E1" strokeWidth="2" strokeDasharray="6 4" /></svg>
@@ -405,22 +406,27 @@ export default function HomePage() {
             <div className="step-card">
               <div className="step-number">2</div>
               <div className="step-icon">🔗</div>
-              <h3>Integration & Training (Day 2)</h3>
+              <h3>Connect Your Channels</h3>
               <p>
-                We connect your WhatsApp Business API and install the web widget. We brief your front desk on how to handle "AI Handoffs."
+                Link your WhatsApp Business number. Drop one script tag on your website. Forward your reservation email. Three connections. No IT project. No Opera integration needed.
               </p>
+              <div style={{ marginTop: 16, color: "var(--color-green)", fontWeight: 600, fontSize: 14 }}>Your time: 15 minutes.</div>
             </div>
             <div className="step-connector hide-mobile" aria-hidden="true">
               <svg width="60" height="2" viewBox="0 0 60 2"><line x1="0" y1="1" x2="60" y2="1" stroke="#CBD5E1" strokeWidth="2" strokeDasharray="6 4" /></svg>
             </div>
             <div className="step-card">
               <div className="step-number">3</div>
-              <div className="step-icon">🚀</div>
-              <h3>Go Live & Revenue Recovery (Day 3)</h3>
+              <div className="step-icon">📊</div>
+              <h3>Watch Revenue Recover</h3>
               <p>
-                We flip the switch. Nocturn AI starts handling inquiries immediately. You get your first "Revenue Recovered" report the next morning.
+                Your GM gets a morning report: inquiries handled last night, leads captured, channels performing. The value is visible from Day 1. Full ROI review at Day 30.
               </p>
+              <div style={{ marginTop: 16, color: "var(--color-green)", fontWeight: 600, fontSize: 14 }}>Your time: 2 minutes every morning.</div>
             </div>
+          </div>
+          <div style={{ textAlign: "center", marginTop: 40 }}>
+            <a href="/how-it-works" className="btn btn-outline">See the Full Setup Timeline →</a>
           </div>
         </div>
       </section >
@@ -431,42 +437,68 @@ export default function HomePage() {
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: 40, position: "relative", zIndex: 1 }}>
             <span className="badge badge-green-solid" style={{ marginBottom: 16 }}>LIMITED AVAILABILITY</span>
-            <h2 style={{ color: "white" }}>The Nocturn AI Founding Cohort</h2>
+            <h2 style={{ color: "white" }}>Be One of the First 5 Hotels to Shape What Comes Next</h2>
             <p className="text-large" style={{ color: "rgba(255,255,255,0.8)", maxWidth: 600, margin: "16px auto 0" }}>
-              We are accepting 5 partners to build the future of hospitality AI with us. This is not a sales purchase; it&apos;s a partnership.
+              We're selecting 5 properties for our Founding Cohort. You get the product for free for 30 days, direct access to our founding team, and the ability to shape Nocturn AI around YOUR operations.
             </p>
           </div>
 
-          <div className="cohort-card" style={{ maxWidth: 800, margin: "0 auto", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 24, padding: "40px", backdropFilter: "blur(10px)", position: "relative" }}>
+          <div className="cohort-card" style={{ maxWidth: 900, margin: "0 auto", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 24, padding: "40px", backdropFilter: "blur(10px)", position: "relative" }}>
             <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: 4, background: "linear-gradient(90deg, #22C55E, #15803d)" }}></div>
 
-            <div className="cohort-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 32 }}>
+            <div className="cohort-grid" style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: 40 }}>
               <div>
                 <h3 style={{ color: "white", fontSize: 20, marginBottom: 24 }}>What You Get As A Founding Partner</h3>
-                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 16 }}>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gridTemplateColumns: "1fr", gap: 16 }}>
                   <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}>
-                    <span style={{ color: "#22C55E" }}>✓</span>
-                    <span><strong>30 Days Free Pilot</strong> — Full access, no limitations. Prove the value before you pay a cent.</span>
+                    <span style={{ color: "#22C55E" }}>✅</span>
+                    <span><strong>Full Nocturn AI Setup</strong> — WhatsApp + Email + Website. We configure everything.</span>
                   </li>
                   <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}>
-                    <span style={{ color: "#22C55E" }}>✓</span>
-                    <span><strong>White-Glove Onboarding</strong> — We do 100% of the setup, scraping, and training. You just hand us the keys.</span>
+                    <span style={{ color: "#22C55E" }}>✅</span>
+                    <span><strong>AI Knowledge Base</strong> — Trained on YOUR property. Your rates, your tone.</span>
                   </li>
                   <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}>
-                    <span style={{ color: "#22C55E" }}>✓</span>
-                    <span><strong>Direct Founder Access</strong> — You have my personal WhatsApp. Your feedback shapes the product roadmap.</span>
+                    <span style={{ color: "#22C55E" }}>✅</span>
+                    <span><strong>48-Hour Installation</strong> — We do the work. No IT project.</span>
                   </li>
                   <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}>
-                    <span style={{ color: "#22C55E" }}>✓</span>
-                    <span><strong>Locked-in Legacy Pricing</strong> — Secure our lowest early-adopter rate for 2 years.</span>
+                    <span style={{ color: "#22C55E" }}>✅</span>
+                    <span><strong>Automated Follow-Up Engine</strong> — 24h, 72h, and 7-day follow-ups configured.</span>
+                  </li>
+                  <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}>
+                    <span style={{ color: "#22C55E" }}>✅</span>
+                    <span><strong>Conversion Tracking Dashboard</strong> — See every inquiry and conversion.</span>
+                  </li>
+                  <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}>
+                    <span style={{ color: "#22C55E" }}>✅</span>
+                    <span><strong>GM Morning Report</strong> — Daily email with leads captured and revenue estimates.</span>
+                  </li>
+                  <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}>
+                    <span style={{ color: "#22C55E" }}>✅</span>
+                    <span><strong>Guest Insight Report (Day 30)</strong> — Keyword analysis of what guests are asking.</span>
+                  </li>
+                  <li style={{ display: "flex", gap: 12, color: "rgba(255,255,255,0.9)" }}>
+                    <span style={{ color: "#22C55E" }}>✅</span>
+                    <span><strong>Direct Founder Access</strong> — WhatsApp line to report bugs or request features.</span>
                   </li>
                 </ul>
+
+                <div style={{ marginTop: 32, padding: 24, border: "2px solid var(--color-green)", borderRadius: 12, background: "rgba(34, 197, 94, 0.05)" }}>
+                  <div style={{ color: "#22C55E", fontWeight: 700, marginBottom: 8, fontSize: 14, letterSpacing: "0.5px" }}>🛡️ THE 30-DAY GUARANTEE</div>
+                  <p style={{ color: "rgba(255,255,255,0.9)", fontSize: 15, lineHeight: 1.6 }}>
+                    Run Nocturn AI for 30 days. If your team doesn't agree that it has measurably improved your inquiry response time and follow-up consistency, you pay nothing. No contracts. No credit card upfront.
+                  </p>
+                </div>
               </div>
-              <div style={{ background: "rgba(255,255,255,0.03)", padding: 24, borderRadius: 16, border: "1px solid rgba(255,255,255,0.05)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }}>
-                <div style={{ fontSize: 48, fontWeight: 700, color: "white", lineHeight: 1 }}>3 <span style={{ fontSize: 24, color: "rgba(255,255,255,0.5)", fontWeight: 400 }}>/ 5</span></div>
-                <div style={{ color: "#22C55E", fontWeight: 600, marginTop: 8, marginBottom: 24 }}>SPOTS CLAIMED</div>
-                <a href="/apply" className="btn btn-primary btn-lg btn-glow" style={{ width: "100%" }}>Apply for Cohort →</a>
-                <p style={{ fontSize: 12, color: "rgba(255,255,255,0.4)", marginTop: 12 }}>Application takes 3 minutes. Qualifying hotels only.</p>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+                <div style={{ background: "rgba(255,255,255,0.03)", padding: 32, borderRadius: 16, border: "1px solid rgba(255,255,255,0.05)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center", flex: 1 }}>
+                  <div style={{ fontSize: 48, fontWeight: 700, color: "white", lineHeight: 1 }}>5</div>
+                  <div style={{ color: "#22C55E", fontWeight: 600, marginTop: 8, marginBottom: 24 }}>SPOTS REMAINING</div>
+                  <a href="/apply" className="btn btn-primary btn-lg btn-glow" style={{ width: "100%" }}>Apply for Cohort →</a>
+                  <p style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", marginTop: 16 }}>Application takes 2 minutes. Qualifying hotels only.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -476,22 +508,29 @@ export default function HomePage() {
       {/* SECTION 9: Founder's Note */}
       < section className="section section-light" >
         <div className="container container-narrow">
+          <span className="eyebrow" style={{ display: "block", textAlign: "center", marginBottom: 16 }}>FROM OUR FOUNDER</span>
           <div style={{ background: "white", padding: "40px", borderRadius: 12, border: "1px solid var(--color-gray-200)", maxWidth: 700, margin: "0 auto", boxShadow: "var(--shadow-card)" }}>
-            <h3 style={{ fontSize: 20, marginBottom: 24 }}>A Note from the Founder</h3>
+            <h3 style={{ fontSize: 24, marginBottom: 24 }}>Why I Built This</h3>
             <p className="text-gray-600" style={{ marginBottom: 16 }}>
-              &quot;I didn&apos;t build this app to sell software. I built it because I saw great independent hotels losing against big chains and OTAs simply because they didn&apos;t have the manpower to answer the phone at 11 PM.
+              I spent the last several months sitting across from Revenue Managers, Reservation Managers, GMs, and consultants who've collectively managed thousands of hotel rooms across Malaysia, Singapore, and the Middle East.
             </p>
             <p className="text-gray-600" style={{ marginBottom: 16 }}>
-              Technology shouldn&apos;t remove the human touch from hospitality. It should protect it. By letting AI handle the repetitive &apos;do you have a room?&apos; questions, your staff can finally focus on the guest standing in front of them.
+              Every single one told me a version of the same story:
+            </p>
+            <p className="text-gray-600" style={{ marginBottom: 16, fontStyle: "italic", borderLeft: "3px solid var(--color-green)", paddingLeft: 16 }}>
+              "We have the demand. We have guests trying to reach us. But between WhatsApp, email, phone calls, and OTA messages — things fall through the cracks. And the tools that promise to fix this are either built for a Western market that doesn't run on WhatsApp, too expensive for our budget, or require a 6-month IT project we don't have bandwidth for."
+            </p>
+            <p className="text-gray-600" style={{ marginBottom: 16 }}>
+              I'm not building another enterprise platform that takes 18 months to implement. I'm building the layer that catches every inquiry your current systems miss — starting with the channels Malaysian hotels actually use.
             </p>
             <p className="text-gray-600" style={{ marginBottom: 24 }}>
-              My promise to the Founding Cohort is simple: We will treat your revenue as if it were our own. If we don&apos;t recover 10x our cost in the first 30 days, you shouldn&apos;t hire us.&quot;
+              Nocturn AI is in its founding stage. I can offer you my direct attention and the ability to shape this product around your property's real needs. That's why there's no contract, no setup fee, and a 30-day prove-it-or-pay-nothing guarantee.
             </p>
-            <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 16, marginTop: 32 }}>
               <div style={{ width: 48, height: 48, background: "var(--color-navy)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontWeight: 700 }}>B</div>
               <div>
-                <div style={{ fontWeight: 700, color: "var(--color-navy)" }}>Basyir</div>
-                <div style={{ fontSize: 14, color: "var(--color-gray-500)" }}>Founder, Nocturn AI</div>
+                <div style={{ fontWeight: 700, color: "var(--color-navy)" }}>Basyir Sheers</div>
+                <div style={{ fontSize: 14, color: "var(--color-gray-500)" }}>Founder, Sheers Software Sdn Bhd</div>
               </div>
             </div>
           </div>
@@ -503,6 +542,9 @@ export default function HomePage() {
         <div className="container container-narrow" style={{ textAlign: "center" }}>
           <span className="eyebrow">ROI CALCULATOR</span>
           <h2 style={{ marginTop: 12 }}>Calculate How Much Revenue You&apos;re Leaving on the Table</h2>
+          <p style={{ color: "var(--color-gray-600)", maxWidth: 600, margin: "16px auto 32px" }}>
+            Hotels like yours typically have RM 3,000-8,000/month in revenue at risk from inquiries that go unanswered or unfollowed. Use this calculator with YOUR numbers.
+          </p>
           <ROICalculator />
         </div>
       </section >
@@ -520,18 +562,18 @@ export default function HomePage() {
         <div className="final-cta-pattern" aria-hidden="true"></div>
         <div className="container" style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
           <h2 style={{ color: "white", fontSize: "clamp(1.75rem, 4vw, 2.75rem)" }}>
-            Your Competitors Are Already Capturing
+            Every Night Your Hotel Isn't Capturing Inquiries,
             <br />
-            the Bookings You&apos;re Missing
+            You're Paying for It in OTA Commissions
           </h2>
           <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "var(--fs-large)", maxWidth: 600, margin: "16px auto 32px" }}>
-            78% of hotel chains have integrated AI in 2025 to lower costs. Independent hotels that act now gain the advantage.
+            The Founding Cohort is open. 30 days free. No commitment.
           </p>
           <a href="/apply" className="btn btn-primary btn-lg btn-glow">
             Apply for Founding Cohort →
           </a>
           <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "var(--fs-small)", marginTop: 16 }}>
-            XX spots remaining · Live in 48 hours
+            5 spots remaining · Live in 48 hours
           </p>
         </div>
       </section >
@@ -558,6 +600,9 @@ function ROICalculator() {
             <span>RM</span>
             <input type="number" id="adr" defaultValue="230" min="50" max="2000" className="roi-number-input" />
           </div>
+          <p style={{ fontSize: "12px", color: "var(--color-gray-400)", marginTop: "4px" }}>
+            (The average ADR for Malaysian 3-4 star hotels is approximately RM 200-280)
+          </p>
         </div>
         <div className="roi-input-group">
           <label htmlFor="after-hours">% of inquiries after office hours:</label>
@@ -576,14 +621,12 @@ function ROICalculator() {
         </div>
       </div>
       <p className="roi-note">
-        Hotels like yours typically recover RM 3,000-8,000/month from inquiries that would have been lost.
-        <br /><br />
         <span style={{ fontSize: "0.85em", opacity: 0.8 }}>
-          * Estimation based on [Daily Inquiries] × [30 days] × [% After-hours] × [15% Conversion Rate] × [ADR]. Actual results vary by property and season.
+          * Estimation based on [Daily Inquiries] × [30 days] × [After-hours %] × [15% industry conversion rate] × [ADR]. Actual results depend on your property type, location, and season. The 30-day pilot will give you your real numbers — not estimates.
         </span>
       </p>
       <a href="/apply" className="btn btn-primary" style={{ marginTop: 16 }}>
-        Apply for Cohort to Verify This Number →
+        Apply for Founding Cohort →
       </a>
     </div>
   );
@@ -593,24 +636,40 @@ function ROICalculator() {
 function FAQSection() {
   const faqs = [
     {
-      q: "Will I need to change my PMS or Booking Engine?",
-      a: "No. Nocturn AI operates independently as a layer on top of your existing systems. We simply capture the inquiry and hand off the booking details to your team (or input it deeply if you choose our Enterprise integration later). No expensive migration required.",
+      q: "Does this replace our PMS or Opera?",
+      a: "No. Nocturn AI operates independently as a layer on top of your existing systems. We capture the inquiry and hand off the booking details to your team. Think of us as the net that catches everything your PMS never sees.",
     },
     {
-      q: "Does it sound like a robot?",
-      a: "Your guests won't know. We train the AI on your specific tone of voice and historical chats. It uses emojis, Malaysian hospitality warmth ('Selamat Datang!'), and understands Manglish/Singlish context.",
+      q: "We already use WhatsApp for everything. How is this different?",
+      a: "Right now, your WhatsApp conversations live on one person's phone. If they're on leave, those conversations are gone. Nocturn AI centralizes every WhatsApp conversation into a team inbox where anyone can see the history. Plus instant AI responses when nobody is available.",
     },
     {
-      q: "What if I don't get results?",
-      a: "You don't pay. That's the Founding Cohort promise. The 30-day pilot is completely free. If we don't prove we recovered at least 10x our cost in revenue, you walk away.",
+      q: "What happens after 6PM when our reservations team goes home?",
+      a: "That's exactly the problem we solve. Between 6PM and 9AM, Nocturn AI responds to every WhatsApp, email, and web inquiry. It captures guest intent, qualifies the lead, and queues it for your morning team.",
     },
     {
-      q: "My staff is not technical. Will this be hard to use?",
-      a: "Zero technical skills required. Your team just keeps using WhatsApp Business and Email exactly as they do now. The only difference is they'll see answers drafting themselves, and leads appearing in a simple list every morning.",
+      q: "Will it sound robotic? My guests expect a personal touch.",
+      a: "Our AI is trained specifically on YOUR property's tone. It responds in the guest's language (English and Bahasa Malaysia), keeps messages warm and concise. When a guest needs a human, it transfers instantly with full context.",
     },
     {
-      q: "Is there a long-term contract?",
-      a: "No. After the pilot, we operate on a month-to-month basis. We believe we should earn your business every single month.",
+      q: "What if the AI gives wrong rate information?",
+      a: "The AI only quotes information from your verified knowledge base. If it's unsure about anything, it says: \"Let me connect you with our reservations team who can confirm the details.\" Safety over speed, always.",
+    },
+    {
+      q: "How long does setup take? Do I need my IT team?",
+      a: "48 hours from your first call to live. We handle the technical setup. Your team spends about 30 minutes sharing property information. No IT project. No server installation.",
+    },
+    {
+      q: "Is our guest data safe? What about PDPA?",
+      a: "All data is encrypted. Each property's data is fully isolated. We comply with Malaysia's PDPA requirements. Your guest data is YOUR data — we never share or sell it.",
+    },
+    {
+      q: "What happens after the 30-day free pilot?",
+      a: "After 30 days, you'll have hard data on revenue recovery. If the numbers speak for themselves, we discuss a simple monthly plan (no lock-in). If they don't, you walk away cost-free.",
+    },
+    {
+      q: "We tried a chatbot before and nobody used it.",
+      a: "Most chatbots only work on your website (<10% of inquiries). Nocturn AI captures the 90% that come through WhatsApp, phone, and email — the channels your guests are already using.",
     },
   ];
 
@@ -668,7 +727,7 @@ function CounterScript() {
   function animateCounter(el) {
     var target = parseInt(el.getAttribute('data-target'));
     var suffix = el.getAttribute('data-suffix') || '';
-    if (!target) return;
+    if (isNaN(target)) return;
     var start = 0;
     var duration = 1500;
     var startTime = null;

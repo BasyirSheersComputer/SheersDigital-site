@@ -31,7 +31,7 @@ export default function PilotPage() {
                     <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
                         <ValueItem
                             title="Full Nocturn AI Platform"
-                            desc="WhatsApp AI responder + Email auto-capture + Website chat widget + Unified inbox + Conversion dashboard. The complete system, not a limited trial."
+                            desc="WhatsApp AI responder + Email auto-capture + Website chat widget + Unified inbox + Conversion dashboard + GM morning report. The complete system, not a limited trial."
                         />
                         <ValueItem
                             title="Custom AI Knowledge Base"
@@ -60,7 +60,7 @@ export default function PilotPage() {
             {/* Guarantee */}
             <section className="section section-light">
                 <div className="container" style={{ maxWidth: 800, margin: "0 auto" }}>
-                    <div style={{ background: "white", padding: 40, borderRadius: 16, border: "2px solid var(--color-navy)", textAlign: "center", boxShadow: "var(--shadow-elevated)" }}>
+                    <div style={{ background: "rgba(34, 197, 94, 0.05)", padding: 40, borderRadius: 16, border: "2px solid var(--color-green)", textAlign: "center", boxShadow: "var(--shadow-elevated)" }}>
                         <h3 style={{ fontSize: 24, marginBottom: 16 }}>THE 30-DAY GUARANTEE</h3>
                         <p style={{ fontSize: 18, marginBottom: 24, lineHeight: 1.6 }}>
                             Run Nocturn AI for 30 full days. Monitor the reports.<br />

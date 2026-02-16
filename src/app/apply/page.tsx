@@ -20,7 +20,9 @@ export default function ApplyPage() {
             propertyName: formData.get("propertyName"),
             city: formData.get("city"),
             roomCount: formData.get("roomCount"),
+            starRating: formData.get("starRating"),
             inquiryChannels: formData.getAll("channels"),
+            dailyInquiries: formData.get("dailyInquiries"),
             email: formData.get("email"),
             whatsapp: formData.get("whatsapp"),
             frustration: formData.get("frustration"),
@@ -52,9 +54,9 @@ export default function ApplyPage() {
         <>
             <section className="section section-white" style={{ minHeight: "100vh", paddingTop: 100 }}>
                 <div className="container">
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64 }}>
+                    <div className="apply-grid">
                         {/* Left Column: Value */}
-                        <div className="hide-mobile">
+                        <div>
                             <h1 style={{ marginBottom: 24 }}>Apply for the Founding Cohort</h1>
                             <p style={{ fontSize: "var(--fs-large)", color: "var(--color-gray-600)", marginBottom: 40 }}>
                                 5 spots. 30 days free. Direct founder access. Your feedback shapes the product.
@@ -85,20 +87,25 @@ export default function ApplyPage() {
                             <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 20 }}>
                                 <InputGroup name="name" label="Your Full Name" type="text" required />
                                 <InputGroup name="role" label="Your Role" type="select" options={["General Manager", "Revenue Manager", "Reservation Manager", "Owner", "Other"]} required />
-                                <InputGroup name="propertyName" label="Hotel/Property Name" type="text" required />
-                                <InputGroup name="city" label="City/Location" type="text" required />
-                                <InputGroup name="roomCount" label="Number of Rooms" type="select" options={["Under 50", "50-100", "100-200", "200-300", "300+"]} required />
+                                <InputGroup name="propertyName" label="Hotel/Property Name" type="text" required placeholder="e.g., Grand Seasons Hotel" />
+                                <InputGroup name="city" label="City/Location" type="text" required placeholder="e.g., Kuala Lumpur" />
+                                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                                    <InputGroup name="roomCount" label="Number of Rooms" type="select" options={["Under 50", "50-100", "100-200", "200-300", "300+"]} required />
+                                    <InputGroup name="starRating" label="Property Star Rating" type="select" options={["2-star / Budget", "3-star", "4-star", "5-star", "Boutique / Unrated"]} required />
+                                </div>
 
                                 <div className="form-group">
-                                    <label style={{ display: "block", marginBottom: 8, fontWeight: 600, fontSize: 14 }}>Primary Inquiry Channels</label>
+                                    <label style={{ display: "block", marginBottom: 8, fontWeight: 600, fontSize: 14 }}>Primary Inquiry Channels (Select all)</label>
                                     <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
-                                        {["WhatsApp", "Phone", "Email", "Website", "Walk-ins"].map(c => (
+                                        {["WhatsApp", "Phone", "Email", "Website", "Walk-ins", "OTA messaging (Booking.com, Agoda extranet)"].map(c => (
                                             <label key={c} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 14 }}>
                                                 <input type="checkbox" name="channels" value={c} /> {c}
                                             </label>
                                         ))}
                                     </div>
                                 </div>
+
+                                <InputGroup name="dailyInquiries" label="Estimated Daily Inquiries" type="select" options={["Under 10", "10-30", "30-50", "50-100", "100+"]} required />
 
                                 <InputGroup name="email" label="Email Address" type="email" required />
                                 <InputGroup name="whatsapp" label="WhatsApp Number" type="tel" required placeholder="+60..." />
