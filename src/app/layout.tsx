@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   },
   description:
     "Stop losing bookings after 6pm. Nocturn AI captures every WhatsApp, web & email inquiry 24/7 and proves revenue recovered. Free 30-day pilot for Malaysian hotels.",
-  metadataBase: new URL("https://nocturn.ai"),
+  metadataBase: new URL("https://sheerssoft.com"),
   openGraph: {
     type: "website",
     locale: "en_MY",
