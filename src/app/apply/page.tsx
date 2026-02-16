@@ -6,16 +6,46 @@ import { useRouter } from "next/navigation";
 export default function ApplyPage() {
     const router = useRouter();
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [errorMsg, setErrorMsg] = useState("");
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setErrorMsg("");
 
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        const formData = new FormData(e.currentTarget);
+        const data = {
+            name: formData.get("name"),
+            role: formData.get("role"),
+            propertyName: formData.get("propertyName"),
+            city: formData.get("city"),
+            roomCount: formData.get("roomCount"),
+            inquiryChannels: formData.getAll("channels"),
+            email: formData.get("email"),
+            whatsapp: formData.get("whatsapp"),
+            frustration: formData.get("frustration"),
+        };
 
-        // Redirect to thank you
-        router.push("/thank-you");
+        try {
+            const res = await fetch("/api/send-email", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            });
+
+            if (!res.ok) {
+                const json = await res.json();
+                throw new Error(json.error || "Failed to submit application");
+            }
+
+            // Redirect to thank you
+            router.push("/thank-you");
+        } catch (err: any) {
+            console.error(err);
+            setErrorMsg(err.message || "Something went wrong. Please try again.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -47,12 +77,17 @@ export default function ApplyPage() {
                         {/* Right Column: Form */}
                         <div style={{ background: "var(--color-gray-50)", padding: 40, borderRadius: 24 }}>
                             <h2 style={{ marginBottom: 24, fontSize: 24 }}>Tell Us About Your Property</h2>
+                            {errorMsg && (
+                                <div style={{ color: "red", background: "#fee2e2", padding: "12px", borderRadius: "8px", marginBottom: "16px", fontSize: "14px" }}>
+                                    {errorMsg}
+                                </div>
+                            )}
                             <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-                                <InputGroup label="Your Full Name" type="text" required />
-                                <InputGroup label="Your Role" type="select" options={["General Manager", "Revenue Manager", "Reservation Manager", "Owner", "Other"]} required />
-                                <InputGroup label="Hotel/Property Name" type="text" required />
-                                <InputGroup label="City/Location" type="text" required />
-                                <InputGroup label="Number of Rooms" type="select" options={["Under 50", "50-100", "100-200", "200-300", "300+"]} required />
+                                <InputGroup name="name" label="Your Full Name" type="text" required />
+                                <InputGroup name="role" label="Your Role" type="select" options={["General Manager", "Revenue Manager", "Reservation Manager", "Owner", "Other"]} required />
+                                <InputGroup name="propertyName" label="Hotel/Property Name" type="text" required />
+                                <InputGroup name="city" label="City/Location" type="text" required />
+                                <InputGroup name="roomCount" label="Number of Rooms" type="select" options={["Under 50", "50-100", "100-200", "200-300", "300+"]} required />
 
                                 <div className="form-group">
                                     <label style={{ display: "block", marginBottom: 8, fontWeight: 600, fontSize: 14 }}>Primary Inquiry Channels</label>
@@ -65,12 +100,12 @@ export default function ApplyPage() {
                                     </div>
                                 </div>
 
-                                <InputGroup label="Email Address" type="email" required />
-                                <InputGroup label="WhatsApp Number" type="tel" required placeholder="+60..." />
+                                <InputGroup name="email" label="Email Address" type="email" required />
+                                <InputGroup name="whatsapp" label="WhatsApp Number" type="tel" required placeholder="+60..." />
 
                                 <div className="form-group">
                                     <label style={{ display: "block", marginBottom: 8, fontWeight: 600, fontSize: 14 }}>Biggest Frustration (Optional)</label>
-                                    <textarea className="input-field" rows={3} style={{ width: "100%", padding: 12, borderRadius: 8, border: "1px solid var(--color-gray-300)" }}></textarea>
+                                    <textarea name="frustration" className="input-field" rows={3} style={{ width: "100%", padding: 12, borderRadius: 8, border: "1px solid var(--color-gray-300)" }}></textarea>
                                 </div>
 
                                 <button
@@ -112,19 +147,20 @@ function TrustItem({ icon, text }: { icon: string; text: string }) {
     );
 }
 
-function InputGroup({ label, type, required = false, options, placeholder }: { label: string; type: string; required?: boolean; options?: string[]; placeholder?: string }) {
+function InputGroup({ name, label, type, required = false, options, placeholder }: { name: string; label: string; type: string; required?: boolean; options?: string[]; placeholder?: string }) {
     return (
         <div className="form-group">
             <label style={{ display: "block", marginBottom: 8, fontWeight: 600, fontSize: 14 }}>
                 {label} {required && <span style={{ color: "red" }}>*</span>}
             </label>
             {type === "select" ? (
-                <select className="input-field" required={required} style={{ width: "100%", padding: 12, borderRadius: 8, border: "1px solid var(--color-gray-300)" }}>
+                <select name={name} className="input-field" required={required} style={{ width: "100%", padding: 12, borderRadius: 8, border: "1px solid var(--color-gray-300)" }}>
                     <option value="">Select...</option>
                     {options?.map(o => <option key={o} value={o}>{o}</option>)}
                 </select>
             ) : (
                 <input
+                    name={name}
                     type={type}
                     required={required}
                     placeholder={placeholder}

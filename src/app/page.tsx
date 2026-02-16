@@ -115,24 +115,52 @@ export default function HomePage() {
             <p className="pain-body">
               Here&apos;s what happens every single day at hotels across Malaysia:
             </p>
-            <p className="pain-body">
-              ❌ <strong>The WhatsApp message at 9:47 PM</strong> — a family asking about rooms for the weekend. Unanswered until morning. They booked on Agoda instead. You paid 18% commission on a guest who tried to book direct.
-            </p>
-            <p className="pain-body">
-              ❌ <strong>The corporate email requesting rates for 10 rooms</strong> — buried under 40 other emails on a Wednesday. No follow-up sent. The RM 15,000 group booking goes silent.
-            </p>
-            <p className="pain-body">
-              ❌ <strong>The phone call during peak check-in</strong> — &quot;Can you call back?&quot; They never do. You&apos;ll never know what you lost.
-            </p>
+
+            <div className="pain-grid">
+              <div className="pain-card">
+                <div className="pain-icon">📞</div>
+                <div className="pain-title">The 9:47 PM WhatsApp</div>
+                <div className="pain-desc">
+                  A family asking about rooms for the weekend. Unanswered until morning. They booked on Agoda instead.
+                </div>
+                <div className="pain-result">
+                  You paid 18% commission
+                </div>
+              </div>
+
+              <div className="pain-card">
+                <div className="pain-icon">📧</div>
+                <div className="pain-title">The Corporate Email</div>
+                <div className="pain-desc">
+                  Request for 10 rooms buried under 40 other emails. No follow-up sent. The RM 15,000 group booking goes silent.
+                </div>
+                <div className="pain-result">
+                  RM 15,000 revenue lost
+                </div>
+              </div>
+
+              <div className="pain-card">
+                <div className="pain-icon">❌</div>
+                <div className="pain-title">The Peak Hour Call</div>
+                <div className="pain-desc">
+                  &quot;Can you call back?&quot; during check-in chaos. They never do. You&apos;ll never know what you lost.
+                </div>
+                <div className="pain-result">
+                  Permanent missed opportunity
+                </div>
+              </div>
+            </div>
+
             <p className="pain-body" style={{ fontWeight: 600, marginTop: 16 }}>
               This isn&apos;t a technology problem. It&apos;s revenue falling on the floor every day — and nobody is picking it up.
             </p>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* SECTION 2.5: Who This Is For */}
-      <section className="section section-light" style={{ padding: "80px 0", borderBottom: "1px solid var(--color-gray-200)" }}>
+      < section className="section section-light" style={{ padding: "80px 0", borderBottom: "1px solid var(--color-gray-200)" }
+      }>
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: 40 }}>
             <span className="eyebrow">WHO THIS IS FOR</span>
@@ -171,10 +199,10 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* SECTION 4: The Solution */}
-      <section className="section section-light">
+      < section className="section section-light" >
         <div className="container">
           <div className="solution-grid">
             <div className="solution-visual">
@@ -256,10 +284,10 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* SECTION 5: The Midnight Test */}
-      <section className="section section-white" style={{ borderBottom: "1px solid var(--color-gray-200)" }}>
+      < section className="section section-white" style={{ borderBottom: "1px solid var(--color-gray-200)" }}>
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: 40 }}>
             <span className="eyebrow">SEE IT IN ACTION</span>
@@ -302,10 +330,10 @@ export default function HomePage() {
             That lead was captured, logged, and prioritized for your morning team. Without Nocturn AI, Ahmad would have booked on Agoda at midnight. You would have paid 18% commission — RM 50 — on a guest who tried to book direct.
           </div>
         </div>
-      </section>
+      </section >
 
       {/* SECTION 6: Problem Testimony */}
-      <section className="section section-gray" style={{ background: "var(--color-gray-50)" }}>
+      < section className="section section-gray" style={{ background: "var(--color-gray-50)" }}>
         <div className="container">
           <span className="eyebrow">WHAT OPERATORS TOLD US</span>
           <h2 style={{ marginTop: 12 }}>We Didn&apos;t Build This In a Vacuum. We Built It From the Words of People Who Live This Every Day.</h2>
@@ -353,12 +381,12 @@ export default function HomePage() {
             &quot;These aren&apos;t testimonials for our product. They&apos;re testimonies of the problem. <br />We built Nocturn AI to be the solution these operators described — nothing more, nothing less.&quot;
           </p>
         </div>
-      </section>
+      </section >
 
 
 
       {/* SECTION 7: How It Works (Condensed) */}
-      <section className="section section-white" id="how-it-works">
+      < section className="section section-white" id="how-it-works" >
         <div className="container">
           <span className="eyebrow">HOW IT WORKS</span>
           <h2 style={{ marginTop: 12, textAlign: "center" }}>From "Signed" to "Revenue Recovered" in 72 Hours</h2>
@@ -395,10 +423,10 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* SECTION 8: Founding Cohort Offer */}
-      <section className="section section-dark" id="founding-cohort" style={{ overflow: "hidden" }}>
+      < section className="section section-dark" id="founding-cohort" style={{ overflow: "hidden" }}>
         <div className="hero-gradient-orb" style={{ background: "radial-gradient(circle at 50% 50%, rgba(34, 197, 94, 0.15), transparent 70%)", top: "50%", left: "50%", transform: "translate(-50%,-50%)" }}></div>
         <div className="container">
           <div style={{ textAlign: "center", marginBottom: 40, position: "relative", zIndex: 1 }}>
@@ -443,10 +471,10 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* SECTION 9: Founder's Note */}
-      <section className="section section-light">
+      < section className="section section-light" >
         <div className="container container-narrow">
           <div style={{ background: "white", padding: "40px", borderRadius: 12, border: "1px solid var(--color-gray-200)", maxWidth: 700, margin: "0 auto", boxShadow: "var(--shadow-card)" }}>
             <h3 style={{ fontSize: 20, marginBottom: 24 }}>A Note from the Founder</h3>
@@ -468,27 +496,27 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* SECTION 6: ROI Calculator */}
-      <section className="section section-white" id="roi-calculator">
+      < section className="section section-white" id="roi-calculator" >
         <div className="container container-narrow" style={{ textAlign: "center" }}>
           <span className="eyebrow">ROI CALCULATOR</span>
           <h2 style={{ marginTop: 12 }}>Calculate How Much Revenue You&apos;re Leaving on the Table</h2>
           <ROICalculator />
         </div>
-      </section>
+      </section >
 
       {/* SECTION 7: FAQ */}
-      <section className="section section-white" id="faq">
+      < section className="section section-white" id="faq" >
         <div className="container container-narrow">
           <h2 style={{ textAlign: "center", marginBottom: 40 }}>Questions Hotels Ask Us</h2>
           <FAQSection />
         </div>
-      </section>
+      </section >
 
       {/* SECTION 10: Final CTA */}
-      <section className="section-dark final-cta">
+      < section className="section-dark final-cta" >
         <div className="final-cta-pattern" aria-hidden="true"></div>
         <div className="container" style={{ textAlign: "center", position: "relative", zIndex: 1 }}>
           <h2 style={{ color: "white", fontSize: "clamp(1.75rem, 4vw, 2.75rem)" }}>
@@ -506,10 +534,10 @@ export default function HomePage() {
             XX spots remaining · Live in 48 hours
           </p>
         </div>
-      </section>
+      </section >
 
       {/* Scroll animation + counter script */}
-      <CounterScript />
+      < CounterScript />
     </>
   );
 }

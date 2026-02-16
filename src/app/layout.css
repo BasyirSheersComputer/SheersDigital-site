@@ -4,16 +4,15 @@
 
 /* ---------- Navbar ---------- */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    width: 100%;
     z-index: 1000;
     padding: 16px 0;
     transition: background var(--transition-base), box-shadow var(--transition-base), padding var(--transition-base);
     background: rgba(15, 23, 42, 0.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    /* Optional: distinct separator */
 }
 
 .navbar.scrolled {
