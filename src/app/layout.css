@@ -236,7 +236,7 @@
 .whatsapp-container {
     position: fixed;
     bottom: 24px;
-    left: 24px;
+    right: 24px;
     z-index: 9991;
 }
 
@@ -261,7 +261,7 @@
 
 .whatsapp-tooltip {
     position: absolute;
-    left: 70px;
+    right: 70px;
     background: var(--color-navy);
     color: white;
     padding: 6px 12px;
@@ -270,7 +270,7 @@
     font-weight: 600;
     white-space: nowrap;
     opacity: 0;
-    transform: translateX(-10px);
+    transform: translateX(10px);
     transition: all 0.3s var(--transition-spring);
     pointer-events: none;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -284,7 +284,7 @@
 .whatsapp-menu {
     position: absolute;
     bottom: 80px;
-    left: 0;
+    right: 0;
     width: 320px;
     background: var(--color-white);
     border-radius: 16px;
@@ -293,7 +293,7 @@
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px) scale(0.95);
-    transform-origin: bottom left;
+    transform-origin: bottom right;
     transition: all 0.4s var(--transition-spring);
 }
 
@@ -386,12 +386,14 @@
     .whatsapp-container {
         bottom: 80px;
         /* Above the mobile CTA bar */
-        left: 16px;
+        right: 16px;
     }
 
     .whatsapp-menu {
         width: 280px;
         bottom: 70px;
+        right: 0;
+        left: auto;
     }
 
     .whatsapp-tooltip {
