@@ -48,9 +48,9 @@ const Support = () => {
                                 <p style={{ color: 'var(--text-secondary)', marginBottom: 'var(--space-lg)' }}>
                                     For general inquiries, billing questions, and partnership opportunities.
                                 </p>
-                                <a href="mailto:support@sheerssoft.com" style={{ width: '100%' }}>
+                                <a href="mailto:a.basyir@sheerssoft.com" style={{ width: '100%' }}>
                                     <NeonButton variant="secondary" style={{ width: '100%', justifyContent: 'center' }}>
-                                        support@sheerssoft.com
+                                        a.basyir@sheerssoft.com
                                     </NeonButton>
                                 </a>
                             </GlassCard>

@@ -15,7 +15,7 @@ const Footer = () => {
                             Empowering businesses with technology, strategy, and support.
                         </p>
                         <div className="footer-social">
-                            <a href="#" className="social-link" aria-label="LinkedIn">
+                            <a href="https://www.linkedin.com/in/ahmad-basyir-azahari/" className="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                                 <Linkedin size={20} />
                             </a>
                             <a href="#" className="social-link" aria-label="Twitter">
