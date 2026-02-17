@@ -50,7 +50,7 @@ export default function TermsPage() {
 
                     <h3>8. Contact Us</h3>
                     <p style={{ marginBottom: 20 }}>
-                        If you have any questions about these Terms, please contact us at hello@sheersdigital.com
+                        If you have any questions about these Terms, please contact us at a.basyir@sheerssoft.com
                     </p>
                 </div>
             </div>

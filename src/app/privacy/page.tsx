@@ -46,7 +46,7 @@ export default function PrivacyPage() {
 
                     <h3>6. Access to Data (PDPA Rights)</h3>
                     <p style={{ marginBottom: 20 }}>
-                        Under the PDPA, you have the right to access and correct your personal data. You may contact us at hello@sheersdigital.com to request access to or correction of your data.
+                        Under the PDPA, you have the right to access and correct your personal data. You may contact us at a.basyir@sheerssoft.com to request access to or correction of your data.
                     </p>
 
                     <h3>7. Changes to This Privacy Policy</h3>
@@ -56,7 +56,7 @@ export default function PrivacyPage() {
 
                     <h3>8. Contact Us</h3>
                     <p style={{ marginBottom: 20 }}>
-                        If you have any questions about this Privacy Policy, please contact us by email: hello@sheersdigital.com
+                        If you have any questions about this Privacy Policy, please contact us by email: a.basyir@sheerssoft.com
                     </p>
                 </div>
             </div>

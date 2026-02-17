@@ -106,8 +106,8 @@ export default function AboutPage() {
                                 "I didn't build this product from a Silicon Valley playbook. I built it from the notes I took sitting in hotel lobbies, listening to the people who actually run these properties tell me what keeps them up at night."
                             </p>
                             <div style={{ marginTop: 24, display: "flex", gap: 16 }}>
-                                <a href="https://www.linkedin.com/in/basyir" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-green)", fontWeight: 600 }}>LinkedIn →</a>
-                                <a href="mailto:basyir@nocturn.ai" style={{ color: "var(--color-green)", fontWeight: 600 }}>Email →</a>
+                                <a href="https://www.linkedin.com/in/ahmad-basyir-azahari/" target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-green)", fontWeight: 600 }}>LinkedIn →</a>
+                                <a href="mailto:a.basyir@sheerssoft.com" style={{ color: "var(--color-green)", fontWeight: 600 }}>Email →</a>
                             </div>
                         </div>
                     </div>
